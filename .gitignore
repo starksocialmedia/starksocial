@@ -5,3 +5,5 @@
 node_modules/
 .vscode/
 .idea/
+STARK-CONTEXT.md
+.DS_Store
