@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.11] — November 2 2026
+
+### Fixed — visual QA pass (headless Chrome, 1440 + 390 widths)
+- **`.stark-prose` paragraphs had no spacing.** `.stark-prose p { margin: 0 }` out-specified the `> * + *` rhythm rule — now only zeroes `margin-bottom`. Affected blog posts and the About story
+- Contact hero uses the compact hero height (was service-page height, mostly empty)
+- Checked: home, service, location, about, contact, blog archive, single, 404, search — no horizontal overflow at 390px
+
 ## [27.0.10] — November 2 2026
 
 ### Added — 404 + search templates
