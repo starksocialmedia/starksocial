@@ -892,3 +892,8 @@ require_once get_stylesheet_directory() . '/inc/stark-legal.php';
  * Stark 27 Podcast — archive + episode templates, player, subscribe links (v27.0.16).
  */
 require_once get_stylesheet_directory() . '/inc/stark-podcast.php';
+
+/**
+ * Stark 27 Authors — /author/{name}/ profile template, author box data (v27.0.17).
+ */
+require_once get_stylesheet_directory() . '/inc/stark-authors.php';

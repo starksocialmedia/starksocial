@@ -2,6 +2,19 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.17] — November 2 2026
+
+### Added — Author pages
+- `templates/stark-author.php` at `/author/{nicename}/`: hero (profile photo or initials, name, role, highlight chips, 2-paragraph bio, "Work with {first}" + social links), stat row (articles published, podcast episodes, years at Stark), latest 3 posts, latest 3 episodes, CTA. `/author/{nicename}/?view=posts` keeps the paginated article list (blog archive template)
+- `inc/stark-authors.php` — routing, `stark_author_profile()`, `stark_author_avatar()` (profile photo, else Gravatar)
+- `acf-json/group_stark_author.json` — Stark — Author Profile on the user screen: role, highlights, photo, at Stark since, podcast host (counts every episode), LinkedIn, Instagram. Bio = core Biographical Info
+- Blog author box: name links to the profile, shows role, bio trimmed to ~32 words, "View profile and posts →"
+- `custom.css` — v27.0.17 block
+
+### Content (Local)
+- Nathan (user 1) and Deanna (user 3): bios, roles, highlights from live's `/about/nathan-imhoff/` and `/about/deanna-l-miller/` pages (real copy); headshots registered from existing uploads (463, 269); since 2012 (co-founded per Deanna's live bio); both podcast hosts. Display names → "Nathan Imhoff", "Deanna L. Miller", "Stark Social Media Agency" (as live). **Nathan's slug `nathan` → `nateimhoff` so author URLs match live**
+- About page team cards: real headshots + short bios
+
 ## [27.0.16] — November 2 2026
 
 ### Added — Podcast templates

@@ -3613,3 +3613,101 @@ textarea {
     .stark-episode-card:focus-within,
     .stark-episode-card:hover .stark-episode-card__play { transform: none; }
 }
+
+/* ---------------------------------------------------------------------------
+   Author pages + author box role  (v27.0.17)
+   --------------------------------------------------------------------------- */
+
+.stark-hero--profile { min-height: 0; padding-bottom: clamp(72px, 9vw, 120px); }
+
+.stark-profile__head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.stark-profile__photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 360px);
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.6);
+}
+
+.stark-profile__photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+
+.stark-profile__name { font-size: clamp(40px, 6vw, 72px); margin-bottom: 8px; }
+
+.stark-profile__role {
+    margin: 0 0 16px;
+    font-family: var(--stark-font-condensed);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.stark-profile__highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 24px;
+    padding: 0;
+    list-style: none;
+}
+
+.stark-profile__highlights li {
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.stark-profile__bio { max-width: 62ch; font-size: 17px; line-height: 1.65; color: rgba(255, 255, 255, 0.8); }
+.stark-profile__bio p { margin: 0 0 14px; }
+
+.stark-profile__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stark-profile__stats { position: relative; z-index: 1; margin-top: calc(-1 * clamp(40px, 5vw, 56px)); box-shadow: 0 24px 60px -36px rgba(3, 27, 52, 0.45); }
+
+.stark-section-head--row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px 24px;
+}
+
+/* Author box (blog single) */
+.stark-author__name a { color: var(--stark-navy); text-decoration: none; }
+.stark-author__name a:hover,
+.stark-author__name a:focus-visible { text-decoration: underline; }
+.stark-author__avatar img { width: 72px; height: 72px; object-fit: cover; object-position: top center; }
+
+.stark-author__role {
+    margin: -4px 0 8px;
+    font-family: var(--stark-font-condensed);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--stark-light-blue);
+}
+
+@media (min-width: 900px) {
+    .stark-profile__head { grid-template-columns: 340px 1fr; gap: 56px; }
+}

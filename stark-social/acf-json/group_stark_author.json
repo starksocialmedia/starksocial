@@ -1,0 +1,153 @@
+{
+    "key": "group_stark_author",
+    "title": "Stark \u2014 Author Profile",
+    "fields": [
+        {
+            "key": "field_stark_author_stark_role",
+            "label": "Role",
+            "name": "stark_role",
+            "type": "text",
+            "instructions": "Shown under your name on your author page and the About page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Co-Founder \u00b7 Creative & Technical",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_author_stark_highlights",
+            "label": "Highlights",
+            "name": "stark_highlights",
+            "type": "text",
+            "instructions": "Short line of credentials, separated by \u00b7",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "40 Under Forty \u00b7 Award-winning creative work",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_author_stark_photo",
+            "label": "Profile photo",
+            "name": "stark_photo",
+            "type": "image",
+            "instructions": "Square crop works best.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "thumbnail",
+            "mime_types": ""
+        },
+        {
+            "key": "field_stark_author_stark_since",
+            "label": "At Stark since",
+            "name": "stark_since",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 2000,
+            "max": 2100,
+            "step": 1,
+            "placeholder": "2012",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_author_stark_podcast_host",
+            "label": "Podcast host",
+            "name": "stark_podcast_host",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "message": "Counts every episode as recorded"
+        },
+        {
+            "key": "field_stark_author_stark_linkedin",
+            "label": "LinkedIn URL",
+            "name": "stark_linkedin",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://www.linkedin.com/in/\u2026"
+        },
+        {
+            "key": "field_stark_author_stark_instagram",
+            "label": "Instagram URL",
+            "name": "stark_instagram",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://instagram.com/\u2026"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "user_form",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "v27.0.17 \u2014 author page fields. Bio = the core Biographical Info field.",
+    "show_in_rest": 0,
+    "modified": 1793662000
+}

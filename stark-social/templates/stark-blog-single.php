@@ -65,14 +65,17 @@ $cta = array(
         <?php if ( stark_show_author_box( $author_id ) ) :
             $bio = get_the_author_meta( 'description', $author_id ); ?>
             <aside class="stark-author" aria-label="About the author">
-                <div class="stark-author__avatar"><?php echo get_avatar( $author_id, 72, '', '' ); ?></div>
+                <div class="stark-author__avatar"><?php echo stark_author_avatar( $author_id, 72 ); // phpcs:ignore WordPress.Security.EscapeOutput -- core/attachment markup ?></div>
                 <div>
                     <p class="stark-author__label">Written by</p>
-                    <p class="stark-author__name"><?php echo esc_html( get_the_author_meta( 'display_name', $author_id ) ); ?></p>
-                    <?php if ( $bio ) : ?>
-                        <p class="stark-author__bio"><?php echo esc_html( $bio ); ?></p>
+                    <p class="stark-author__name"><a href="<?php echo esc_url( get_author_posts_url( $author_id ) ); ?>"><?php echo esc_html( get_the_author_meta( 'display_name', $author_id ) ); ?></a></p>
+                    <?php $role = stark_field( 'stark_role', 'user_' . $author_id ); if ( $role ) : ?>
+                        <p class="stark-author__role"><?php echo esc_html( $role ); ?></p>
                     <?php endif; ?>
-                    <a class="stark-author__link" href="<?php echo esc_url( get_author_posts_url( $author_id ) ); ?>">More posts &rarr;</a>
+                    <?php if ( $bio ) : ?>
+                        <p class="stark-author__bio"><?php echo esc_html( wp_trim_words( $bio, 32, '…' ) ); ?></p>
+                    <?php endif; ?>
+                    <a class="stark-author__link" href="<?php echo esc_url( get_author_posts_url( $author_id ) ); ?>">View profile and posts &rarr;</a>
                 </div>
             </aside>
         <?php endif; ?>

@@ -19,7 +19,8 @@ function stark_blog_template( $template ) {
     $file = null;
     if ( is_singular( 'post' ) ) {
         $file = 'stark-blog-single.php';
-    } elseif ( stark_is_blog_archive() && ! is_front_page() ) {
+    } elseif ( stark_is_blog_archive() && ! is_front_page() && ! is_author() ) {
+        // Author archives use templates/stark-author.php (inc/stark-authors.php).
         $file = 'stark-blog-archive.php';
     }
 
