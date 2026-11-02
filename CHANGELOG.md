@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.7] — November 2 2026
+
+### Added — About page template
+- `templates/stark-about.php` — hero (eyebrow "About Stark Social", H1, intro) → Our Story (long-form, sticky heading on desktop) → Team (photo or initials placeholder, name, role, bio) → Our Values (3–4 numbered principles) → Where We Work (market chips from `stark_get_markets()`, link to `/service-areas/`) → "Work with us" CTA band. Reuses service hero + CTA partials
+- `inc/stark-pages.php` — slug → template registry (`stark_get_page_templates()`, filterable) for single-purpose top-level pages, `template_include` routing, `stark-has-hero` + `stark-page-{slug}` body classes, ACF location rule **Stark page**
+- `acf-json/group_stark_about.json` — Stark — About Page (tabs: Hero, Our Story, Team, Values, Where We Work, Final CTA)
+- `custom.css` — v27.0.7 block: `.stark-prose` shared long-form type scale (headings, links, lists, blockquote, media, tables), team cards, numbered values, where-we-work layout
+- Local: About page (ID 1978) seeded with `[SAMPLE]` copy. Names and roles are from the live About page; all other copy is placeholder
+
 ## [Data] — November 2 2026 — Blog snapshot live → Local
 
 ### Pulled

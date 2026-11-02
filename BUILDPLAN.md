@@ -117,6 +117,7 @@
 ### Phase 2.1 — Core Pages
 - [x] Homepage shell v27.0.3 — hero, services preview, who-we're-for, CTA band — November 2 2026
 - [ ] Homepage additions — social proof row, case study teaser, process steps, FAQ
+- [x] About page template v27.0.7 — ACF fields, `[SAMPLE]` copy on Local — November 2 2026
 - [ ] Home · About · Contact · Services hub
 
 ### Phase 2.2 — Service Pages (7)

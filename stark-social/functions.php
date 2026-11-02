@@ -859,3 +859,8 @@ require_once get_stylesheet_directory() . '/inc/stark-locations.php';
  * Stark 27 Service areas — market registry + /service-areas/ hub stub (v27.0.6).
  */
 require_once get_stylesheet_directory() . '/inc/stark-service-areas.php';
+
+/**
+ * Stark 27 Pages — slug-matched templates for About, Contact (v27.0.7+).
+ */
+require_once get_stylesheet_directory() . '/inc/stark-pages.php';
