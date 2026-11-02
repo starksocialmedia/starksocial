@@ -665,3 +665,133 @@ function stark_inject_perfex_chat_widget() {
 	);
 }
 add_action( 'wp_footer', 'stark_inject_perfex_chat_widget', 20 );
+/**
+ * Stark 27 Nav — register menus, enqueue nav JS, render header
+ * Added November 2 2026 (v27.0.0).
+ */
+
+/**
+ * Register Phase 2 nav menu locations.
+ */
+function stark_register_nav_menus() {
+    register_nav_menus( array(
+        'stark-primary' => __( 'Stark Primary Navigation', 'stark-social' ),
+        'stark-utility' => __( 'Stark Utility Navigation', 'stark-social' ),
+    ) );
+}
+add_action( 'after_setup_theme', 'stark_register_nav_menus' );
+
+/**
+ * Load the mega walker class.
+ */
+require_once get_stylesheet_directory() . '/inc/class-stark-mega-walker.php';
+
+/**
+ * Enqueue nav JS, deferred in footer.
+ */
+function stark_enqueue_nav_script() {
+    if ( is_admin() ) return;
+    wp_enqueue_script(
+        'stark-nav',
+        get_stylesheet_directory_uri() . '/js/stark-nav.js',
+        array(),
+        defined( 'STARK_CHILD_VERSION' ) ? STARK_CHILD_VERSION : '27.0.0',
+        array( 'in_footer' => true, 'strategy' => 'defer' )
+    );
+}
+add_action( 'wp_enqueue_scripts', 'stark_enqueue_nav_script', 20 );
+
+/**
+ * Hide GeneratePress default header via a body class so CSS can target it.
+ */
+function stark_body_class_phase2( $classes ) {
+    $classes[] = 'stark-phase-27';
+    return $classes;
+}
+add_filter( 'body_class', 'stark_body_class_phase2' );
+
+/**
+ * Remove GeneratePress default header render; Stark header replaces it.
+ */
+function stark_remove_generate_header() {
+    remove_action( 'generate_header', 'generate_construct_header' );
+}
+add_action( 'wp', 'stark_remove_generate_header' );
+
+/**
+ * Render the Stark header at wp_body_open.
+ */
+function stark_render_header() {
+    if ( is_admin() ) return;
+    include get_stylesheet_directory() . '/templates/stark-header.php';
+}
+add_action( 'wp_body_open', 'stark_render_header', 5 );
+
+/**
+ * Fallback primary menu when none is assigned yet.
+ */
+function stark_fallback_primary_menu() {
+    ob_start();
+    ?>
+    <ul class="stark-nav__menu">
+        <li class="stark-nav__item">
+            <a href="/work/" class="stark-nav__link"><span>Work</span></a>
+        </li>
+        <li class="stark-nav__item stark-nav__item--has-mega">
+            <a href="/services/" class="stark-nav__link stark-nav__link--has-mega" aria-expanded="false" aria-haspopup="true">
+                <span>Services</span>
+                <svg class="stark-nav__chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="stark-mega__panel"><div class="stark-mega__inner"><ul class="stark-mega__grid">
+                <li class="stark-mega__item"><a href="/social-media-management/" class="stark-mega__link"><span class="stark-mega__title">Social Media Management</span><span class="stark-mega__desc">Content calendar, posting, reporting.</span></a></li>
+                <li class="stark-mega__item"><a href="/paid-advertising/" class="stark-mega__link"><span class="stark-mega__title">Paid Advertising</span><span class="stark-mega__desc">Google, Meta, LinkedIn paid campaigns.</span></a></li>
+                <li class="stark-mega__item"><a href="/web-design/" class="stark-mega__link"><span class="stark-mega__title">Web Design</span><span class="stark-mega__desc">Custom WordPress sites built to convert.</span></a></li>
+                <li class="stark-mega__item"><a href="/seo/" class="stark-mega__link"><span class="stark-mega__title">SEO</span><span class="stark-mega__desc">Technical and local SEO that ranks.</span></a></li>
+                <li class="stark-mega__item"><a href="/content-creation/" class="stark-mega__link"><span class="stark-mega__title">Content Creation</span><span class="stark-mega__desc">Photo, video, graphic, written.</span></a></li>
+                <li class="stark-mega__item"><a href="/brand-strategy-identity/" class="stark-mega__link"><span class="stark-mega__title">Brand Strategy</span><span class="stark-mega__desc">Positioning and visual identity.</span></a></li>
+                <li class="stark-mega__item"><a href="/audit-consulting/" class="stark-mega__link"><span class="stark-mega__title">Audit &amp; Consulting</span><span class="stark-mega__desc">Marketing audits for small to mid business.</span></a></li>
+                <li class="stark-mega__cta">
+                    <a href="/services/" class="stark-mega__cta-link">
+                        <span class="stark-mega__cta-eyebrow">Not sure where to start?</span>
+                        <span class="stark-mega__cta-title">See all services</span>
+                        <span class="stark-mega__cta-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                </li>
+            </ul></div></div>
+        </li>
+        <li class="stark-nav__item"><a href="/blog/" class="stark-nav__link"><span>Blog</span></a></li>
+        <li class="stark-nav__item"><a href="/podcast/" class="stark-nav__link"><span>Podcast</span></a></li>
+        <li class="stark-nav__item"><a href="/contact/" class="stark-nav__link"><span>Contact</span></a></li>
+    </ul>
+    <?php
+    return ob_get_clean();
+}
+
+/**
+ * Fallback mobile menu when no menu assigned.
+ */
+function stark_fallback_mobile_menu() {
+    ob_start();
+    ?>
+    <ul class="stark-mobile-nav__menu">
+        <li><a href="/work/">Work</a></li>
+        <li class="menu-item-has-children">
+            <a href="/services/">Services</a>
+            <ul class="sub-menu">
+                <li><a href="/social-media-management/">Social Media Management</a></li>
+                <li><a href="/paid-advertising/">Paid Advertising</a></li>
+                <li><a href="/web-design/">Web Design</a></li>
+                <li><a href="/seo/">SEO</a></li>
+                <li><a href="/content-creation/">Content Creation</a></li>
+                <li><a href="/brand-strategy-identity/">Brand Strategy</a></li>
+                <li><a href="/audit-consulting/">Audit &amp; Consulting</a></li>
+                <li><a href="/services/">See all services &rarr;</a></li>
+            </ul>
+        </li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/podcast/">Podcast</a></li>
+        <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <?php
+    return ob_get_clean();
+}
