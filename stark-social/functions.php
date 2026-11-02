@@ -869,3 +869,8 @@ require_once get_stylesheet_directory() . '/inc/stark-pages.php';
  * Stark 27 Blog — archive + single templates, reading time, related posts (v27.0.9).
  */
 require_once get_stylesheet_directory() . '/inc/stark-blog.php';
+
+/**
+ * Stark 27 Utility — 404 + search templates, search form (v27.0.10).
+ */
+require_once get_stylesheet_directory() . '/inc/stark-utility.php';

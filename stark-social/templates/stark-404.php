@@ -1,0 +1,61 @@
+<?php
+/**
+ * Stark 404 (v27.0.10)
+ */
+
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+$recent = get_posts( array( 'numberposts' => 3, 'suppress_filters' => false ) );
+?><!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+
+<main id="main" class="stark-page stark-404">
+    <section class="stark-hero stark-hero--404" aria-labelledby="stark-404-title">
+        <div class="stark-home__inner">
+            <div class="stark-hero__content">
+                <p class="stark-eyebrow stark-eyebrow--light">Error 404 · Page not found</p>
+                <h1 id="stark-404-title" class="stark-hero__title">Lost in the hills?</h1>
+                <p class="stark-hero__sub">Happens to the best of us. This page took a wrong turn somewhere off Sierra Highway. It moved, retired, or never existed. Search for it, or take one of the trails below.</p>
+                <?php echo stark_search_form( 'light', 'stark-404-search' ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in helper ?>
+                <nav class="stark-404__links" aria-label="Popular pages">
+                    <p class="stark-404__links-label">Popular trails</p>
+                    <ul>
+                        <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
+                        <?php foreach ( stark_popular_links() as $link ) : ?>
+                            <li><a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <svg class="stark-404__hills" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path d="M0 120 C 180 60 300 70 420 100 S 680 150 820 96 S 1100 30 1240 80 S 1400 120 1440 100 V160 H0 Z" fill="rgba(48,127,226,0.14)"/>
+            <path d="M0 140 C 200 100 360 110 520 130 S 820 160 980 120 S 1260 90 1440 128 V160 H0 Z" fill="rgba(48,127,226,0.22)"/>
+        </svg>
+    </section>
+
+    <?php if ( $recent ) : ?>
+        <section class="stark-band stark-404__recent" aria-labelledby="stark-404-recent-title">
+            <div class="stark-home__inner">
+                <header class="stark-section-head">
+                    <p class="stark-eyebrow">While you're here</p>
+                    <h2 id="stark-404-recent-title" class="stark-section-head__title">Fresh from the blog</h2>
+                </header>
+                <div class="stark-post-grid">
+                    <?php foreach ( $recent as $post_item ) get_template_part( 'templates/parts/blog', 'card', $post_item ); ?>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+</main>
+
+<?php wp_footer(); ?>
+</body>
+</html>

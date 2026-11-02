@@ -144,7 +144,8 @@
 - [ ] Author bios (user descriptions empty on Local) + team page links
 
 ### Phase 2.5 — Support & Utility
-- [ ] Support hub, knowledgebase, 404, search, password generator, author pages
+- [x] 404 + search templates v27.0.10 — November 2 2026
+- [ ] Support hub, knowledgebase, password generator, author pages
 
 ### Phase 2.6 — Legal
 - [ ] Copy-forward 4 legal pages

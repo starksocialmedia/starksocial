@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.10] — November 2 2026
+
+### Added — 404 + search templates
+- `templates/stark-404.php` — real 404 status, dark hero "Lost in the hills?" with a Santa Clarita joke, search form, "Popular trails" chips (Home + popular pages), layered SVG hills at the hero base, 3 recent posts below
+- `templates/stark-search.php` — hero with the query and result count plus a search form; results list for all post types (type/category label, title, excerpt, path), pagination; empty state (no matches or empty query) with search tips, popular-page chips and 3 recent posts
+- `inc/stark-utility.php` — routing, `stark-has-hero`, `stark_popular_links()` (filterable), `stark_search_form()` (light/default variants, labelled input)
+- `custom.css` — v27.0.10 block
+- 404 and empty-state copy is placeholder for Copy chat review
+
 ## [27.0.9] — November 2 2026
 
 ### Added — Blog archive + single templates
