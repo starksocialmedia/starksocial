@@ -13,13 +13,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function stark_get_services() {
     return apply_filters( 'stark_services', array(
-        'social-media-management' => array( 'name' => 'Social Media Management', 'desc' => 'Content calendar, posting, reporting.' ),
-        'paid-advertising'        => array( 'name' => 'Paid Advertising', 'desc' => 'Google, Meta, LinkedIn paid campaigns.' ),
-        'web-design'              => array( 'name' => 'Web Design', 'desc' => 'Custom WordPress sites built to convert.' ),
-        'seo'                     => array( 'name' => 'SEO', 'desc' => 'Technical and local SEO that ranks.' ),
-        'content-creation'        => array( 'name' => 'Content Creation', 'desc' => 'Photo, video, graphic, written.' ),
-        'brand-strategy-identity' => array( 'name' => 'Brand Strategy', 'desc' => 'Positioning and visual identity.' ),
-        'audit-consulting'        => array( 'name' => 'Audit & Consulting', 'desc' => 'Marketing audits for small to mid business.' ),
+        'social-media-management' => array( 'name' => 'Social Media Management', 'desc' => 'Content calendar, posting, reporting.', 'icon' => 'megaphone' ),
+        'paid-advertising'        => array( 'name' => 'Paid Advertising', 'desc' => 'Google, Meta, LinkedIn paid campaigns.', 'icon' => 'target' ),
+        'web-design'              => array( 'name' => 'Web Design', 'desc' => 'Custom WordPress sites built to convert.', 'icon' => 'layout' ),
+        'seo'                     => array( 'name' => 'SEO', 'desc' => 'Technical and local SEO that ranks.', 'icon' => 'search' ),
+        'content-creation'        => array( 'name' => 'Content Creation', 'desc' => 'Photo, video, graphic, written.', 'icon' => 'camera' ),
+        'brand-strategy-identity' => array( 'name' => 'Brand Strategy', 'desc' => 'Positioning and visual identity.', 'icon' => 'pen' ),
+        'audit-consulting'        => array( 'name' => 'Audit & Consulting', 'desc' => 'Marketing audits for small to mid business.', 'icon' => 'chart' ),
     ) );
 }
 
@@ -75,7 +75,7 @@ function stark_service_context( $service_id ) {
     } ) );
 
     $case = stark_field( 'case_study', $service_id );
-    $case_studies = ! empty( $case['headline'] ) ? array( $case ) : array();
+    $case_studies = ! empty( $case['headline'] ) ? array( $case ) : stark_service_portfolio_teasers( $slug, 1 );
 
     $cta = (array) stark_field( 'final_cta', $service_id );
 
@@ -84,6 +84,7 @@ function stark_service_context( $service_id ) {
         'service_slug'     => $slug,
         'service_name'     => get_the_title( $service_id ),
         'market'           => null,
+        'draft'            => 'approved' !== stark_field( 'copy_status', $service_id ),
         'eyebrow'          => stark_field( 'hero_eyebrow', $service_id ) ?: 'Services',
         'title'            => get_the_title( $service_id ),
         'thesis'           => stark_field( 'hero_thesis', $service_id ),
@@ -146,6 +147,7 @@ function stark_related_services( $service_id, $picked = array(), $market = null 
             'name' => $page ? get_the_title( $page ) : $services[ $slug ]['name'],
             'desc' => $desc ?: $services[ $slug ]['desc'],
             'url'  => $url,
+            'icon' => $services[ $slug ]['icon'],
         );
     }
     return $cards;
@@ -239,3 +241,49 @@ function stark_related_services_query( $args ) {
     return $args;
 }
 add_filter( 'acf/fields/relationship/query/name=related_services', 'stark_related_services_query' );
+
+/**
+ * Case study teasers from the portfolio for a service: most recent items
+ * tagged with $slug, mapped to the case_study field shape.
+ */
+function stark_service_portfolio_teasers( $slug, $count = 1 ) {
+    if ( ! post_type_exists( 'portfolio' ) ) return array();
+    $items = get_posts( array(
+        'post_type'   => 'portfolio',
+        'numberposts' => $count,
+        'meta_query'  => array(
+            'relation' => 'AND',
+            array( 'key' => 'services', 'value' => '"' . $slug . '"', 'compare' => 'LIKE' ),
+            stark_portfolio_year_meta_query(),
+        ),
+        'orderby'     => array( 'stark_year' => 'DESC', 'date' => 'DESC' ),
+    ) );
+    return array_map( function ( $item ) {
+        $work = stark_portfolio_data( $item );
+        $stat = $work['results'] ? $work['results'][0] : array( 'value' => '', 'label' => '' );
+        return array(
+            'client'       => $work['client'],
+            'headline'     => $work['summary'] ?: $work['title'],
+            'result_value' => $stat['value'],
+            'result_label' => $stat['label'],
+            'summary'      => '',
+            'image'        => $work['card_id'] ? array( 'ID' => $work['card_id'] ) : null,
+            'link'         => array( 'url' => $work['url'], 'title' => 'Read the case study', 'target' => '' ),
+        );
+    }, $items );
+}
+
+/**
+ * Live served services at /services/{slug}/. Phase 2 moves them to /{slug}/ —
+ * 301 the old URLs (only when nothing else answers at that path).
+ */
+function stark_redirect_legacy_service_urls() {
+    if ( ! is_404() ) return;
+    $path = trim( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+    if ( preg_match( '#^services/([a-z0-9-]+)(?:/([a-z0-9-]+))?$#', $path, $m ) && array_key_exists( $m[1], stark_get_services() ) ) {
+        $target = '/' . $m[1] . '/' . ( ! empty( $m[2] ) ? $m[2] . '/' : '' );
+        wp_safe_redirect( home_url( $target ), 301, 'Stark' );
+        exit;
+    }
+}
+add_action( 'template_redirect', 'stark_redirect_legacy_service_urls', 1 );

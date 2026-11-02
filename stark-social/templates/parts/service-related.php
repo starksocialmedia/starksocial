@@ -14,7 +14,7 @@ if ( ! $args['related'] ) return;
         <ul class="stark-services__grid stark-services__grid--3">
             <?php foreach ( $args['related'] as $card ) : ?>
                 <li class="stark-service-card">
-                    <span class="stark-service-card__icon" aria-hidden="true"></span>
+                    <span class="stark-service-card__icon stark-service-card__icon--glyph" aria-hidden="true"><?php echo stark_service_icon( $card['icon'] ); // phpcs:ignore WordPress.Security.EscapeOutput -- static markup ?></span>
                     <h3 class="stark-service-card__title"><a href="<?php echo esc_url( $card['url'] ); ?>"><?php echo esc_html( $card['name'] ); ?></a></h3>
                     <p class="stark-service-card__desc"><?php echo esc_html( $card['desc'] ); ?></p>
                     <span class="stark-service-card__more" aria-hidden="true">Learn more &rarr;</span>

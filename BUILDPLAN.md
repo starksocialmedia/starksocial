@@ -129,7 +129,10 @@
 - [ ] Full local landing URL map (SEO chat) — pattern locked: nested `/{service}/{area}/`
 - [x] Service areas hub stub v27.0.6 — `/service-areas/`, linked from footer Company column — November 2 2026
 - [ ] Service areas hub full build — per-market service links, local proof
-- [ ] All 7 service pages (shared template, unique content)
+- [x] All 7 service pages — first-draft copy on Local, v27.0.13 — November 2 2026
+- [ ] Nathan review of service copy → set Copy status to Approved per page
+- [x] Services hub `/services/` v27.0.13
+- [x] 301s from live's `/services/{slug}/` URLs v27.0.13
 - [ ] New: Audit & Consulting
 
 ### Phase 2.3 — Portfolio

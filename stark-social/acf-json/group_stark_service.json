@@ -3,6 +3,31 @@
     "title": "Stark \u2014 Service Page",
     "fields": [
         {
+            "key": "field_stark_svc_copy_status",
+            "label": "Copy status",
+            "name": "copy_status",
+            "type": "select",
+            "instructions": "Draft shows a review banner on the page. Set to Approved when the copy is final.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "draft": "Draft \u2014 needs Nathan review",
+                "approved": "Approved"
+            },
+            "default_value": "draft",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_stark_svc_tab_hero",
             "label": "Hero",
             "name": "",
@@ -42,7 +67,7 @@
             "label": "Thesis",
             "name": "hero_thesis",
             "type": "textarea",
-            "instructions": "One sentence.",
+            "instructions": "1\u20133 sentences.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -51,8 +76,8 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": 200,
-            "rows": 2,
+            "maxlength": 360,
+            "rows": 3,
             "placeholder": "",
             "new_lines": ""
         },
@@ -780,5 +805,5 @@
     "active": true,
     "description": "v27.0.4 \u2014 content for templates/stark-service.php. Location rule matches by page slug.",
     "show_in_rest": 0,
-    "modified": 1793655860
+    "modified": 1793660935
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Stark 27 single-purpose pages (v27.0.7 About, v27.0.8 Contact)
+ * Stark 27 single-purpose pages (v27.0.7 About, v27.0.8 Contact, v27.0.13 Services hub)
  * Top-level page slug => template, same slug-matching pattern as services.
  * ACF field groups target these pages with the "Stark page" location rule.
  */
@@ -14,6 +14,7 @@ function stark_get_page_templates() {
     return apply_filters( 'stark_page_templates', array(
         'about'   => array( 'label' => 'About', 'template' => 'stark-about.php' ),
         'contact' => array( 'label' => 'Contact', 'template' => 'stark-contact.php' ),
+        'services' => array( 'label' => 'Services', 'template' => 'stark-services-hub.php' ),
     ) );
 }
 

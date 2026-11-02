@@ -21,6 +21,10 @@ $sections = array( 'hero', 'credibility', 'included', 'process', 'case-study', '
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<?php if ( ! empty( $ctx['draft'] ) ) : ?>
+    <div class="stark-draft-banner" role="note">[DRAFT - needs Nathan review] Copy on this page is a first draft. Set <em>Copy status</em> to Approved in the page editor when it's final.</div>
+<?php endif; ?>
+
 <main id="main" class="stark-page stark-service">
     <?php foreach ( $sections as $section ) get_template_part( 'templates/parts/service', $section, $ctx ); ?>
 </main>

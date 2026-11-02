@@ -2,6 +2,23 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.13] — November 2 2026
+
+### Added — Services hub
+- `templates/stark-services-hub.php` at `/services/` (registered in `inc/stark-pages.php`): hero ("Marketing that earns its keep." — brand guide tagline), **featured service** (Web Design, `stark_featured_service` filter) as a large dark card with its latest case study image, **6 secondary cards** in a 3-column grid (service icon, name, pitch from each page's Card description, Learn more), "who we work best with" fit lists (copied from live `/services/`), CTA
+- Service registry gains an `icon` per service; related-service cards now show it
+
+### Added — Service page copy (first draft)
+- All 7 service pages created / filled on Local (IDs 1985–1990 + Web Design 22): 3-sentence thesis, card description, 5 included items with icons, 4-step process, 5 FAQs, service-specific CTA heading. Based on live `/services/*` copy (Audit & Consulting is new — no live page; built from the blog's audit/agency-access posts). **All marked `[DRAFT - needs Nathan review]`** via a new **Copy status** field (Draft / Approved): Draft shows a yellow review banner at the top of the page
+- Case study teaser now falls back to the **most recent portfolio item tagged with that service** (`stark_service_portfolio_teasers()`): Web Design + SEO → Pathway Escrow, Brand Strategy → Schlickart. Services without a tagged case study hide the section
+- `hero_thesis` field: 1–3 sentences (maxlength 200 → 360)
+
+### Added — Legacy URL redirects
+- Live serves services at `/services/{slug}/`; Phase 2 moves them to `/{slug}/`. `stark_redirect_legacy_service_urls()` 301s `/services/{slug}/` (and `/services/{slug}/{area}/`) to the new URL when nothing else answers at that path
+
+### Found on live (not fixed — Phase 1)
+- Live `/services/brand-strategy-identity/` shows SEO's process steps and Web Design's FAQs (copy-paste leftovers)
+
 ## [27.0.12] — November 2 2026
 
 ### Added — Portfolio system
