@@ -874,3 +874,8 @@ require_once get_stylesheet_directory() . '/inc/stark-blog.php';
  * Stark 27 Utility — 404 + search templates, search form (v27.0.10).
  */
 require_once get_stylesheet_directory() . '/inc/stark-utility.php';
+
+/**
+ * Stark 27 Portfolio — case study post type, /work/ archive, single (v27.0.12).
+ */
+require_once get_stylesheet_directory() . '/inc/stark-portfolio.php';

@@ -2,6 +2,23 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.12] — November 2 2026
+
+### Added — Portfolio system
+- `inc/stark-portfolio.php` — `portfolio` post type (Portfolio → Case Studies). **Archive at `/work/`** (matches the nav), **singles at `/portfolio/{slug}/`** — identical to live's case-study URLs, so no redirects needed. Rewrite rules flush once per `STARK_PORTFOLIO_REWRITE_VERSION` (no manual Permalinks save on staging/live). Archive shows all items ordered by project year (items without a year are kept). `stark_portfolio_data()` normalises a case study for cards, the single and teasers; `stark_latest_portfolio_item()` for homepage/service teasers
+- `acf-json/group_stark_portfolio.json` — Stark — Case Study: client, industry, project year, services (checkboxes from the 7-service registry), live URL, card summary, overview / challenge / approach / results narrative, 3 result stats, hero image, gallery repeater (image + caption), testimonial (quote, name, role). Featured image = card image
+- `templates/stark-work-archive.php` — hero, industry + service filter chips (`js/stark-work-filter.js`, AND logic, `aria-pressed`, live-region count, empty state + reset; no-JS shows everything), case study cards (image, industry · year, client, summary, 2 stats). First card spans the row on desktop until a filter is applied
+- `templates/stark-work-single.php` — hero, large image, project strip (client · industry · year · services · website), prominent stat row (2 or 3 columns), overview / challenge / approach / results, gallery, testimonial pull-quote band, prev / all work / next, CTA
+- `custom.css` — v27.0.12 block (`.stark-chip`, work cards, case study layout, gallery, `.stark-quote`)
+
+### Content (Local)
+- Imported live's 2 case studies (`work` post type on live → `portfolio`): **Pathway Escrow** (1982) and **Schlickart** (1983) — client, outcome, URL, 3 results, story sections parsed from live's Overview / Challenge / Solution / Results markup, project gallery images (live's `project_gallery`, not `gallery`, which held unrelated team photos)
+- Added **Valencia Jazz & Blues** (1984) from the June 2017 award post: Communicator Award win, 6,000+ entries, Barbara Myler testimonial. Narrative sections marked `[DRAFT - needs Nathan review]`
+- Inferred, needs confirming: industries (Real Estate & Escrow, Photography, Events & Entertainment), services, years (Pathway 2026 = live publish year; Schlickart 2025 = latest refresh; Valencia 2016)
+
+### Fixed
+- Seeded ACF values on the About page (and the new case studies) had been stored as raw post meta (`update_field` by name didn't resolve the field) — rendered fine, but repeaters would look empty in wp-admin. Re-saved by field key
+
 ## [27.0.11] — November 2 2026
 
 ### Fixed — visual QA pass (headless Chrome, 1440 + 390 widths)

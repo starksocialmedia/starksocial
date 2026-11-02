@@ -133,9 +133,11 @@
 - [ ] New: Audit & Consulting
 
 ### Phase 2.3 — Portfolio
-- [ ] CPT + ACF fields audit
-- [ ] Archive + single template
-- [ ] Migrate existing case studies
+- [x] `portfolio` CPT + ACF fields v27.0.12 — archive `/work/`, singles `/portfolio/{slug}/` — November 2 2026
+- [x] Archive (filters) + single templates v27.0.12
+- [x] Migrate existing case studies — Pathway Escrow, Schlickart (+ Valencia Jazz & Blues draft)
+- [ ] More case studies + client testimonials (Pathway, Schlickart have none)
+- [ ] Confirm inferred industry / year / services on imported case studies
 
 ### Phase 2.4 — Blog & Podcast
 - [x] Blog snapshot from live into Local — 72 posts — November 2 2026 (final sync at cutover, see `tools/blog-snapshot/`)
