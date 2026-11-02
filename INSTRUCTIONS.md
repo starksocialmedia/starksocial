@@ -246,7 +246,7 @@ They are not committed to the repo by design — `.docx` files don't belong in G
 | Live SSH user | `rvqkxhngas` |
 | Live app ID | `rvqkxhngas` |
 | Staging app ID | `wcrjhscubc` |
-| Cloudways server | `676057` |
+| Cloudways server | `1656314` |
 | Perfex Hub | `hub.starksocial.com` |
 | Perfex app ID | `knaqmwdvju` |
 | MainWP | `cpanel.starksocial.com` |
