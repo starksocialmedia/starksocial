@@ -116,7 +116,8 @@
 - [x] Stark 27 footer v27.0.2 — 4-column links, social, bottom bar, GP footer suppressed — November 2 2026
 
 ### Phase 2.1 — Core Pages
-- [ ] Homepage shell — hero, 3-service row, who-we're-for, CTA, FAQ (next)
+- [x] Homepage shell v27.0.3 — hero, services preview, who-we're-for, CTA band — November 2 2026
+- [ ] Homepage additions — social proof row, case study teaser, process steps, FAQ
 - [ ] Home · About · Contact · Services hub
 
 ### Phase 2.2 — Service Pages (8)

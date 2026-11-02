@@ -812,3 +812,38 @@ function stark_render_footer() {
     include get_stylesheet_directory() . '/templates/stark-footer.php';
 }
 add_action( 'wp_footer', 'stark_render_footer', 1 );
+
+/**
+ * Stark 27 Homepage — hero body class, front page template, inline SVG helper.
+ * Added November 2 2026 (v27.0.3).
+ */
+
+function stark_body_class_front_hero( $classes ) {
+    if ( is_front_page() ) {
+        $classes[] = 'stark-has-hero';
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'stark_body_class_front_hero' );
+
+function stark_front_page_template( $template ) {
+    if ( is_front_page() ) {
+        $stark_template = get_stylesheet_directory() . '/templates/stark-homepage.php';
+        if ( file_exists( $stark_template ) ) {
+            return $stark_template;
+        }
+    }
+    return $template;
+}
+add_filter( 'template_include', 'stark_front_page_template', 99 );
+
+/**
+ * Return a theme SVG inline so it can inherit currentColor.
+ */
+function stark_inline_svg( $relative_path, $class = '' ) {
+    $file = get_stylesheet_directory() . '/' . ltrim( $relative_path, '/' );
+    if ( ! file_exists( $file ) ) return '';
+    $svg = file_get_contents( $file );
+    $attrs = ' aria-hidden="true" focusable="false"' . ( $class ? ' class="' . esc_attr( $class ) . '"' : '' );
+    return preg_replace( '/<svg\b/', '<svg' . $attrs, $svg, 1 );
+}

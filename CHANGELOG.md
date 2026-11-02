@@ -2,6 +2,21 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.3] — November 2 2026
+
+### Added — Homepage shell
+- `templates/stark-homepage.php` — standalone front-page document (outside GP containers): hero, 7-card services preview, who-we're-for 2×2 persona grid, CTA band. All copy is placeholder
+- `functions.php` — `stark_body_class_front_hero()` adds `stark-has-hero` on `is_front_page()` (nav transparent on load); `stark_front_page_template()` routes the front page via `template_include`; `stark_inline_svg()` helper inlines theme SVGs so they inherit `currentColor`
+- `custom.css` — v27.0.3 block: `--stark-navy-bright` + `--stark-hero-bg` tokens, `.stark-btn` primary/ghost, `.stark-eyebrow`, `.stark-section-head`, section styles, mobile-first grids (1 → 2 at 640px → 4 at 1024px), reduced-motion overrides
+
+### Fixed
+- **Barlow never loaded.** Fonts were preloaded but no `@font-face` existed — declared all 9 self-hosted WOFF2 files. Applied to `.stark-home` only for now
+- **Nav invisible over dark hero.** v27.0.1 forced navy nav text; hero pages now get white logo/links/burger while unscrolled with no menu open. Logo `<img>` whitened via `filter: invert`
+- Footer `margin-top` removed after the homepage so the CTA band meets the footer
+
+### Deferred to Phase 2.1
+- Social proof row, case study teaser, process steps, FAQ
+
 ## [27.0.2] — November 2 2026
 
 ### Added — Stark 27 footer
@@ -9,6 +24,25 @@
 - `img/stark-logo-light.svg` — white text wordmark for dark backgrounds
 - `custom.css` — footer styles (v27.0.2 block): 4-col grid, stacks at 1100px, 2-col links at 740px; uses existing `--stark-navy`, `--stark-light-blue`, `--stark-ease` tokens
 - `functions.php` — `stark_render_footer()` on `wp_footer` (priority 1, ahead of the bottom UI cluster at 5); `stark_remove_generate_footer()` unhooks GP's `generate_construct_footer` and `generate_footer_bar`; `.stark-phase-27 .site-footer` hidden as a backstop
+
+## [27.0.1] — November 2 2026
+
+### Fixed — Nav
+- **Default to frosted.** Nav is frosted glass with navy text on every page by default; transparent state is now opt-in via `body.stark-has-hero` (transparent while `html[data-stark-scrolled="false"]`)
+- **Logo viewBox.** `img/stark-logo.svg` viewBox 220 → 320 wide and text baseline 26 → 30 so "SOCIAL MEDIA AGENCY" no longer clips; nav logo height 30px
+
+### Note
+- Committed together with the v27.0.0 drop in `bdc1f47` — 27.0.0 never had its own commit
+
+## [27.0.0] — November 2 2026
+
+### Added — Stark 27 nav (installed from `stark-27-v27.0.0-nav-drop.zip`)
+- `templates/stark-header.php` — fixed header rendered on `wp_body_open`; GP's `generate_construct_header` unhooked
+- `inc/class-stark-mega-walker.php` — mega menu walker (title + description per item)
+- `js/stark-nav.js` — scroll state (`data-stark-scrolled`), mega menu (`data-stark-mega-open`), mobile accordion (`data-stark-mobile-open`), scroll progress bar, reduced-motion aware
+- `img/stark-logo.svg` — text wordmark using `currentColor`
+- `functions.php` — nav menu locations, deferred nav script, `stark-phase-27` body class, fallback primary + mobile menus (7 services with descriptions)
+- `custom.css` — foundational design tokens (`--stark-navy`, `--stark-light-blue`, `--stark-ink`, `--stark-paper`, `--stark-nav-h`, `--stark-ease`, …), transparent → frosted nav shell, mega menu, mobile accordion, scroll progress
 
 ## [2.0.16] — April 30 2026
 
