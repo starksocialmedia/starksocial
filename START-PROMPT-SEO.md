@@ -35,8 +35,8 @@ After reading all six, summarize current SEO status, what's been done, what's op
 - SEO tool: RankMath Pro (replacing AIOSEO — fresh install on staging)
 - Keyword tool: Wincher
 - Target markets: San Fernando Valley, Antelope Valley, Ventura County, Bakersfield
-- Services (8): Social Media Mgmt, Paid Advertising, Web Design, SEO, Content Creation, Brand Strategy, Audit & Consulting, Fractional CMO
-- New services needing full SEO buildout: Audit & Consulting, Fractional CMO
+- Services (7): Social Media Mgmt, Paid Advertising, Web Design, SEO, Content Creation, Brand Strategy, Audit & Consulting
+- New service needing full SEO buildout: Audit & Consulting
 - Staging: `staging.starksocial.com`
 - Live: `starksocial.com`
 - Brand: Dark Blue `#004C97`, Red `#F93822`, Light Blue `#307FE2`

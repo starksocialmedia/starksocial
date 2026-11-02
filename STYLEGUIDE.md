@@ -599,7 +599,7 @@ starksocial/
 ### Footer Structure (Current → Phase 2)
 **Current columns:** Logo+tagline | SERVICES | COMPANY | RESOURCES
 
-**Phase 2 columns:** Logo+tagline | SERVICES (all 8) | COMPANY | RESOURCES + Support Ticket
+**Phase 2 columns:** Logo+tagline | SERVICES (all 7) | COMPANY | RESOURCES + Support Ticket
 
 **SERVICES column update (add new services):**
 - Social Media Management
@@ -609,7 +609,6 @@ starksocial/
 - Content Creation
 - Brand Strategy & Identity
 - Audit & Consulting ← NEW
-- Fractional CMO ← NEW
 
 **RESOURCES column update:**
 - Knowledgebase

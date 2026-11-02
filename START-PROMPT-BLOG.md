@@ -58,7 +58,7 @@ Build a monthly content calendar that:
 - Maps to service pages (each service should have supporting blog content)
 - Targets keyword gaps from Wincher (Nathan will provide export)
 - Includes local market content (Antelope Valley, Bakersfield, Ventura, San Fernando Valley)
-- Covers Fractional CMO and Audit & Consulting — new services needing content support
+- Covers Audit & Consulting — new service needing content support
 - Balances evergreen content with timely/trending topics
 - Includes podcast episode crossover content where relevant
 
@@ -76,7 +76,7 @@ Draft new posts per the content calendar. Each post must:
 **Key context:**
 - Brand voice: Direct, confident, no jargon, proof over promises — see VOICE-GUIDE.md
 - Target markets: San Fernando Valley, Antelope Valley, Ventura County, Bakersfield
-- Services (8): Social Media Mgmt, Paid Advertising, Web Design, SEO, Content Creation, Brand Strategy, Audit & Consulting, Fractional CMO
+- Services (7): Social Media Mgmt, Paid Advertising, Web Design, SEO, Content Creation, Brand Strategy, Audit & Consulting
 - SEO tool: RankMath Pro (replacing AIOSEO in Phase 2)
 - Keyword tracking: Wincher (Nathan will share export)
 - Blog URL structure: `/blog/post-name/`

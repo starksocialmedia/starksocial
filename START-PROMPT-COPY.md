@@ -23,7 +23,7 @@ After reading all six, summarize current copy status, what's been written, what'
 **Your primary responsibilities:**
 
 1. **Homepage copy** — hero, who we're for, services, how we work, why Stark, CTA sections
-2. **Service pages (8)** — each needs a full page: headline, subhead, problem/solution, outcomes, process, FAQ, CTA. Extra attention on the two new services: Audit & Consulting and Fractional CMO
+2. **Service pages (7)** — each needs a full page: headline, subhead, problem/solution, outcomes, process, FAQ, CTA. Extra attention on the new service: Audit & Consulting
 3. **About page** — agency story, Nathan bio, Deanna bio, team section
 4. **Local landing pages** — copy templates for San Fernando Valley, Antelope Valley, Ventura County, Bakersfield (per service where applicable)
 5. **Portfolio / case studies** — challenge, approach, results, what's next for each
@@ -43,7 +43,7 @@ After reading all six, summarize current copy status, what's been written, what'
 - CTAs: action verb first — "Get a proposal", "See our work", "Start here"
 
 **Key context:**
-- Services (8): Social Media Mgmt, Paid Advertising, Web Design, SEO, Content Creation, Brand Strategy, Audit & Consulting, Fractional CMO
+- Services (7): Social Media Mgmt, Paid Advertising, Web Design, SEO, Content Creation, Brand Strategy, Audit & Consulting
 - Target markets: San Fernando Valley, Antelope Valley, Ventura County, Bakersfield
 - Staging: `staging.starksocial.com`
 - Live: `starksocial.com`

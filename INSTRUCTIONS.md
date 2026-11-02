@@ -126,7 +126,6 @@ stark-phase-2/                        ← GitHub repo root (lives at ~/Projects/
     │   ├── contact/
     │   ├── content-creation/
     │   ├── cookie-policy/
-    │   ├── fractional-cmo/
     │   ├── home/
     │   ├── knowledgebase/
     │   ├── paid-advertising/

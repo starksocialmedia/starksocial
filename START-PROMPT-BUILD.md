@@ -67,9 +67,9 @@ For new files Claude creates (code, CSS, PHP, etc.), deliver them as downloadabl
 - Mobile: full screen dark glass overlay, services accordion (no Back button, no separate screen)
 - Scroll progress bar on frosted glass state only
 
-**Services (8):**
+**Services (7):**
 
-Social Media Mgmt · Paid Advertising · Web Design · SEO · Content Creation · Brand Strategy · Audit & Consulting · Fractional CMO
+Social Media Mgmt · Paid Advertising · Web Design · SEO · Content Creation · Brand Strategy · Audit & Consulting
 
 **SEO:** RankMath Pro (replacing AIOSEO — fresh install on staging)
 

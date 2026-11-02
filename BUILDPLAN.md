@@ -124,6 +124,8 @@
 - [x] Location page template v27.0.5 — `/{service}/{market}/`, local overlay on parent content — November 2 2026
 - [ ] Activate ACF Pro on staging + live (Local switched from free ACF)
 - [ ] Full local landing URL map (SEO chat) — pattern locked: nested `/{service}/{area}/`
+- [x] Service areas hub stub v27.0.6 — `/service-areas/`, linked from footer Company column — November 2 2026
+- [ ] Service areas hub full build — per-market service links, local proof
 - [ ] All 7 service pages (shared template, unique content)
 - [ ] New: Audit & Consulting
 

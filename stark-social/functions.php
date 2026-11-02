@@ -855,3 +855,7 @@ function stark_inline_svg( $relative_path, $class = '' ) {
 require_once get_stylesheet_directory() . '/inc/stark-services.php';
 require_once get_stylesheet_directory() . '/inc/stark-locations.php';
 
+/**
+ * Stark 27 Service areas — market registry + /service-areas/ hub stub (v27.0.6).
+ */
+require_once get_stylesheet_directory() . '/inc/stark-service-areas.php';

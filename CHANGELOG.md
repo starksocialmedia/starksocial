@@ -2,6 +2,21 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.6] — November 2 2026
+
+### Changed — Footer
+- Removed the **Markets** column (5 per-market web-design links). Footer is now 3 link columns: Services · Company · Support
+- Added **Service Areas** → `/service-areas/` to the Company column
+- `custom.css` — `.stark-footer__cols` 4 → 3 columns
+
+### Added — Service areas hub (stub)
+- `templates/stark-service-areas.php` — hub for `/service-areas/`: hero, 5 market cards with brief placeholder context, CTA band. Reuses the service hero + CTA partials and homepage persona cards. Full hub (per-market service links, local proof) comes later
+- `inc/stark-service-areas.php` — `stark_get_markets()` registry (5 slugs, filterable via `stark_markets`) — the `{area}` segment of `/{service}/{area}/`; `template_include` routing + `stark-has-hero` body class
+
+### Docs — 7 services
+- Fractional CMO removed from START-PROMPT-COPY, -SEO, -BLOG, -BUILD, STYLEGUIDE and INSTRUCTIONS; service counts 8 → 7
+- Removed `site-content/pages/fractional-cmo/` (empty paste-here boilerplate, no content)
+
 ## [27.0.5] — November 2 2026
 
 ### Added — Location page template (service + market)

@@ -48,21 +48,11 @@ $year = date( 'Y' );
                 </div>
 
                 <div class="stark-footer__col">
-                    <h3 class="stark-footer__heading">Markets</h3>
-                    <ul class="stark-footer__list">
-                        <li><a href="/web-design/santa-clarita/">Santa Clarita</a></li>
-                        <li><a href="/web-design/san-fernando-valley/">San Fernando Valley</a></li>
-                        <li><a href="/web-design/antelope-valley/">Antelope Valley</a></li>
-                        <li><a href="/web-design/ventura-county/">Ventura County</a></li>
-                        <li><a href="/web-design/bakersfield/">Bakersfield</a></li>
-                    </ul>
-                </div>
-
-                <div class="stark-footer__col">
                     <h3 class="stark-footer__heading">Company</h3>
                     <ul class="stark-footer__list">
                         <li><a href="/about/">About</a></li>
                         <li><a href="/work/">Work</a></li>
+                        <li><a href="/service-areas/">Service Areas</a></li>
                         <li><a href="/blog/">Blog</a></li>
                         <li><a href="/podcast/">Podcast</a></li>
                         <li><a href="/contact/">Contact</a></li>
