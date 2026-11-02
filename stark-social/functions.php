@@ -450,12 +450,23 @@ add_action( 'save_post_podcast', function( $post_id ) {
 add_action( 'nate_prune_db_event', function() {
     global $wpdb;
 
-    $wpdb->query( "DELETE FROM {$wpdb->prefix}podlove_downloadintent WHERE accessed_at < DATE_SUB(NOW(), INTERVAL 1 YEAR)" );
-    $wpdb->query( "DELETE FROM {$wpdb->prefix}podlove_downloadintentclean WHERE accessed_at < DATE_SUB(NOW(), INTERVAL 1 YEAR)" );
-    $wpdb->query( "OPTIMIZE TABLE {$wpdb->prefix}podlove_downloadintent, {$wpdb->prefix}podlove_downloadintentclean" );
+    // Only touch plugin tables that exist — Podlove isn't installed on every Phase 2 environment (v27.0.21).
+    $has_table = function ( $table ) use ( $wpdb ) {
+        return $table === $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $table ) );
+    };
 
-    $wpdb->query( "TRUNCATE TABLE {$wpdb->prefix}betterdocs_search_log" );
-    $wpdb->query( "OPTIMIZE TABLE {$wpdb->prefix}betterdocs_search_log" );
+    $intent       = $wpdb->prefix . 'podlove_downloadintent';
+    $intent_clean = $wpdb->prefix . 'podlove_downloadintentclean';
+    if ( $has_table( $intent ) && $has_table( $intent_clean ) ) {
+        $wpdb->query( "DELETE FROM {$intent} WHERE accessed_at < DATE_SUB(NOW(), INTERVAL 1 YEAR)" );
+        $wpdb->query( "DELETE FROM {$intent_clean} WHERE accessed_at < DATE_SUB(NOW(), INTERVAL 1 YEAR)" );
+        $wpdb->query( "OPTIMIZE TABLE {$intent}, {$intent_clean}" );
+    }
+
+    if ( $has_table( $wpdb->prefix . 'betterdocs_search_log' ) ) {
+        $wpdb->query( "TRUNCATE TABLE {$wpdb->prefix}betterdocs_search_log" );
+        $wpdb->query( "OPTIMIZE TABLE {$wpdb->prefix}betterdocs_search_log" );
+    }
 } );
 
 if ( ! wp_next_scheduled( 'nate_prune_db_event' ) ) {

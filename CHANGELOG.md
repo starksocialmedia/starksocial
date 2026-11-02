@@ -2,6 +2,11 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.21] — November 2 2026
+
+### Fixed
+- Weekly `nate_prune_db_event` cron (v2.0.0) ran `DELETE` / `OPTIMIZE` on Podlove's download-intent tables and `TRUNCATE` on BetterDocs' search log without checking they exist → database errors in the log on any environment without those plugins (seen in staging's debug.log, October 30). Each block now runs only when its tables exist; behavior unchanged where they do. Verified: cron run on Local, no new log lines
+
 ## [27.0.20] — November 2 2026
 
 ### Added — Homepage polish (hero unchanged)
