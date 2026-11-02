@@ -3818,3 +3818,12 @@ textarea {
 @media (min-width: 700px) {
     .stark-passgen-page__card .checkbox-grid { grid-template-columns: repeat(4, auto); justify-content: start; }
 }
+
+/* ---------------------------------------------------------------------------
+   Fixed bottom-left cluster (back-to-top + A11y) clearance  (v27.0.19)
+   The cluster sits ~14–58px above the viewport bottom. Extra footer padding
+   means that at full scroll it floats over empty space instead of the
+   copyright line (desktop) or the legal links (mobile tap-target collision).
+   --------------------------------------------------------------------------- */
+
+.stark-footer { padding-bottom: 96px; }

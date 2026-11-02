@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.19] — November 2 2026
+
+### Fixed — Fixed A11y / back-to-top buttons covering footer content
+- Measured in headless Chrome at full scroll: the bottom-left cluster (back-to-top + A11y, 44px, ~14px off the viewport bottom) covered the **Privacy Policy link on mobile (390px — tap-target collision)** and the copyright line on desktop
+- `.stark-footer { padding-bottom: 96px }` so the cluster floats over empty space at the end of every page. Re-checked 390 / 768 / 1440 widths on home, a blog post, `/blog/` and `/contact/`: no overlaps
+- Mid-page, the cluster overlays content while scrolling (expected for fixed UI); content always scrolls clear of it
+
 ## [27.0.18] — November 2 2026
 
 ### Added — Password generator page
