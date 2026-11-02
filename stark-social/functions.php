@@ -847,3 +847,8 @@ function stark_inline_svg( $relative_path, $class = '' ) {
     $attrs = ' aria-hidden="true" focusable="false"' . ( $class ? ' class="' . esc_attr( $class ) . '"' : '' );
     return preg_replace( '/<svg\b/', '<svg' . $attrs, $svg, 1 );
 }
+
+/**
+ * Stark 27 Service pages — template, ACF location rule, context (v27.0.4).
+ */
+require_once get_stylesheet_directory() . '/inc/stark-services.php';

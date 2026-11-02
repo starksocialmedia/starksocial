@@ -47,7 +47,7 @@
 
 ---
 
-## Page Inventory (22 pages + 4 templates)
+## Page Inventory (21 pages + 4 templates)
 
 ### Core (Priority 1)
 - [ ] Home (`/`)
@@ -63,7 +63,6 @@
 - [ ] Content Creation
 - [ ] Brand Strategy & Identity
 - [ ] Digital Marketing Audit & Consulting — NEW
-- [ ] Fractional CMO — NEW
 
 ### Portfolio — NEW in Phase 2
 - [ ] Portfolio archive (`/portfolio/`)
@@ -120,9 +119,11 @@
 - [ ] Homepage additions — social proof row, case study teaser, process steps, FAQ
 - [ ] Home · About · Contact · Services hub
 
-### Phase 2.2 — Service Pages (8)
-- [ ] All 8 service pages (shared template, unique content)
-- [ ] New: Audit & Consulting + Fractional CMO
+### Phase 2.2 — Service Pages (7)
+- [x] Service page template v27.0.4 — ACF Pro fields via `acf-json/`, routes by slug — November 2 2026
+- [ ] Activate ACF Pro on staging + live (Local switched from free ACF)
+- [ ] All 7 service pages (shared template, unique content)
+- [ ] New: Audit & Consulting
 
 ### Phase 2.3 — Portfolio
 - [ ] CPT + ACF fields audit
@@ -294,7 +295,7 @@ brand-sheet/
 
 **Primary nav (5 items):**
 - Work (portfolio)
-- Services (mega menu, 2×4 grid)
+- Services (mega menu, 7 services)
 - Blog
 - Podcast
 - Contact
@@ -304,7 +305,7 @@ brand-sheet/
 Social Media Mgmt     Paid Advertising
 Web Design            SEO
 Content Creation      Brand Strategy
-Audit & Consulting    Fractional CMO
+Audit & Consulting
 [View All Services →]
 ```
 

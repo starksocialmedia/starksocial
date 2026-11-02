@@ -1448,3 +1448,312 @@ body.stark-has-hero { background: var(--stark-paper); }
     .stark-service-card:focus-within,
     .stark-who-card:hover .stark-who-card__arrow { transform: none; }
 }
+
+/* ---------------------------------------------------------------------------
+   Service page — included, process, case study, FAQ, related  (v27.0.4)
+   Reuses v27.0.3 hero, buttons, eyebrow, section head, cards, CTA band.
+   --------------------------------------------------------------------------- */
+
+.stark-page {
+    font-family: "Barlow", -apple-system, system-ui, sans-serif;
+    color: var(--stark-ink);
+    background: var(--stark-paper);
+}
+
+.stark-page ~ .stark-footer { margin-top: 0; }
+
+/* Content bands alternate white / paper-soft, whichever sections render */
+.stark-band { padding: clamp(72px, 10vw, 120px) 0; }
+.stark-page > .stark-band:nth-of-type(odd) { background: var(--stark-paper-soft); }
+
+.stark-hero--service {
+    min-height: min(720px, calc(100svh - var(--stark-nav-h)));
+}
+
+/* What's included */
+.stark-included__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stark-included__item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 24px;
+    background: var(--stark-paper);
+    border: 1px solid var(--stark-hairline);
+    border-radius: 16px;
+}
+
+.stark-included__icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(48, 127, 226, 0.1);
+    color: var(--stark-light-blue);
+}
+
+.stark-icon { width: 24px; height: 24px; }
+
+.stark-included__title {
+    margin: 2px 0 6px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--stark-navy);
+}
+
+.stark-included__desc {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--stark-ink-soft);
+}
+
+/* Process — vertical on mobile, 4-across with connector on desktop */
+.stark-process__steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: none;
+}
+
+.stark-process__step {
+    position: relative;
+    padding-left: 72px;
+}
+
+.stark-process__num {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--stark-navy);
+    color: #fff;
+    font-family: "Barlow Condensed", "Barlow", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    z-index: 1;
+}
+
+/* Connector between numbers */
+.stark-process__step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: 52px;
+    left: 25px;
+    bottom: -32px;
+    width: 2px;
+    background: linear-gradient(var(--stark-light-blue), rgba(48, 127, 226, 0.15));
+}
+
+.stark-process__title {
+    margin: 12px 0 8px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--stark-navy);
+}
+
+.stark-process__desc {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--stark-ink-soft);
+}
+
+/* Case study teaser */
+.stark-case__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.stark-case__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    background: var(--stark-paper);
+    border: 1px solid var(--stark-hairline);
+    border-radius: 20px;
+}
+
+.stark-case__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.stark-case__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: clamp(24px, 4vw, 48px);
+}
+
+.stark-case__client {
+    margin: 0;
+    font-family: "Barlow Condensed", "Barlow", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stark-ink-soft);
+}
+
+.stark-case__headline {
+    margin: 0;
+    font-size: clamp(22px, 2.6vw, 32px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--stark-navy);
+}
+
+.stark-case__stat {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 10px;
+    margin: 4px 0;
+}
+
+.stark-case__stat strong {
+    font-size: clamp(36px, 4.5vw, 52px);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--stark-light-blue);
+}
+
+.stark-case__stat span {
+    font-size: 15px;
+    color: var(--stark-ink-soft);
+}
+
+.stark-case__summary {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--stark-ink-soft);
+}
+
+.stark-case__link {
+    margin-top: auto;
+    padding-top: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--stark-light-blue);
+    text-decoration: none;
+}
+
+.stark-case__link:hover,
+.stark-case__link:focus-visible { text-decoration: underline; }
+
+/* FAQ accordion */
+.stark-faq__inner { max-width: 960px; }
+
+.stark-faq__list {
+    border-top: 1px solid var(--stark-hairline);
+}
+
+.stark-faq__item { border-bottom: 1px solid var(--stark-hairline); }
+
+.stark-faq__q {
+    position: relative;
+    display: block;
+    padding: 24px 48px 24px 0;
+    font-size: clamp(17px, 1.8vw, 20px);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--stark-navy);
+    cursor: pointer;
+    list-style: none;
+}
+
+.stark-faq__q::-webkit-details-marker { display: none; }
+
+/* Plus → minus */
+.stark-faq__q::before,
+.stark-faq__q::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 16px;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--stark-light-blue);
+    transition: transform 220ms var(--stark-ease);
+}
+
+.stark-faq__q::after { transform: rotate(90deg); }
+.stark-faq__item[open] .stark-faq__q::after { transform: rotate(0deg); }
+
+.stark-faq__q:focus-visible {
+    outline: 2px solid var(--stark-light-blue);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.stark-faq__a {
+    padding: 0 48px 24px 0;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--stark-ink-soft);
+}
+
+.stark-faq__a p { margin: 0 0 12px; }
+.stark-faq__a p:last-child { margin-bottom: 0; }
+
+@media (min-width: 640px) {
+    .stark-included__list { grid-template-columns: repeat(2, 1fr); }
+    .stark-services__grid--3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+    .stark-case__card:has(.stark-case__media) { grid-template-columns: 1.1fr 1fr; }
+    .stark-case__list--multi { grid-template-columns: repeat(3, 1fr); }
+    .stark-case__list--multi .stark-case__card { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 1024px) {
+    .stark-included__list { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .stark-services__grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+    .stark-process__steps { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .stark-process__step { padding-left: 0; padding-top: 76px; }
+    .stark-process__step:not(:last-child)::before {
+        top: 25px;
+        left: 60px;
+        right: -24px;
+        bottom: auto;
+        width: auto;
+        height: 2px;
+        background: linear-gradient(90deg, var(--stark-light-blue), rgba(48, 127, 226, 0.15));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stark-faq__q::before,
+    .stark-faq__q::after { transition: none; }
+}

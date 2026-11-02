@@ -2,6 +2,19 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.4] — November 2 2026
+
+### Added — Service page template
+- `templates/stark-service.php` — standalone document for top-level pages whose slug is a registered service. Sections: hero → what's included (3–5 icon bullets) → process (4 numbered steps) → featured case study teaser → FAQ accordion → related services (3 cards) → final CTA band. Each section renders only when its fields have content
+- `templates/parts/service-*.php` — one partial per section, loaded with `get_template_part()` and the page context as `$args`
+- `inc/stark-services.php` — `stark_get_services()` registry (7 service slugs, filterable via `stark_services`), `stark_is_service_page()`, `stark_service_context()`, `stark_related_services()` (editor picks, else next 3 in registry order), `stark_service_icon()` (10 inline stroke icons), `template_include` routing, `stark-has-hero` + `stark-service-page` body classes, custom ACF location rule **Stark service page** (matches by slug), Related picker limited to service pages
+- `acf-json/group_stark_service.json` — Stark — Service Page, tabbed: Hero, What's Included, Process, Case Study, FAQ, Related, Final CTA. Registered to the 7 service slugs; ACF auto-syncs from the theme's `acf-json/`
+- FAQ outputs `FAQPage` JSON-LD (per SEO-STRATEGY schema plan); `stark_faq_schema` filter turns it off
+- `custom.css` — v27.0.4 block: `.stark-page` base, `.stark-band` alternating backgrounds, shorter `.stark-hero--service`, included grid, process flow (vertical connector on mobile, horizontal 4-across at 1024px), case study card, `<details>` FAQ with plus/minus, 3-column related grid
+
+### Requires
+- **ACF Pro active** (repeaters). Local was running free ACF — switched to Pro 6.8.0.1. Staging and live need the same
+
 ## [27.0.3] — November 2 2026
 
 ### Added — Homepage shell
