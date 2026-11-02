@@ -73,3 +73,23 @@ function stark_author_avatar( $user_id, $size = 72 ) {
     }
     return get_avatar( $user_id, $size, '', '' );
 }
+
+/**
+ * Live's team pages (/about/nathan-imhoff/, /about/deanna-l-miller/) → author
+ * profiles, plus the pre-v27.0.18 footer URL for the password generator.
+ */
+function stark_redirect_legacy_profile_urls() {
+    if ( ! is_404() ) return;
+    $path = trim( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+    $map  = apply_filters( 'stark_legacy_redirects', array(
+        'about/nathan-imhoff'   => '/author/nateimhoff/',
+        'about/deanna-l-miller' => '/author/deannaleigh/',
+        'about/deanna-miller'   => '/author/deannaleigh/',
+        'password-generator'    => '/support/password-generator/',
+    ) );
+    if ( isset( $map[ $path ] ) ) {
+        wp_safe_redirect( home_url( $map[ $path ] ), 301, 'Stark' );
+        exit;
+    }
+}
+add_action( 'template_redirect', 'stark_redirect_legacy_profile_urls', 1 );

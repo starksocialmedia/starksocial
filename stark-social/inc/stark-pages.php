@@ -1,6 +1,6 @@
 <?php
 /**
- * Stark 27 single-purpose pages (v27.0.7 About, v27.0.8 Contact, v27.0.13 Services hub)
+ * Stark 27 single-purpose pages (v27.0.7 About, v27.0.8 Contact, v27.0.13 Services hub, v27.0.18 Password Generator)
  * Top-level page slug => template, same slug-matching pattern as services.
  * ACF field groups target these pages with the "Stark page" location rule.
  */
@@ -15,17 +15,23 @@ function stark_get_page_templates() {
         'about'   => array( 'label' => 'About', 'template' => 'stark-about.php' ),
         'contact' => array( 'label' => 'Contact', 'template' => 'stark-contact.php' ),
         'services' => array( 'label' => 'Services', 'template' => 'stark-services-hub.php' ),
+        'password-generator' => array( 'label' => 'Password Generator', 'template' => 'stark-password-generator.php', 'parent' => 'support' ),
     ) );
 }
 
 /**
- * Registry entry for a top-level page, or null.
+ * Registry entry for a page, or null. Entries are top-level unless they name
+ * a 'parent' slug (e.g. /support/password-generator/).
  */
 function stark_page_template_entry( $post = null ) {
     $post = get_post( $post );
-    if ( ! $post || 'page' !== $post->post_type || 0 !== (int) $post->post_parent ) return null;
+    if ( ! $post || 'page' !== $post->post_type ) return null;
     $pages = stark_get_page_templates();
-    return isset( $pages[ $post->post_name ] ) ? $pages[ $post->post_name ] : null;
+    if ( ! isset( $pages[ $post->post_name ] ) ) return null;
+    $entry  = $pages[ $post->post_name ];
+    $parent = $post->post_parent ? get_post_field( 'post_name', $post->post_parent ) : '';
+    $want   = isset( $entry['parent'] ) ? $entry['parent'] : '';
+    return $parent === $want ? $entry : null;
 }
 
 function stark_registered_page_template( $template ) {

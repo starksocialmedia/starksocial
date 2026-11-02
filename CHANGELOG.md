@@ -2,6 +2,20 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.18] — November 2 2026
+
+### Added — Password generator page
+- `templates/stark-password-generator.php` at **`/support/password-generator/`** (live's URL): hero, tool card overlapping the hero with `[password_generator]` (passgen/ from v2.0.0, unchanged), "Good habits" tips aside linking the passwords blog post, 7 FAQs (FAQ partial → FAQPage schema). Copy from the live page
+- Verified in headless Chrome: Generate produces a 20-character password with symbols, no JS errors; passgen CSS/JS still enqueue by slug
+- Phase 2 layout for the passgen markup scoped to `.stark-passgen-page__card` (length row, toggle grid, full-width generate). Buttons keep Phase 1's pill style — `passgen.css` sets it with `!important`
+- `inc/stark-pages.php` — registry entries can name a `parent` slug (child pages); Local page 1997 under Support
+
+### Added — Legacy redirects
+- 301s when nothing else answers: `/about/nathan-imhoff/` → `/author/nateimhoff/`, `/about/deanna-l-miller/` (and `/about/deanna-miller/`) → `/author/deannaleigh/`, `/password-generator/` → `/support/password-generator/` (`stark_legacy_redirects` filter)
+
+### Changed
+- Footer: Password Generator link → `/support/password-generator/`
+
 ## [27.0.17] — November 2 2026
 
 ### Added — Author pages

@@ -64,7 +64,7 @@ $year = date( 'Y' );
                     <ul class="stark-footer__list">
                         <li><a href="/support/">Support Hub</a></li>
                         <li><a href="/support/knowledgebase/">Knowledgebase</a></li>
-                        <li><a href="/password-generator/">Password Generator</a></li>
+                        <li><a href="/support/password-generator/">Password Generator</a></li>
                         <li><a href="/support/accessibility-statement/">Accessibility</a></li>
                         <li><a href="https://hub.starksocial.com/clients/" target="_blank" rel="noopener">Client Portal &uarr;</a></li>
                     </ul>

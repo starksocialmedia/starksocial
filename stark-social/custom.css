@@ -3711,3 +3711,110 @@ textarea {
 @media (min-width: 900px) {
     .stark-profile__head { grid-template-columns: 340px 1fr; gap: 56px; }
 }
+
+/* ---------------------------------------------------------------------------
+   Password generator page  (v27.0.18) — tool markup/styles live in passgen/
+   --------------------------------------------------------------------------- */
+
+.stark-passgen-page .stark-hero--service { min-height: 0; padding-bottom: clamp(120px, 14vw, 180px); }
+
+.stark-passgen-page__tool { position: relative; z-index: 1; margin-top: calc(-1 * clamp(88px, 11vw, 140px)); padding-bottom: clamp(56px, 7vw, 88px); }
+
+.stark-passgen-page__grid { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
+
+.stark-passgen-page__card {
+    padding: clamp(24px, 4vw, 48px);
+    border: 1px solid var(--stark-hairline);
+    border-radius: 24px;
+    background: var(--stark-paper);
+    box-shadow: 0 30px 80px -40px rgba(3, 27, 52, 0.45);
+}
+
+.stark-passgen-page__heading { margin: 0 0 24px; font-size: clamp(22px, 2.4vw, 28px); font-weight: 700; color: var(--stark-navy); }
+
+.stark-passgen-page__tips {
+    padding: 28px;
+    border: 1px solid var(--stark-hairline);
+    border-radius: 20px;
+    background: var(--stark-paper-soft);
+}
+
+.stark-passgen-page__tips ul { margin: 14px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.stark-passgen-page__tips li { position: relative; padding-left: 28px; font-size: 15px; line-height: 1.5; color: var(--stark-ink); }
+.stark-passgen-page__tips li::before { content: "✓"; position: absolute; left: 0; top: 0; color: #00873A; font-weight: 700; }
+.stark-passgen-page__more { margin: 20px 0 0; font-size: 14px; color: var(--stark-ink-soft); }
+.stark-passgen-page__more a { color: var(--stark-light-blue); }
+
+.stark-passgen-page .stark-faq { background: var(--stark-paper-soft); }
+
+@media (min-width: 1024px) {
+    .stark-passgen-page__grid { grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; }
+}
+
+/* Password generator — Phase 2 layout for the passgen/ markup, scoped to the card */
+.stark-passgen-page__card .container { padding: 0; max-width: none; }
+
+.stark-passgen-page__card .form-footer-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.stark-passgen-page__card .form-footer-main-column {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+}
+
+.stark-passgen-page__card .form-footer-main-column label { font-weight: 600; color: var(--stark-navy); }
+.stark-passgen-page__card .password-length-range { width: 100%; accent-color: var(--stark-light-blue); }
+
+.stark-passgen-page__card .length-display {
+    min-width: 48px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    background: var(--stark-paper-soft);
+    font-weight: 700;
+    text-align: center;
+    color: var(--stark-navy);
+}
+
+.stark-passgen-page__card .checkbox-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 24px; }
+.stark-passgen-page__card .container .checkbox-wrapper { font-size: 16px; color: var(--stark-ink); }
+
+.stark-passgen-page__card .form-button { margin-top: 28px; }
+
+.stark-passgen-page__card .container .generate-button,
+.stark-passgen-page__card .container .copy-btn {
+    min-height: 52px;
+    padding: 0 24px;
+    border-radius: 12px;
+    font-family: var(--stark-font);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.stark-passgen-page__card .container .generate-button {
+    width: 100%;
+    border: 0;
+    background: var(--stark-light-blue);
+    color: #fff;
+    box-shadow: none;
+}
+
+.stark-passgen-page__card .container .generate-button:hover { background: #2468BF; color: #fff; }
+.stark-passgen-page__card .container .generate-button::after,
+.stark-passgen-page__card .container .copy-btn::after { content: none; }
+
+.stark-passgen-page__card .container .copy-btn { border: 1.5px solid var(--stark-hairline); background: var(--stark-paper); color: var(--stark-navy); box-shadow: none; }
+.stark-passgen-page__card .container .copy-btn:hover { border-color: var(--stark-light-blue); color: var(--stark-light-blue); }
+
+.stark-passgen-page__card .container input.passfield { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 18px; letter-spacing: 0.02em; }
+
+@media (min-width: 700px) {
+    .stark-passgen-page__card .checkbox-grid { grid-template-columns: repeat(4, auto); justify-content: start; }
+}
