@@ -3,9 +3,11 @@
  * Strip Pro/X + Cornerstone shortcode wrappers from blog posts (post_type=post only).
  * Keeps inner text/HTML. [cs_component href=… titletag=…] becomes a plain link;
  * other [cs_component] embeds (render nothing without Cornerstone) are removed.
- * Usage: wp eval-file strip-cornerstone.php [apply]   (dry run by default)
+ * Usage: wp eval-file strip-cornerstone.php [apply] [type=podcast]   (dry run by default; post type defaults to post)
  */
 $apply = in_array( 'apply', $args, true );
+$type  = 'post';
+foreach ( $args as $a ) if ( 0 === strpos( $a, 'type=' ) ) $type = substr( $a, 5 );
 global $wpdb;
 
 function stark_strip_cs( $html ) {
@@ -29,7 +31,7 @@ function stark_strip_cs( $html ) {
     return trim( preg_replace( "/\n{3,}/", "\n\n", $html ) );
 }
 
-$rows = $wpdb->get_results( "SELECT ID, post_name, post_content FROM {$wpdb->posts} WHERE post_type = 'post' AND post_content REGEXP '\\\\[/?(cs|x)_'" );
+$rows = $wpdb->get_results( "SELECT ID, post_name, post_content FROM {$wpdb->posts} WHERE post_type = '" . esc_sql( $type ) . "' AND post_content REGEXP '\\\\[/?(cs|x)_'" );
 foreach ( $rows as $row ) {
     $new = stark_strip_cs( $row->post_content );
     if ( $new === $row->post_content ) continue;

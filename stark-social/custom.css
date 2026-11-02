@@ -3380,3 +3380,236 @@ textarea {
     .stark-legal__nav a:hover,
     .stark-legal__nav a:focus-visible { background: var(--stark-paper-soft); }
 }
+
+/* ---------------------------------------------------------------------------
+   Podcast — archive grid, episode card, episode single, player  (v27.0.16)
+   --------------------------------------------------------------------------- */
+
+.stark-hero--podcast { min-height: 0; padding-bottom: clamp(56px, 8vw, 96px); }
+
+/* Subscribe links */
+.stark-subscribe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stark-subscribe a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid var(--stark-hairline);
+    border-radius: 12px;
+    background: var(--stark-paper);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--stark-navy);
+    text-decoration: none;
+    transition: border-color 160ms var(--stark-ease), background 160ms var(--stark-ease);
+}
+
+.stark-subscribe .stark-icon { width: 20px; height: 20px; }
+.stark-subscribe a:hover,
+.stark-subscribe a:focus-visible { border-color: var(--stark-light-blue); }
+
+.stark-subscribe--light a { border-color: rgba(255, 255, 255, 0.24); background: rgba(255, 255, 255, 0.06); color: #fff; }
+.stark-subscribe--light a:hover,
+.stark-subscribe--light a:focus-visible { border-color: #fff; background: rgba(255, 255, 255, 0.12); }
+
+/* Episode grid + card */
+.stark-episode-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.stark-episode-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--stark-paper);
+    border: 1px solid var(--stark-hairline);
+    border-radius: 18px;
+    transition: transform 200ms var(--stark-ease), border-color 200ms var(--stark-ease), box-shadow 200ms var(--stark-ease);
+}
+
+.stark-episode-card:hover,
+.stark-episode-card:focus-within {
+    transform: translateY(-2px);
+    border-color: rgba(48, 127, 226, 0.5);
+    box-shadow: 0 12px 32px -16px rgba(3, 27, 52, 0.25);
+}
+
+.stark-episode-card__cover {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--stark-hero-bg);
+}
+
+.stark-episode-card__cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.stark-episode-card__play {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--stark-light-blue);
+    color: #fff;
+    box-shadow: 0 8px 20px -8px rgba(3, 27, 52, 0.6);
+    transition: transform 200ms var(--stark-ease);
+}
+
+.stark-episode-card__play svg { width: 20px; height: 20px; margin-left: 2px; }
+.stark-episode-card:hover .stark-episode-card__play { transform: scale(1.08); }
+
+.stark-episode-card__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 22px 24px;
+}
+
+.stark-episode-card__number {
+    margin: 0;
+    font-family: var(--stark-font-condensed);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stark-light-blue);
+}
+
+.stark-episode-card__title { margin: 0; font-size: 19px; font-weight: 700; line-height: 1.3; }
+.stark-episode-card__title a { color: var(--stark-navy); text-decoration: none; }
+.stark-episode-card__title a::after { content: ""; position: absolute; inset: 0; }
+.stark-episode-card__title a:focus-visible { outline: none; }
+.stark-episode-card:has(a:focus-visible) { outline: 2px solid var(--stark-light-blue); outline-offset: 2px; }
+
+.stark-episode-card__meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; font-size: 13px; color: var(--stark-ink-soft); }
+.stark-episode-card__excerpt { margin: 4px 0 0; font-size: 15px; line-height: 1.55; color: var(--stark-ink-soft); }
+
+/* Single — hero */
+.stark-hero--episode { min-height: 0; padding-bottom: clamp(56px, 8vw, 96px); }
+
+.stark-episode__head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: center;
+}
+
+.stark-episode__cover img {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.6);
+}
+
+.stark-episode__subtitle { margin-bottom: 16px; }
+
+/* Native player fallback (Podlove Web Player renders its own UI) */
+.stark-player {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 16px;
+    margin-top: 24px;
+}
+
+.stark-player__audio { width: 100%; max-width: 560px; height: 48px; }
+
+.stark-player__download {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.stark-player__download:hover { color: #fff; }
+
+/* Single — notes, transcript, aside */
+.stark-episode__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: clamp(48px, 6vw, 80px);
+    padding-bottom: clamp(64px, 8vw, 104px);
+}
+
+.stark-episode__main { min-width: 0; }
+
+.stark-episode__heading {
+    margin: 0 0 20px;
+    font-size: clamp(24px, 2.6vw, 30px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--stark-navy);
+}
+
+.stark-episode__transcript { margin-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--stark-hairline); }
+.stark-episode__transcript summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding: 24px 0; cursor: pointer; list-style: none; }
+.stark-episode__transcript summary::-webkit-details-marker { display: none; }
+.stark-episode__transcript summary .stark-episode__heading { margin: 0; }
+.stark-episode__transcript-hint { font-size: 15px; font-weight: 600; color: var(--stark-light-blue); }
+.stark-episode__transcript details[open] .stark-episode__transcript-hint { display: none; }
+.stark-episode__transcript summary:focus-visible { outline: 2px solid var(--stark-light-blue); outline-offset: 4px; border-radius: 4px; }
+.stark-episode__transcript-text { font-size: 16px; color: var(--stark-ink-soft); }
+
+.stark-episode__subscribe {
+    padding: 24px;
+    border: 1px solid var(--stark-hairline);
+    border-radius: 18px;
+    background: var(--stark-paper-soft);
+}
+
+.stark-episode__aside-label {
+    margin: 0;
+    font-family: var(--stark-font-condensed);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stark-ink-soft);
+}
+
+.stark-episode__subscribe .stark-subscribe { margin-top: 14px; }
+
+@media (min-width: 700px) {
+    .stark-episode-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .stark-episode-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .stark-episode__head { grid-template-columns: 320px 1fr; gap: 48px; }
+    .stark-episode__layout { grid-template-columns: minmax(0, 1fr) 300px; gap: 72px; }
+    .stark-episode__aside { position: sticky; top: calc(var(--stark-nav-h-scrolled) + 32px); align-self: start; }
+    .stark-episode__subscribe .stark-subscribe { flex-direction: column; }
+    .stark-episode__subscribe .stark-subscribe a { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stark-subscribe a,
+    .stark-episode-card,
+    .stark-episode-card__play { transition: none; }
+    .stark-episode-card:hover,
+    .stark-episode-card:focus-within,
+    .stark-episode-card:hover .stark-episode-card__play { transform: none; }
+}

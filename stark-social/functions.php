@@ -361,8 +361,9 @@ function stark_seconds_to_hms( $seconds ) {
  * Podlove Meta Shortcode: [starkpodmeta]
  * Output: Episode {number} • {duration} • {date}
  */
-function starkpodmeta_shortcode() {
-    $post_id = (int) get_the_ID();
+function starkpodmeta_shortcode( $atts = array() ) {
+    $atts    = shortcode_atts( array( 'id' => 0 ), $atts, 'starkpodmeta' );
+    $post_id = (int) $atts['id'] ?: (int) get_the_ID();
 
     if ( ! $post_id || 'podcast' !== get_post_type( $post_id ) ) {
         return get_the_date( 'M j, Y', $post_id );
@@ -377,18 +378,20 @@ function starkpodmeta_shortcode() {
         $episode_table = $wpdb->prefix . 'podlove_episode';
         $table_exists  = $wpdb->get_var( $wpdb->prepare( "SHOW TABLES LIKE %s", $episode_table ) );
 
-        if ( $table_exists !== $episode_table ) {
-            $output = get_the_date( 'M j, Y', $post_id );
-            set_transient( $transient_key, $output, DAY_IN_SECONDS );
-            return $output;
+        if ( $table_exists === $episode_table ) {
+            $row = $wpdb->get_row(
+                $wpdb->prepare(
+                    "SELECT number, duration FROM `$episode_table` WHERE post_id = %d LIMIT 1",
+                    $post_id
+                )
+            );
+        } else {
+            // No Podlove tables (Phase 2 before Podlove is installed): episode data imported as post meta (v27.0.16).
+            $row = (object) array(
+                'number'   => get_post_meta( $post_id, 'episode_number', true ),
+                'duration' => get_post_meta( $post_id, 'episode_duration', true ),
+            );
         }
-
-        $row = $wpdb->get_row(
-            $wpdb->prepare(
-                "SELECT number, duration FROM `$episode_table` WHERE post_id = %d LIMIT 1",
-                $post_id
-            )
-        );
 
         $number   = ( $row && isset( $row->number ) ) ? (string) $row->number : '';
         $duration = ( $row && isset( $row->duration ) ) ? $row->duration : '';
@@ -884,3 +887,8 @@ require_once get_stylesheet_directory() . '/inc/stark-portfolio.php';
  * Stark 27 Legal — /support/ legal pages template + noindex (v27.0.15).
  */
 require_once get_stylesheet_directory() . '/inc/stark-legal.php';
+
+/**
+ * Stark 27 Podcast — archive + episode templates, player, subscribe links (v27.0.16).
+ */
+require_once get_stylesheet_directory() . '/inc/stark-podcast.php';

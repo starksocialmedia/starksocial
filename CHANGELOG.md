@@ -2,6 +2,23 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.16] — November 2 2026
+
+### Added — Podcast templates
+- `templates/stark-podcast-archive.php` — show hero (The Social Life Podcast, subscribe links), 3-column episode grid (cover art + play badge, episode number, title, duration · date, excerpt), 12 per page with pagination, CTA
+- `templates/stark-podcast-single.php` — hero with cover art, title, Podlove subtitle, meta line via **`[starkpodmeta]`**, player; show notes; collapsible full transcript; sticky "Listen and subscribe" aside; 3 related episodes (same category, then recent); CTA
+- `templates/parts/podcast-card.php`, `templates/parts/podcast-subscribe.php`
+- `inc/stark-podcast.php` — routing, body classes, `stark_podcast_episode()`, **`stark_podcast_player()`: Podlove Web Player (`[podlove-episode-web-player]`) when the plugin is active, native `<audio>` + Download MP3 otherwise**, `stark_podcast_subscribe_links()` (Apple Podcasts, YouTube, RSS — from live; filterable), `stark_attachment_img()` (renders SVG attachments, which `wp_get_attachment_image()` skips — 35 of 37 covers are SVG)
+- `functions.php` — `[starkpodmeta]` accepts `id=""` and falls back to `episode_number` / `episode_duration` post meta when Podlove's tables don't exist
+- `custom.css` — v27.0.16 block
+- `tools/podcast-import/` — README + meta seed script
+
+### Content (Local)
+- 37 episodes imported from live (Podlove-managed `podcast` post type), cover art registered against existing uploads, Cornerstone stripped (6 transcript-PDF buttons kept as links), Podlove number / duration / subtitle / MP3 URL (podcast.starksocial.com) and transcripts (37 .txt files) stored as post meta
+
+### Launch-critical
+- **Podlove must be active on the Phase 2 site at launch** — it generates the podcast RSS feed (`/feed/podcast/`) that Apple Podcasts subscribers use
+
 ## [27.0.15] — November 2 2026
 
 ### Added — Legal pages
