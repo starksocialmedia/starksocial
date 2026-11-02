@@ -916,3 +916,183 @@ body { padding-top: 0; }
 .stark-nav__logo img { height: 30px; }
 body.stark-has-hero[data-stark-scrolled="false"] .stark-nav,
 html[data-stark-scrolled="false"] body.stark-has-hero .stark-nav { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom-color: transparent; height: var(--stark-nav-h); }
+
+/* ---------------------------------------------------------------------------
+   Footer — dark navy glass, 4-column links, bottom bar  (v27.0.2)
+   --------------------------------------------------------------------------- */
+
+.stark-footer {
+    position: relative;
+    background: var(--stark-navy);
+    color: rgba(255, 255, 255, 0.78);
+    padding: clamp(48px, 7vw, 88px) 0 24px;
+    margin-top: 80px;
+}
+
+.stark-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(48, 127, 226, 0.35), transparent);
+}
+
+.stark-footer__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 3vw, 32px);
+}
+
+.stark-footer__top {
+    display: grid;
+    grid-template-columns: minmax(260px, 1.1fr) 2.6fr;
+    gap: clamp(32px, 5vw, 64px);
+    padding-bottom: clamp(32px, 5vw, 56px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stark-footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stark-footer__logo {
+    display: inline-flex;
+    color: #fff;
+    text-decoration: none;
+}
+
+.stark-footer__logo img {
+    display: block;
+    height: 36px;
+    width: auto;
+}
+
+.stark-footer__tagline {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.62);
+    max-width: 32ch;
+}
+
+.stark-footer__social {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.stark-footer__social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.78);
+    transition: background 180ms var(--stark-ease), color 180ms var(--stark-ease), transform 180ms var(--stark-ease);
+}
+
+.stark-footer__social a:hover,
+.stark-footer__social a:focus-visible {
+    background: var(--stark-light-blue);
+    color: #fff;
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.stark-footer__cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 2.5vw, 32px);
+}
+
+.stark-footer__col { min-width: 0; }
+
+.stark-footer__heading {
+    margin: 0 0 16px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.stark-footer__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stark-footer__list a {
+    color: rgba(255, 255, 255, 0.68);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.4;
+    transition: color 160ms var(--stark-ease);
+}
+
+.stark-footer__list a:hover,
+.stark-footer__list a:focus-visible {
+    color: #fff;
+    outline: none;
+}
+
+.stark-footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+}
+
+.stark-footer__meta p {
+    margin: 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.52);
+    line-height: 1.5;
+}
+
+.stark-footer__copyright { color: rgba(255, 255, 255, 0.72) !important; }
+
+.stark-footer__legal {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stark-footer__legal a {
+    color: rgba(255, 255, 255, 0.52);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 160ms var(--stark-ease);
+}
+
+.stark-footer__legal a:hover,
+.stark-footer__legal a:focus-visible {
+    color: #fff;
+    outline: none;
+}
+
+@media (max-width: 1100px) {
+    .stark-footer__top { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 740px) {
+    .stark-footer__cols { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
+    .stark-footer__bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .stark-footer__legal { gap: 16px; }
+}
+
+.stark-phase-27 .site-footer { display: none !important; }

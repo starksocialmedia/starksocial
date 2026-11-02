@@ -111,10 +111,12 @@
 - [ ] Port Phase 1 scroll progress + velocity JS into `js/stark-global.js`
 - [ ] Port AIOSEO podcast breadcrumb filter to RankMath
 - [ ] Configure OpenAI API key in Perfex AI Chatbot
-- [ ] Verify transparent → frosted glass nav
-- [ ] Build mega menu (desktop) + accordion (mobile)
+- [x] Verify transparent → frosted glass nav — v27.0.1, November 2 2026
+- [x] Build mega menu (desktop) + accordion (mobile) — v27.0.1, November 2 2026
+- [x] Stark 27 footer v27.0.2 — 4-column links, social, bottom bar, GP footer suppressed — November 2 2026
 
 ### Phase 2.1 — Core Pages
+- [ ] Homepage shell — hero, 3-service row, who-we're-for, CTA, FAQ (next)
 - [ ] Home · About · Contact · Services hub
 
 ### Phase 2.2 — Service Pages (8)

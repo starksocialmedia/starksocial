@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 48" aria-label="Stark Social Media Agency">
+  <style>
+    .stark-logo-wordmark { font-family: 'Barlow', -apple-system, system-ui, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.02em; }
+    .stark-logo-sub { font-family: 'Barlow Condensed', -apple-system, system-ui, sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 0.26em; }
+  </style>
+  <text class="stark-logo-wordmark" x="0" y="30" fill="#ffffff">Stark</text>
+  <text class="stark-logo-sub" x="92" y="30" fill="#ffffff" opacity="0.65">SOCIAL MEDIA AGENCY</text>
+</svg>

@@ -795,3 +795,20 @@ function stark_fallback_mobile_menu() {
     <?php
     return ob_get_clean();
 }
+
+/**
+ * Stark 27 Footer — render on wp_footer, suppress GP default footer.
+ * Added November 2 2026 (v27.0.2).
+ */
+
+function stark_remove_generate_footer() {
+    remove_action( 'generate_footer', 'generate_construct_footer' );
+    remove_action( 'generate_footer', 'generate_footer_bar' );
+}
+add_action( 'wp', 'stark_remove_generate_footer' );
+
+function stark_render_footer() {
+    if ( is_admin() ) return;
+    include get_stylesheet_directory() . '/templates/stark-footer.php';
+}
+add_action( 'wp_footer', 'stark_render_footer', 1 );

@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.2] — November 2 2026
+
+### Added — Stark 27 footer
+- `templates/stark-footer.php` — dark navy footer: brand block (light logo, tagline, Instagram/LinkedIn/Facebook icons), four link columns (Services · Markets · Company · Support), bottom bar with copyright, location line, and legal links (Privacy · Terms · Cookie)
+- `img/stark-logo-light.svg` — white text wordmark for dark backgrounds
+- `custom.css` — footer styles (v27.0.2 block): 4-col grid, stacks at 1100px, 2-col links at 740px; uses existing `--stark-navy`, `--stark-light-blue`, `--stark-ease` tokens
+- `functions.php` — `stark_render_footer()` on `wp_footer` (priority 1, ahead of the bottom UI cluster at 5); `stark_remove_generate_footer()` unhooks GP's `generate_construct_footer` and `generate_footer_bar`; `.stark-phase-27 .site-footer` hidden as a backstop
+
 ## [2.0.16] — April 30 2026
 
 ### Fixed — Brand Sheet PDF
