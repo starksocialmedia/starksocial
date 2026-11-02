@@ -2,6 +2,23 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [Data] — November 2 2026 — Blog snapshot live → Local
+
+### Pulled
+- **Snapshot of all 72 blog posts from live into Local** (69 published, 3 scheduled for Nov 15, Dec 1, Dec 27 2026). Live keeps publishing — **final sync happens at launch cutover**
+- 90 attachment records registered against media already in Local `uploads/` (82 from the export + 8 featured images attached elsewhere on live). All 72 featured images resolve
+- Authors: `deannaleigh` (42 posts) and `starksocialmedia` (10) created as editors; `nateimhoff` (18) mapped to the existing Local admin
+
+### Cleaned
+- Pro/X + Cornerstone shortcodes stripped from 5 posts (posts only, pages untouched). Spotify `[cs_component]` buttons converted to plain links; other component embeds removed
+- Post 498 (award post) was fully Cornerstone-built — text kept as paragraphs; original headings and 3 slider images were only in Cornerstone data and are lost
+
+### Added
+- `tools/blog-snapshot/` — runbook + `register-attachments.php` + `strip-cornerstone.php` for the cutover re-run
+
+### Known issue (live)
+- `got-an-seo-audit-email-read-this-first` shows 7 ChatGPT citation artifacts (`:contentReference[oaicite:N]{index=N}`) in the live post body. Fix on live
+
 ## [27.0.6] — November 2 2026
 
 ### Changed — Footer
