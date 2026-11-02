@@ -2,6 +2,18 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.14] — November 2 2026
+
+### Changed — Barlow site-wide
+- `custom.css` v27.0.14 block: `--stark-font` / `--stark-font-condensed` tokens; `body, button, input, select, textarea` use Barlow. Nav, footer, forms and GP-rendered pages now match the Phase 2 templates (verified computed font on nav, footer and body: Barlow; files load)
+
+### Changed — Logos outlined
+- `img/stark-logo.svg` and `img/stark-logo-light.svg`: text converted to paths with fontTools from the theme's own `fonts/barlow-v13-latin-700.woff2` and `barlow-condensed-v13-latin-500.woff2`. Same viewBox (320×48), baselines, sizes, tracking and fills — they now render in Barlow as `<img>` instead of falling back to system fonts. ~11 KB each. Interim until Nathan's real wordmark files
+- `tools/logo-outline/` — script + README to regenerate
+
+### Fixed
+- Draft review banner (v27.0.13) is now pinned with the nav, so no gap appears above the nav on scroll; mobile shows the short label only
+
 ## [27.0.13] — November 2 2026
 
 ### Added — Services hub

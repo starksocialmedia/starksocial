@@ -3069,17 +3069,31 @@ body.stark-has-hero { background: var(--stark-paper); }
    --------------------------------------------------------------------------- */
 
 .stark-draft-banner {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1001;
-    padding: 10px clamp(16px, 3vw, 32px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 40px;
+    padding: 0 16px;
+    overflow: hidden;
     background: var(--stark-secondary-yellow, #FEDD00);
     color: var(--stark-ink);
     font-size: 14px;
-    line-height: 1.4;
-    text-align: center;
+    white-space: nowrap;
 }
 
+/* Banner and nav both stay pinned; content starts below the banner */
 body:has(.stark-draft-banner) .stark-nav { top: 40px; }
+body:has(.stark-draft-banner) .stark-page { margin-top: 40px; }
+
+@media (max-width: 699px) {
+    .stark-draft-banner__more { display: none; }
+}
 
 .stark-hub .stark-hero--service { min-height: 0; padding-bottom: clamp(56px, 8vw, 104px); }
 
@@ -3278,4 +3292,23 @@ body:has(.stark-draft-banner) .stark-nav { top: 40px; }
     align-items: center;
     justify-content: center;
     color: var(--stark-light-blue);
+}
+
+/* ---------------------------------------------------------------------------
+   Barlow site-wide  (v27.0.14)
+   @font-face declarations live in the v27.0.3 block. Form controls don't
+   inherit fonts by default, so they're listed explicitly (matches GP's selector).
+   --------------------------------------------------------------------------- */
+
+:root {
+    --stark-font: "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --stark-font-condensed: "Barlow Condensed", "Barlow", -apple-system, system-ui, sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: var(--stark-font);
 }

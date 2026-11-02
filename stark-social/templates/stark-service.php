@@ -22,7 +22,7 @@ $sections = array( 'hero', 'credibility', 'included', 'process', 'case-study', '
 <?php wp_body_open(); ?>
 
 <?php if ( ! empty( $ctx['draft'] ) ) : ?>
-    <div class="stark-draft-banner" role="note">[DRAFT - needs Nathan review] Copy on this page is a first draft. Set <em>Copy status</em> to Approved in the page editor when it's final.</div>
+    <div class="stark-draft-banner" role="note"><strong>[DRAFT - needs Nathan review]</strong> <span class="stark-draft-banner__more">Set <em>Copy status</em> to Approved in the page editor when the copy is final.</span></div>
 <?php endif; ?>
 
 <main id="main" class="stark-page stark-service">
