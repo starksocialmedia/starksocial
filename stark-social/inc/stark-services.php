@@ -258,19 +258,24 @@ function stark_service_portfolio_teasers( $slug, $count = 1 ) {
         ),
         'orderby'     => array( 'stark_year' => 'DESC', 'date' => 'DESC' ),
     ) );
-    return array_map( function ( $item ) {
-        $work = stark_portfolio_data( $item );
-        $stat = $work['results'] ? $work['results'][0] : array( 'value' => '', 'label' => '' );
-        return array(
-            'client'       => $work['client'],
-            'headline'     => $work['summary'] ?: $work['title'],
-            'result_value' => $stat['value'],
-            'result_label' => $stat['label'],
-            'summary'      => '',
-            'image'        => $work['card_id'] ? array( 'ID' => $work['card_id'] ) : null,
-            'link'         => array( 'url' => $work['url'], 'title' => 'Read the case study', 'target' => '' ),
-        );
-    }, $items );
+    return array_map( 'stark_portfolio_teaser', $items );
+}
+
+/**
+ * A portfolio item in the case_study teaser shape (templates/parts/service-case-study.php).
+ */
+function stark_portfolio_teaser( $item ) {
+    $work = stark_portfolio_data( $item );
+    $stat = $work['results'] ? $work['results'][0] : array( 'value' => '', 'label' => '' );
+    return array(
+        'client'       => $work['client'],
+        'headline'     => $work['summary'] ?: $work['title'],
+        'result_value' => $stat['value'],
+        'result_label' => $stat['label'],
+        'summary'      => '',
+        'image'        => $work['card_id'] ? array( 'ID' => $work['card_id'] ) : null,
+        'link'         => array( 'url' => $work['url'], 'title' => 'Read the case study', 'target' => '' ),
+    );
 }
 
 /**

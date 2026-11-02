@@ -3827,3 +3827,16 @@ textarea {
    --------------------------------------------------------------------------- */
 
 .stark-footer { padding-bottom: 96px; }
+
+/* ---------------------------------------------------------------------------
+   Homepage — social proof row, featured case study, FAQ  (v27.0.20)
+   --------------------------------------------------------------------------- */
+
+body:has(.stark-draft-banner) .stark-home { margin-top: 40px; }
+
+.stark-home-proof { padding: clamp(48px, 6vw, 72px) 0 0; background: var(--stark-paper); }
+.stark-home-proof__stats { margin-top: 0; }
+.stark-home-proof + .stark-services { padding-top: clamp(48px, 6vw, 80px); }
+
+.stark-home .stark-case { background: var(--stark-paper); }
+.stark-home .stark-faq { background: var(--stark-paper-soft); }

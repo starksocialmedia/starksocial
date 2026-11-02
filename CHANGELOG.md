@@ -2,6 +2,20 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.20] — November 2 2026
+
+### Added — Homepage polish (hero unchanged)
+- **Social proof row** under the hero: 3 stat tiles from the Home page's new fields. Seeded with facts from live copy only — **14** years in business (since 2012), **20+** years of marketing experience, **Winner** Communicator Award for web design. Live has no client / project counts, so "clients served" and "projects shipped" were not invented
+- **Featured case study**: Home page field, or the most recent portfolio item automatically (Pathway Escrow), rendered with the service-page teaser partial
+- **FAQ**: 8 questions (who you work with, who you'll work with, cost, timeline, process, voice, contracts, fit) with FAQPage schema. **Draft** — Home page Copy status shows the review banner
+- Homepage service cards now show service icons
+- `acf-json/group_stark_home.json` — Stark — Homepage (location: front page): copy status, stats, featured case study, FAQ
+- `inc/stark-services.php` — `stark_portfolio_teaser()` extracted (shared by service pages and homepage)
+- `custom.css` — v27.0.20 block
+
+### Added — tools
+- `tools/content-seed/` — every Local content seed from v27.0.12–v27.0.20 (service copy, case studies, authors, homepage) + run order for staging
+
 ## [Maintenance] — November 2 2026 — live content fix (Phase 1)
 
 ### Fixed on live (starksocial.com)
