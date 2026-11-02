@@ -864,3 +864,8 @@ require_once get_stylesheet_directory() . '/inc/stark-service-areas.php';
  * Stark 27 Pages — slug-matched templates for About, Contact (v27.0.7+).
  */
 require_once get_stylesheet_directory() . '/inc/stark-pages.php';
+
+/**
+ * Stark 27 Blog — archive + single templates, reading time, related posts (v27.0.9).
+ */
+require_once get_stylesheet_directory() . '/inc/stark-blog.php';

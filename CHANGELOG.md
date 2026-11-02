@@ -2,6 +2,18 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.9] — November 2 2026
+
+### Added — Blog archive + single templates
+- `templates/stark-blog-archive.php` — posts index (`/blog/`) plus category, tag, author and date archives: compact hero (archive-aware heading), category filter chips, 1/2/3-column post grid, numbered pagination, CTA band. 12 posts per page so the 3-column grid fills
+- `templates/stark-blog-single.php` — dark hero with category eyebrow, H1, meta row (author · date · reading time), featured image overlapping the hero, `.stark-prose` body, author box, 3 related posts (same category, then recent), CTA band
+- `templates/parts/blog-card.php` — post card (featured image, category tag, title, excerpt, date, author), whole card clickable; reused by related posts and search
+- `inc/stark-blog.php` — routing via `template_include` (not root `home.php`/`single.php`, so attachment pages and other post types keep their templates), `stark-has-hero` body class, `stark_reading_time()` (225 wpm), `stark_primary_category()` (skips Uncategorized), `stark_related_posts()`, `stark_show_author_box()` (hidden for the `starksocialmedia` house account, matching Phase 1 `author-box.js`; `stark_show_author_box` filter)
+- `custom.css` — v27.0.9 block
+
+### Local settings
+- Settings → Reading switched to a static front page: Home (ID 1980) on front, Blog (ID 1981) as posts page, so the archive lives at `/blog/`. Homepage still renders `stark-homepage.php`
+
 ## [27.0.8] — November 2 2026
 
 ### Added — Contact page template

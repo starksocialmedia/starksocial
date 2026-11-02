@@ -138,7 +138,10 @@
 - [ ] Migrate existing case studies
 
 ### Phase 2.4 — Blog & Podcast
-- [ ] Archive + single templates for both
+- [x] Blog snapshot from live into Local — 72 posts — November 2 2026 (final sync at cutover, see `tools/blog-snapshot/`)
+- [x] Blog archive + single templates v27.0.9 — November 2 2026
+- [ ] Podcast archive + single templates
+- [ ] Author bios (user descriptions empty on Local) + team page links
 
 ### Phase 2.5 — Support & Utility
 - [ ] Support hub, knowledgebase, 404, search, password generator, author pages
