@@ -2,6 +2,21 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.15] — November 2 2026
+
+### Added — Legal pages
+- `templates/stark-legal.php` — title-only hero, sticky side nav of all legal pages (current marked), "Questions? Contact us", long-form `.stark-prose` content
+- `inc/stark-legal.php` — `stark_get_legal_pages()` registry, routing by slug, `stark-has-hero` body class, **noindex, follow** on all four (RankMath's robots filter; core `wp_robots` only when RankMath is inactive — one robots meta either way)
+- Local pages under **`/support/`** — same URLs as live: Privacy Policy (reused WP's privacy page, ID 3), Terms of Service (1994), Cookie Policy (1995), Accessibility Statement (1996), parent Support (1992, default template until the Support hub is built). Content from live's rendered pages (headings intact), "Last updated: January 15, 2026" kept as the first line
+- `tools/legal-import/` — extractor + seed script + README for staging
+- Footer legal links now point at `/support/privacy-policy/`, `/support/terms-of-service/`, `/support/cookie-policy/` (were `/privacy-policy/` etc., which don't exist on live)
+
+### Fixed
+- Templates assigned `$page` in global scope (legal nav loop, services hub), clobbering WordPress's `$page` pagination global → `the_content()` fatal on legal pages. Renamed to `$legal_page` / `$svc_page`
+
+### Found on live (not fixed)
+- Live accessibility statement's content block reuses `id="privacy-policy"` (Cornerstone copy-paste)
+
 ## [27.0.14] — November 2 2026
 
 ### Changed — Barlow site-wide

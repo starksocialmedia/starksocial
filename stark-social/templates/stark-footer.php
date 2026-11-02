@@ -79,9 +79,9 @@ $year = date( 'Y' );
                 <p class="stark-footer__location">Santa Clarita, CA  &middot;  Serving Southern California</p>
             </div>
             <ul class="stark-footer__legal">
-                <li><a href="/privacy-policy/">Privacy Policy</a></li>
-                <li><a href="/terms-of-service/">Terms of Service</a></li>
-                <li><a href="/cookie-policy/">Cookie Policy</a></li>
+                <li><a href="/support/privacy-policy/">Privacy Policy</a></li>
+                <li><a href="/support/terms-of-service/">Terms of Service</a></li>
+                <li><a href="/support/cookie-policy/">Cookie Policy</a></li>
             </ul>
         </div>
 

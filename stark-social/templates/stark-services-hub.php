@@ -12,11 +12,11 @@ $featured_slug = apply_filters( 'stark_featured_service', 'web-design' );
 
 $cards = array();
 foreach ( stark_get_services() as $slug => $service ) {
-    $page = get_page_by_path( $slug );
+    $svc_page = get_page_by_path( $slug );
     $cards[ $slug ] = array(
         'slug'  => $slug,
-        'name'  => $page ? get_the_title( $page ) : $service['name'],
-        'pitch' => ( $page ? stark_field( 'card_description', $page->ID ) : '' ) ?: $service['desc'],
+        'name'  => $svc_page ? get_the_title( $svc_page ) : $service['name'],
+        'pitch' => ( $svc_page ? stark_field( 'card_description', $svc_page->ID ) : '' ) ?: $service['desc'],
         'icon'  => $service['icon'],
         'url'   => '/' . $slug . '/',
     );

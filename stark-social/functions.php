@@ -879,3 +879,8 @@ require_once get_stylesheet_directory() . '/inc/stark-utility.php';
  * Stark 27 Portfolio — case study post type, /work/ archive, single (v27.0.12).
  */
 require_once get_stylesheet_directory() . '/inc/stark-portfolio.php';
+
+/**
+ * Stark 27 Legal — /support/ legal pages template + noindex (v27.0.15).
+ */
+require_once get_stylesheet_directory() . '/inc/stark-legal.php';

@@ -153,7 +153,8 @@
 - [ ] Support hub, knowledgebase, password generator, author pages
 
 ### Phase 2.6 — Legal
-- [ ] Copy-forward 4 legal pages
+- [x] Copy-forward 4 legal pages to `/support/` — v27.0.15, noindex — November 2 2026
+- [ ] Legal review of copy (last updated January 15, 2026)
 
 ### Phase 2.7 — QA & Launch
 - [ ] PageSpeed (desktop 95+, mobile 85+)
