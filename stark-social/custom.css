@@ -1757,3 +1757,117 @@ body.stark-has-hero { background: var(--stark-paper); }
     .stark-faq__q::before,
     .stark-faq__q::after { transition: none; }
 }
+
+/* ---------------------------------------------------------------------------
+   Location page — local credibility block  (v27.0.5)
+   --------------------------------------------------------------------------- */
+
+.stark-cred__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: start;
+}
+
+.stark-cred__body {
+    margin-top: 20px;
+    max-width: 60ch;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--stark-ink-soft);
+}
+
+.stark-cred__body p { margin: 0 0 14px; }
+
+.stark-cred__areas-label {
+    margin: 28px 0 12px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stark-navy);
+}
+
+.stark-cred__areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stark-cred__areas li {
+    padding: 6px 14px;
+    border: 1px solid rgba(48, 127, 226, 0.3);
+    border-radius: 999px;
+    font-size: 14px;
+    color: var(--stark-navy);
+    background: var(--stark-paper);
+}
+
+.stark-cred__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stark-cred__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--stark-hairline);
+    border-radius: 16px;
+    background: var(--stark-hairline);
+}
+
+.stark-cred__stat {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 6px;
+    padding: 24px;
+    background: var(--stark-paper);
+}
+
+.stark-cred__stat dd {
+    margin: 0;
+    font-size: clamp(30px, 3.5vw, 42px);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--stark-light-blue);
+}
+
+.stark-cred__stat dt {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--stark-ink-soft);
+}
+
+.stark-cred__quote {
+    margin: 0;
+    padding: 28px;
+    border-radius: 16px;
+    background: var(--stark-hero-bg);
+    color: #fff;
+}
+
+.stark-cred__quote blockquote { margin: 0; padding: 0; border: 0; }
+
+.stark-cred__quote p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.55;
+    font-style: normal;
+}
+
+.stark-cred__quote figcaption {
+    margin-top: 14px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+@media (min-width: 1024px) {
+    .stark-cred__inner:has(.stark-cred__aside) { grid-template-columns: 1.2fr 1fr; }
+}

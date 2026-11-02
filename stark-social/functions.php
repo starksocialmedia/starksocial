@@ -850,5 +850,8 @@ function stark_inline_svg( $relative_path, $class = '' ) {
 
 /**
  * Stark 27 Service pages — template, ACF location rule, context (v27.0.4).
+ * Location pages — service + market overlay (v27.0.5).
  */
 require_once get_stylesheet_directory() . '/inc/stark-services.php';
+require_once get_stylesheet_directory() . '/inc/stark-locations.php';
+

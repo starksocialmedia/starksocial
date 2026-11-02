@@ -1,0 +1,572 @@
+{
+    "key": "group_stark_location",
+    "title": "Stark \u2014 Location Page",
+    "fields": [
+        {
+            "key": "field_stark_loc_tab_hero",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_loc_market_name",
+            "label": "Market name",
+            "name": "market_name",
+            "type": "text",
+            "instructions": "Defaults to the page title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Antelope Valley",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_loc_hero_headline",
+            "label": "H1 override",
+            "name": "hero_headline",
+            "type": "text",
+            "instructions": "Defaults to \"{Service} in {Market}\".",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_loc_hero_thesis",
+            "label": "Thesis override",
+            "name": "hero_thesis",
+            "type": "textarea",
+            "instructions": "One sentence. Leave empty to use the parent service's thesis.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 200,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_loc_hero_cta_primary",
+            "label": "Primary CTA override",
+            "name": "hero_cta_primary",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_stark_loc_tab_cred",
+            "label": "Local Credibility",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_loc_cred_heading",
+            "label": "Heading",
+            "name": "cred_heading",
+            "type": "text",
+            "instructions": "Block shows when heading or body is filled.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Rooted in the Antelope Valley",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_loc_cred_body",
+            "label": "Body",
+            "name": "cred_body",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_loc_cred_stats",
+            "label": "Stats",
+            "name": "cred_stats",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "min": 0,
+            "max": 4,
+            "collapsed": "",
+            "button_label": "Add stat",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_stark_loc_stat_value",
+                    "label": "Value",
+                    "name": "value",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "40+",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_loc_cred_stats"
+                },
+                {
+                    "key": "field_stark_loc_stat_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "65",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "local businesses served",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_loc_cred_stats"
+                }
+            ]
+        },
+        {
+            "key": "field_stark_loc_cred_areas",
+            "label": "Areas served",
+            "name": "cred_areas",
+            "type": "textarea",
+            "instructions": "One per line, e.g. Lancaster, Palmdale.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_loc_cred_quote",
+            "label": "Local testimonial",
+            "name": "cred_quote",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "65",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_loc_cred_quote_name",
+            "label": "Attribution",
+            "name": "cred_quote_name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Name, Business",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_loc_tab_case",
+            "label": "Local Case Studies",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_loc_local_case_studies",
+            "label": "Local case studies",
+            "name": "local_case_studies",
+            "type": "repeater",
+            "instructions": "Up to 3. Leave empty to show the parent service's featured case study.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "min": 0,
+            "max": 3,
+            "collapsed": "",
+            "button_label": "Add case study",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_stark_loc_case_client",
+                    "label": "Client",
+                    "name": "client",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_loc_local_case_studies"
+                },
+                {
+                    "key": "field_stark_loc_case_headline",
+                    "label": "Headline",
+                    "name": "headline",
+                    "type": "text",
+                    "instructions": "Required for the teaser to show.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_loc_local_case_studies"
+                },
+                {
+                    "key": "field_stark_loc_case_result_value",
+                    "label": "Result value",
+                    "name": "result_value",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "+212%",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_loc_local_case_studies"
+                },
+                {
+                    "key": "field_stark_loc_case_result_label",
+                    "label": "Result label",
+                    "name": "result_label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "75",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "organic traffic in 6 months",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_loc_local_case_studies"
+                },
+                {
+                    "key": "field_stark_loc_case_summary",
+                    "label": "Summary",
+                    "name": "summary",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_stark_loc_local_case_studies"
+                },
+                {
+                    "key": "field_stark_loc_case_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "preview_size": "medium",
+                    "mime_types": "",
+                    "parent_repeater": "field_stark_loc_local_case_studies"
+                },
+                {
+                    "key": "field_stark_loc_case_link",
+                    "label": "Full case study link",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_stark_loc_local_case_studies"
+                }
+            ]
+        },
+        {
+            "key": "field_stark_loc_tab_faq",
+            "label": "Local FAQ",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_loc_local_faq_items",
+            "label": "Local questions",
+            "name": "local_faq_items",
+            "type": "repeater",
+            "instructions": "Shown after the parent service's FAQ.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add question",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_stark_loc_faq_question",
+                    "label": "Question",
+                    "name": "question",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_loc_local_faq_items"
+                },
+                {
+                    "key": "field_stark_loc_faq_answer",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_stark_loc_local_faq_items"
+                }
+            ]
+        },
+        {
+            "key": "field_stark_loc_tab_cta",
+            "label": "Final CTA",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_loc_final_cta_heading",
+            "label": "Heading override",
+            "name": "final_cta_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Ready to grow in the Antelope Valley?",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "stark_location_page",
+                "operator": "==",
+                "value": "any"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "v27.0.5 \u2014 local overlay for templates/stark-location.php. Service content is inherited from the parent page.",
+    "show_in_rest": 0,
+    "modified": 1793655596
+}

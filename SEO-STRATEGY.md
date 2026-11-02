@@ -1,7 +1,7 @@
 # SEO-STRATEGY.md — Stark Social Media Agency
 **Project:** starksocial.com Phase 2  
 **Owner:** Claude — SEO Chat  
-**Last Updated:** April 2026  
+**Last Updated:** November 2026  
 **Tools:** RankMath Pro, Wincher, Google Search Console, Google Business Profile
 
 ---
@@ -12,7 +12,7 @@
 - Core Web Vitals all green post-launch
 - Schema validation zero errors
 - Rank for agency keywords in 4 target markets
-- Own digital marketing / fractional CMO searches in underserved SoCal suburbs
+- Own digital marketing searches in underserved SoCal suburbs
 
 ---
 
@@ -47,13 +47,20 @@
 - Internal linking: service pages → local landing pages
 
 ### Local Landing Page URL Structure
+
+**Locked pattern: nested `/{service}/{area}/`** — a location page is a child of its service page. Any page nested under a service page renders with `templates/stark-location.php` (v27.0.5); flat slugs like `/web-design-bakersfield/` do not.
+
 ```
 /social-media-management/san-fernando-valley/
 /social-media-management/antelope-valley/
-/digital-marketing-antelope-valley/
-/fractional-cmo-ventura-county/
-/web-design-bakersfield/
+/web-design/antelope-valley/
+/web-design/bakersfield/
+/seo/ventura-county/
 ```
+
+- `{service}` — one of the 7 service slugs: `social-media-management`, `paid-advertising`, `web-design`, `seo`, `content-creation`, `brand-strategy-identity`, `audit-consulting`
+- `{area}` — market slug: `santa-clarita`, `san-fernando-valley`, `antelope-valley`, `ventura-county`, `bakersfield`
+
 *(Full URL map to be built in SEO chat)*
 
 ---
@@ -71,7 +78,6 @@
 | Content Creation | TBD | TBD | TBD |
 | Brand Strategy | TBD | TBD | TBD |
 | Audit & Consulting | TBD | TBD | TBD |
-| Fractional CMO | TBD | TBD | TBD |
 
 ---
 
@@ -125,6 +131,5 @@
 ## Notes
 
 - Antelope Valley and Bakersfield are highest opportunity — minimal agency competition
-- Fractional CMO is a rising search term, low competition outside major metros
 - Digital Marketing Audit is a strong entry-point service for local SEO — "free audit" angle
 - Podcast content should be schema-marked up for potential rich results

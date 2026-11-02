@@ -2,6 +2,20 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.5] — November 2 2026
+
+### Added — Location page template (service + market)
+- `templates/stark-location.php` — renders any page nested under a service page (`/web-design/antelope-valley/`). Builds the parent service context, overlays local fields, then renders through `stark-service.php` so both page types share one set of partials
+- `inc/stark-locations.php` — `stark_get_location_parent()`, `stark_location_context()`, `template_include` routing, `stark-has-hero` + `stark-location-page` body classes, custom ACF location rule **Stark location page** (any page whose parent is a service page, optionally per service)
+- `acf-json/group_stark_location.json` — Stark — Location Page: market name, H1 override (default "{Service} in {Market}"), thesis + primary CTA overrides, local credibility (heading, body, up to 4 stats, areas served, testimonial), up to 3 local case studies, local FAQ, final CTA heading override
+- `templates/parts/service-credibility.php` — local credibility block, rendered after the hero on location pages only
+- `custom.css` — v27.0.5 block: credibility grid, stat tiles, area chips, testimonial card
+
+### Behavior
+- Local case studies replace the parent's featured case study when present; otherwise the parent's shows
+- Local FAQ items are appended after the parent's FAQ (and included in FAQPage schema)
+- Related cards link to `/{other-service}/{market}/` when that page exists, else the service page
+
 ## [27.0.4] — November 2 2026
 
 ### Added — Service page template

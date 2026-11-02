@@ -121,7 +121,9 @@
 
 ### Phase 2.2 — Service Pages (7)
 - [x] Service page template v27.0.4 — ACF Pro fields via `acf-json/`, routes by slug — November 2 2026
+- [x] Location page template v27.0.5 — `/{service}/{market}/`, local overlay on parent content — November 2 2026
 - [ ] Activate ACF Pro on staging + live (Local switched from free ACF)
+- [ ] Full local landing URL map (SEO chat) — pattern locked: nested `/{service}/{area}/`
 - [ ] All 7 service pages (shared template, unique content)
 - [ ] New: Audit & Consulting
 
