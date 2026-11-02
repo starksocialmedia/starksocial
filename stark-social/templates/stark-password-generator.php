@@ -58,7 +58,7 @@ $faq = array(
                 <ul>
                     <?php foreach ( $tips as $tip ) : ?><li><?php echo esc_html( $tip ); ?></li><?php endforeach; ?>
                 </ul>
-                <p class="stark-passgen-page__more">More on this: <a href="/2025/11/15/why-random-passwords-matter-and-how-to-make-them-easy/">Why random passwords matter</a></p>
+                <p class="stark-passgen-page__more">More on this: <a href="/why-random-passwords-matter-and-how-to-make-them-easy/">Why random passwords matter</a></p>
             </aside>
         </div>
     </section>

@@ -161,6 +161,7 @@
 - [ ] Legal review of copy (last updated January 15, 2026)
 
 ### Phase 2.7 — QA & Launch
+- [ ] **Staging permalinks = live:** `/%postname%/`, category base `blogs/category`, tag base `blogs/tag`
 - [ ] PageSpeed (desktop 95+, mobile 85+)
 - [ ] Core Web Vitals green
 - [ ] Cross-browser + device

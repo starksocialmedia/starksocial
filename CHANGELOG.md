@@ -2,6 +2,16 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [Maintenance] — November 2 2026 — live content fix (Phase 1)
+
+### Fixed on live (starksocial.com)
+- **Post 1855 `got-an-seo-audit-email-read-this-first`**: removed 7 pasted ChatGPT citation markers (`:contentReference[oaicite:N]{index=N}`) that were visible to readers. Only post on live containing them
+- Method: original content saved first; markers removed with a regex that preserves CRLF line endings; diff confirmed 6 lines changed and nothing else; uploaded via ssh, checksum-verified, `wp post update`; stored content verified byte-identical to original minus the markers (a WordPress revision of the previous version exists). Public page re-checked: 200, 0 markers
+
+### Found while there — Local permalinks didn't match live
+- Live: `/%postname%/`, category base `blogs/category`, tag base `blogs/tag`. Local was on `/%year%/%monthnum%/%day%/%postname%/` — every blog URL would have changed at launch. **Local switched to match live**; all Phase 2 URLs re-checked (200). Staging must use the same settings
+- Password generator page link to the passwords post updated to the `/%postname%/` URL
+
 ## [27.0.19] — November 2 2026
 
 ### Fixed — Fixed A11y / back-to-top buttons covering footer content
