@@ -1,0 +1,373 @@
+{
+    "key": "group_stark_contact",
+    "title": "Stark \u2014 Contact Page",
+    "fields": [
+        {
+            "key": "field_stark_contact_tab_hero",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_contact_hero_eyebrow",
+            "label": "Eyebrow",
+            "name": "hero_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Get in touch",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_contact_hero_title",
+            "label": "H1",
+            "name": "hero_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Let's talk about your growth.",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_contact_hero_intro",
+            "label": "Intro",
+            "name": "hero_intro",
+            "type": "textarea",
+            "instructions": "One paragraph.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_contact_tab_form",
+            "label": "Form",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_contact_form_heading",
+            "label": "Heading",
+            "name": "form_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Tell us about your business",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_contact_form_intro",
+            "label": "Intro",
+            "name": "form_intro",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_contact_gf_form_id",
+            "label": "Gravity Forms form ID",
+            "name": "gf_form_id",
+            "type": "number",
+            "instructions": "Rendered with [gravityform id=\"\u2026\" title=\"false\" ajax=\"true\"]. Shows a placeholder until the form exists.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "min": 1,
+            "max": "",
+            "step": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_contact_tab_details",
+            "label": "Contact Details",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_contact_address",
+            "label": "Address",
+            "name": "address",
+            "type": "textarea",
+            "instructions": "One line per row.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_contact_phone",
+            "label": "Phone",
+            "name": "phone",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_contact_email",
+            "label": "Email",
+            "name": "email",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_contact_hours",
+            "label": "Office hours",
+            "name": "hours",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "min": 0,
+            "max": 7,
+            "collapsed": "",
+            "button_label": "Add row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_stark_contact_hrs_days",
+                    "label": "Days",
+                    "name": "days",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Mon\u2013Thu",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_contact_hours"
+                },
+                {
+                    "key": "field_stark_contact_hrs_time",
+                    "label": "Hours",
+                    "name": "time",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "9:00 AM \u2013 5:00 PM",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_contact_hours"
+                }
+            ]
+        },
+        {
+            "key": "field_stark_contact_social",
+            "label": "Social links",
+            "name": "social",
+            "type": "repeater",
+            "instructions": "Leave empty to use the footer links.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "min": 0,
+            "max": 6,
+            "collapsed": "",
+            "button_label": "Add link",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_stark_contact_soc_network",
+                    "label": "Network",
+                    "name": "network",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "instagram": "Instagram",
+                        "linkedin": "LinkedIn",
+                        "facebook": "Facebook"
+                    },
+                    "default_value": "instagram",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_stark_contact_social"
+                },
+                {
+                    "key": "field_stark_contact_soc_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_stark_contact_social"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "stark_page",
+                "operator": "==",
+                "value": "contact"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "v27.0.8 \u2014 content for templates/stark-contact.php.",
+    "show_in_rest": 0,
+    "modified": 1793659278
+}

@@ -2,6 +2,17 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.0.8] — November 2 2026
+
+### Added — Contact page template
+- `templates/stark-contact.php` — hero (eyebrow "Get in touch", H1 "Let's talk about your growth.", intro) → two-column band: form card left, sticky contact details right (stacks on mobile, form first)
+- **Form:** `[gravityform id="1" title="false" description="false" ajax="true"]`. ID comes from the page's `gf_form_id` field (default **1**). Until that form exists, a dashed placeholder explains what to configure
+- Details: phone (`tel:+1…`), email (antispambot-encoded), mailing address, office hours, social icons. Defaults mirror the live Contact page (P.O. Box 55081 Valencia, (661) 513-3996, hello@, Mon–Thu 9–5 / Fri 9–4) and footer socials; every value is overridable in ACF
+- `inc/stark-pages.php` — `contact` added to the page registry; `stark_default_social_links()` + `stark_social_icon()` helpers
+- `acf-json/group_stark_contact.json` — Stark — Contact Page (tabs: Hero, Form, Contact Details)
+- `custom.css` — v27.0.8 block
+- Local: Contact page (ID 1979) created; `[SAMPLE]` intro copy
+
 ## [27.0.7] — November 2 2026
 
 ### Added — About page template
