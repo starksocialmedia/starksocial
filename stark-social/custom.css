@@ -1,24 +1,35 @@
 /*
- * custom.css — Stark Social design system
- * Phase 2 child theme. Loaded after GeneratePress + child style.css.
+ * custom.css — Stark Social design system (Phase 2 child theme)
+ * Loaded after GeneratePress + child style.css. Reorganised in v27.1.6: rules
+ * are unchanged, sections are grouped by area. Within a section, blocks keep
+ * their version tag (v27.0.x / v27.1.x) so CHANGELOG entries still map to code.
  *
- * The ~2,000 lines of global CSS currently in the WPCode "Stark Global CSS"
- * snippet on the live site belong in the marked section below.
+ * Contents
+ *    1. Tokens
+ *    2. Fonts + base typography
+ *    3. Navigation
+ *    4. Footer
+ *    5. Global UI
+ *    6. Shared components + homepage
+ *    7. Service + location pages
+ *    8. Services hub + draft banner
+ *    9. About + contact
+ *   10. Blog, 404 + search
+ *   11. Portfolio
+ *   12. Podcast + author pages
+ *   13. Support, knowledgebase, legal, password generator
+ *   14. Global overrides — accessibility
+ *   15. Reduced motion
  *
- * Order (source of truth: STYLEGUIDE.md):
- *   1. :root custom properties + seasonal overrides
- *   2. Base / reset / typography
- *   3. Layout (.stark-section, .stark-inner, breakpoints)
- *   4. Components — buttons, cards, nav, CTA, FAQ, forms
- *   5. Navigation — transparent → frosted, mega menu, mobile accordion
- *   6. Signature features — scroll progress bar, A11y + back-to-top
- *   7. Seasonal accents
- *   8. Utilities
- *   9. Reduced-motion overrides
- *
- * Phase 2 guidance: remove !important from ported Phase 1 rules where possible.
- * Themeco Pro specificity is gone — most overrides should no longer need it.
+ * Order matters in two places: section 14 recolours text from earlier
+ * sections, and section 15 must stay last.
  */
+
+
+/* ==========================================================================
+   1. Tokens
+   Brand colours, type, radii, seasonal accents. --stark-blue-ink is in section 14.
+   ========================================================================== */
 
 /* ---------------------------------------------------------------------------
    1. Custom properties
@@ -75,261 +86,6 @@ html[data-stark-season="summer"] { --stark-accent: rgba(33,165,255,.88); }
 html[data-stark-season="fall"]   { --stark-accent: rgba(30,92,195,.88); }
 html[data-stark-season="winter"] { --stark-accent: rgba(92,178,255,.82); }
 
-
-/* ---------------------------------------------------------------------------
-   2–8. PASTE WPCode "Stark Global CSS" HERE
-   --------------------------------------------------------------------------- */
-
-/* Paste the ~2,000 lines of WPCode global CSS below this line.
-   Section order per the list at the top of this file.
-   Remove !important where Themeco specificity is no longer competing. */
-
-
-/* ---------------------------------------------------------------------------
-   9. Reduced motion — site-wide kill switch
-   --------------------------------------------------------------------------- */
-
-@media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
-}
-/* =========================================================================
-   Bottom UI cluster — A11y + back-to-top (left) + chat bot (right)
-   Appended to custom.css by apply.sh
-   ========================================================================= */
-
-/* Kill native smooth-scroll site-wide. Our RAF scroll replaces it.
-   Eliminates iOS momentum vs smooth-scroll conflicts. */
-html {
-  scroll-behavior: auto !important;
-}
-
-/* Shared glass pill for A11y + back-to-top. */
-.stark-a11y-btn,
-.stark-back-to-top {
-  position: fixed;
-  bottom: clamp(14px, 2vw, 22px);
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.72);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-          backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow:
-    0 10px 26px rgba(0, 0, 0, 0.10),
-    0 0 0 1px rgba(255, 255, 255, 0.22) inset;
-  color: rgba(17, 17, 17, 0.78);
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 99998;
-  transition:
-    left 360ms cubic-bezier(.2, .8, .2, 1),
-    transform 360ms cubic-bezier(.2, .8, .2, 1),
-    opacity 240ms ease,
-    box-shadow 160ms ease,
-    background 160ms ease;
-}
-
-.stark-a11y-btn:hover,
-.stark-back-to-top:hover {
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.28) inset;
-}
-
-.stark-a11y-btn:focus-visible,
-.stark-back-to-top:focus-visible {
-  outline: none;
-  box-shadow:
-    0 0 0 3px rgba(48, 127, 226, 0.25),
-    0 10px 26px rgba(0, 0, 0, 0.10),
-    0 0 0 1px rgba(255, 255, 255, 0.22) inset;
-}
-
-.stark-a11y-btn {
-  left: 10px;
-  right: auto;
-}
-
-html[data-stark-cluster="active"] .stark-a11y-btn {
-  left: 64px;
-}
-
-.stark-a11y-icon {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: inherit;
-}
-
-.stark-back-to-top {
-  left: 10px;
-  right: auto;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(18px);
-}
-
-html[data-stark-cluster="active"] .stark-back-to-top {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.stark-back-to-top::before {
-  content: "";
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid currentColor;
-  border-right: 2px solid currentColor;
-  transform: rotate(-45deg) translate(-1px, 1px);
-  border-radius: 1px;
-}
-
-.screen-reader-text {
-  position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  border: 0;
-  word-wrap: normal !important;
-}
-
-/* Perfex PRChat — bottom-right, squircle, accent blue */
-#prchat-widget-container,
-.prchat-widget-container,
-.prchat-widget {
-  position: fixed;
-  bottom: clamp(14px, 2vw, 22px);
-  right: 16px;
-  z-index: 99997;
-}
-
-#prchat-widget-button,
-.prchat-widget-button,
-.prchat-launcher {
-  width: 58px !important;
-  height: 58px !important;
-  border-radius: 42% 58% 52% 48% / 45% 45% 55% 55% !important;
-  background: var(--stark-primary-light-blue, #307FE2) !important;
-  border: 1px solid rgba(48, 127, 226, 0.35) !important;
-  box-shadow:
-    0 14px 34px rgba(48, 127, 226, 0.32),
-    0 0 0 1px rgba(255, 255, 255, 0.18) inset !important;
-  color: #fff !important;
-  cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  opacity: 0;
-  transform: translateX(120%);
-  animation: stark-chat-slide-in 620ms cubic-bezier(.2, .8, .2, 1) 400ms forwards;
-  transition:
-    transform 180ms cubic-bezier(.2, .8, .2, 1),
-    box-shadow 180ms ease,
-    background 180ms ease;
-}
-
-#prchat-widget-button:hover,
-.prchat-widget-button:hover,
-.prchat-launcher:hover {
-  background: #1e6fd0 !important;
-  transform: translateY(-2px) scale(1.02) !important;
-  box-shadow:
-    0 20px 44px rgba(48, 127, 226, 0.42),
-    0 0 0 1px rgba(255, 255, 255, 0.22) inset !important;
-}
-
-#prchat-widget-button:focus-visible,
-.prchat-widget-button:focus-visible,
-.prchat-launcher:focus-visible {
-  outline: none !important;
-  box-shadow:
-    0 0 0 4px rgba(48, 127, 226, 0.30),
-    0 14px 34px rgba(48, 127, 226, 0.32),
-    0 0 0 1px rgba(255, 255, 255, 0.22) inset !important;
-}
-
-@keyframes stark-chat-slide-in {
-  0%   { opacity: 0; transform: translateX(120%); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
-#prchat-widget-button::after,
-.prchat-widget-button::after,
-.prchat-launcher::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 2px solid rgba(48, 127, 226, 0.55);
-  opacity: 0;
-  pointer-events: none;
-  animation: stark-chat-pulse 1600ms cubic-bezier(.2, .8, .2, 1) 3020ms 1 forwards;
-}
-
-@keyframes stark-chat-pulse {
-  0%   { opacity: 0;   transform: scale(1);   }
-  20%  { opacity: 0.9; transform: scale(1);   }
-  100% { opacity: 0;   transform: scale(1.8); }
-}
-
-.prchat-widget-open #prchat-widget-button::after,
-#prchat-widget-button[aria-expanded="true"]::after,
-.prchat-widget-button[aria-expanded="true"]::after {
-  animation: none;
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .stark-a11y-btn,
-  .stark-back-to-top,
-  #prchat-widget-button,
-  .prchat-widget-button,
-  .prchat-launcher {
-    transition: none !important;
-    animation: none !important;
-  }
-  #prchat-widget-button,
-  .prchat-widget-button,
-  .prchat-launcher {
-    opacity: 1;
-    transform: none;
-  }
-  .stark-back-to-top {
-    transform: none;
-  }
-}
-
-@media (max-width: 480px) {
-  #prchat-widget-button,
-  .prchat-widget-button,
-  .prchat-launcher {
-    width: 52px !important;
-    height: 52px !important;
-  }
-}
 /* ---------------------------------------------------------------------------
    Design tokens (foundational — will expand in next drop)
    --------------------------------------------------------------------------- */
@@ -351,6 +107,47 @@ html[data-stark-cluster="active"] .stark-back-to-top {
 
 /* No CSS smooth scroll — JS handles programmatic scroll */
 html { scroll-behavior: auto; }
+
+
+/* ==========================================================================
+   2. Fonts + base typography
+   Self-hosted Barlow / Barlow Condensed; Barlow on body and form controls.
+   ========================================================================== */
+
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/barlow-v13-latin-regular.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/barlow-v13-latin-500.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/barlow-v13-latin-600.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/barlow-v13-latin-700.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/barlow-v13-latin-800.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/barlow-condensed-v13-latin-regular.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/barlow-condensed-v13-latin-500.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/barlow-condensed-v13-latin-600.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/barlow-condensed-v13-latin-700.woff2") format("woff2"); }
+
+/* ---------------------------------------------------------------------------
+   Barlow site-wide  (v27.0.14)
+   @font-face declarations live in the v27.0.3 block. Form controls don't
+   inherit fonts by default, so they're listed explicitly (matches GP's selector).
+   --------------------------------------------------------------------------- */
+
+:root {
+    --stark-font: "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --stark-font-condensed: "Barlow Condensed", "Barlow", -apple-system, system-ui, sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: var(--stark-font);
+}
+
+
+/* ==========================================================================
+   3. Navigation
+   Shell, logo, menus, mega menu, scrim, progress bar, mobile overlay.
+   ========================================================================== */
 
 /* ---------------------------------------------------------------------------
    Nav shell
@@ -917,6 +714,11 @@ body { padding-top: 0; }
 body.stark-has-hero[data-stark-scrolled="false"] .stark-nav,
 html[data-stark-scrolled="false"] body.stark-has-hero .stark-nav { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom-color: transparent; height: var(--stark-nav-h); }
 
+
+/* ==========================================================================
+   4. Footer
+   ========================================================================== */
+
 /* ---------------------------------------------------------------------------
    Footer — dark navy glass, 4-column links, bottom bar  (v27.0.2)
    --------------------------------------------------------------------------- */
@@ -1098,19 +900,270 @@ html[data-stark-scrolled="false"] body.stark-has-hero .stark-nav { background: t
 .stark-phase-27 .site-footer { display: none !important; }
 
 /* ---------------------------------------------------------------------------
+   Fixed bottom-left cluster (back-to-top + A11y) clearance  (v27.0.19)
+   The cluster sits ~14–58px above the viewport bottom. Extra footer padding
+   means that at full scroll it floats over empty space instead of the
+   copyright line (desktop) or the legal links (mobile tap-target collision).
+   --------------------------------------------------------------------------- */
+
+.stark-footer { padding-bottom: 96px; }
+
+/* v27.1.4 mobile audit */
+/* Footer links: 20px tall → 28px+ tap targets on touch screens, same visual rhythm */
+@media (max-width: 768px) {
+    .stark-footer__list { gap: 2px; }
+    .stark-footer__list a { display: inline-block; padding: 4px 0; }
+    .stark-footer__legal a { display: inline-block; padding: 6px 0; }
+}
+
+
+/* ==========================================================================
+   5. Global UI
+   A11y + back-to-top cluster, Perfex chat button.
+   ========================================================================== */
+
+/* =========================================================================
+   Bottom UI cluster — A11y + back-to-top (left) + chat bot (right)
+   Appended to custom.css by apply.sh
+   ========================================================================= */
+
+/* Kill native smooth-scroll site-wide. Our RAF scroll replaces it.
+   Eliminates iOS momentum vs smooth-scroll conflicts. */
+html {
+  scroll-behavior: auto !important;
+}
+
+/* Shared glass pill for A11y + back-to-top. */
+.stark-a11y-btn,
+.stark-back-to-top {
+  position: fixed;
+  bottom: clamp(14px, 2vw, 22px);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+          backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.10),
+    0 0 0 1px rgba(255, 255, 255, 0.22) inset;
+  color: rgba(17, 17, 17, 0.78);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99998;
+  transition:
+    left 360ms cubic-bezier(.2, .8, .2, 1),
+    transform 360ms cubic-bezier(.2, .8, .2, 1),
+    opacity 240ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.stark-a11y-btn:hover,
+.stark-back-to-top:hover {
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.28) inset;
+}
+
+.stark-a11y-btn:focus-visible,
+.stark-back-to-top:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(48, 127, 226, 0.25),
+    0 10px 26px rgba(0, 0, 0, 0.10),
+    0 0 0 1px rgba(255, 255, 255, 0.22) inset;
+}
+
+.stark-a11y-btn {
+  left: 10px;
+  right: auto;
+}
+
+html[data-stark-cluster="active"] .stark-a11y-btn {
+  left: 64px;
+}
+
+.stark-a11y-icon {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: inherit;
+}
+
+.stark-back-to-top {
+  left: 10px;
+  right: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px);
+}
+
+html[data-stark-cluster="active"] .stark-back-to-top {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.stark-back-to-top::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(-45deg) translate(-1px, 1px);
+  border-radius: 1px;
+}
+
+.screen-reader-text {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  word-wrap: normal !important;
+}
+
+/* Perfex PRChat — bottom-right, squircle, accent blue */
+#prchat-widget-container,
+.prchat-widget-container,
+.prchat-widget {
+  position: fixed;
+  bottom: clamp(14px, 2vw, 22px);
+  right: 16px;
+  z-index: 99997;
+}
+
+#prchat-widget-button,
+.prchat-widget-button,
+.prchat-launcher {
+  width: 58px !important;
+  height: 58px !important;
+  border-radius: 42% 58% 52% 48% / 45% 45% 55% 55% !important;
+  background: var(--stark-primary-light-blue, #307FE2) !important;
+  border: 1px solid rgba(48, 127, 226, 0.35) !important;
+  box-shadow:
+    0 14px 34px rgba(48, 127, 226, 0.32),
+    0 0 0 1px rgba(255, 255, 255, 0.18) inset !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0;
+  transform: translateX(120%);
+  animation: stark-chat-slide-in 620ms cubic-bezier(.2, .8, .2, 1) 400ms forwards;
+  transition:
+    transform 180ms cubic-bezier(.2, .8, .2, 1),
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+#prchat-widget-button:hover,
+.prchat-widget-button:hover,
+.prchat-launcher:hover {
+  background: #1e6fd0 !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow:
+    0 20px 44px rgba(48, 127, 226, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.22) inset !important;
+}
+
+#prchat-widget-button:focus-visible,
+.prchat-widget-button:focus-visible,
+.prchat-launcher:focus-visible {
+  outline: none !important;
+  box-shadow:
+    0 0 0 4px rgba(48, 127, 226, 0.30),
+    0 14px 34px rgba(48, 127, 226, 0.32),
+    0 0 0 1px rgba(255, 255, 255, 0.22) inset !important;
+}
+
+@keyframes stark-chat-slide-in {
+  0%   { opacity: 0; transform: translateX(120%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+#prchat-widget-button::after,
+.prchat-widget-button::after,
+.prchat-launcher::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid rgba(48, 127, 226, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  animation: stark-chat-pulse 1600ms cubic-bezier(.2, .8, .2, 1) 3020ms 1 forwards;
+}
+
+@keyframes stark-chat-pulse {
+  0%   { opacity: 0;   transform: scale(1);   }
+  20%  { opacity: 0.9; transform: scale(1);   }
+  100% { opacity: 0;   transform: scale(1.8); }
+}
+
+.prchat-widget-open #prchat-widget-button::after,
+#prchat-widget-button[aria-expanded="true"]::after,
+.prchat-widget-button[aria-expanded="true"]::after {
+  animation: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stark-a11y-btn,
+  .stark-back-to-top,
+  #prchat-widget-button,
+  .prchat-widget-button,
+  .prchat-launcher {
+    transition: none !important;
+    animation: none !important;
+  }
+  #prchat-widget-button,
+  .prchat-widget-button,
+  .prchat-launcher {
+    opacity: 1;
+    transform: none;
+  }
+  .stark-back-to-top {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #prchat-widget-button,
+  .prchat-widget-button,
+  .prchat-launcher {
+    width: 52px !important;
+    height: 52px !important;
+  }
+}
+
+
+/* ==========================================================================
+   6. Shared components + homepage
+   Hero, buttons, eyebrow, section heads, service cards, who cards, CTA band; homepage proof, process, case, FAQ.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
    Homepage shell — hero, services, who we're for, CTA band  (v27.0.3)
    --------------------------------------------------------------------------- */
 
-/* Barlow was preloaded but never declared — declare the self-hosted files */
-@font-face { font-family: "Barlow"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/barlow-v13-latin-regular.woff2") format("woff2"); }
-@font-face { font-family: "Barlow"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/barlow-v13-latin-500.woff2") format("woff2"); }
-@font-face { font-family: "Barlow"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/barlow-v13-latin-600.woff2") format("woff2"); }
-@font-face { font-family: "Barlow"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/barlow-v13-latin-700.woff2") format("woff2"); }
-@font-face { font-family: "Barlow"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/barlow-v13-latin-800.woff2") format("woff2"); }
-@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/barlow-condensed-v13-latin-regular.woff2") format("woff2"); }
-@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/barlow-condensed-v13-latin-500.woff2") format("woff2"); }
-@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/barlow-condensed-v13-latin-600.woff2") format("woff2"); }
-@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/barlow-condensed-v13-latin-700.woff2") format("woff2"); }
 
 :root {
     --stark-navy-bright: #0B3463;
@@ -1448,6 +1501,34 @@ body.stark-has-hero { background: var(--stark-paper); }
     .stark-service-card:focus-within,
     .stark-who-card:hover .stark-who-card__arrow { transform: none; }
 }
+
+/* ---------------------------------------------------------------------------
+   Homepage — social proof row, featured case study, FAQ  (v27.0.20)
+   --------------------------------------------------------------------------- */
+
+body:has(.stark-draft-banner) .stark-home { margin-top: 40px; }
+
+.stark-home-proof { padding: clamp(48px, 6vw, 72px) 0 0; background: var(--stark-paper); }
+.stark-home-proof .stark-home-proof__stats { margin-top: 0; } /* beats .stark-case-study__stats (section 11) regardless of order */
+.stark-home-proof + .stark-services { padding-top: clamp(48px, 6vw, 80px); }
+
+.stark-home .stark-case { background: var(--stark-paper); }
+.stark-home .stark-faq { background: var(--stark-paper-soft); }
+
+/* ==========================================================================
+   v27.1.3 — Homepage process (reuses the service-page process partial)
+   Backgrounds re-alternate when the section is present:
+   services paper → process soft → who paper → case soft → faq paper.
+   ========================================================================== */
+.stark-home .stark-process { background: var(--stark-paper-soft); }
+.stark-home .stark-process + .stark-who { background: var(--stark-paper); }
+.stark-home .stark-process ~ .stark-case { background: var(--stark-paper-soft); }
+.stark-home .stark-process ~ .stark-faq { background: var(--stark-paper); }
+
+
+/* ==========================================================================
+   7. Service + location pages
+   ========================================================================== */
 
 /* ---------------------------------------------------------------------------
    Service page — included, process, case study, FAQ, related  (v27.0.4)
@@ -1872,6 +1953,246 @@ body.stark-has-hero { background: var(--stark-paper); }
     .stark-cred__inner:has(.stark-cred__aside) { grid-template-columns: 1.2fr 1fr; }
 }
 
+
+/* ==========================================================================
+   8. Services hub + draft banner
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   Services hub — featured + secondary cards, fit lists; draft banner  (v27.0.13)
+   --------------------------------------------------------------------------- */
+
+.stark-draft-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 40px;
+    padding: 0 16px;
+    overflow: hidden;
+    background: var(--stark-secondary-yellow, #FEDD00);
+    color: var(--stark-ink);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Banner and nav both stay pinned; content starts below the banner */
+body:has(.stark-draft-banner) .stark-nav { top: 40px; }
+body:has(.stark-draft-banner) .stark-page { margin-top: 40px; }
+
+@media (max-width: 699px) {
+    .stark-draft-banner__more { display: none; }
+}
+
+.stark-hub .stark-hero--service { min-height: 0; padding-bottom: clamp(56px, 8vw, 104px); }
+
+.stark-hub__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.stark-hub-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(48, 127, 226, 0.1);
+    color: var(--stark-light-blue);
+}
+
+.stark-hub-card__icon .stark-icon { width: 26px; height: 26px; }
+
+.stark-hub-card__more {
+    margin-top: auto;
+    padding-top: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--stark-light-blue);
+}
+
+/* Featured */
+.stark-hub-featured {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--stark-hero-bg);
+    color: #fff;
+    transition: transform 200ms var(--stark-ease), box-shadow 200ms var(--stark-ease);
+}
+
+.stark-hub-featured:hover,
+.stark-hub-featured:focus-within { transform: translateY(-2px); box-shadow: 0 24px 60px -30px rgba(3, 27, 52, 0.6); }
+
+.stark-hub-featured__body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: clamp(28px, 4vw, 56px);
+}
+
+.stark-hub-featured .stark-hub-card__icon { background: rgba(255, 255, 255, 0.1); color: #fff; }
+
+.stark-hub-featured__label {
+    margin: 8px 0 0;
+    font-family: "Barlow Condensed", "Barlow", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.stark-hub-featured__title { margin: 0; font-size: clamp(32px, 4vw, 48px); font-weight: 700; line-height: 1.05; }
+.stark-hub-featured__title a { color: #fff; text-decoration: none; }
+.stark-hub-featured__title a::after { content: ""; position: absolute; inset: 0; }
+.stark-hub-featured__title a:focus-visible { outline: none; }
+.stark-hub-featured:has(a:focus-visible) { outline: 3px solid var(--stark-light-blue); outline-offset: 3px; }
+
+.stark-hub-featured__pitch { margin: 0; max-width: 44ch; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: rgba(255, 255, 255, 0.82); }
+.stark-hub-featured .stark-hub-card__more { color: #fff; }
+
+.stark-hub-featured__media { position: relative; min-height: 260px; }
+
+.stark-hub-featured__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.stark-hub-featured__case {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    margin: 0;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(3, 27, 52, 0.82);
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.stark-hub-featured__case span { margin-right: 6px; font-weight: 400; color: rgba(255, 255, 255, 0.7); }
+
+/* Secondary */
+.stark-hub__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stark-hub-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 28px;
+    background: var(--stark-paper);
+    border: 1px solid var(--stark-hairline);
+    border-radius: 18px;
+    transition: transform 200ms var(--stark-ease), border-color 200ms var(--stark-ease), box-shadow 200ms var(--stark-ease);
+}
+
+.stark-hub-card:hover,
+.stark-hub-card:focus-within {
+    transform: translateY(-2px);
+    border-color: rgba(48, 127, 226, 0.5);
+    box-shadow: 0 12px 32px -16px rgba(3, 27, 52, 0.25);
+}
+
+.stark-hub-card__title { margin: 8px 0 0; font-size: 21px; font-weight: 700; line-height: 1.25; }
+.stark-hub-card__title a { color: var(--stark-navy); text-decoration: none; }
+.stark-hub-card__title a::after { content: ""; position: absolute; inset: 0; }
+.stark-hub-card__title a:focus-visible { outline: none; }
+.stark-hub-card:has(a:focus-visible) { outline: 2px solid var(--stark-light-blue); outline-offset: 2px; }
+.stark-hub-card__pitch { margin: 0; font-size: 15px; line-height: 1.55; color: var(--stark-ink-soft); }
+
+/* Fit lists */
+.stark-fit__grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+.stark-fit__col {
+    padding: clamp(24px, 3vw, 36px);
+    border-radius: 18px;
+    background: var(--stark-paper);
+    border: 1px solid var(--stark-hairline);
+}
+
+.stark-fit__col h3 { margin: 0 0 16px; font-size: 20px; font-weight: 700; color: var(--stark-navy); }
+.stark-fit__col ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+.stark-fit__col li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--stark-ink);
+}
+
+.stark-fit__col li::before {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.stark-fit__col--yes li::before { content: "✓"; background: rgba(0, 177, 64, 0.12); color: #00873A; }
+.stark-fit__col--no li::before { content: "✕"; background: rgba(249, 56, 34, 0.1); color: #C42A17; }
+
+@media (min-width: 700px) {
+    .stark-hub__list { grid-template-columns: repeat(2, 1fr); }
+    .stark-fit__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .stark-hub-featured { grid-template-columns: 1fr 1fr; }
+    .stark-hub-featured__media { min-height: 420px; }
+    .stark-hub__list { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stark-hub-featured,
+    .stark-hub-card { transition: none; }
+    .stark-hub-featured:hover,
+    .stark-hub-featured:focus-within,
+    .stark-hub-card:hover,
+    .stark-hub-card:focus-within { transform: none; }
+}
+
+.stark-service-card__icon--glyph {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--stark-light-blue);
+}
+
+
+/* ==========================================================================
+   9. About + contact
+   ========================================================================== */
+
 /* ---------------------------------------------------------------------------
    About page — story, team, values, where we work  (v27.0.7)
    .stark-prose is the shared long-form type scale (blog single reuses it).
@@ -1885,7 +2206,7 @@ body.stark-has-hero { background: var(--stark-paper); }
 }
 
 .stark-prose > * + * { margin-top: 1.1em; }
-.stark-prose p { margin-bottom: 0; } /* top spacing comes from the sibling rule above */
+.stark-prose p { margin-bottom: 0; text-wrap: pretty; } /* top spacing comes from the sibling rule above */
 .stark-prose > p:first-child { margin-top: 0; }
 
 .stark-prose h2,
@@ -1920,9 +2241,11 @@ body.stark-has-hero { background: var(--stark-paper); }
 
 .stark-prose blockquote {
     margin: 1.6em 0 0;
-    padding: 4px 0 4px 24px;
+    padding: 8px 0 8px 24px;
     border-left: 3px solid var(--stark-light-blue);
-    font-size: 1.1em;
+    font-size: 1.15em;
+    font-weight: 500;
+    line-height: 1.5;
     color: var(--stark-navy);
 }
 
@@ -1937,7 +2260,7 @@ body.stark-has-hero { background: var(--stark-paper); }
 
 .stark-prose figure { margin: 1.6em 0 0; }
 .stark-prose figcaption,
-.stark-prose .wp-caption-text { margin-top: 8px; font-size: 14px; color: var(--stark-ink-soft); }
+.stark-prose .wp-caption-text { margin-top: 8px; font-size: 14px; line-height: 1.5; text-align: left; color: var(--stark-ink-soft); }
 .stark-prose .wp-caption { max-width: 100%; }
 .stark-prose hr { margin: 2em 0 0; border: 0; border-top: 1px solid var(--stark-hairline); }
 
@@ -1945,7 +2268,9 @@ body.stark-has-hero { background: var(--stark-paper); }
     padding: 2px 6px;
     border-radius: 6px;
     background: var(--stark-paper-soft);
-    font-size: 0.9em;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    color: var(--stark-navy);
 }
 
 .stark-prose table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
@@ -2228,6 +2553,11 @@ body.stark-has-hero { background: var(--stark-paper); }
 @media (prefers-reduced-motion: reduce) {
     .stark-contact__social a { transition: none; }
 }
+
+
+/* ==========================================================================
+   10. Blog, 404 + search
+   ========================================================================== */
 
 /* ---------------------------------------------------------------------------
    Blog — archive grid, post cards, pagination, single article  (v27.0.9)
@@ -2528,6 +2858,44 @@ body.stark-has-hero { background: var(--stark-paper); }
     .stark-post-card:focus-within { transform: none; }
 }
 
+/* ==========================================================================
+   v27.1.4 — Blog typography pass (migrated posts)
+   ========================================================================== */
+/* Classic-editor floats: 400px thumbnails squeezed the 68ch column to ~290px */
+.stark-prose .alignright,
+.stark-prose .alignleft { max-width: min(38%, 280px); height: auto; margin-top: 0.35em; margin-bottom: 1em; }
+.stark-prose .alignright { float: right; margin-left: 1.5em; }
+.stark-prose .alignleft { float: left; margin-right: 1.5em; }
+.stark-prose .aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.stark-prose h2,
+.stark-prose h3,
+.stark-prose h4,
+.stark-prose blockquote,
+.stark-prose hr { clear: both; }
+@media (max-width: 640px) {
+    .stark-prose .alignright,
+    .stark-prose .alignleft { float: none; max-width: 100%; margin: 1.2em 0 0; }
+}
+
+.stark-prose blockquote p { margin: 0; }
+.stark-prose blockquote p + p { margin-top: 0.6em; }
+.stark-prose blockquote cite { display: block; margin-top: 10px; font-size: 0.75em; font-style: normal; font-weight: 600; color: var(--stark-ink-soft); }
+
+/* Balanced heading wraps (paragraphs use text-wrap: pretty in the base prose rule) */
+.stark-prose h2,
+.stark-prose h3 { text-wrap: balance; }
+
+
+/* External links get a small arrow (decorative, hidden from screen readers where supported) */
+.stark-prose a[href^="http"]:not([href*="starksocial.com"]):not([href*="starksocial.local"]):not(:has(img))::after {
+    content: "\2197";
+    content: "\2197" / "";
+    display: inline-block;
+    margin-left: 2px;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
 /* ---------------------------------------------------------------------------
    404 + search results  (v27.0.10)
    --------------------------------------------------------------------------- */
@@ -2696,6 +3064,11 @@ body.stark-has-hero { background: var(--stark-paper); }
 @media (prefers-reduced-motion: reduce) {
     .stark-404__links a { transition: none; }
 }
+
+
+/* ==========================================================================
+   11. Portfolio
+   ========================================================================== */
 
 /* ---------------------------------------------------------------------------
    Portfolio — /work/ archive + filters, case study single  (v27.0.12)
@@ -3064,322 +3437,10 @@ body.stark-has-hero { background: var(--stark-paper); }
     .stark-gallery a:hover img { transform: none; }
 }
 
-/* ---------------------------------------------------------------------------
-   Services hub — featured + secondary cards, fit lists; draft banner  (v27.0.13)
-   --------------------------------------------------------------------------- */
 
-.stark-draft-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    height: 40px;
-    padding: 0 16px;
-    overflow: hidden;
-    background: var(--stark-secondary-yellow, #FEDD00);
-    color: var(--stark-ink);
-    font-size: 14px;
-    white-space: nowrap;
-}
-
-/* Banner and nav both stay pinned; content starts below the banner */
-body:has(.stark-draft-banner) .stark-nav { top: 40px; }
-body:has(.stark-draft-banner) .stark-page { margin-top: 40px; }
-
-@media (max-width: 699px) {
-    .stark-draft-banner__more { display: none; }
-}
-
-.stark-hub .stark-hero--service { min-height: 0; padding-bottom: clamp(56px, 8vw, 104px); }
-
-.stark-hub__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.stark-hub-card__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    background: rgba(48, 127, 226, 0.1);
-    color: var(--stark-light-blue);
-}
-
-.stark-hub-card__icon .stark-icon { width: 26px; height: 26px; }
-
-.stark-hub-card__more {
-    margin-top: auto;
-    padding-top: 6px;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--stark-light-blue);
-}
-
-/* Featured */
-.stark-hub-featured {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    overflow: hidden;
-    border-radius: 24px;
-    background: var(--stark-hero-bg);
-    color: #fff;
-    transition: transform 200ms var(--stark-ease), box-shadow 200ms var(--stark-ease);
-}
-
-.stark-hub-featured:hover,
-.stark-hub-featured:focus-within { transform: translateY(-2px); box-shadow: 0 24px 60px -30px rgba(3, 27, 52, 0.6); }
-
-.stark-hub-featured__body {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: clamp(28px, 4vw, 56px);
-}
-
-.stark-hub-featured .stark-hub-card__icon { background: rgba(255, 255, 255, 0.1); color: #fff; }
-
-.stark-hub-featured__label {
-    margin: 8px 0 0;
-    font-family: "Barlow Condensed", "Barlow", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.stark-hub-featured__title { margin: 0; font-size: clamp(32px, 4vw, 48px); font-weight: 700; line-height: 1.05; }
-.stark-hub-featured__title a { color: #fff; text-decoration: none; }
-.stark-hub-featured__title a::after { content: ""; position: absolute; inset: 0; }
-.stark-hub-featured__title a:focus-visible { outline: none; }
-.stark-hub-featured:has(a:focus-visible) { outline: 3px solid var(--stark-light-blue); outline-offset: 3px; }
-
-.stark-hub-featured__pitch { margin: 0; max-width: 44ch; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: rgba(255, 255, 255, 0.82); }
-.stark-hub-featured .stark-hub-card__more { color: #fff; }
-
-.stark-hub-featured__media { position: relative; min-height: 260px; }
-
-.stark-hub-featured__media img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-}
-
-.stark-hub-featured__case {
-    position: absolute;
-    left: 16px;
-    bottom: 16px;
-    margin: 0;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(3, 27, 52, 0.82);
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-}
-
-.stark-hub-featured__case span { margin-right: 6px; font-weight: 400; color: rgba(255, 255, 255, 0.7); }
-
-/* Secondary */
-.stark-hub__list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.stark-hub-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 28px;
-    background: var(--stark-paper);
-    border: 1px solid var(--stark-hairline);
-    border-radius: 18px;
-    transition: transform 200ms var(--stark-ease), border-color 200ms var(--stark-ease), box-shadow 200ms var(--stark-ease);
-}
-
-.stark-hub-card:hover,
-.stark-hub-card:focus-within {
-    transform: translateY(-2px);
-    border-color: rgba(48, 127, 226, 0.5);
-    box-shadow: 0 12px 32px -16px rgba(3, 27, 52, 0.25);
-}
-
-.stark-hub-card__title { margin: 8px 0 0; font-size: 21px; font-weight: 700; line-height: 1.25; }
-.stark-hub-card__title a { color: var(--stark-navy); text-decoration: none; }
-.stark-hub-card__title a::after { content: ""; position: absolute; inset: 0; }
-.stark-hub-card__title a:focus-visible { outline: none; }
-.stark-hub-card:has(a:focus-visible) { outline: 2px solid var(--stark-light-blue); outline-offset: 2px; }
-.stark-hub-card__pitch { margin: 0; font-size: 15px; line-height: 1.55; color: var(--stark-ink-soft); }
-
-/* Fit lists */
-.stark-fit__grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-
-.stark-fit__col {
-    padding: clamp(24px, 3vw, 36px);
-    border-radius: 18px;
-    background: var(--stark-paper);
-    border: 1px solid var(--stark-hairline);
-}
-
-.stark-fit__col h3 { margin: 0 0 16px; font-size: 20px; font-weight: 700; color: var(--stark-navy); }
-.stark-fit__col ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
-
-.stark-fit__col li {
-    position: relative;
-    padding-left: 30px;
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--stark-ink);
-}
-
-.stark-fit__col li::before {
-    position: absolute;
-    left: 0;
-    top: 1px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.stark-fit__col--yes li::before { content: "✓"; background: rgba(0, 177, 64, 0.12); color: #00873A; }
-.stark-fit__col--no li::before { content: "✕"; background: rgba(249, 56, 34, 0.1); color: #C42A17; }
-
-@media (min-width: 700px) {
-    .stark-hub__list { grid-template-columns: repeat(2, 1fr); }
-    .stark-fit__grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 1024px) {
-    .stark-hub-featured { grid-template-columns: 1fr 1fr; }
-    .stark-hub-featured__media { min-height: 420px; }
-    .stark-hub__list { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .stark-hub-featured,
-    .stark-hub-card { transition: none; }
-    .stark-hub-featured:hover,
-    .stark-hub-featured:focus-within,
-    .stark-hub-card:hover,
-    .stark-hub-card:focus-within { transform: none; }
-}
-
-.stark-service-card__icon--glyph {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--stark-light-blue);
-}
-
-/* ---------------------------------------------------------------------------
-   Barlow site-wide  (v27.0.14)
-   @font-face declarations live in the v27.0.3 block. Form controls don't
-   inherit fonts by default, so they're listed explicitly (matches GP's selector).
-   --------------------------------------------------------------------------- */
-
-:root {
-    --stark-font: "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    --stark-font-condensed: "Barlow Condensed", "Barlow", -apple-system, system-ui, sans-serif;
-}
-
-body,
-button,
-input,
-select,
-textarea {
-    font-family: var(--stark-font);
-}
-
-/* ---------------------------------------------------------------------------
-   Legal pages — title hero, side nav, long-form content  (v27.0.15)
-   --------------------------------------------------------------------------- */
-
-.stark-hero--legal { min-height: 0; padding-bottom: clamp(48px, 7vw, 80px); }
-.stark-legal__title { font-size: clamp(36px, 5vw, 60px); }
-
-.stark-legal__layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding-top: clamp(40px, 6vw, 72px);
-    padding-bottom: clamp(72px, 10vw, 120px);
-}
-
-.stark-legal__nav-label {
-    margin: 0 0 12px;
-    font-family: var(--stark-font-condensed);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--stark-ink-soft);
-}
-
-.stark-legal__nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.stark-legal__nav a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 40px;
-    padding: 0 14px;
-    border: 1px solid var(--stark-hairline);
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--stark-navy);
-    text-decoration: none;
-}
-
-.stark-legal__nav a:hover,
-.stark-legal__nav a:focus-visible { border-color: var(--stark-light-blue); }
-.stark-legal__nav a[aria-current="page"] { background: var(--stark-navy); border-color: var(--stark-navy); color: #fff; }
-
-.stark-legal__contact { margin: 20px 0 0; font-size: 14px; color: var(--stark-ink-soft); }
-.stark-legal__contact a { color: var(--stark-light-blue); }
-
-.stark-legal__content { font-size: 17px; }
-.stark-legal__content > p:first-child { font-size: 15px; color: var(--stark-ink-soft); }
-.stark-legal__content h2 { font-size: clamp(22px, 2.2vw, 28px); }
-.stark-legal__content h3 { font-size: 19px; }
-
-@media (min-width: 1024px) {
-    .stark-legal__layout { grid-template-columns: 240px minmax(0, 1fr); gap: 72px; }
-    .stark-legal__nav { position: sticky; top: calc(var(--stark-nav-h-scrolled) + 32px); align-self: start; }
-    .stark-legal__nav ul { flex-direction: column; gap: 4px; }
-    .stark-legal__nav a { display: flex; min-height: 0; padding: 10px 14px; border: 0; border-radius: 10px; }
-    .stark-legal__nav a:hover,
-    .stark-legal__nav a:focus-visible { background: var(--stark-paper-soft); }
-}
+/* ==========================================================================
+   12. Podcast + author pages
+   ========================================================================== */
 
 /* ---------------------------------------------------------------------------
    Podcast — archive grid, episode card, episode single, player  (v27.0.16)
@@ -3712,6 +3773,178 @@ textarea {
     .stark-profile__head { grid-template-columns: 340px 1fr; gap: 56px; }
 }
 
+
+/* ==========================================================================
+   13. Support, knowledgebase, legal, password generator
+   ========================================================================== */
+
+/* ==========================================================================
+   v27.1.2 — Support hub (/support/) + BetterDocs knowledgebase
+   ========================================================================== */
+.stark-support__grid { display: grid; grid-template-columns: 1fr; gap: clamp(40px, 5vw, 64px); align-items: start; }
+@media (min-width: 1024px) { .stark-support__grid { grid-template-columns: minmax(0, 1fr) 380px; } }
+
+.stark-support__heading,
+.stark-support__card-title { margin: 0 0 16px; font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; line-height: 1.2; color: var(--stark-navy); }
+.stark-support__card-title { font-size: 20px; }
+
+/* Search — restyle BetterDocs' live search to the Phase 2 field */
+.stark-support__search { margin-bottom: clamp(32px, 4vw, 48px); }
+.stark-support__search .betterdocs-search-form-wrapper,
+.stark-support__search .betterdocs-live-search,
+.stark-support__search .betterdocs-searchform { padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; }
+.stark-support__search input[type="search"],
+.stark-support__search .betterdocs-search-field {
+    width: 100%;
+    min-height: 56px;
+    padding: 0 20px 0 52px !important;
+    border: 1px solid var(--stark-hairline) !important;
+    border-radius: 12px !important;
+    background: var(--stark-paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A0F1A' stroke-opacity='.55' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 18px 50% / 20px !important;
+    box-shadow: 0 1px 2px rgba(10, 15, 26, 0.04);
+    font: 400 17px/1.4 var(--stark-font, "Barlow", sans-serif) !important;
+    color: var(--stark-ink);
+}
+.stark-support__search input[type="search"]:focus-visible,
+.stark-support__search .betterdocs-search-field:focus { outline: 2px solid var(--stark-light-blue); outline-offset: 2px; }
+.stark-support__search .search-submit,
+.stark-support__search .betterdocs-searchform-input-wrap > svg,
+.stark-support__search .docs-search-close { display: none !important; }
+.stark-support__form { display: flex; gap: 12px; }
+.stark-support__form input[type="search"] { flex: 1; }
+
+/* Article groups */
+.stark-support__groups { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 720px) { .stark-support__groups { grid-template-columns: 1fr 1fr; } }
+.stark-support__group { padding: 24px; border: 1px solid var(--stark-hairline); border-radius: 16px; background: var(--stark-paper); }
+.stark-support__group-title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 12px; font-size: 18px; font-weight: 700; }
+.stark-support__group-title a { color: var(--stark-navy); text-decoration: none; }
+.stark-support__group-title a:hover,
+.stark-support__group-title a:focus-visible { color: var(--stark-blue-ink); text-decoration: underline; }
+.stark-support__count { flex-shrink: 0; font-size: 13px; font-weight: 500; color: var(--stark-ink-soft); }
+.stark-support__list { margin: 0; padding: 0; list-style: none; }
+.stark-support__list li { border-top: 1px solid var(--stark-hairline); }
+.stark-support__list a { display: block; padding: 10px 0; font-size: 15px; line-height: 1.45; color: var(--stark-ink); text-decoration: none; }
+.stark-support__list a:hover,
+.stark-support__list a:focus-visible { color: var(--stark-blue-ink); text-decoration: underline; }
+.stark-support__all { display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--stark-blue-ink); text-decoration: none; }
+.stark-support__all:hover { text-decoration: underline; }
+.stark-support__kb-link { margin: 28px 0 0; }
+
+/* Contact card + quick actions */
+.stark-support__side { display: grid; gap: 20px; }
+@media (min-width: 1024px) { .stark-support__side { position: sticky; top: calc(var(--stark-nav-h-scrolled) + 24px); } }
+.stark-support__card,
+.stark-support__actions { padding: 28px; border: 1px solid var(--stark-hairline); border-radius: 20px; background: var(--stark-paper); }
+.stark-support__details { display: grid; gap: 16px; margin: 0 0 24px; }
+.stark-support__details dt { margin-bottom: 2px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stark-ink-soft); }
+.stark-support__details dd { margin: 0; font-size: 17px; }
+.stark-support__details dd > a { color: var(--stark-navy); font-weight: 600; text-decoration: none; }
+.stark-support__details dd > a:hover { text-decoration: underline; }
+.stark-support__ticket { width: 100%; justify-content: center; }
+.stark-support__note { margin: 12px 0 0; font-size: 14px; color: var(--stark-ink-soft); }
+.stark-support__actions ul { margin: 0; padding: 0; list-style: none; }
+.stark-support__actions li + li { border-top: 1px solid var(--stark-hairline); }
+.stark-support__actions a { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; color: var(--stark-ink); text-decoration: none; }
+.stark-support__actions a:hover strong,
+.stark-support__actions a:focus-visible strong { color: var(--stark-blue-ink); text-decoration: underline; }
+.stark-support__action-icon { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: rgba(48, 127, 226, 0.1); color: var(--stark-light-blue); }
+.stark-support__action-icon .stark-icon { width: 20px; height: 20px; }
+.stark-support__action-text { display: grid; gap: 2px; }
+.stark-support__action-text strong { font-size: 16px; font-weight: 600; color: var(--stark-navy); }
+.stark-support__action-text span { font-size: 14px; line-height: 1.45; color: var(--stark-ink-soft); }
+
+/* Pages without a Stark hero (BetterDocs docs, plain GP pages) start below the fixed nav */
+body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24px); }
+
+/* BetterDocs single doc + category archive — Phase 2 type and tokens */
+.single-docs .site-content,
+.tax-doc_category .site-content { font-family: var(--stark-font, "Barlow", sans-serif); }
+.betterdocs-breadcrumb-list { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 20px !important; padding: 0 !important; list-style: none !important; font-size: 14px; color: var(--stark-ink-soft); }
+.betterdocs-breadcrumb-list li { margin: 0 !important; list-style: none !important; }
+.betterdocs-breadcrumb-list a { color: var(--stark-blue-ink); text-decoration: none; }
+.betterdocs-breadcrumb-list a:hover { text-decoration: underline; }
+.betterdocs-content { font-size: 17px; line-height: 1.7; color: var(--stark-ink); }
+.betterdocs-content h2,
+.betterdocs-content h3 { margin: 1.6em 0 0.5em; font-weight: 700; line-height: 1.25; color: var(--stark-navy); }
+.betterdocs-content h2 { font-size: clamp(24px, 2.4vw, 30px); }
+.betterdocs-content h3 { font-size: 21px; }
+.betterdocs-content a:not(.batterdocs-anchor) { color: var(--stark-blue-ink); }
+.batterdocs-anchor { margin-left: 8px; font-size: 0.6em; color: var(--stark-ink-soft) !important; text-decoration: none !important; opacity: 0; transition: opacity 0.15s; }
+.betterdocs-content-heading:hover .batterdocs-anchor,
+.batterdocs-anchor:focus-visible { opacity: 1; }
+.betterdocs-content ul,
+.betterdocs-content ol { padding-left: 1.3em; }
+.betterdocs-content li { margin-bottom: 0.4em; }
+
+/* ---------------------------------------------------------------------------
+   Legal pages — title hero, side nav, long-form content  (v27.0.15)
+   --------------------------------------------------------------------------- */
+
+.stark-hero--legal { min-height: 0; padding-bottom: clamp(48px, 7vw, 80px); }
+.stark-legal__title { font-size: clamp(36px, 5vw, 60px); }
+
+.stark-legal__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: clamp(40px, 6vw, 72px);
+    padding-bottom: clamp(72px, 10vw, 120px);
+}
+
+.stark-legal__nav-label {
+    margin: 0 0 12px;
+    font-family: var(--stark-font-condensed);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stark-ink-soft);
+}
+
+.stark-legal__nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stark-legal__nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid var(--stark-hairline);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--stark-navy);
+    text-decoration: none;
+}
+
+.stark-legal__nav a:hover,
+.stark-legal__nav a:focus-visible { border-color: var(--stark-light-blue); }
+.stark-legal__nav a[aria-current="page"] { background: var(--stark-navy); border-color: var(--stark-navy); color: #fff; }
+
+.stark-legal__contact { margin: 20px 0 0; font-size: 14px; color: var(--stark-ink-soft); }
+.stark-legal__contact a { color: var(--stark-light-blue); }
+
+.stark-legal__content { font-size: 17px; }
+.stark-legal__content > p:first-child { font-size: 15px; color: var(--stark-ink-soft); }
+.stark-legal__content h2 { font-size: clamp(22px, 2.2vw, 28px); }
+.stark-legal__content h3 { font-size: 19px; }
+
+@media (min-width: 1024px) {
+    .stark-legal__layout { grid-template-columns: 240px minmax(0, 1fr); gap: 72px; }
+    .stark-legal__nav { position: sticky; top: calc(var(--stark-nav-h-scrolled) + 32px); align-self: start; }
+    .stark-legal__nav ul { flex-direction: column; gap: 4px; }
+    .stark-legal__nav a { display: flex; min-height: 0; padding: 10px 14px; border: 0; border-radius: 10px; }
+    .stark-legal__nav a:hover,
+    .stark-legal__nav a:focus-visible { background: var(--stark-paper-soft); }
+}
+
 /* ---------------------------------------------------------------------------
    Password generator page  (v27.0.18) — tool markup/styles live in passgen/
    --------------------------------------------------------------------------- */
@@ -3827,37 +4060,17 @@ textarea {
     .stark-passgen-page__card .checkbox-grid { grid-template-columns: repeat(4, auto); justify-content: start; }
 }
 
-/* ---------------------------------------------------------------------------
-   Fixed bottom-left cluster (back-to-top + A11y) clearance  (v27.0.19)
-   The cluster sits ~14–58px above the viewport bottom. Extra footer padding
-   means that at full scroll it floats over empty space instead of the
-   copyright line (desktop) or the legal links (mobile tap-target collision).
-   --------------------------------------------------------------------------- */
+/* v27.1.4 mobile audit */
+/* Password generator: grid track sized to the tool's min-content (419px) → horizontal scroll */
+.stark-passgen-page__grid > * { min-width: 0; }
+.stark-passgen-page__card .form-top-section { min-width: 0; }
+.stark-passgen-page__card .passfield { min-width: 0; flex: 1 1 auto; }
 
-.stark-footer { padding-bottom: 96px; }
-
-/* ---------------------------------------------------------------------------
-   Homepage — social proof row, featured case study, FAQ  (v27.0.20)
-   --------------------------------------------------------------------------- */
-
-body:has(.stark-draft-banner) .stark-home { margin-top: 40px; }
-
-.stark-home-proof { padding: clamp(48px, 6vw, 72px) 0 0; background: var(--stark-paper); }
-.stark-home-proof__stats { margin-top: 0; }
-.stark-home-proof + .stark-services { padding-top: clamp(48px, 6vw, 80px); }
-
-.stark-home .stark-case { background: var(--stark-paper); }
-.stark-home .stark-faq { background: var(--stark-paper-soft); }
 
 /* ==========================================================================
-   v27.1.3 — Homepage process (reuses the service-page process partial)
-   Backgrounds re-alternate when the section is present:
-   services paper → process soft → who paper → case soft → faq paper.
+   14. Global overrides — accessibility
+   Must stay after every component it recolours.
    ========================================================================== */
-.stark-home .stark-process { background: var(--stark-paper-soft); }
-.stark-home .stark-process + .stark-who { background: var(--stark-paper); }
-.stark-home .stark-process ~ .stark-case { background: var(--stark-paper-soft); }
-.stark-home .stark-process ~ .stark-faq { background: var(--stark-paper); }
 
 /* ==========================================================================
    v27.1.1 — Accessibility quick fixes (tools/audits/axe-2026-11-02)
@@ -3887,164 +4100,22 @@ body:has(.stark-draft-banner) .stark-home { margin-top: 40px; }
 /* Bottom-left cluster is now wrapped in an <aside> landmark — the wrapper itself takes no space. */
 .stark-bottom-ui { display: contents; }
 
-/* ==========================================================================
-   v27.1.2 — Support hub (/support/) + BetterDocs knowledgebase
-   ========================================================================== */
-.stark-support__grid { display: grid; grid-template-columns: 1fr; gap: clamp(40px, 5vw, 64px); align-items: start; }
-@media (min-width: 1024px) { .stark-support__grid { grid-template-columns: minmax(0, 1fr) 380px; } }
-
-.stark-support__heading,
-.stark-support__card-title { margin: 0 0 16px; font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; line-height: 1.2; color: var(--stark-navy); }
-.stark-support__card-title { font-size: 20px; }
-
-/* Search — restyle BetterDocs' live search to the Phase 2 field */
-.stark-support__search { margin-bottom: clamp(32px, 4vw, 48px); }
-.stark-support__search .betterdocs-search-form-wrapper,
-.stark-support__search .betterdocs-live-search,
-.stark-support__search .betterdocs-searchform { padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; }
-.stark-support__search input[type="search"],
-.stark-support__search .betterdocs-search-field {
-    width: 100%;
-    min-height: 56px;
-    padding: 0 20px 0 52px !important;
-    border: 1px solid var(--stark-hairline) !important;
-    border-radius: 12px !important;
-    background: var(--stark-paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A0F1A' stroke-opacity='.55' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 18px 50% / 20px !important;
-    box-shadow: 0 1px 2px rgba(10, 15, 26, 0.04);
-    font: 400 17px/1.4 var(--stark-font, "Barlow", sans-serif) !important;
-    color: var(--stark-ink);
-}
-.stark-support__search input[type="search"]:focus-visible,
-.stark-support__search .betterdocs-search-field:focus { outline: 2px solid var(--stark-light-blue); outline-offset: 2px; }
-.stark-support__search .search-submit,
-.stark-support__search .betterdocs-searchform-input-wrap > svg,
-.stark-support__search .docs-search-close { display: none !important; }
-.stark-support__form { display: flex; gap: 12px; }
-.stark-support__form input[type="search"] { flex: 1; }
-
-/* Article groups */
-.stark-support__groups { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 720px) { .stark-support__groups { grid-template-columns: 1fr 1fr; } }
-.stark-support__group { padding: 24px; border: 1px solid var(--stark-hairline); border-radius: 16px; background: var(--stark-paper); }
-.stark-support__group-title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 12px; font-size: 18px; font-weight: 700; }
-.stark-support__group-title a { color: var(--stark-navy); text-decoration: none; }
-.stark-support__group-title a:hover,
-.stark-support__group-title a:focus-visible { color: var(--stark-blue-ink); text-decoration: underline; }
-.stark-support__count { flex-shrink: 0; font-size: 13px; font-weight: 500; color: var(--stark-ink-soft); }
-.stark-support__list { margin: 0; padding: 0; list-style: none; }
-.stark-support__list li { border-top: 1px solid var(--stark-hairline); }
-.stark-support__list a { display: block; padding: 10px 0; font-size: 15px; line-height: 1.45; color: var(--stark-ink); text-decoration: none; }
-.stark-support__list a:hover,
-.stark-support__list a:focus-visible { color: var(--stark-blue-ink); text-decoration: underline; }
-.stark-support__all { display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--stark-blue-ink); text-decoration: none; }
-.stark-support__all:hover { text-decoration: underline; }
-.stark-support__kb-link { margin: 28px 0 0; }
-
-/* Contact card + quick actions */
-.stark-support__side { display: grid; gap: 20px; }
-@media (min-width: 1024px) { .stark-support__side { position: sticky; top: calc(var(--stark-nav-h-scrolled) + 24px); } }
-.stark-support__card,
-.stark-support__actions { padding: 28px; border: 1px solid var(--stark-hairline); border-radius: 20px; background: var(--stark-paper); }
-.stark-support__details { display: grid; gap: 16px; margin: 0 0 24px; }
-.stark-support__details dt { margin-bottom: 2px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stark-ink-soft); }
-.stark-support__details dd { margin: 0; font-size: 17px; }
-.stark-support__details dd > a { color: var(--stark-navy); font-weight: 600; text-decoration: none; }
-.stark-support__details dd > a:hover { text-decoration: underline; }
-.stark-support__ticket { width: 100%; justify-content: center; }
-.stark-support__note { margin: 12px 0 0; font-size: 14px; color: var(--stark-ink-soft); }
-.stark-support__actions ul { margin: 0; padding: 0; list-style: none; }
-.stark-support__actions li + li { border-top: 1px solid var(--stark-hairline); }
-.stark-support__actions a { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; color: var(--stark-ink); text-decoration: none; }
-.stark-support__actions a:hover strong,
-.stark-support__actions a:focus-visible strong { color: var(--stark-blue-ink); text-decoration: underline; }
-.stark-support__action-icon { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: rgba(48, 127, 226, 0.1); color: var(--stark-light-blue); }
-.stark-support__action-icon .stark-icon { width: 20px; height: 20px; }
-.stark-support__action-text { display: grid; gap: 2px; }
-.stark-support__action-text strong { font-size: 16px; font-weight: 600; color: var(--stark-navy); }
-.stark-support__action-text span { font-size: 14px; line-height: 1.45; color: var(--stark-ink-soft); }
-
-/* Pages without a Stark hero (BetterDocs docs, plain GP pages) start below the fixed nav */
-body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24px); }
-
-/* BetterDocs single doc + category archive — Phase 2 type and tokens */
-.single-docs .site-content,
-.tax-doc_category .site-content { font-family: var(--stark-font, "Barlow", sans-serif); }
-.betterdocs-breadcrumb-list { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 20px !important; padding: 0 !important; list-style: none !important; font-size: 14px; color: var(--stark-ink-soft); }
-.betterdocs-breadcrumb-list li { margin: 0 !important; list-style: none !important; }
-.betterdocs-breadcrumb-list a { color: var(--stark-blue-ink); text-decoration: none; }
-.betterdocs-breadcrumb-list a:hover { text-decoration: underline; }
-.betterdocs-content { font-size: 17px; line-height: 1.7; color: var(--stark-ink); }
-.betterdocs-content h2,
-.betterdocs-content h3 { margin: 1.6em 0 0.5em; font-weight: 700; line-height: 1.25; color: var(--stark-navy); }
-.betterdocs-content h2 { font-size: clamp(24px, 2.4vw, 30px); }
-.betterdocs-content h3 { font-size: 21px; }
-.betterdocs-content a:not(.batterdocs-anchor) { color: var(--stark-blue-ink); }
-.batterdocs-anchor { margin-left: 8px; font-size: 0.6em; color: var(--stark-ink-soft) !important; text-decoration: none !important; opacity: 0; transition: opacity 0.15s; }
-.betterdocs-content-heading:hover .batterdocs-anchor,
-.batterdocs-anchor:focus-visible { opacity: 1; }
-.betterdocs-content ul,
-.betterdocs-content ol { padding-left: 1.3em; }
-.betterdocs-content li { margin-bottom: 0.4em; }
 
 /* ==========================================================================
-   v27.1.4 — Blog typography pass (migrated posts)
+   15. Reduced motion
    ========================================================================== */
-/* Classic-editor floats: 400px thumbnails squeezed the 68ch column to ~290px */
-.stark-prose .alignright,
-.stark-prose .alignleft { max-width: min(38%, 280px); height: auto; margin-top: 0.35em; margin-bottom: 1em; }
-.stark-prose .alignright { float: right; margin-left: 1.5em; }
-.stark-prose .alignleft { float: left; margin-right: 1.5em; }
-.stark-prose .aligncenter { display: block; margin-left: auto; margin-right: auto; }
-.stark-prose h2,
-.stark-prose h3,
-.stark-prose h4,
-.stark-prose blockquote,
-.stark-prose hr { clear: both; }
-@media (max-width: 640px) {
-    .stark-prose .alignright,
-    .stark-prose .alignleft { float: none; max-width: 100%; margin: 1.2em 0 0; }
-}
 
-/* Blockquote: pull-quote weight, not body text in a border */
-.stark-prose blockquote {
-    padding: 8px 0 8px 24px;
-    border-left-color: var(--stark-light-blue);
-    font-size: 1.15em;
-    font-weight: 500;
-    line-height: 1.5;
-}
-.stark-prose blockquote p { margin: 0; }
-.stark-prose blockquote p + p { margin-top: 0.6em; }
-.stark-prose blockquote cite { display: block; margin-top: 10px; font-size: 0.75em; font-style: normal; font-weight: 600; color: var(--stark-ink-soft); }
+/* ---------------------------------------------------------------------------
+   9. Reduced motion — site-wide kill switch
+   --------------------------------------------------------------------------- */
 
-/* Long reads: a touch more air, and no orphan-y last lines on headings */
-.stark-prose p { text-wrap: pretty; }
-.stark-prose h2,
-.stark-prose h3 { text-wrap: balance; }
-
-/* Inline code and captions */
-.stark-prose code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.85em; color: var(--stark-navy); }
-.stark-prose figcaption,
-.stark-prose .wp-caption-text { text-align: left; line-height: 1.5; }
-
-/* External links get a small arrow (decorative, hidden from screen readers where supported) */
-.stark-prose a[href^="http"]:not([href*="starksocial.com"]):not([href*="starksocial.local"]):not(:has(img))::after {
-    content: "\2197";
-    content: "\2197" / "";
-    display: inline-block;
-    margin-left: 2px;
-    font-size: 0.8em;
-    text-decoration: none;
-}
-
-/* v27.1.4 — Mobile audit (390px) fixes */
-/* Password generator: grid track sized to the tool's min-content (419px) → horizontal scroll */
-.stark-passgen-page__grid > * { min-width: 0; }
-.stark-passgen-page__card .form-top-section { min-width: 0; }
-.stark-passgen-page__card .passfield { min-width: 0; flex: 1 1 auto; }
-/* Footer links: 20px tall → 28px+ tap targets on touch screens, same visual rhythm */
-@media (max-width: 768px) {
-    .stark-footer__list { gap: 2px; }
-    .stark-footer__list a { display: inline-block; padding: 4px 0; }
-    .stark-footer__legal a { display: inline-block; padding: 6px 0; }
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }

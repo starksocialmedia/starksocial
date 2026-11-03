@@ -50,3 +50,19 @@ the title follows), form labels, icon button labels, focus-visible states.
 | `render-blocking-resources` (~400 ms, mobile) | Medium | GeneratePress + plugin CSS; candidates are Complianz and BetterDocs CSS on pages that don't use them |
 | `inspector-issues`: third-party cookie warning | Third party | Perfex chat widget (`hub.starksocial.com`) — needs `SameSite=None; Secure` on that server |
 | `/web-design/` mobile CLS 0.1 under Lighthouse throttling | Watch | Not reproducible unthrottled (0). Recheck on staging |
+
+## CSS regression check — `style-fingerprint.mjs`
+
+Hashes the computed style (plus `::before` / `::after` content) of every element
+on 21 key pages at 390px and 1440px. Run it before and after a CSS refactor and
+compare: any element whose hash changed renders differently. Two consecutive
+runs with no change produce identical output (checked November 2 2026), so any
+difference is real.
+
+```
+# needs headless Chrome on :9333 and puppeteer-core
+node style-fingerprint.mjs before.json   # old CSS
+node style-fingerprint.mjs after.json    # new CSS
+```
+
+Used for v27.1.6 (custom.css reorganisation): 15,046 elements, 0 changed.

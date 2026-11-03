@@ -2,6 +2,17 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.1.6] — November 2 2026
+
+### Changed — `custom.css` reorganised (no visual change)
+- 15 sections with a table of contents: tokens · fonts + base type · nav · footer · global UI · shared components + homepage · service + location · services hub + draft banner · about + contact · blog, 404 + search · portfolio · podcast + author · support, KB, legal, password generator · global accessibility overrides · reduced motion (last)
+- Version-appended blocks folded into their areas: homepage proof and process into the homepage section, footer clearance and mobile tap targets into the footer, typography into the blog, support and KB together, `@font-face` out of the homepage block into fonts
+- Split rules merged: `.stark-prose` p, blockquote, code and figcaption (v27.1.4 overrides folded into the originals)
+- Dead code: the empty "PASTE WPCode Global CSS HERE" placeholder removed. No exact-duplicate rules found. The 11 classes not found in theme, DB or rendered HTML are all generated at runtime (Perfex chat widget, `--2`/`--3` modifiers, body classes, caption shortcode), so none were removed
+- One order dependency found and fixed: the homepage stats row's `margin-top: 0` relied on coming after `.stark-case-study__stats`. It now has the specificity to win wherever it sits
+- **Verified with a computed-style fingerprint** of 15,046 elements (21 pages × 390 / 1440): 0 changed (`tools/audits/style-fingerprint.mjs`)
+- Size: 117,929 → 120,475 bytes (+2.5 KB of TOC and section headers; the rules are the same)
+
 ## [27.1.5] — November 2 2026
 
 ### Added — Rank Math configuration (`tools/rankmath/`)
