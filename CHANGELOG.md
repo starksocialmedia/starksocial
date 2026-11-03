@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.11] — November 2 2026
+
+### Added — Admin and editorial experience (`inc/stark-admin.php`)
+- **Login page:** navy background, the existing light logo file (no logo swap), branded button and focus colours, logo links to the site
+- **Admin footer:** "Stark Social 27 · starksocial.com"
+- **"Stark" admin colour scheme** (navy menu, brand-blue current item and buttons). Applied only to users who never picked a scheme; any choice in Profile wins
+- **Dashboard widget "Stark — needs attention"**, first on the dashboard (editors and up): 5 latest form submissions with links to the entries, posts / episodes / case studies in draft or pending, and pages whose Copy status isn't Approved, labelled Draft or Live-sourced (service pages with no status count as Draft). No traffic or vanity metrics
+
 ## [27.3.8] — November 2 2026
 
 ### Changed — Blog category and tag archives

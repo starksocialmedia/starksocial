@@ -953,3 +953,4 @@ require_once get_stylesheet_directory() . '/inc/stark-seo.php';
 require_once get_stylesheet_directory() . '/inc/stark-testimonials.php';
 require_once get_stylesheet_directory() . '/inc/stark-emails.php';
 require_once get_stylesheet_directory() . '/inc/stark-forms.php';
+require_once get_stylesheet_directory() . '/inc/stark-admin.php';
