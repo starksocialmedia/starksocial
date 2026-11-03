@@ -4480,3 +4480,32 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 .stark-hero--service .stark-hero__content { position: relative; z-index: 1; }
 @media (max-width: 720px) { .stark-hero__glyph { width: 200px; opacity: 0.06; } }
 @media (prefers-reduced-motion: reduce) { .stark-icon--service { transition: none !important; } }
+
+/* ==========================================================================
+   v27.5.4 — Who we're for: bento, a symbol per card, numbered
+   ========================================================================== */
+.stark-who-card { position: relative; flex-direction: column; justify-content: flex-start; gap: 0; min-height: 220px; transition: transform 260ms var(--stark-ease), box-shadow 260ms var(--stark-ease), border-color 260ms var(--stark-ease); }
+.stark-who-card__icon { display: inline-flex; width: 64px; height: 64px; align-items: center; justify-content: center; border-radius: 18px; background: #EAF2FD; color: var(--stark-navy); transition: transform 320ms var(--stark-ease), background 260ms var(--stark-ease), color 260ms var(--stark-ease); }
+.stark-who-card__svg { width: 40px; height: 40px; }
+.stark-who-card__num { position: absolute; top: clamp(24px, 3vw, 36px); right: clamp(24px, 3vw, 36px); margin: 0; font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0.1em; color: var(--stark-light-blue); font-variant-numeric: tabular-nums; }
+.stark-who-card__text { margin-top: auto; padding-top: 40px; }
+.stark-who-card__title { max-width: 22ch; }
+.stark-who-card:hover { transform: translateY(-4px); box-shadow: 0 22px 44px rgba(3, 27, 52, 0.12); border-color: transparent; }
+.stark-who-card:hover .stark-who-card__icon { transform: rotate(-8deg) scale(1.06); background: var(--stark-light-blue); color: #fff; }
+
+/* Lead card: navy, larger type */
+.stark-who-card:first-child { background: radial-gradient(circle at 100% 0%, rgba(48, 127, 226, 0.35), transparent 60%), linear-gradient(160deg, var(--stark-navy) 0%, var(--stark-navy-bright) 100%); border-color: transparent; color: #fff; }
+.stark-who-card:first-child .stark-who-card__title { color: #fff; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.1; letter-spacing: -0.01em; }
+.stark-who-card:first-child .stark-who-card__icon { width: clamp(84px, 9vw, 128px); height: clamp(84px, 9vw, 128px); border-radius: 26px; background: rgba(255, 255, 255, 0.1); color: #fff; }
+.stark-who-card:first-child .stark-who-card__svg { width: 62%; height: 62%; }
+.stark-who-card:first-child .stark-who-card__num { color: var(--stark-secondary-yellow, #FEDD00); }
+.stark-who-card:first-child:hover .stark-who-card__icon { background: #fff; color: var(--stark-navy); }
+
+@media (min-width: 900px) {
+	.stark-who__grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); grid-template-rows: auto auto; }
+	.stark-who-card:first-child { grid-row: span 2; min-height: 460px; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.stark-who-card, .stark-who-card__icon { transition: none; }
+	.stark-who-card:hover, .stark-who-card:hover .stark-who-card__icon { transform: none; }
+}

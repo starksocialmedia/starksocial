@@ -19,13 +19,12 @@ $services = array(
 );
 
 // v27.3.0 — "Who we're for" copy from the live homepage.
+// v27.5.4: each gets its own symbol (img/icons/who-*.svg); laid out as a bento, first card leads.
 $personas = array(
-    array( 'Maybe your website feels outdated.', '' ),
-    array( 'Maybe your social channels are inconsistent or quiet.', '' ),
-    array( 'Maybe you’ve worked with agencies before and felt passed around, upsold, or underheard.', '' ),
+    array( 'Maybe your website feels outdated.', '', 'outdated-website' ),
+    array( 'Maybe your social channels are inconsistent or quiet.', '', 'quiet-social' ),
+    array( 'Maybe you’ve worked with agencies before and felt passed around, upsold, or underheard.', '', 'passed-around' ),
 );
-
-$arrow = stark_inline_svg( 'img/who-for-diagonal-arrow-left-down.svg', 'stark-who__arrow-svg' );
 
 // v27.0.20 — social proof, featured case study, FAQ (acf-json/group_stark_home.json).
 $home_id    = (int) get_option( 'page_on_front' );
@@ -130,13 +129,14 @@ $home_faq = array_values( array_filter( (array) ( $home_id ? stark_field( 'faq_i
                 <p class="stark-section-head__intro">That’s where we come in. We partner with organizations that want clarity, consistency, and a digital presence they’re proud to share—without the agency fluff.</p>
             </header>
             <ul class="stark-who__grid">
-                <?php foreach ( $personas as $persona ) : ?>
-                    <li class="stark-who-card">
+                <?php foreach ( $personas as $i => $persona ) : ?>
+                    <li class="stark-who-card stark-who-card--<?php echo esc_attr( $persona[2] ); ?>">
+                        <span class="stark-who-card__icon" aria-hidden="true"><?php echo stark_inline_svg( 'img/icons/who-' . $persona[2] . '.svg', 'stark-who-card__svg' ); // phpcs:ignore WordPress.Security.EscapeOutput -- theme-owned SVG ?></span>
+                        <p class="stark-who-card__num" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $i + 1 ) ); ?></p>
                         <div class="stark-who-card__text">
                             <h3 class="stark-who-card__title"><?php echo esc_html( $persona[0] ); ?></h3>
                             <?php if ( $persona[1] ) : ?><p class="stark-who-card__desc"><?php echo esc_html( $persona[1] ); ?></p><?php endif; ?>
                         </div>
-                        <span class="stark-who-card__arrow" aria-hidden="true"><?php echo $arrow; // phpcs:ignore WordPress.Security.EscapeOutput -- theme-owned SVG ?></span>
                     </li>
                 <?php endforeach; ?>
             </ul>

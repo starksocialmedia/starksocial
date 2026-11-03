@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.4] — November 3 2026
+
+### Who we're for: editorial bento
+- The section has **three** cards (live's "Maybe your website feels outdated…" copy), not four personas; copy unchanged. Laid out as a bento on desktop: the first card leads (navy, spans both rows, large type), the other two stack beside it. Stacks on phones
+- Each card has its own drawn symbol in the service-icon style (`img/icons/who-*.svg`): browser window with a clock (outdated site), dashed quiet speech bubble (quiet social), three people with hand-off arrows around you (passed around). Numbered 01–03 in Barlow Condensed
+- Hover: card lifts, icon tilts and turns blue (off for reduced motion). The old corner arrows (`img/who-for-diagonal-arrow-*.svg`) are removed
+
 ## [27.5.3] — November 3 2026
 
 ### Custom service icons
