@@ -166,12 +166,12 @@
 - [x] **Staging deployed from Local** v27.1.0 — DB, theme, uploads; permalinks = live; ACF Pro active; mail blocked + noindex via `stark-staging-guard` mu-plugin — November 2 2026 (`tools/deploy/`)
 - [x] Lighthouse + axe audit v27.1.1 — `tools/audits/2026-11-02`; quick fixes shipped — November 2 2026
 - [x] Primary button contrast — `--stark-accent-dark #2A70CC` v27.3.3 (reverse in one token if you prefer the brand blue)
-- [x] Lighthouse on staging v27.3.13 — a11y 100 everywhere; desktop 98–100 (podcast 87); mobile 84–97 (podcast 65). `tools/audits/lighthouse-staging-v27.3.x/`
+- [x] Lighthouse on staging v27.3.20 — a11y 100 + best practices 100 everywhere; desktop 98–100; mobile 83–97 (podcast 91). `tools/audits/lighthouse-staging-v27.3.x/`
 - [x] Podcast episode player: click-to-load (v27.3.17) — episode mobile 98 / desktop 100 on Local
 - [ ] **Cloudflare caching level → Standard** (currently ignores query strings; theme assets now hash-named, v27.3.13)
 - [ ] Perfex chat cookies: `SameSite=None; Secure; Partitioned` on hub.starksocial.com (best practices 81 on pages with chat)
 - [x] Render-blocking trim — 7 → 3 blocking stylesheets (v27.3.7); `custom.css` minify deferred to Phase 2.1
-- [ ] PageSpeed (desktop 95+, mobile 85+) — staging: desktop 98–100 except podcast episode 87; mobile 84–97, podcast episode 65 (Podlove player)
+- [ ] PageSpeed (desktop 95+, mobile 85+) — staging v27.3.20: desktop 98–100 all; mobile 83–97 (one blog post at 83). Recheck on live with Breeze + Object Cache Pro
 - [ ] Core Web Vitals green
 - [ ] Cross-browser + device
 - [ ] Accessibility 98+

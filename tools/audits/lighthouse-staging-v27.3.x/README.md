@@ -1,25 +1,29 @@
-# Lighthouse — staging, v27.3.13 (November 2 2026)
+# Lighthouse — staging, v27.3.20 (November 2 2026, 22:50)
 
-8 pages × mobile/desktop against https://staging.starksocial.com after the cache-proof asset
-fix (the first run measured an August `custom.css` served by Cloudflare). `summary.json` has
-every run; the homepage HTML reports are kept as samples.
+8 pages × mobile / desktop against https://staging.starksocial.com. `summary.json` has every run;
+the homepage HTML reports are kept as samples. Earlier runs this session measured an August
+`custom.css` (Cloudflare, fixed v27.3.13) and then fonts blocked by CORS (fixed v27.3.20).
+These are the clean numbers.
 
-| Page | Mobile P / A / BP | Desktop P / A / BP | Local (mobile / desktop P) |
-|---|---|---|---|
-| `/` | 97 / 100 / 100 | 100 / 100 / 100 | 98 / 100 |
-| `/services/` | 92 / 100 / 100 | 100 / 100 / 100 | — |
-| `/web-design/` | 97 / 100 / 100 | 99 / 100 / 100 | 96 / 100 |
-| `/blog/` | 86 / 100 / 100 | 99 / 100 / 100 | 97 / 100 |
-| a blog post | 84 / 100 / 82 | 98 / 100 / 81 | — |
-| `/portfolio/pathway-escrow/` | 90 / 100 / 82 | 100 / 100 / 81 | — |
-| `/contact/` | 90 / 100 / 82 | 100 / 100 / 81 | 96 / 100 |
-| podcast episode | **65** / 100 / 82 | **87** / 100 / 81 | — |
+| Page | Mobile P / A / BP | Desktop P / A / BP |
+|---|---|---|
+| `/` | 97 / 100 / 100 | 100 / 100 / 100 |
+| `/services/` | 92 / 100 / 100 | 100 / 100 / 100 |
+| `/web-design/` | 88 / 100 / 100 | 99 / 100 / 100 |
+| `/blog/` | 96 / 100 / 100 | 99 / 100 / 100 |
+| a blog post | 83 / 100 / 100 | 98 / 100 / 100 |
+| `/portfolio/pathway-escrow/` | 95 / 100 / 100 | 98 / 100 / 100 |
+| `/contact/` | 86 / 100 / 100 | 99 / 100 / 100 |
+| podcast episode | 91 / 100 / 100 | 98 / 100 / 100 |
 
-SEO is 66 on every staging page **by design**: the staging guard sets noindex.
+**Targets (desktop 95+, mobile 85+): met everywhere except one mobile blog post (83).**
+Accessibility and best practices are 100 everywhere. SEO reads 58–66 only because staging is
+noindex with `Disallow: /` by design. Expect 100 on live (Local: 100).
 
-## Staging-specific findings
+## Notes
 
-- **Accessibility 100 everywhere** (was 96 when stale CSS was served)
-- **`server-response-time`** on mobile runs (TTFB 0.6–1.5 s): uncached staging PHP, and Breeze / Object Cache Pro are off on staging. Expect better on live with caching on. Main reason mobile is 5–11 points below Local
-- **Best practices 81–82** on pages where the Perfex chat widget loaded: third-party cookies from hub.starksocial.com (US opt-out = loads by default). Fix: `SameSite=None; Secure; Partitioned` on the Perfex server
-- **Podcast episodes**: Podlove Web Player costs about 770 ms TBT on mobile and **CLS 0.19** on desktop (the player renders at 900–1,100px tall after load; height depends on the chapter list). Fix: a click-to-load player (native `<audio>` first, Podlove on demand) — Phase 2.1
+- Mobile spread (83–97) is mostly **server response time**: staging runs without Breeze or
+  Object Cache Pro, and the first hit of a page is uncached PHP. Live will have both
+- The blog post (83) has the largest LCP image; its featured image is a 2560px original
+  (capped in v27.3.5), served at `large` size
+- Podcast episode: mobile 65 → 91, desktop 87 → 98 after the click-to-load player (v27.3.17)
