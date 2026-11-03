@@ -166,7 +166,10 @@
 - [x] **Staging deployed from Local** v27.1.0 — DB, theme, uploads; permalinks = live; ACF Pro active; mail blocked + noindex via `stark-staging-guard` mu-plugin — November 2 2026 (`tools/deploy/`)
 - [x] Lighthouse + axe audit v27.1.1 — `tools/audits/2026-11-02`; quick fixes shipped — November 2 2026
 - [x] Primary button contrast — `--stark-accent-dark #2A70CC` v27.3.3 (reverse in one token if you prefer the brand blue)
-- [ ] Re-run Lighthouse on staging (real cache headers, Cloudflare); check `/web-design/` mobile CLS (0.1 under throttling)
+- [x] Lighthouse on staging v27.3.13 — a11y 100 everywhere; desktop 98–100 (podcast 87); mobile 84–97 (podcast 65). `tools/audits/lighthouse-staging-v27.3.x/`
+- [ ] Podcast episode player: click-to-load (Podlove costs ~770 ms TBT mobile, CLS 0.19 desktop)
+- [ ] **Cloudflare caching level → Standard** (currently ignores query strings; theme assets now hash-named, v27.3.13)
+- [ ] Perfex chat cookies: `SameSite=None; Secure; Partitioned` on hub.starksocial.com (best practices 81 on pages with chat)
 - [ ] Trim render-blocking CSS (Complianz / BetterDocs on pages that don't use them); minify `custom.css`
 - [ ] Perfex chat widget: third-party cookie warning (`SameSite=None; Secure` on hub.starksocial.com)
 - [ ] PageSpeed (desktop 95+, mobile 85+)

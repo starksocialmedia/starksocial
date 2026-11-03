@@ -2,6 +2,19 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [Maintenance] — November 2 2026 — Phase 1 live fixes (overnight)
+
+### Fixed on live (typos + broken images only)
+- **Main menu typos:** "Social Media Mangement" → "Social Media Management" (label and title attribute, menu item 1094); "All Service" → "All Services" (1106). Breeze purged; homepage has no "Mangement" left (one remains only as an internal Cornerstone layer label, never shown)
+- **Broken inline images in 17 live posts:** 12 references to `-400x400` sizes that no longer exist (404 on live) now point at the existing 800×800 or original file; 12 `http://` same-site image URLs → `https://`. Run with `tools/blog-snapshot/fix-inline-images.php` (dry run first; a second dry run shows 0 changes). Original content of the 21 candidate posts saved to `~/Downloads/live-posts-before-inline-image-fix.json`. 2 references can't be resolved (files gone)
+
+### Checked on live, left for Nathan
+- Forms → Perfex working (last entry October 10: webhook 200, Mailgun delivered). Knowledgebase search, feeds, CTAs and all homepage assets OK. Olark loads. Comments are closed site-wide (no comments to test)
+- **`WP_DEBUG` + `WP_DEBUG_LOG` are on in production; `debug.log` is 414 MB** (not web-readable, 403). Recurring warnings from Mailgun, Podlove and the Phase 1 theme's `functions.php`; 2 out-of-memory fatals on October 2. Recommend `WP_DEBUG` off and rotating the log
+- MainWP stream table error (`Unknown column 'blog_id'`) — MainWP child update
+- Footer LinkedIn on live is `/company/stark-social`; Phase 2 uses `/company/stark-social-media-agency`. Confirm which is right
+- Brand Strategy process + FAQ (still waiting on copy; `tools/live-fixes/brand-strategy-1427/`)
+
 ## [27.3.13] — November 2 2026
 
 ### Fixed — Staging served an August 2026 `custom.css` (Cloudflare)
