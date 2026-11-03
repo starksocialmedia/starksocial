@@ -16,8 +16,13 @@ Autonomous push: "site looks generic" fixes + visual personality. Started 10:34 
 | 11:05 | v27.5.8 | Breakpoint audit fixes, touch targets, SEO meta 150 chars, Cloudflare tradeoff doc, passgen a11y |
 | 11:07 | docs | Mailgun activation, cutover rehearsal, rollback procedure |
 | 11:08 | v27.5.9 | Copy fixes (Content Creation CTA + typos, About sentences). Numbered before the deploy so it ships in it |
+| 11:20 | v27.5.10 | Staging audit: axe 0, a11y/BP 100 on 18 pages. Fixed my own v27.5.8 byline CLS regression and the screenshots' missing `sizes` (award post desktop 63 → 98) |
 | 11:09 | — | Full staging deploy (exit 0, 82 replacements), webhook secret re-applied server-side, form test → Perfex lead #127 |
 
 ## Notes
 - The brief described 4 personas and 4 process steps; the site has 3 of each (live copy). Kept the real content
 - Staging not deployed yet (Block F). Valencia DB change will ride the full deploy
+
+## Wrap-up (11:22)
+
+All blocks A–G done and on staging at 11:22, 48 minutes in. Stopped early rather than invent scope: what's left is copy, decisions and account access (see QUICK-WINS.md).
