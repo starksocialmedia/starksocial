@@ -59,8 +59,8 @@ $cta = array(
                         <?php foreach ( $profile['highlights'] as $h ) : ?><li><?php echo esc_html( $h ); ?></li><?php endforeach; ?>
                     </ul>
                 <?php endif; ?>
-                <?php if ( $profile['bio'] ) : ?>
-                    <div class="stark-profile__bio"><?php echo wp_kses_post( wpautop( $profile['bio'] ) ); ?></div>
+                <?php if ( $profile['bio_lead'] ) : ?>
+                    <div class="stark-profile__bio"><?php echo wp_kses_post( wpautop( $profile['bio_lead'] ) ); ?></div>
                 <?php endif; ?>
                 <ul class="stark-profile__links">
                     <li><a class="stark-btn stark-btn--primary" href="/contact/">Work with <?php echo esc_html( $profile['first'] ); ?></a></li>
@@ -84,6 +84,34 @@ $cta = array(
                 <?php endforeach; ?>
             </dl>
         </div>
+    <?php endif; ?>
+
+    <?php if ( $profile['bio_rest'] || $profile['focus'] ) : ?>
+        <section class="stark-band stark-profile__background" aria-labelledby="stark-profile-bg-title">
+            <div class="stark-home__inner stark-profile__background-inner">
+                <?php if ( $profile['bio_rest'] ) : ?>
+                    <div>
+                        <p class="stark-eyebrow">Background</p>
+                        <h2 id="stark-profile-bg-title" class="stark-section-head__title">About <?php echo esc_html( $profile['first'] ); ?></h2>
+                        <div class="stark-prose"><?php echo wp_kses_post( wpautop( $profile['bio_rest'] ) ); ?></div>
+                    </div>
+                <?php else : ?>
+                    <h2 id="stark-profile-bg-title" class="screen-reader-text">About <?php echo esc_html( $profile['first'] ); ?></h2>
+                <?php endif; ?>
+                <?php if ( $profile['focus'] ) : ?>
+                    <div class="stark-profile__focus">
+                        <p class="stark-eyebrow">Focus</p>
+                        <h3 class="stark-profile__focus-title"><?php echo esc_html( $profile['focus_heading'] ?: 'How ' . $profile['first'] . ' works' ); ?></h3>
+                        <?php if ( $profile['focus_intro'] ) : ?><p class="stark-section-head__intro"><?php echo esc_html( $profile['focus_intro'] ); ?></p><?php endif; ?>
+                        <ul class="stark-cards stark-cards--2">
+                            <?php foreach ( $profile['focus'] as $item ) : ?>
+                                <li class="stark-cards__item"><h4 class="stark-cards__title"><?php echo esc_html( $item['title'] ); ?></h4><?php if ( $item['description'] ) : ?><p class="stark-cards__desc"><?php echo esc_html( $item['description'] ); ?></p><?php endif; ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </section>
     <?php endif; ?>
 
     <?php if ( $latest_posts ) : ?>

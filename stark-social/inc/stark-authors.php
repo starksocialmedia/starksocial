@@ -52,6 +52,15 @@ function stark_author_profile( $user_id ) {
         'role'       => stark_field( 'stark_role', $acf_id ),
         'highlights' => array_filter( array_map( 'trim', explode( '·', (string) stark_field( 'stark_highlights', $acf_id ) ) ) ),
         'bio'        => get_the_author_meta( 'description', $user_id ),
+        // v27.3.21 — hero shows the first paragraph; the rest + focus areas sit under "Background".
+        'bio_lead'   => trim( (string) preg_split( '/\R\s*\R/', trim( (string) get_the_author_meta( 'description', $user_id ) ), 2 )[0] ),
+        'bio_rest'   => trim( (string) ( preg_split( '/\R\s*\R/', trim( (string) get_the_author_meta( 'description', $user_id ) ), 2 )[1] ?? '' ) ),
+        'focus_heading' => stark_field( 'stark_focus_heading', $acf_id ),
+        'focus_intro'   => stark_field( 'stark_focus_intro', $acf_id ),
+        'focus'         => array_values( array_filter( array_map( function ( $line ) {
+            $parts = array_map( 'trim', explode( '|', $line, 2 ) );
+            return '' === $parts[0] ? null : array( 'title' => $parts[0], 'description' => $parts[1] ?? '' );
+        }, stark_lines( stark_field( 'stark_focus', $acf_id ) ) ) ) ),
         'photo_id'   => (int) stark_field( 'stark_photo', $acf_id ),
         'posts'      => (int) count_user_posts( $user_id, 'post', true ),
         'episodes'   => $episodes,

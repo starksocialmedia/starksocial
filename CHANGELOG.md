@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.21] — November 2 2026
+
+### Content — author pages from live team pages
+- Nathan's and Deanna's author pages carried only 2 paragraphs of their live bios. Now the full live **Background** (6 paragraphs each; the first stays in the hero, the rest is a new "About {name}" section), the live **highlights** line ("40 Under Forty · …"), role, and the live **"How Nathan / Deanna works"** focus areas (4 each) as cards
+- New author fields: Focus heading, intro, areas ("Title | Description" per line) (`acf-json/group_stark_author.json`)
+- `tools/content-migration/import-authors.php` + `author-specs.json` (built from `live-outlines/nathan-imhoff.md`, `deanna-l-miller.md`)
+
 ## [27.3.20] — November 2 2026
 
 ### Fixed — Fonts blocked on staging (regression from v27.3.13)

@@ -129,6 +129,63 @@
             },
             "default_value": "",
             "placeholder": "https://instagram.com/\u2026"
+        },
+        {
+            "key": "field_stark_author_stark_focus_heading",
+            "label": "Focus \u2014 heading",
+            "name": "stark_focus_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "How Nathan works",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_author_stark_focus_intro",
+            "label": "Focus \u2014 intro",
+            "name": "stark_focus_intro",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_author_stark_focus",
+            "label": "Focus \u2014 areas",
+            "name": "stark_focus",
+            "type": "textarea",
+            "instructions": "One per line: Title | Description",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 5,
+            "placeholder": "Design systems | Create consistent visual and layout systems\u2026",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -147,7 +204,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "v27.0.17 \u2014 author page fields. Bio = the core Biographical Info field.",
+    "description": "v27.0.17 \u2014 author page fields; v27.3.21 \u2014 focus areas. Bio = the core Biographical Info field (first paragraph in the hero, the rest under Background).",
     "show_in_rest": 0,
-    "modified": 1793662000
+    "modified": 1793688841
 }

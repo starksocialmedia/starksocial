@@ -3822,6 +3822,14 @@ body:has(.stark-draft-banner) .stark-page { margin-top: 40px; }
 }
 
 
+/* v27.3.21 — author Background + Focus (live team-page copy) */
+.stark-profile__background-inner { display: grid; grid-template-columns: 1fr; gap: 48px; }
+@media (min-width: 1024px) { .stark-profile__background-inner { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: start; } }
+.stark-profile__background .stark-prose { margin-top: 20px; }
+.stark-profile__focus-title { margin: 0; font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; color: var(--stark-navy); }
+.stark-profile__focus .stark-cards { margin-top: 24px; }
+.stark-profile__focus .stark-cards__item { padding: 22px; }
+
 /* ==========================================================================
    13. Support, knowledgebase, legal, password generator
    ========================================================================== */

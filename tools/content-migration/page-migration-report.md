@@ -40,7 +40,8 @@ listed below.
 | SEO | Hero, outcomes (3), the reality (4 symptoms), process (3), what we manage (5), FAQ (5), CTA |
 | About | Hero, "Why Stark exists" story, "How we think", leadership heading, both founder bios + roles, CTA |
 | Contact | Hero, form heading + intro, address, phone, hours |
-| Author pages, KB, password generator, 4 legal pages | Done in earlier versions (v27.0.15–v27.1.2) |
+| Author pages (Nathan, Deanna) | v27.3.21: full live "Background" (6 paragraphs each), highlights line, role, and "How X works" with 4 focus areas — from `/about/nathan-imhoff/` and `/about/deanna-l-miller/` |
+| KB, password generator, 4 legal pages | Done in earlier versions (v27.0.15–v27.1.2) |
 
 ## Partial or ambiguous
 
