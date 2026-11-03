@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.7] — November 3 2026
+
+### Content mining (documents only, nothing published)
+- **`tools/content-mining/case-study-candidates.md`**: all 69 posts + 37 episodes searched. One post names Stark client work: the 2015 Best of SCV post lists 7 sites from 2014–2015 (Congressman Steve Knight, Assemblyman Scott Wilk, 38th AD Central Committee, SCV Fixit, Broadscast.com, SCV Mayor's Prayer Breakfast, My Kids Tutoring Center). SCV Fixit's owner was also a podcast guest twice. No records created
+- **`testimonial-candidates.md`**: one real testimonial found (Barbara Myler, Valencia Jazz & Blues, in the 2017 award post, already public). Live has 0 comments and no testimonials; no public Google/Yelp/Facebook reviews found by search; Perfex not checked (no hub access). One unverified press item (SCV Élite Magazine award listing) for Nathan to confirm
+- **`generic-copy-audit.md`**: no lorem ipsum or WordPress stock text, almost no stock agency phrases. What reads generic is repetition ("clarity" 48×, "consistent" 40× across 22 pages), interchangeable hero taglines ("Strategy-led. Fully in-house. Built to last." on 3 pages) and unnamed "Trusted by…" lines on SEO and Web Design. All `[DRAFT]` / `[SAMPLE]` / `[NEEDS REVIEW]` markers listed with priorities
+
 ## [27.5.6] — November 3 2026
 
 ### Typography + accent pass
