@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [Deploy] — November 2 2026, 22:12 — v27.3.0–v27.3.11 on staging
+
+- `tools/deploy/deploy-staging.sh` now syncs the plugins Phase 2 added (Podlove Publisher, Podlove Web Player, GF Webhooks) before the database import
+- Full deploy: exit 0; 26 URLs checked (200, 404 for the 404 test, no PHP warnings); `/feed/podcast/` 10 items; Complianz banner and review banners present. **Staging is now the reference copy for review**
+- Webhook feed activated on staging with the live secret (streamed to a temp file, deleted after)
+- **End-to-end contact form test on staging:** submitted → `/thank-you/` → webhook HTTP 200, Perfex `{"status":true,"message":"Lead created","lead_id":126}`. **Lead #126 is the test** ("Stark Test Lead (automated, please delete)"). Staging sent no email (staging guard)
+
 ## [27.3.11] — November 2 2026
 
 ### Added — Admin and editorial experience (`inc/stark-admin.php`)

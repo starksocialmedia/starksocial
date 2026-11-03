@@ -40,6 +40,12 @@ sync_theme
 
 if [ "${1:-}" = "theme" ]; then flush; echo "Theme deployed."; exit 0; fi
 
+echo "== Plugins (only the ones Phase 2 added; the rest are installed on staging already)"
+# Synced before the database import so every plugin the imported DB marks active exists.
+for plugin in podlove-podcasting-plugin-for-wordpress podlove-web-player gravityformswebhooks; do
+    rsync -az --delete --exclude .DS_Store -e "$SSH" "$LOCAL/wp-content/plugins/$plugin/" "$HOST:public_html/wp-content/plugins/$plugin/"
+done
+
 echo "== Database"
 "$MYSQLDUMP" --socket="$SOCK" -uroot -proot --single-transaction --set-gtid-purged=OFF --default-character-set=utf8mb4 local > "$WORK/local.sql"
 LOCAL_MD5="$(md5 -q "$WORK/local.sql")"

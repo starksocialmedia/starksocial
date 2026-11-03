@@ -17,6 +17,7 @@ uploads pushed over the empty staging install.
 | 1 | Back up staging DB → `~/tmp/staging-pre-deploy-<date>.sql` on the server, copied to `~/Downloads/`, checksum-verified, then **deleted from the server** | Rollback: upload the `~/Downloads/` copy, then `wp db import` it |
 | 2 | Back up staging child theme → `~/tmp/staging-pre-deploy-theme-<date>.tgz` | |
 | 3 | `rsync --delete` the child theme from Local | Repo → Local first, so Local = `main` |
+| 3b | `rsync` the plugins Phase 2 added: `podlove-podcasting-plugin-for-wordpress`, `podlove-web-player`, `gravityformswebhooks` | Before the DB import, so plugins marked active exist |
 | 4 | Dump Local DB with Local's own `mysqldump` (MySQL 8.0.35, via the site socket) | `wp db export` fails on Local without Local's binaries on `PATH`. Dump uses `utf8mb4_unicode_520_ci`, which MariaDB accepts |
 | 5 | Stream the dump to staging (`ssh … 'cat > …'`, md5 compared), `wp db import` | scp works on staging, but streaming is the same method as live |
 | 6 | `wp search-replace 'https://starksocial.local' 'https://staging.starksocial.com' --all-tables --skip-columns=guid`, then the same for `//starksocial.local` | |
@@ -62,6 +63,15 @@ ssh stark 'cd ~/public_html/wp-content/themes && rm -rf stark-social && tar xzf 
 
 Uploads are only ever added (no `--delete`), so they never need rolling back.
 
+## After a full deploy
+
+- **Webhook secret:** the imported DB has Local's feed, which is **inactive** (no secret on Local). Re-run the form importer on staging with the secret to activate it:
+  ```
+  ssh stark 'cat > ~/tmp/form.json' < tools/gravity-forms/stark-contact-form.json
+  ssh stark 'cat > ~/tmp/import-form.php' < tools/gravity-forms/import-contact-form.php
+  ssh stark "cd ~/public_html && STARK_JSON=~/tmp/form.json STARK_WEBHOOK_SECRET='…' wp eval-file ~/tmp/import-form.php; rm ~/tmp/form.json ~/tmp/import-form.php"
+  ```
+
 ## Not covered yet
 
 - **Podlove** isn't installed on Local or staging — the podcast RSS feed
@@ -75,3 +85,4 @@ Uploads are only ever added (no `--delete`), so they never need rolling back.
 |---|---|---|
 | November 2 2026, 19:56 | v27.1.0 | First push, by hand. Uploads stalled unthrottled and were re-run with exclusions |
 | November 2 2026, 21:01 | v27.1.7 | `deploy-staging.sh` full run (first run of the script): exit 0, 54 URL replacements, all 18 smoke-test URLs as expected. Brings staging to Local parity (KB, process, WebP covers, image fixes, Rank Math) |
+| November 2 2026, 22:12 | v27.3.x | Full run with the new plugin step (Podlove ×2, GF Webhooks): exit 0, 74 replacements, 26 smoke-test URLs as expected, `/feed/podcast/` has 10 items. Webhook secret applied after deploy. **End-to-end form test: entry 2 → Perfex "Lead created", lead #126** (test lead, delete in Perfex) |
