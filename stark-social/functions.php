@@ -66,6 +66,7 @@ add_action( 'wp_head', function () {
     $fonts_uri = get_stylesheet_directory_uri() . '/fonts';
     $preload   = array(
         'barlow-v13-latin-regular.woff2',
+        'barlow-v13-latin-500.woff2', // nav + chips — swapping it late shifted /blog/ (CLS 0.28, v27.1.1)
         'barlow-v13-latin-700.woff2',
         'barlow-v13-latin-800.woff2',
     );
@@ -656,8 +657,10 @@ add_action( 'wp_enqueue_scripts', 'stark_enqueue_bottom_ui_script', 20 );
 function stark_render_bottom_ui_cluster() {
 	if ( is_admin() ) return;
 	?>
-<a href="/support/accessibility-statement/" class="stark-a11y-btn" aria-label="Accessibility Statement and Support" title="Stark Social Media Agency Accessibility Statement"><span class="stark-a11y-icon" aria-hidden="true">A11y</span></a>
+<aside class="stark-bottom-ui" aria-label="Accessibility and page tools">
+<a href="/support/accessibility-statement/" class="stark-a11y-btn" aria-label="A11y: Accessibility Statement and Support" title="Stark Social Media Agency Accessibility Statement"><span class="stark-a11y-icon" aria-hidden="true">A11y</span></a>
 <button type="button" class="stark-back-to-top" aria-label="Back to top" title="Back to top"><span class="screen-reader-text">Back to top</span></button>
+</aside>
 	<?php
 }
 add_action( 'wp_footer', 'stark_render_bottom_ui_cluster', 5 );

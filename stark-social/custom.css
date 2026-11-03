@@ -3840,3 +3840,31 @@ body:has(.stark-draft-banner) .stark-home { margin-top: 40px; }
 
 .stark-home .stark-case { background: var(--stark-paper); }
 .stark-home .stark-faq { background: var(--stark-paper-soft); }
+
+/* ==========================================================================
+   v27.1.1 — Accessibility quick fixes (tools/audits/axe-2026-11-02)
+   Brand light blue #307FE2 is 3.99:1 on white / 3.76:1 on paper-soft — below
+   WCAG AA 4.5:1 for small text. Small blue TEXT on light backgrounds uses
+   --stark-blue-ink (#2A70CC: 4.9:1 / 4.61:1), the closest passing shade.
+   Large stat numbers, icons and buttons keep #307FE2 (buttons: see BUILDPLAN 2.7).
+   ========================================================================== */
+:root { --stark-blue-ink: #2A70CC; }
+
+.stark-eyebrow:not(.stark-eyebrow--light),
+.stark-service-card__more,
+.stark-case__link,
+.stark-prose a,
+.stark-team-card__role,
+.stark-post-card__cat,
+.stark-author__link,
+.stark-author__role,
+.stark-result__type,
+.stark-link-button,
+.stark-work-card__meta,
+.stark-work-card__more,
+.stark-case-nav__all,
+.stark-hub-card__more,
+.stark-episode-card__number { color: var(--stark-blue-ink); }
+
+/* Bottom-left cluster is now wrapped in an <aside> landmark — the wrapper itself takes no space. */
+.stark-bottom-ui { display: contents; }

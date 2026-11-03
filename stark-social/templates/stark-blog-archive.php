@@ -40,8 +40,9 @@ $cta = array(
 <main id="main" class="stark-page stark-blog">
     <?php get_template_part( 'templates/parts/service', 'hero', $hero ); ?>
 
-    <section class="stark-band stark-blog__list" aria-label="Posts">
+    <section class="stark-band stark-blog__list" aria-labelledby="stark-blog-list-title">
         <div class="stark-home__inner">
+            <h2 id="stark-blog-list-title" class="screen-reader-text">Posts</h2>
 
             <?php if ( $categories && ( is_home() || is_category() ) ) : ?>
                 <nav class="stark-blog__cats" aria-label="Blog categories">

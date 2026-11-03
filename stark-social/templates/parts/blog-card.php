@@ -11,7 +11,15 @@ $cat      = stark_primary_category( $post_obj );
 <article class="stark-post-card">
     <div class="stark-post-card__media">
         <?php if ( has_post_thumbnail( $post_obj ) ) :
-            echo get_the_post_thumbnail( $post_obj, 'medium_large', array( 'loading' => 'lazy', 'alt' => '' ) );
+            // First row of the main archive loop is above the fold: load it eagerly (LCP).
+            global $wp_query;
+            $above_fold = in_the_loop() && $wp_query->current_post < 3;
+            echo get_the_post_thumbnail( $post_obj, 'medium_large', array(
+                'loading'       => $above_fold ? 'eager' : 'lazy',
+                'fetchpriority' => $above_fold && 0 === $wp_query->current_post ? 'high' : 'auto',
+                'sizes'         => '(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw',
+                'alt'           => '',
+            ) );
         endif; ?>
     </div>
     <div class="stark-post-card__body">

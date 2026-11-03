@@ -1,0 +1,90 @@
+{
+  "home-390": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 2,
+      "sample": [
+        ".stark-hero__ctas > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-cta-band__inner > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    }
+  ],
+  "home-1440": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 3,
+      "sample": [
+        ".stark-nav__util-link--cta ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-hero__ctas > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-cta-band__inner > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    }
+  ],
+  "web-design-390": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 2,
+      "sample": [
+        ".stark-hero__ctas > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-cta-band__inner > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    }
+  ],
+  "web-design-1440": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 3,
+      "sample": [
+        ".stark-nav__util-link--cta ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-hero__ctas > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-cta-band__inner > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    }
+  ],
+  "blog-390": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 1,
+      "sample": [
+        ".stark-btn ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    }
+  ],
+  "blog-1440": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 2,
+      "sample": [
+        ".stark-nav__util-link--cta ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-btn ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    }
+  ],
+  "portfolio-pathway-escrow-390": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 1,
+      "sample": [
+        ".stark-btn ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    }
+  ],
+  "portfolio-pathway-escrow-1440": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 2,
+      "sample": [
+        ".stark-nav__util-link--cta ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-btn ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    }
+  ]
+}

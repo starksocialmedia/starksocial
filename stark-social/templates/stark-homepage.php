@@ -52,7 +52,7 @@ $home_faq = array_values( array_filter( (array) ( $home_id ? stark_field( 'faq_i
 <?php wp_body_open(); ?>
 
 <?php if ( $home_draft ) : ?>
-    <div class="stark-draft-banner" role="note"><strong>[DRAFT - needs Nathan review]</strong> <span class="stark-draft-banner__more">Set <em>Copy status</em> to Approved on the Home page when the copy is final.</span></div>
+    <aside class="stark-draft-banner" aria-label="Draft notice"><strong>[DRAFT - needs Nathan review]</strong> <span class="stark-draft-banner__more">Set <em>Copy status</em> to Approved on the Home page when the copy is final.</span></aside>
 <?php endif; ?>
 
 <main id="main" class="stark-home">

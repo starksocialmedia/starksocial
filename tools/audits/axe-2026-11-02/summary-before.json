@@ -1,0 +1,251 @@
+{
+  "home-390": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 15,
+      "sample": [
+        ".stark-hero__ctas > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-services > .stark-home__inner > .stark-section-head > .stark-eyebrow ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-service-card:nth-child(1) > .stark-service-card__more[aria-hidden=\"true\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-service-card:nth-child(2) > .stark-service-card__more[aria-hidden=\"true\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Text inside the element is not included in the accessible name"
+      ]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": 2,
+      "sample": [
+        ".stark-draft-banner > strong ::   Some page content is not contained by landmarks",
+        ".stark-a11y-btn ::   Some page content is not contained by landmarks"
+      ]
+    }
+  ],
+  "home-1440": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 16,
+      "sample": [
+        ".stark-nav__util-link--cta ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-hero__ctas > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-services > .stark-home__inner > .stark-section-head > .stark-eyebrow ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-service-card:nth-child(1) > .stark-service-card__more[aria-hidden=\"true\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Text inside the element is not included in the accessible name"
+      ]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": 2,
+      "sample": [
+        ".stark-draft-banner ::   Some page content is not contained by landmarks",
+        ".stark-a11y-btn ::   Some page content is not contained by landmarks"
+      ]
+    }
+  ],
+  "web-design-390": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 11,
+      "sample": [
+        ".stark-hero__ctas > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+        "#stark-included > .stark-home__inner > .stark-section-head > .stark-eyebrow ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-process > .stark-home__inner > .stark-section-head > .stark-eyebrow ::   Element has insufficient color contrast of 3.75 (foreground color: #307fe2, background color: #f7f8fa, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-case > .stark-home__inner > .stark-section-head > .stark-eyebrow ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Text inside the element is not included in the accessible name"
+      ]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": 2,
+      "sample": [
+        ".stark-draft-banner > strong ::   Some page content is not contained by landmarks",
+        ".stark-a11y-btn ::   Some page content is not contained by landmarks"
+      ]
+    }
+  ],
+  "web-design-1440": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 12,
+      "sample": [
+        ".stark-nav__util-link--cta ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-hero__ctas > .stark-btn--primary.stark-btn[href$=\"contact/\"] ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+        "#stark-included > .stark-home__inner > .stark-section-head > .stark-eyebrow ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-process > .stark-home__inner > .stark-section-head > .stark-eyebrow ::   Element has insufficient color contrast of 3.75 (foreground color: #307fe2, background color: #f7f8fa, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Text inside the element is not included in the accessible name"
+      ]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": 2,
+      "sample": [
+        ".stark-draft-banner ::   Some page content is not contained by landmarks",
+        ".stark-a11y-btn ::   Some page content is not contained by landmarks"
+      ]
+    }
+  ],
+  "blog-390": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 13,
+      "sample": [
+        "article:nth-child(1) > .stark-post-card__body > .stark-post-card__cat ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        "article:nth-child(2) > .stark-post-card__body > .stark-post-card__cat ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        "article:nth-child(3) > .stark-post-card__body > .stark-post-card__cat ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        "article:nth-child(4) > .stark-post-card__body > .stark-post-card__cat ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "nodes": 1,
+      "sample": [
+        "article:nth-child(1) > .stark-post-card__body > .stark-post-card__title ::   Heading order invalid"
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Text inside the element is not included in the accessible name"
+      ]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Some page content is not contained by landmarks"
+      ]
+    }
+  ],
+  "blog-1440": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 14,
+      "sample": [
+        ".stark-nav__util-link--cta ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        "article:nth-child(1) > .stark-post-card__body > .stark-post-card__cat ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        "article:nth-child(2) > .stark-post-card__body > .stark-post-card__cat ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        "article:nth-child(3) > .stark-post-card__body > .stark-post-card__cat ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "nodes": 1,
+      "sample": [
+        "article:nth-child(1) > .stark-post-card__body > .stark-post-card__title ::   Heading order invalid"
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Text inside the element is not included in the accessible name"
+      ]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Some page content is not contained by landmarks"
+      ]
+    }
+  ],
+  "portfolio-pathway-escrow-390": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 2,
+      "sample": [
+        ".stark-case-nav__all ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-btn ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Text inside the element is not included in the accessible name"
+      ]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Some page content is not contained by landmarks"
+      ]
+    }
+  ],
+  "portfolio-pathway-escrow-1440": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": 3,
+      "sample": [
+        ".stark-nav__util-link--cta ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-case-nav__all ::   Element has insufficient color contrast of 3.99 (foreground color: #307fe2, background color: #ffffff, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+        ".stark-btn ::   Element has insufficient color contrast of 3.99 (foreground color: #ffffff, background color: #307fe2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Text inside the element is not included in the accessible name"
+      ]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": 1,
+      "sample": [
+        ".stark-a11y-btn ::   Some page content is not contained by landmarks"
+      ]
+    }
+  ]
+}

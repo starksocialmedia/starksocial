@@ -2,6 +2,20 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.1.1] — November 2 2026
+
+### Fixed — Lighthouse + axe audit quick wins (`tools/audits/README.md`)
+- **Small blue text contrast:** brand `#307FE2` is 3.99:1 on white (AA needs 4.5:1). New `--stark-blue-ink: #2A70CC` (4.9:1) for small blue text on light backgrounds: eyebrows, "Learn more", case-study links, categories, prose links, roles, work-card meta, episode numbers. Large numbers, icons and buttons unchanged
+- **A11y button** accessible name now includes its visible text ("A11y: …"); the A11y / back-to-top cluster sits in an `<aside>` landmark (`display: contents`, no layout change)
+- **Draft banner** is an `<aside>` landmark
+- **Blog archive:** visually hidden `h2` between the hero `h1` and the card `h3`s; first row of cards loads eagerly (first image `fetchpriority="high"`), card `sizes` matches the ~420px slot
+- **CLS 0.276 → 0 on `/blog/`:** Barlow 500 (nav, category chips) is now preloaded. Its late swap rewrapped the chips and pushed the grid up. `/blog/` desktop performance 86 → 100
+- axe: from ~100 failing elements across 4 rules to button contrast only
+
+### Not fixed — logged in BUILDPLAN Phase 2.7
+- Primary button contrast (white on `#307FE2`, 3.99:1) — needs a design decision
+- Meta descriptions (Rank Math, v27.1.5), cache TTLs (server), unused / render-blocking CSS, Perfex chat cookie warning
+
 ## [27.1.0] — November 2 2026 — Phase 2 on staging
 
 ### Deployed — Local → https://staging.starksocial.com
