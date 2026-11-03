@@ -110,6 +110,8 @@ Freeze edits on live once the sync starts.
 
 ## 3. Cutover procedure
 
+Minute-by-minute version with checks and stop conditions: `CUTOVER-REHEARSAL.md`. Mailgun detail: `MAILGUN-ACTIVATION.md`. Rollback detail: `ROLLBACK-PROCEDURE.md`.
+
 1. **Backups**: Cloudways on-demand backup of both apps, plus `wp db export` of live to `~/Downloads/live-pre-phase2-<date>.sql` (md5 check)
 2. **Save live's Mailgun settings** (`wp option get mailgun --format=json`, `wp option get gravityformsaddon_gravityformsmailgun_settings --format=json`). The staging push replaces live's database
 3. **Put live in maintenance**, so only the final sync runs (5–10 minutes)
