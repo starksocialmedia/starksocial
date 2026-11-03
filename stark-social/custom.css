@@ -4343,3 +4343,9 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 .stark-market__group a { font-weight: 600; color: var(--stark-navy); text-decoration: underline; text-decoration-color: var(--stark-hairline); text-underline-offset: 3px; }
 .stark-market__group a:hover { text-decoration-color: currentColor; }
 .stark-market__meta { font-size: 13px; color: var(--stark-ink-soft); }
+
+/* v27.5.1 Valencia Jazz & Blues award post: the restored website screenshots, side by side */
+.stark-award-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0; }
+.stark-award-shots figure { margin: 0; }
+.stark-award-shots img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 10px; }
+@media (max-width: 600px) { .stark-award-shots { grid-template-columns: 1fr; } }

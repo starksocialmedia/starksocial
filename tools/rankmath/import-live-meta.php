@@ -113,11 +113,6 @@ foreach ( $extra as $path => $kw ) {
     $set( $p->ID, 'rank_math_focus_keyword', $kw );
     $report[] = array( $path, get_permalink( $p ), str_replace( ',', ', ', $kw ), 'fallback', '' );
 }
-$valencia = get_page_by_path( 'valencia-jazz-blues', OBJECT, 'portfolio' );
-if ( $valencia ) {
-    $set( $valencia->ID, 'rank_math_focus_keyword', 'valencia jazz & blues,jazz festival website' );
-    $report[] = array( 'valencia-jazz-blues', get_permalink( $valencia ), 'valencia jazz & blues, jazz festival website', 'fallback', '' );
-}
 
 WP_CLI\Utils\format_items( 'table', array_map( function ( $r ) {
     return array_combine( array( 'live', 'phase2', 'keywords', 'desc_len', 'share_image' ), $r );

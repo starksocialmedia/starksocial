@@ -31,7 +31,7 @@ function stark_get_awards() {
             'year'   => 2017,
             'for'    => 'Valencia Jazz & Blues Concert Series website',
             'post'   => 'stark-social-wins-excellence-in-web-design-award-for-valencia-jazz-blues',
-            'case'   => 'valencia-jazz-blues',
+            'case'   => '', // v27.5.1: blog post only, no case study
         ),
         array(
             'title'  => 'Best of SCV — Web Design Company',

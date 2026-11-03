@@ -140,7 +140,7 @@
 ### Phase 2.3 — Portfolio
 - [x] `portfolio` CPT + ACF fields v27.0.12 — archive `/work/`, singles `/portfolio/{slug}/` — November 2 2026
 - [x] Archive (filters) + single templates v27.0.12
-- [x] Migrate existing case studies — Pathway Escrow, Schlickart (+ Valencia Jazz & Blues draft)
+- [x] Migrate existing case studies — Pathway Escrow, Schlickart (Valencia Jazz & Blues stays a blog post, v27.5.1)
 - [ ] More case studies + client testimonials (Pathway, Schlickart have none)
 - [ ] Confirm inferred industry / year / services on imported case studies
 

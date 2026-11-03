@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.1] — November 3 2026
+
+### Valencia Jazz & Blues: blog post, not a case study
+- The Phase 2-only "Valencia Jazz & Blues" portfolio entry (created by `seed-portfolio.php`, never on live) is in the trash (reversible). `/work/` lists 2 case studies: Pathway Escrow, Schlickart. Nothing on the site states a case-study count
+- `/portfolio/valencia-jazz-blues/` (and `…-and-blues/`) 301 to the 2017 award post
+- The award post (498) was checked against live: text intact. **Its 3 website screenshots were missing** (a Cornerstone slider the blog-snapshot strip dropped); restored as attachments from the files already in uploads and put back where the slider was, 3-up on desktop. `tools/content-migration/valencia-blog-only.php` (idempotent)
+- Seeds, Rank Math import, Market seed and the award's `case` link no longer reference the case study
+
 ## [27.5.0] — November 3 2026
 
 ### Real logos

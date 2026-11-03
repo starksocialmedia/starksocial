@@ -39,6 +39,9 @@ function stark_legacy_redirect_map() {
         '/cookie-policy'                                                                                => '/support/cookie-policy/',
         '/accessibility-statement'                                                                      => '/support/accessibility-statement/',
         '/knowledgebase'                                                                                => '/support/knowledgebase/',
+        // v27.5.1: Valencia Jazz & Blues was briefly a Phase 2 case study; it's the 2017 award post.
+        '/portfolio/valencia-jazz-blues'                                                                => '/stark-social-wins-excellence-in-web-design-award-for-valencia-jazz-blues/',
+        '/portfolio/valencia-jazz-and-blues'                                                            => '/stark-social-wins-excellence-in-web-design-award-for-valencia-jazz-blues/',
     ) );
 }
 

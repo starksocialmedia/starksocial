@@ -29,7 +29,6 @@ per-page share images. Copy is verbatim; nothing new was written.
 | Blog, Support, Knowledgebase, Password generator | live's | live | live |
 | Legal pages (noindex) | — | live | homepage image |
 | Pathway Escrow, Schlickart | client name (live) | live | featured image |
-| Valencia Jazz & Blues (draft) | valencia jazz & blues, jazz festival website | fallback (summary) | featured image |
 | `/service-areas/` | digital marketing agency southern california, santa clarita marketing agency | fallback | generated (v27.4.7) |
 | `/web-design/antelope-valley/` | web design antelope valley, antelope valley web design | fallback (parent service) | generated (v27.4.7) |
 

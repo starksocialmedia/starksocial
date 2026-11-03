@@ -24,7 +24,7 @@ Yellow = Draft, blue = Live-sourced (your live copy, carried over as is).
 ## 2. Look at these on staging (new since yesterday)
 
 - [ ] `/service-areas/`: map, numbered markets, local pages / case studies / posts per market
-- [ ] `/web-design/`: 3 case studies at the bottom, then "From the blog: Reading on Web Design"
+- [ ] `/web-design/`: case studies at the bottom (2 since v27.5.1), then "From the blog: Reading on Web Design"
 - [ ] Any blog post, e.g. `/planning-notes-santa-clarita-web-design-seo/`: "Related services" row at the end; first mention of a service or market in the text is now a link (one per paragraph, max 2–3 per post). **Tell me if any of these links read badly**; they're automatic and can be tuned
 - [ ] `/no-such-page/`: popular pages, latest post and episode, "Report a broken link" (emails you with the URL)
 - [ ] `/?s=facebook`: filter chips (Articles / Podcast / Knowledgebase…), highlighted matches
