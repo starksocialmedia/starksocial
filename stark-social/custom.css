@@ -4120,6 +4120,12 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 .stark-breadcrumbs .separator { margin: 0 6px; opacity: 0.6; }
 .stark-breadcrumbs .last { color: var(--stark-ink); }
 
+/* v27.3.7 — Complianz cookie banner on the Phase 2 tokens (its blue was 3.99:1) */
+.cmplz-cookiebanner .cmplz-btn.cmplz-accept,
+.cmplz-cookiebanner .cmplz-btn.cmplz-save-preferences { background-color: var(--stark-accent-dark) !important; border-color: var(--stark-accent-dark) !important; color: #fff !important; }
+.cmplz-cookiebanner .cmplz-documents a.cmplz-link,
+.cmplz-cookiebanner .cmplz-link { color: var(--stark-blue-ink) !important; }
+
 /* ==========================================================================
    14. Global overrides — accessibility
    Must stay after every component it recolours.

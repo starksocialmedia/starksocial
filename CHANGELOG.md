@@ -2,6 +2,17 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.7] — November 2 2026
+
+### Changed — Render-blocking trim
+- Non-podcast pages went from **7 blocking stylesheets to 3** (GeneratePress, `custom.css`, Complianz banner):
+  - `style.css` was enqueued twice (GeneratePress's `generate-child` and the theme's `stark-child`) and contains no rules. Both are dropped; `custom.css` now depends on `generate-style`
+  - Podlove's front-end and admin-font CSS, plus the Web Player's `embed.js` / `cache.js` (blocking `<head>` scripts), now load only on podcast pages
+- Complianz banner restyled to the Phase 2 tokens (its accept button and links were #307FE2 at 3.99:1)
+- **Lighthouse on Local after the change:** home and blog — desktop 100 / mobile 97–98, **accessibility 100**, SEO 100, CLS 0. Summary in `tools/audits/lighthouse-2026-11-02-v27.3.7/`
+- **Not done: critical-CSS inline + async `custom.css`.** What's left blocking is about 150 ms on throttled mobile; scores already beat the targets (desktop 95+, mobile 85+); and splitting 120 KB of CSS by hand risks a flash of unstyled content on templates that weren't measured. Revisit with a build step (`critical`) if staging scores drop
+- **Fonts:** the preload stays at Barlow 400 / 500 / 700 / 800, not 400 / 600 / 700. 500 is the nav and chip weight; preloading it fixed the 0.28 CLS on `/blog/` (v27.1.1). 800 is the hero H1. 600 is below the fold. All `@font-face` rules already use `font-display: swap`
+
 ## [27.3.6] — November 2 2026
 
 ### Added — Visible breadcrumbs

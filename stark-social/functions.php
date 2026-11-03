@@ -45,19 +45,32 @@ add_action( 'wp_head', function () {
  * GeneratePress parent handle is 'generate-style'.
  */
 add_action( 'wp_enqueue_scripts', function () {
-    wp_enqueue_style(
-        'stark-child',
-        get_stylesheet_directory_uri() . '/style.css',
-        array( 'generate-style' ),
-        STARK_CHILD_VERSION
-    );
+    // style.css is only the theme header; GeneratePress already enqueues it as
+    // 'generate-child', so it is no longer enqueued a second time (v27.3.7).
     wp_enqueue_style(
         'stark-custom',
         get_stylesheet_directory_uri() . '/custom.css',
-        array( 'stark-child' ),
+        array( 'generate-style' ),
         STARK_CHILD_VERSION
     );
 }, 20 );
+
+/**
+ * Render-blocking CSS trim (v27.3.7):
+ * - style.css holds no rules (theme header only) → drop GeneratePress's request for it
+ * - Podlove's front-end + admin-font CSS only on podcast pages (they loaded site-wide)
+ */
+add_action( 'wp_enqueue_scripts', function () {
+    wp_dequeue_style( 'generate-child' );
+    $podcast = is_singular( 'podcast' ) || is_post_type_archive( 'podcast' );
+    if ( ! $podcast ) {
+        wp_dequeue_style( 'podlove-frontend-css' );
+        wp_dequeue_style( 'podlove-admin-font' );
+        // Web Player scripts loaded in <head> on every page (render-blocking).
+        wp_dequeue_script( 'podlove-web-player-player' );
+        wp_dequeue_script( 'podlove-web-player-player-cache' );
+    }
+}, 100 );
 
 /**
  * Preload primary Barlow weights (self-hosted WOFF2 in /fonts/).
