@@ -17,7 +17,7 @@ foreach ( $args['extra_sections'] as $i => $x ) :
                 <ul class="stark-cards stark-cards--<?php echo esc_attr( min( 4, count( $x['items'] ) ) ); ?>">
                     <?php foreach ( $x['items'] as $item ) : ?>
                         <li class="stark-cards__item">
-                            <h3 class="stark-cards__title"><?php echo esc_html( $item['title'] ); ?></h3>
+                            <h3 class="stark-cards__title"><?php echo ! empty( $item['url'] ) ? '<a href="' . esc_url( $item['url'] ) . '">' . esc_html( $item['title'] ) . '</a>' : esc_html( $item['title'] ); ?></h3>
                             <?php if ( ! empty( $item['description'] ) ) : ?><p class="stark-cards__desc"><?php echo esc_html( $item['description'] ); ?></p><?php endif; ?>
                         </li>
                     <?php endforeach; ?>

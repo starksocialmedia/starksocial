@@ -121,7 +121,7 @@
 - [x] Homepage process section v27.1.3 — Discover / Design / Build / Grow, draft copy — November 2 2026
 - [x] About page template v27.0.7 — ACF fields, `[SAMPLE]` copy on Local — November 2 2026
 - [x] Contact page template v27.0.8 — GF form ID 1 placeholder, details from live — November 2 2026
-- [ ] Create Gravity Forms contact form (ID 1) + Perfex webhook
+- [x] Gravity Forms contact form (ID 1) + Perfex webhook + /thank-you/ — v27.3.2 (`tools/gravity-forms/`)
 - [ ] Home · About · Contact · Services hub
 
 ### Phase 2.2 — Service Pages (7)

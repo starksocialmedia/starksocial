@@ -2,6 +2,23 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.10] — November 2 2026
+
+### Added — Branded email templates (`inc/stark-emails.php`)
+- One div-based HTML wrapper (no tables, no `<br>`, per ERR-001; inline styles): navy header, white card, address footer
+- WordPress core emails (password reset, new user, comment notification and moderation): plain text becomes HTML in the wrapper
+- Gravity Forms notifications on "Stark Social …" forms are wrapped, plus a `{stark_fields}` merge tag (label/value rows, no table) used by the contact form's admin and confirmation emails
+- Checked by rendering the captured admin notification
+
+## [27.3.2] — November 2 2026
+
+### Added — Contact form + Perfex webhook (`tools/gravity-forms/`)
+- Gravity Form **"Stark Social Contact"**, ID 1: Name, Business Name, Email, Phone, "What are you looking to improve?" (8 options, values are service slugs), city/market, Message, and hidden `source_page_url` / `source_service` / `source_market` / `source_campaign`. `?service=` and `?market=` prefill from the URL
+- Notifications to nathan@ + deanna@starksocial.com (same recipients as live), confirmation email to the visitor, redirect to the new **`/thank-you/`** page (`templates/stark-thank-you.php`, noindex)
+- **Webhook feed** to `hub.starksocial.com/webhooks/lead.php` with the `X-Webhook-Secret` header. Live's field keys are kept (`name`, `email`, `phonenumber`, `message`, `source`), plus `company`, `city` and the source fields. The secret is passed by env var at import and never committed. Local's feed is inactive
+- Webhooks add-on 1.7.0 installed on Local from live's plugins folder
+- Tested on Local: submit → `/thank-you/`, both emails delivered to Mailpit
+
 ## [27.3.1] — November 2 2026
 
 ### Added — Podlove on Phase 2 (launch-critical: podcast RSS)

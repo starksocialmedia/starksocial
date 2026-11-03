@@ -1,0 +1,300 @@
+{
+ "form": {
+  "title": "Stark Social Contact",
+  "description": "Phase 2 contact form (v27.3.2). Webhook feed → Perfex (hub.starksocial.com/webhooks/lead.php).",
+  "labelPlacement": "top_label",
+  "descriptionPlacement": "below",
+  "button": {
+   "type": "text",
+   "text": "Send message"
+  },
+  "fields": [
+   {
+    "id": 1,
+    "type": "text",
+    "label": "Name",
+    "isRequired": true,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "autocompleteAttribute": "name",
+    "enableAutocomplete": true
+   },
+   {
+    "id": 2,
+    "type": "text",
+    "label": "Business Name",
+    "isRequired": true,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "autocompleteAttribute": "organization",
+    "enableAutocomplete": true
+   },
+   {
+    "id": 3,
+    "type": "email",
+    "label": "Email",
+    "isRequired": true,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "autocompleteAttribute": "email",
+    "enableAutocomplete": true
+   },
+   {
+    "id": 4,
+    "type": "phone",
+    "label": "Phone",
+    "isRequired": false,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "phoneFormat": "international",
+    "autocompleteAttribute": "tel",
+    "enableAutocomplete": true
+   },
+   {
+    "id": 5,
+    "type": "select",
+    "label": "What are you looking to improve?",
+    "isRequired": false,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "choices": [
+     {
+      "text": "Social Media",
+      "value": "social-media-management",
+      "isSelected": false
+     },
+     {
+      "text": "Paid Advertising",
+      "value": "paid-advertising",
+      "isSelected": false
+     },
+     {
+      "text": "Web Design",
+      "value": "web-design",
+      "isSelected": false
+     },
+     {
+      "text": "SEO",
+      "value": "seo",
+      "isSelected": false
+     },
+     {
+      "text": "Content",
+      "value": "content-creation",
+      "isSelected": false
+     },
+     {
+      "text": "Brand Strategy",
+      "value": "brand-strategy-identity",
+      "isSelected": false
+     },
+     {
+      "text": "Audit",
+      "value": "audit-consulting",
+      "isSelected": false
+     },
+     {
+      "text": "Not sure yet",
+      "value": "not-sure",
+      "isSelected": false
+     }
+    ],
+    "placeholder": "Choose one",
+    "allowsPrepopulate": true,
+    "inputName": "service"
+   },
+   {
+    "id": 6,
+    "type": "text",
+    "label": "Your city or market",
+    "isRequired": false,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "allowsPrepopulate": true,
+    "inputName": "market",
+    "autocompleteAttribute": "address-level2",
+    "enableAutocomplete": true
+   },
+   {
+    "id": 7,
+    "type": "textarea",
+    "label": "Message",
+    "isRequired": false,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "description": "Anything that helps: goals, timing, links to your site or socials."
+   },
+   {
+    "id": 8,
+    "type": "hidden",
+    "label": "source_page_url",
+    "isRequired": false,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "defaultValue": "{referer}",
+    "allowsPrepopulate": true,
+    "inputName": "source_page"
+   },
+   {
+    "id": 9,
+    "type": "hidden",
+    "label": "source_service",
+    "isRequired": false,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "allowsPrepopulate": true,
+    "inputName": "service"
+   },
+   {
+    "id": 10,
+    "type": "hidden",
+    "label": "source_market",
+    "isRequired": false,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "allowsPrepopulate": true,
+    "inputName": "market"
+   },
+   {
+    "id": 11,
+    "type": "hidden",
+    "label": "source_campaign",
+    "isRequired": false,
+    "size": "large",
+    "visibility": "visible",
+    "cssClass": "",
+    "allowsPrepopulate": true,
+    "inputName": "utm_campaign"
+   }
+  ],
+  "confirmations": {
+   "stark-thank-you": {
+    "id": "stark-thank-you",
+    "name": "Redirect to thank-you",
+    "isDefault": true,
+    "type": "page",
+    "pageSlug": "thank-you",
+    "queryString": "",
+    "event": ""
+   }
+  },
+  "notifications": {
+   "stark-admin": {
+    "id": "stark-admin",
+    "name": "Admin Notification",
+    "event": "form_submission",
+    "isActive": true,
+    "toType": "email",
+    "to": "nathan@starksocial.com, deanna@starksocial.com",
+    "from": "postmaster@mg.starksocial.com",
+    "fromName": "Stark Social Website",
+    "replyTo": "{Email:3}",
+    "subject": "New contact form submission: {Business Name:2}",
+    "message": "<div style=\"font-size:18px;font-weight:600;color:#031B34;\">New lead from the website contact form</div>{stark_fields}<div style=\"font-size:13px;color:#6B7280;\">Page: {source_page_url:8} · Campaign: {source_campaign:11}</div>"
+   },
+   "stark-confirmation": {
+    "id": "stark-confirmation",
+    "name": "Thank You Confirmation",
+    "event": "form_submission",
+    "isActive": true,
+    "toType": "field",
+    "toField": "3",
+    "to": "3",
+    "from": "postmaster@mg.starksocial.com",
+    "fromName": "Stark Social Media Agency",
+    "replyTo": "hello@starksocial.com",
+    "subject": "Thanks for getting in touch",
+    "message": "<div style=\"margin:0 0 14px;\">Hi {Name:1},</div><div style=\"margin:0 0 14px;\">Thanks for reaching out to Stark Social. We read every message ourselves and we’ll get back to you within one business day.</div><div style=\"margin:0 0 14px;\">Here’s a copy of what you sent:</div>{stark_fields}<div>— Nathan and Deanna</div>"
+   }
+  }
+ },
+ "webhook_feed": {
+  "feedName": "Form to Stark Hub",
+  "requestURL": "https://hub.starksocial.com/webhooks/lead.php",
+  "requestMethod": "POST",
+  "requestFormat": "json",
+  "requestHeaders": [
+   {
+    "key": "gf_custom",
+    "custom_key": "X-Webhook-Secret",
+    "value": "gf_custom",
+    "custom_value": "{{STARK_WEBHOOK_SECRET}}"
+   }
+  ],
+  "requestBodyType": "select_fields",
+  "fieldValues": [
+   {
+    "key": "gf_custom",
+    "custom_key": "name",
+    "value": "1",
+    "custom_value": ""
+   },
+   {
+    "key": "gf_custom",
+    "custom_key": "company",
+    "value": "2",
+    "custom_value": ""
+   },
+   {
+    "key": "gf_custom",
+    "custom_key": "email",
+    "value": "3",
+    "custom_value": ""
+   },
+   {
+    "key": "gf_custom",
+    "custom_key": "phonenumber",
+    "value": "4",
+    "custom_value": ""
+   },
+   {
+    "key": "gf_custom",
+    "custom_key": "message",
+    "value": "gf_custom",
+    "custom_value": "{Message:7}\n\nLooking to improve: {What are you looking to improve?:5}\nMarket: {Your city or market:6}\nPage: {source_page_url:8}\nCampaign: {source_campaign:11}"
+   },
+   {
+    "key": "gf_custom",
+    "custom_key": "city",
+    "value": "6",
+    "custom_value": ""
+   },
+   {
+    "key": "gf_custom",
+    "custom_key": "source",
+    "value": "gf_custom",
+    "custom_value": "Website Contact Form"
+   },
+   {
+    "key": "gf_custom",
+    "custom_key": "source_service",
+    "value": "9",
+    "custom_value": ""
+   },
+   {
+    "key": "gf_custom",
+    "custom_key": "source_market",
+    "value": "10",
+    "custom_value": ""
+   },
+   {
+    "key": "gf_custom",
+    "custom_key": "source_campaign",
+    "value": "11",
+    "custom_value": ""
+   }
+  ],
+  "feed_condition_conditional_logic": "0",
+  "feedCondition": ""
+ }
+}
