@@ -97,14 +97,33 @@ function stark_podcast_episode( $post = null ) {
  * Player: Podlove Web Player when the plugin is active, native audio otherwise.
  */
 function stark_podcast_player( $episode ) {
-    if ( shortcode_exists( 'podlove-episode-web-player' ) ) {
-        return do_shortcode( '[podlove-episode-web-player post_id="' . (int) $episode['id'] . '"]' );
-    }
-    if ( ! $episode['audio'] ) return '';
-    return sprintf(
-        '<div class="stark-player"><audio class="stark-player__audio" controls preload="none" src="%1$s"></audio><a class="stark-player__download" href="%1$s" download>Download MP3</a></div>',
+    $native = $episode['audio'] ? sprintf(
+        '<audio class="stark-player__audio" controls preload="none" src="%1$s"></audio><a class="stark-player__download" href="%1$s" download>Download MP3</a>',
         esc_url( $episode['audio'] )
-    );
+    ) : '';
+
+    if ( ! shortcode_exists( 'podlove-episode-web-player' ) ) {
+        return $native ? '<div class="stark-player">' . $native . '</div>' : '';
+    }
+
+    // v27.3.17 — click-to-load Podlove Web Player. Its scripts cost ~770 ms of
+    // main-thread time on mobile and it grows to ~1,000px after load (CLS 0.19).
+    // The native player plays immediately; the full player (chapters, share,
+    // transcript) loads on request. Its markup waits in an inert <template>.
+    $podlove = do_shortcode( '[podlove-episode-web-player post_id="' . (int) $episode['id'] . '"]' );
+    if ( ! $native ) return $podlove;
+    // Its init waits for DOMContentLoaded, which has fired by the time it's injected — run it directly.
+    $podlove = preg_replace( '/document\.addEventListener\(\s*"DOMContentLoaded"\s*,\s*function\s*\(\)\s*\{(.*)\}\s*\)\s*;?\s*<\/script>/s', '(function(){$1})();</script>', $podlove );
+    $scripts = array();
+    foreach ( array( 'podlove-web-player-player-cache', 'podlove-web-player-player' ) as $handle ) {
+        $reg = wp_scripts()->registered[ $handle ] ?? null;
+        if ( $reg ) $scripts[] = add_query_arg( 'ver', $reg->ver, $reg->src );
+    }
+    return '<div class="stark-player stark-player--deferred" data-scripts="' . esc_attr( wp_json_encode( $scripts ) ) . '">'
+        . $native
+        . '<button type="button" class="stark-player__more">Chapters &amp; full player</button>'
+        . '<template class="stark-player__podlove">' . $podlove . '</template>'
+        . '</div>';
 }
 
 /**
@@ -166,3 +185,54 @@ function stark_attachment_img( $id, $size = 'medium_large', $attr = array() ) {
     foreach ( $attr as $k => $v ) $out .= ' ' . esc_attr( $k ) . '="' . esc_attr( $v ) . '"';
     return $out . '>';
 }
+
+/**
+ * Podlove's player scripts load only on request (see stark_podcast_player()).
+ */
+add_action( 'wp_enqueue_scripts', function () {
+    if ( ! is_singular( 'podcast' ) ) return;
+    wp_dequeue_script( 'podlove-web-player-player' );
+    wp_dequeue_script( 'podlove-web-player-player-cache' );
+}, 101 );
+
+add_action( 'wp_footer', function () {
+    if ( ! is_singular( 'podcast' ) ) return;
+    ?>
+<script>
+document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.stark-player__more');
+    if (!btn) return;
+    var box = btn.closest('.stark-player'), tpl = box.querySelector('template.stark-player__podlove');
+    var srcs = JSON.parse(box.getAttribute('data-scripts') || '[]');
+    btn.disabled = true; btn.textContent = 'Loading player…';
+    function load(i) {
+        if (i >= srcs.length) return mount();
+        var s = document.createElement('script'); s.src = srcs[i]; s.onload = function () { load(i + 1); }; s.onerror = mount;
+        document.head.appendChild(s);
+    }
+    function mount() {
+        var holder = document.createElement('div'); holder.className = 'stark-player__full';
+        holder.appendChild(tpl.content.cloneNode(true));
+        box.after(holder); // scripts cloned from a <template> run on insertion — once
+        box.querySelector('audio') && box.querySelector('audio').pause();
+        box.hidden = true;
+    }
+    load(0);
+});
+</script>
+    <?php
+}, 99 );
+
+/**
+ * Podlove's template auto-insert (live's settings, copied over): "top" injects a
+ * second web player into the episode content and "bottom" injects a Cornerstone
+ * component shortcode that Phase 2 can't render. The Phase 2 templates place the
+ * player themselves, so both are turned off for this theme (the stored option is
+ * untouched). v27.3.17
+ */
+add_filter( 'option_podlove_template_assignment', function ( $value ) {
+    $value = (array) $value;
+    $value['top']    = '0';
+    $value['bottom'] = '0';
+    return $value;
+} );

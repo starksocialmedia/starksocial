@@ -37,8 +37,9 @@ $cta  = array(
 
     <?php get_template_part( 'templates/parts/breadcrumbs' ); ?>
 
-    <section class="stark-band stark-podcast__list" aria-label="Episodes">
+    <section class="stark-band stark-podcast__list" aria-labelledby="stark-episodes-title">
         <div class="stark-home__inner">
+            <h2 id="stark-episodes-title" class="screen-reader-text">Episodes</h2>
             <?php if ( have_posts() ) : ?>
                 <div class="stark-episode-grid">
                     <?php while ( have_posts() ) : the_post(); get_template_part( 'templates/parts/podcast', 'card', get_the_ID() ); endwhile; ?>

@@ -3649,6 +3649,10 @@ body:has(.stark-draft-banner) .stark-page { margin-top: 40px; }
 }
 
 .stark-player__download:hover { color: #fff; }
+.stark-player__more { margin-left: 12px; padding: 10px 16px; border: 1.5px solid rgba(255, 255, 255, 0.4); border-radius: 10px; background: transparent; color: #fff; font: 600 14px/1 var(--stark-font); cursor: pointer; }
+.stark-player__more:hover, .stark-player__more:focus-visible { border-color: #fff; }
+.stark-player__more[disabled] { opacity: 0.7; cursor: progress; }
+.stark-player__full { margin-top: 16px; }
 
 /* Single — notes, transcript, aside */
 .stark-episode__layout {

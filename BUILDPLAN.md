@@ -167,7 +167,7 @@
 - [x] Lighthouse + axe audit v27.1.1 — `tools/audits/2026-11-02`; quick fixes shipped — November 2 2026
 - [x] Primary button contrast — `--stark-accent-dark #2A70CC` v27.3.3 (reverse in one token if you prefer the brand blue)
 - [x] Lighthouse on staging v27.3.13 — a11y 100 everywhere; desktop 98–100 (podcast 87); mobile 84–97 (podcast 65). `tools/audits/lighthouse-staging-v27.3.x/`
-- [ ] Podcast episode player: click-to-load (Podlove costs ~770 ms TBT mobile, CLS 0.19 desktop)
+- [x] Podcast episode player: click-to-load (v27.3.17) — episode mobile 98 / desktop 100 on Local
 - [ ] **Cloudflare caching level → Standard** (currently ignores query strings; theme assets now hash-named, v27.3.13)
 - [ ] Perfex chat cookies: `SameSite=None; Secure; Partitioned` on hub.starksocial.com (best practices 81 on pages with chat)
 - [x] Render-blocking trim — 7 → 3 blocking stylesheets (v27.3.7); `custom.css` minify deferred to Phase 2.1

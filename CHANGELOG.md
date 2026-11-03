@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.17] — November 2 2026
+
+### Fixed — Podcast episode pages
+- **Every episode page showed the raw text `[cs_component id="dw5PzB7EUjouj6X7s3"]`** and a **second web player**: live's Podlove template assignments (copied in v27.3.1) auto-insert the player at the top of the content and a Cornerstone component at the bottom. Phase 2 places the player itself, so the theme turns both off (`option_podlove_template_assignment` filter; the stored option is untouched, so live is unaffected)
+- **Click-to-load Podlove Web Player:** the episode hero shows a native `<audio>` player plus Download MP3 and **"Chapters & full player"**. The Podlove scripts (about 400 KB of JS, 770 ms of mobile main-thread time) and its 900px player load only on request (markup waits in an inert `<template>`; the inline init runs once on insertion)
+- Episode page on Local: **mobile 98 / desktop 100, TBT 0 ms, CLS 0** (staging before: 65 / 87, TBT 770 ms, CLS 0.19). Player mount tested: 1 player, 1 iframe, no console errors
+- Podcast archive: hidden "Episodes" h2 before the card h3s (axe heading-order)
+
 ## [27.3.16] — November 2 2026
 
 ### Added — Legacy redirects (replace Pretty Links + AIOSEO Redirects at launch)
