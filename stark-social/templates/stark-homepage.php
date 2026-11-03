@@ -153,7 +153,8 @@ $home_faq = array_values( array_filter( (array) ( $home_id ? stark_field( 'faq_i
             <div class="stark-why__copy">
                 <p class="stark-why__lead">Most agencies sell deliverables. We step in like an in-house marketing lead—so your brand stays clear, consistent, and moving.</p>
                 <p>You won’t get passed between account managers or junior teams. You work directly with the people setting direction and doing the work. We don’t chase trends or post just to stay “active.” Everything has a reason—and it fits into a bigger plan. We don’t disappear after launch. We stay involved, refine what’s working, and keep your marketing from slipping back into chaos.</p>
-                <p class="stark-why__where">Based in Southern California (Los Angeles + Santa Clarita). Supporting businesses nationwide.</p>
+                <p class="stark-why__where">Based in <a href="<?php echo esc_url( home_url( '/service-areas/' ) ); ?>">Southern California</a> (Los Angeles + Santa Clarita). Supporting businesses nationwide.</p>
+                <p class="stark-why__more"><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">Meet the people behind Stark <span aria-hidden="true">&rarr;</span></a></p>
             </div>
         </div>
     </section>

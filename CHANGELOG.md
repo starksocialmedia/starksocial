@@ -2,6 +2,25 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.5] — November 3 2026
+
+### Blog posts — related services
+- A quiet **"Related services"** row at the end of a post (after the author box, before related posts): up to 3 services the post is about, each a link plus its one-line card description. Nothing when a post isn't about a service (e.g. the playlist posts)
+- Topic matching is `inc/stark-topics.php` (shared with v27.4.3): service phrases in the text, title matches weigh triple, and a service needs a score of 3 to show
+
+## [27.4.3] — November 3 2026
+
+### Internal linking
+- **Audit tool** `tools/content-migration/internal-link-audit.php`: fetches all 157 published pages, posts, case studies, episodes and KB articles and counts **contextual** links (inside `<main>`, nav and footer excluded; archives and their paged views count as sources). Report: `tools/content-migration/internal-link-report.md`
+- Before: 3 orphans, **88 under-linked** (1–2 inbound), 66 with 3+. After: 3 orphans, **45 under-linked**, **109 with 3+**
+- **Related posts** are now the posts nearest in date within the category (older and newer), not the newest 3, so every post gets links from its neighbours instead of the latest posts taking them all
+- **Service pages → blog:** "From the blog — Reading on {service}": the 3 posts most about that service (`stark_service_related_posts()`, cached until a post changes)
+- **Posts → services and markets, in the text:** the first mention of up to 2 services a post is clearly about (score ≥ 4) links to the service page, and the first mention of a market links to its entry on `/service-areas/`. Only in paragraphs and list items, one automatic link per paragraph, never inside an existing link, skipped when the post already links there. Applied at render time (`the_content`), so stored content and the cutover re-sync are unaffected
+- Homepage "Why Stark": "Southern California" links to `/service-areas/`, plus a "Meet the people behind Stark" link to About (About was linked only from the nav)
+- Already in place: case studies link the services used; author pages list the author's posts
+- Remaining orphans: `/web-design/antelope-valley/` (sample location page, linked from the Service Areas hub in v27.4.9) and one KB article (reachable from its category page)
+- "Hello world!" (WordPress's default post, published on Phase 2 only, not on live) moved to draft
+
 ## [27.4.4] — November 3 2026
 
 ### Service pages — case studies from the portfolio

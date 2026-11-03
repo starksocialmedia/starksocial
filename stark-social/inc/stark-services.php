@@ -149,6 +149,7 @@ function stark_service_context( $service_id ) {
         'process'          => array_slice( $process, 0, 4 ),
         'case_heading'     => count( $case_studies ) > 1 ? 'Selected work' : 'Featured work',
         'case_studies'     => $case_studies,
+        'blog_posts'       => function_exists( 'stark_service_related_posts' ) ? stark_service_related_posts( $slug, 3 ) : array(),
         'faq_heading'      => stark_field( 'faq_heading', $service_id ) ?: 'Questions, answered',
         'faq'              => $faq,
         'related'          => stark_related_services( $service_id, stark_field( 'related_services', $service_id ) ),

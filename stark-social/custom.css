@@ -1535,6 +1535,11 @@ body:has(.stark-draft-banner) .stark-home { margin-top: 40px; }
 .stark-why__copy p { margin: 0 0 18px; font-size: 17px; line-height: 1.7; }
 .stark-why__copy .stark-why__lead { font-size: clamp(20px, 1.8vw, 24px); font-weight: 600; line-height: 1.45; color: #fff; }
 .stark-why__copy .stark-why__where { margin: 28px 0 0; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; color: rgba(255, 255, 255, 0.62); }
+.stark-why__copy .stark-why__where a { color: inherit; text-underline-offset: 3px; }
+/* v27.4.3 — contextual link to About (it was linked only from the nav) */
+.stark-why__copy .stark-why__more { margin: 16px 0 0; }
+.stark-why__copy .stark-why__more a { font-weight: 700; color: #fff; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.4); text-underline-offset: 4px; }
+.stark-why__copy .stark-why__more a:hover { text-decoration-color: #fff; }
 .stark-who-card__title:only-child { margin: 0; }
 
 /* ==========================================================================
@@ -2833,6 +2838,32 @@ body:has(.stark-draft-banner) .stark-page { margin-top: 40px; }
 }
 
 .stark-hero--article + .stark-article__body { margin-top: clamp(48px, 7vw, 80px); }
+
+/* v27.4.5 — Related services row at the end of a post (quiet, not an ad) */
+.stark-post-services {
+    max-width: 720px;
+    margin: clamp(40px, 5vw, 56px) auto clamp(64px, 8vw, 96px);
+    padding-top: 24px;
+    border-top: 1px solid var(--stark-hairline);
+}
+.stark-author + .stark-post-services { margin-top: calc(-1 * clamp(32px, 5vw, 56px)); }
+@media (max-width: 783px) {
+    .stark-post-services { margin-left: clamp(16px, 3vw, 32px); margin-right: clamp(16px, 3vw, 32px); }
+}
+.stark-post-services__title {
+    margin: 0 0 12px;
+    font-family: "Barlow Condensed", "Barlow", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stark-ink-soft);
+}
+.stark-post-services__list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.stark-post-services__item { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+.stark-post-services__link { font-weight: 700; color: var(--stark-navy); text-decoration: underline; text-decoration-color: var(--stark-hairline); text-underline-offset: 3px; }
+.stark-post-services__link:hover { text-decoration-color: currentColor; }
+.stark-post-services__desc { font-size: 15px; color: var(--stark-muted); }
 
 /* Author box */
 .stark-author {

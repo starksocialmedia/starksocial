@@ -67,26 +67,30 @@ function stark_show_author_box( $author_id ) {
 }
 
 /**
- * Up to $count related posts: same primary category first, then most recent.
+ * Up to $count related posts: nearest in date within the primary category, then most recent.
  */
 function stark_related_posts( $post_id, $count = 3 ) {
+    // v27.4.3: the posts nearest in date within the category (older first, then
+    // newer), not the newest three. Every post then gets links from its
+    // neighbours instead of only the latest posts getting all of them.
     $cat     = stark_primary_category( $post_id );
-    $exclude = array( $post_id );
-    $posts   = array();
+    $date    = get_post_field( 'post_date', $post_id );
+    $base    = array( 'post__not_in' => array( $post_id ), 'suppress_filters' => false );
+    if ( $cat ) $base['category__in'] = array( $cat->term_id );
 
-    if ( $cat ) {
-        $posts = get_posts( array(
-            'numberposts'      => $count,
-            'category__in'     => array( $cat->term_id ),
-            'post__not_in'     => $exclude,
-            'suppress_filters' => false,
-        ) );
+    $older = get_posts( $base + array( 'numberposts' => $count, 'date_query' => array( array( 'before' => $date ) ), 'orderby' => 'date', 'order' => 'DESC' ) );
+    $newer = get_posts( $base + array( 'numberposts' => $count, 'date_query' => array( array( 'after' => $date ) ), 'orderby' => 'date', 'order' => 'ASC' ) );
+    $posts = array();
+    // Alternate older / newer, older first.
+    for ( $i = 0; count( $posts ) < $count && ( isset( $older[ $i ] ) || isset( $newer[ $i ] ) ); $i++ ) {
+        if ( isset( $older[ $i ] ) ) $posts[] = $older[ $i ];
+        if ( isset( $newer[ $i ] ) && count( $posts ) < $count ) $posts[] = $newer[ $i ];
     }
 
     if ( count( $posts ) < $count ) {
         $posts = array_merge( $posts, get_posts( array(
             'numberposts'      => $count - count( $posts ),
-            'post__not_in'     => array_merge( $exclude, wp_list_pluck( $posts, 'ID' ) ),
+            'post__not_in'     => array_merge( array( $post_id ), wp_list_pluck( $posts, 'ID' ) ),
             'suppress_filters' => false,
         ) ) );
     }

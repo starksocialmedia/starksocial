@@ -81,6 +81,8 @@ $cta = array(
             </aside>
         <?php endif; ?>
 
+        <?php get_template_part( 'templates/parts/post', 'related-services', stark_post_related_services( $post_id ) ); ?>
+
     </article>
 
     <?php if ( $related ) : ?>
