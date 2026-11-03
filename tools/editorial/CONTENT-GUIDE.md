@@ -45,7 +45,7 @@ is empty, the site uses the card description or thesis.
 
 Portfolio → Add New Case Study.
 1. Title = client name. **Featured image** = card image (3:2 works best)
-2. Fields: client, industry, year, services (ticks link it to those service pages), website, summary (one sentence for cards)
+2. Fields: client, industry, year, services (ticks link it to those service pages, up to 3 per service page), website, **Market** (only if the client is in one of the 5 markets: it then shows on `/service-areas/`), summary (one sentence for cards)
 3. Story: overview, challenge, approach, results summary, **results** (up to 3 number + label stats — real numbers only), hero image, gallery, testimonial (quote, name, role — only with the client's OK)
 4. Publish. It appears on `/work/` and on the service pages you ticked
 
@@ -57,6 +57,8 @@ Posts → Add New. Write in the block editor.
 - **Author**: Nathan or Deanna; the house account shows no author box
 - Images in the text: use the media library (not links to other sites); add alt text
 - Rank Math: set a focus keyword, check the title and description preview
+- **Automatic links** (no action needed): the first mention of a service the post is clearly about ("web design", "SEO", "paid advertising"…) and of a market ("Santa Clarita", "Bakersfield"…) becomes a link, at most one per paragraph. A "Related services" row appears at the end, and the post shows up under "From the blog" on the matching service page. If you've linked the service yourself, nothing is added
+- **Animated GIFs** over 1 MB: ask for `tools/images/convert-gifs.sh` to be run afterwards; the site then shows a small video instead
 
 ## Add a podcast episode
 

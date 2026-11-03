@@ -90,7 +90,7 @@ function stark_author_avatar( $user_id, $size = 72 ) {
 function stark_redirect_legacy_profile_urls() {
     if ( ! is_404() ) return;
     $path = trim( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
-    $map  = apply_filters( 'stark_legacy_redirects', array(
+    $map  = apply_filters( 'stark_legacy_profile_redirects', array(
         'about/nathan-imhoff'   => '/author/nateimhoff/',
         'about/deanna-l-miller' => '/author/deannaleigh/',
         'about/deanna-miller'   => '/author/deannaleigh/',

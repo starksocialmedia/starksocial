@@ -55,5 +55,5 @@ Everything deliberately deferred from Phase 2, plus known tech debt. As of v27.4
 - The theme registers the `podcast` post type and Podlove registers it too. Fine today; drop the theme's registration once Podlove is permanent
 - Hard-coded copy in templates (homepage sections, hub, support, thank-you, 404) → fields, if Deanna needs to edit them without code
 - Menus: the header uses the fallback hard-coded nav (no WordPress menu assigned). Assign a real menu if editors need to change nav items
-- Redirects live in theme code (`inc/stark-redirects.php` + 3 smaller maps). Optional: import `tools/launch/redirects.csv` into Rank Math Redirections so editors can manage them. Note: `inc/stark-authors.php` and `inc/stark-redirects.php` both apply the filter `stark_legacy_redirects` with different key formats (with and without the leading slash); rename one before anyone hooks it
+- Redirects live in theme code (`inc/stark-redirects.php` + 3 smaller maps). Optional: import `tools/launch/redirects.csv` into Rank Math Redirections so editors can manage them (`inc/stark-authors.php`'s map uses its own filter, `stark_legacy_profile_redirects`, since v27.4.11)
 - Phase 1 leftovers to remove after launch: WPCode snippets ported to `functions.php`, stark-site-toolkit, the Pro theme
