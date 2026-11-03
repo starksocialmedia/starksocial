@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form-inner-wrapper">
     <div class="form-top-section">
-      <input id="passfield1" class="passfield" readonly>
+      <input id="passfield1" class="passfield" readonly aria-label="Generated password">
       <button id="copy-btn" class="stark-btn copy-btn">Copy Password</button>
     </div>
     <form class="form">

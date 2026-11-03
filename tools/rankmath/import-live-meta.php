@@ -68,6 +68,11 @@ foreach ( $live as $slug => $row ) {
     $title = $row['title'] && 'None' !== $row['title']
         ? str_replace( '#separator_sa', '%sep%', html_entity_decode( $row['title'], ENT_QUOTES ) ) : '';
     $desc  = html_entity_decode( (string) $row['description'], ENT_QUOTES );
+    // v27.5.8: live descriptions Google would truncate (~155 chars), shortened with the same meaning.
+    $short = array(
+        'seo' => 'SEO services that help your business rank higher, attract qualified traffic and turn search visibility into real growth. Strategy-led and transparent.',
+    );
+    if ( isset( $short[ $slug ] ) ) $desc = $short[ $slug ];
     $kw    = array_filter( array_merge( array( $row['focus'] ), $row['additional'] ) );
 
     // Service pages: add the regional variant as a secondary keyword.

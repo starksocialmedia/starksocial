@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.8] — November 3 2026
+
+### Technical polish (Block D)
+- **D1** Episode heading hierarchy: already fixed in v27.4.12; axe 0 re-checked on the flagged episode and an older one
+- **D2** Best Practices 81–82 on staging is Cloudflare's JavaScript Detections script (`/cdn-cgi/challenge-platform/scripts/jsd/main.js`), injected at the edge. Not fixable from the site without breaking Cloudflare's bot check; documented as an accepted tradeoff in `tools/audits/known-tradeoffs.md`
+- **D3** SEO page meta description 183 → 150 characters, same meaning ("SEO services that help your business rank higher, attract qualified traffic and turn search visibility into real growth. Strategy-led and transparent."). Kept in `tools/rankmath/import-live-meta.php` so a re-import doesn't revert it
+- **D4** Breakpoint audit, 20 page types × 5 widths (`tools/audits/breakpoints-v27.5.8/`). Fixed: password generator at 320px (field squeezed to 40px, length and "Uppercase" past the edge; now stacks); touch screens get 44px-tall hit areas on footer links, social icons, filter chips, standalone "→" links, KB lists, breadcrumbs and the nav at 1024 (visual size unchanged). No overflow, tiny text or clipped images elsewhere
+- Password generator: field had no label (axe critical) and the "more" link was 3.75:1; both fixed. axe 0 there now
+
 ## [27.5.7] — November 3 2026
 
 ### Content mining (documents only, nothing published)

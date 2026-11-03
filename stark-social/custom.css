@@ -4565,3 +4565,57 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 	opacity: 0.03;
 	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E") repeat;
 }
+
+/* ==========================================================================
+   v27.5.8 — Breakpoint audit fixes (320 / 390 / 768 / 1024 / 1440)
+   ========================================================================== */
+/* Password generator at phone widths: field and Copy stack, length slider gets its own row,
+   options in one column below 400px (at 320 the field was 40px wide and "Uppercase" ran off) */
+@media (max-width: 480px) {
+	.stark-passgen-page__card .container .form-top-section { flex-wrap: wrap !important; }
+	.stark-passgen-page__card .container input.passfield { flex: 1 1 100% !important; min-height: 44px; }
+	.stark-passgen-page__card .container .copy-btn { flex: 1 1 100% !important; }
+	.stark-passgen-page__card .form-footer-main-column { grid-template-columns: 1fr auto; row-gap: 8px; }
+	.stark-passgen-page__card .password-length-range { grid-column: 1 / -1; grid-row: 2; min-height: 44px; }
+}
+@media (max-width: 400px) {
+	.stark-passgen-page__card .checkbox-grid { grid-template-columns: 1fr; }
+}
+
+/* Touch screens: standalone links and controls at least 44px tall (links inside running
+   text keep their line height). Visual size unchanged; the hit area grows with padding. */
+@media (pointer: coarse) {
+	.stark-footer__list { gap: 0; }
+	.stark-footer__list a,
+	.stark-footer__legal a,
+	.stark-why__more a,
+	.stark-case__link,
+	.stark-help-cat__all,
+	.stark-help-way__link,
+	.stark-help-contact__more a,
+	.stark-post-services__link,
+	.stark-author__link,
+	.stark-player__download,
+	.stark-case-nav__all,
+	.stark-support__list a,
+	.stark-support__group-title a,
+	.stark-support__all,
+	.stark-support__details dd > a,
+	.stark-contact__details a,
+	.stark-article__meta a,
+	.rank-math-breadcrumb a,
+	.stark-breadcrumbs a,
+	.betterdocs-breadcrumb-list a,
+	.stark-link-button,
+	.stark-help-cat__docs a,
+	.stark-work-card__title a,
+	.stark-nav__link,
+	.stark-nav__util-link { display: inline-flex; align-items: center; min-height: 44px; }
+	.stark-help-cat__docs a { display: flex; }
+	.stark-footer__social a,
+	.stark-chip,
+	.stark-blog__cats a,
+	.stark-player__more { min-height: 44px; min-width: 44px; }
+	.stark-footer__social a { display: inline-flex; align-items: center; justify-content: center; }
+}
+.stark-passgen-page__more a { color: var(--stark-blue-ink); } /* was #307FE2 on #F7F8FA, 3.75:1 */
