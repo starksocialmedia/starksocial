@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.7] — November 3 2026
+
+### Share images
+- Live's branded per-page share images are used on 12 pages (v27.4.2), so they weren't replaced. **Generated** 1200×630 images only for pages with none: SEO (none on live), Audit & Consulting, `/service-areas/`, the Antelope Valley location page (`stark-social/img/og/`)
+- `tools/images/og/generate.mjs` + `pages.json`: an HTML template rendered in headless Chrome (Barlow 700 headline, the wordmark, navy → accent-blue gradient, tagline from the card description)
+- `inc/stark-seo.php`: Rank Math uses `img/og/{path}.jpg` for og:image and twitter:image when the page has no share image of its own (with 1200×630 dimensions)
+- Not checked with the Facebook / LinkedIn debuggers: they need a public URL. Post-launch check in `tools/images/og/README.md`
+
 ## [27.4.6] — November 3 2026
 
 ### Favicon suite

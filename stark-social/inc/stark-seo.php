@@ -198,3 +198,27 @@ function stark_seo_page_entities( $data ) {
     return $data;
 }
 add_filter( 'rank_math/json_ld', 'stark_seo_page_entities', 101 );
+
+/**
+ * Generated share images (v27.4.7) for pages with none of their own: SEO,
+ * Audit & Consulting, /service-areas/, location pages. img/og/{path}.jpg,
+ * where {path} is the page path with "/" → "-". A share image set in the
+ * page's Rank Math box always wins. Made by tools/images/og/generate.mjs.
+ */
+function stark_seo_generated_og( $attachment ) {
+    if ( ! is_page() ) return $attachment;
+    $id = get_queried_object_id();
+    if ( get_post_meta( $id, 'rank_math_facebook_image', true ) ) return $attachment;
+    $name = str_replace( '/', '-', trim( wp_make_link_relative( get_permalink( $id ) ), '/' ) );
+    $file = '/img/og/' . $name . '.jpg';
+    if ( ! $name || ! is_file( get_stylesheet_directory() . $file ) ) return $attachment;
+    return array(
+        'url'    => get_stylesheet_directory_uri() . $file,
+        'width'  => 1200,
+        'height' => 630,
+        'type'   => 'image/jpeg',
+        'alt'    => get_the_title( $id ),
+    );
+}
+add_filter( 'rank_math/opengraph/facebook/image_array', 'stark_seo_generated_og' );
+add_filter( 'rank_math/opengraph/twitter/image_array', 'stark_seo_generated_og' );
