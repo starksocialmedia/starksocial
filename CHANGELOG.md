@@ -2,6 +2,16 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.6] — November 3 2026
+
+### Typography + accent pass
+- Section H2s: Barlow 700 at `clamp(34px, 4.6vw, 56px)` (was 32–52px), tighter leading and tracking. 34px floor rather than 40px so long headings don't break into five lines at 320px
+- Eyebrows: all small-caps labels were already Barlow Condensed except the footer column headings and the service-areas map caption; those now match
+- Tabular numerals on stats rows, process and market numbers, KB counts, pagination
+- `.stark-accent` keyword colour (ink blue on light, 4.9:1; light blue on dark). Used on "consistently" (homepage services heading), "grow your business" (services hub hero), "Southern California" (service areas hero) via a new `title_accent` hero arg. Homepage hero untouched
+- 3% monochrome grain on dark sections (heroes, CTA bands, Why Stark, footer, support contact band, featured hub card, the lead "Who we're for" card)
+- axe 0 on home, services, service areas, SEO
+
 ## [27.5.5] — November 3 2026
 
 ### Process as a journey

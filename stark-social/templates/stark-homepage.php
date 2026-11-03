@@ -95,7 +95,7 @@ $home_faq = array_values( array_filter( (array) ( $home_id ? stark_field( 'faq_i
         <div class="stark-home__inner">
             <header class="stark-section-head">
                 <p class="stark-eyebrow">What we do</p>
-                <h2 id="stark-services-title" class="stark-section-head__title">Everything your brand needs to show up consistently online.</h2>
+                <h2 id="stark-services-title" class="stark-section-head__title">Everything your brand needs to show up <span class="stark-accent">consistently</span> online.</h2>
                 <p class="stark-section-head__intro">If your website, social, and content don’t feel like they “match,” it’s hard for people to trust what they see—no matter how good your work is. We help you clean it up, tighten it up, and keep it moving, so your digital presence finally reflects the quality of what you do.</p>
             </header>
             <ul class="stark-services__grid">

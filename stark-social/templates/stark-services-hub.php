@@ -29,6 +29,7 @@ $featured_case = stark_service_portfolio_teasers( $featured['slug'], 1 );
 $hero = array(
     'eyebrow'       => 'Services',
     'title'         => 'Marketing services built to grow your business — not just your presence.',
+    'title_accent'  => 'grow your business',
     'thesis'        => 'From social media and websites to content, ads, and SEO, we help brands turn attention into action.',
     'hero_note'     => 'Strategy-led. Fully in-house. Built to last.',
     'cta_primary'   => array( 'url' => '/contact/', 'title' => 'Start a conversation', 'target' => '' ),

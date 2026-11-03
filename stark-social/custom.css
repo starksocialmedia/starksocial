@@ -4529,3 +4529,39 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 	.stark-process__steps--icons .stark-process__step:not(:last-child)::before { top: 93px; left: 64px; right: -20px; }
 	.stark-process__steps--icons .stark-process__icon + .stark-process__num + .stark-process__title { margin-top: 12px; }
 }
+
+/* ==========================================================================
+   v27.5.6 — Typography + accent pass
+   ========================================================================== */
+/* Section H2s: Barlow 700, larger top end (was clamp(32px, 4.5vw, 52px)) */
+.stark-section-head__title { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.06; letter-spacing: -0.015em; }
+
+/* Every small-caps label in Barlow Condensed (the two that weren't) */
+.stark-footer__heading,
+.stark-areas__map figcaption { font-family: "Barlow Condensed", "Barlow", sans-serif; font-weight: 600; letter-spacing: 0.14em; }
+.stark-footer__heading { font-size: 14px; }
+
+/* Numbers that line up */
+.stark-case-study__stats, .stark-cred__stats, .stark-case__stat, .stark-work-card__stats,
+.stark-market__num, .stark-process__num, .stark-help-cat__count, .stark-pagination { font-variant-numeric: tabular-nums; }
+
+/* Accent keyword: <span class="stark-accent">. Ink blue on light (4.9:1), lighter blue on dark */
+.stark-accent { color: var(--stark-blue-ink); }
+.stark-hero .stark-accent,
+.stark-why .stark-accent,
+.stark-cta-band .stark-accent,
+.stark-help-contact .stark-accent,
+.stark-footer .stark-accent { color: #7FB5FF; }
+
+/* Grain on dark sections: 3% monochrome noise, under the content */
+.stark-hero, .stark-cta-band, .stark-home .stark-why, .stark-footer, .stark-help-contact, .stark-quote-band, .stark-hub-featured, .stark-who-card:first-child { position: relative; isolation: isolate; }
+.stark-hero::after, .stark-cta-band::after, .stark-home .stark-why::after, .stark-footer::after, .stark-help-contact::after, .stark-quote-band::after, .stark-hub-featured::after, .stark-who-card:first-child::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	border-radius: inherit;
+	pointer-events: none;
+	opacity: 0.03;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E") repeat;
+}

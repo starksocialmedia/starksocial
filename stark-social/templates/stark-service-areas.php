@@ -14,6 +14,7 @@ $markets = stark_get_markets();
 $hero = array(
     'eyebrow'       => 'Service areas',
     'title'         => 'Southern California, from the Valley to the Antelope Valley.',
+    'title_accent'  => 'Southern California',
     'thesis'        => 'Based in Santa Clarita, working with businesses across five markets.',
     'cta_primary'   => array( 'url' => '/contact/', 'title' => 'Start a project', 'target' => '' ),
     'cta_secondary' => array( 'url' => '/services/', 'title' => 'See the services', 'target' => '' ),

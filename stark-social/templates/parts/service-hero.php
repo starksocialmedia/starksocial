@@ -11,7 +11,14 @@ $ctx = $args;
             <?php if ( $ctx['eyebrow'] ) : ?>
                 <p class="stark-eyebrow stark-eyebrow--light"><?php echo esc_html( $ctx['eyebrow'] ); ?></p>
             <?php endif; ?>
-            <h1 id="stark-hero-title" class="stark-hero__title"><?php echo esc_html( $ctx['title'] ); ?></h1>
+            <?php
+            // v27.5.6: optional 'title_accent' — a phrase in the title set in the accent colour.
+            $title_html = esc_html( $ctx['title'] );
+            if ( ! empty( $ctx['title_accent'] ) && false !== strpos( $ctx['title'], $ctx['title_accent'] ) ) {
+                $title_html = str_replace( esc_html( $ctx['title_accent'] ), '<span class="stark-accent">' . esc_html( $ctx['title_accent'] ) . '</span>', $title_html );
+            }
+            ?>
+            <h1 id="stark-hero-title" class="stark-hero__title"><?php echo $title_html; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above ?></h1>
             <?php if ( $ctx['thesis'] ) : ?>
                 <p class="stark-hero__sub"><?php echo esc_html( $ctx['thesis'] ); ?></p>
             <?php endif; ?>
