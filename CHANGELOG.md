@@ -10,7 +10,7 @@
 - Tabular numerals on stats rows, process and market numbers, KB counts, pagination
 - `.stark-accent` keyword colour (ink blue on light, 4.9:1; light blue on dark). Used on "consistently" (homepage services heading), "grow your business" (services hub hero), "Southern California" (service areas hero) via a new `title_accent` hero arg. Homepage hero untouched
 - 3% monochrome grain on dark sections (heroes, CTA bands, Why Stark, footer, support contact band, featured hub card, the lead "Who we're for" card)
-- axe 0 on home, services, service areas, SEO
+- axe 0 on home, services, service areas, SEO after a follow-up fix: the 02/03 numbers on the v27.5.4 "Who we're for" cards were #307FE2 on white (3.99:1), now ink blue
 
 ## [27.5.5] — November 3 2026
 
