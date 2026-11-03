@@ -23,8 +23,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Environment + version constants.
  */
 if ( ! defined( 'STARK_CHILD_VERSION' ) ) {
-    define( 'STARK_CHILD_VERSION', '2.0.0' );
+    // Asset version = newest theme CSS/JS file time (v27.3.12). A fixed "2.0.0" let
+    // Cloudflare (1-year max-age) keep serving months-old custom.css after deploys.
+    $stark_asset_files = array_merge(
+        array( __DIR__ . '/custom.css', __DIR__ . '/passgen/passgen.css', __DIR__ . '/passgen/passgen.js' ),
+        (array) glob( __DIR__ . '/js/*.js' )
+    );
+    define( 'STARK_CHILD_VERSION', '27.' . max( array_map( function ( $f ) { return is_file( $f ) ? filemtime( $f ) : 0; }, $stark_asset_files ) ) );
+    unset( $stark_asset_files );
 }
+require_once __DIR__ . '/inc/stark-assets.php'; // hashed asset URLs (Cloudflare ignores ?ver=)
+
 if ( ! defined( 'STARK_ENV' ) ) {
     define( 'STARK_ENV', 'production' );
 }

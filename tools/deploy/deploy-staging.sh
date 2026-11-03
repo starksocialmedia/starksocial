@@ -24,6 +24,8 @@ sync_theme() {
 
 flush() {
     remote "wp cache flush && wp rewrite flush --hard && rm -rf wp-content/cache/breeze*" 2>&1 | grep -v Deprecated || true
+    # Cloudways Varnish keeps full pages (with old asset URLs) until purged.
+    $SSH "$HOST" 'curl -s -o /dev/null -w "Varnish purge: %{http_code}\n" -X PURGE -H "Host: staging.starksocial.com" -H "X-Purge-Method: regex" "http://127.0.0.1:8080/.*"' || true
 }
 
 echo "== Backups"

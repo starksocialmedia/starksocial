@@ -23,7 +23,7 @@ uploads pushed over the empty staging install.
 | 6 | `wp search-replace 'https://starksocial.local' 'https://staging.starksocial.com' --all-tables --skip-columns=guid`, then the same for `//starksocial.local` | |
 | 7 | `rsync` uploads, `--bwlimit=5000 --partial --timeout=120`, retried. **Excludes** `fw-backup/` (939 MB of 2020 site-backup zips), `wp-migrate-db/`, `wp-defender/`, `wpo/`, `mainwp/`, `breeze/`, `*.sql`, `*.zip` | About 260 MB after exclusions. Backups must never sit in a web-reachable uploads folder. Unthrottled, the first attempt stalled the server ("server not responding") |
 | 8 | Install `mu-plugins/stark-staging-guard.php` | See below |
-| 9 | `wp cache flush`, `wp rewrite flush --hard`, clear `wp-content/cache/breeze*` | Cloudflare is in front — purge there if a page looks stale |
+| 9 | `wp cache flush`, `wp rewrite flush --hard`, clear `wp-content/cache/breeze*`, **purge Varnish** (`PURGE` regex to 127.0.0.1:8080) | Cloudways Varnish caches whole pages; Cloudflare caches theme assets for a year, so asset URLs carry a file-time version (v27.3.12) |
 | 10 | Smoke test (list below) | |
 
 Settings that come across with the database and must stay that way:

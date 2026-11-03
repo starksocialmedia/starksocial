@@ -2,6 +2,23 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.13] — November 2 2026
+
+### Fixed — Staging served an August 2026 `custom.css` (Cloudflare)
+- **Found during the staging Lighthouse run:** staging scored accessibility 96 against Local's 100. The page loaded `custom.css?ver=2.0.0`, and Cloudflare returned a **9 KB copy last modified August 4 2026** (`cf-cache-status: HIT`, 1-year max-age); the server file is 127 KB. Cloudflare's caching level **ignores query strings**, so `?ver=` never busts it. **Every staging review so far showed stale CSS**
+- `inc/stark-assets.php`: theme CSS and JS are served from content-hashed copies in `uploads/stark-assets/{name}-{hash}.{ext}`, created on the first request after a deploy (old copies removed, relative `url(fonts/…)` rewritten). A changed file gets a new URL, so no cache can serve it stale. `STARK_CHILD_VERSION` is now the newest asset file time instead of a fixed 2.0.0
+- Checked with the computed-style fingerprint: 41/42 page-width combinations identical with and without hashed assets (the one difference is cookie-banner timing on the privacy page)
+- `tools/deploy/deploy-staging.sh` also **purges Cloudways Varnish** (it held whole pages with the old asset URLs)
+- Staging after the fix: `custom.css` 767 rules (was 27), **axe 0 violations** on home, web design, contact, a post and an episode
+- **Nathan:** set Cloudflare Caching Level to **Standard** (respects query strings) on starksocial.com; the hashed URLs make it work either way
+
+## [27.3.12] — November 2 2026
+
+### Added — Documentation
+- `tools/launch/LAUNCH-RUNBOOK.md` — pre-launch checklist with a **plugin parity table** (found: live sends form email through **Mailgun**, missing on Phase 2; 37 **Pretty Links** to migrate; AIOSEO → Rank Math redirects; stark-site-toolkit), settings, final content sync, cutover, verification, rollback, who to notify. Olark comes from the Phase 1 theme (`static.olark.com`), not a WPCode snippet
+- `tools/editorial/CONTENT-GUIDE.md` — editing service pages (every ACF tab), case studies, blog posts, podcast episodes, testimonials, the contact form, the knowledgebase; the Copy status workflow (Draft → Live-sourced → Approved)
+- `tools/roadmap/PHASE-2-1-ROADMAP.md` — deferred content, site auditor tool (needs a spec), shared tokens with the Brand Sheet, KB template, performance, tech debt
+
 ## [Deploy] — November 2 2026, 22:12 — v27.3.0–v27.3.11 on staging
 
 - `tools/deploy/deploy-staging.sh` now syncs the plugins Phase 2 added (Podlove Publisher, Podlove Web Player, GF Webhooks) before the database import
