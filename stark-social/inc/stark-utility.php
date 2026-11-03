@@ -39,12 +39,13 @@ function stark_popular_links() {
 
 /**
  * Search form in Stark style. $variant: 'light' (on dark hero) or 'default'.
+ * $autofocus: focus the field on load (the 404 page, v27.4.8).
  */
-function stark_search_form( $variant = 'default', $id = 'stark-search' ) {
+function stark_search_form( $variant = 'default', $id = 'stark-search', $autofocus = false ) {
     ob_start(); ?>
     <form role="search" method="get" class="stark-search-form stark-search-form--<?php echo esc_attr( $variant ); ?>" action="<?php echo esc_url( home_url( '/' ) ); ?>">
         <label class="screen-reader-text" for="<?php echo esc_attr( $id ); ?>">Search the site</label>
-        <input id="<?php echo esc_attr( $id ); ?>" class="stark-search-form__input" type="search" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" placeholder="Search posts and pages" autocomplete="off">
+        <input id="<?php echo esc_attr( $id ); ?>" class="stark-search-form__input" type="search" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" placeholder="Search posts and pages" autocomplete="off"<?php echo $autofocus ? ' autofocus' : ''; ?>>
         <button class="stark-btn stark-btn--primary stark-search-form__btn" type="submit">Search</button>
     </form>
     <?php

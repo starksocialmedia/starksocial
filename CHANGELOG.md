@@ -2,6 +2,23 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.8] — November 3 2026
+
+### 404 page
+- Kept "Lost in the hills?". The search field is **autofocused**
+- New **Popular pages** row: Services, Work, Blog, plus the **latest post** and **latest episode** (pulled live), above "Fresh from the blog"
+- **"Report a broken link"**: opens an email to Nathan with the broken URL and the referring page. The address is assembled by script, so it isn't in the page source for scrapers; without JavaScript the link goes to `/contact/`
+
+### Search
+- **Facets**: All / Articles / Case studies / Podcast / Knowledgebase / Pages with counts (`?type=`; types with no results are hidden). `inc/stark-search.php`
+- Result cards show the **passage around the first match**, with the search terms highlighted (`<mark>`) in the title and excerpt
+- Empty state: "No results for "…"", suggested searches (topics with real content; there's no search analytics yet), popular pages, contact link
+
+### Fixed
+- Blog cards on the 404 and search pages printed a PHP warning from Podlove's excerpt filter (no global post on those pages) on Local; the card now sets the post while the excerpt is built
+- "ask us directly" link contrast on the empty search page (3.99 → `--stark-accent-dark`)
+- axe: 404, search, search filtered, empty search, 390 + 1440 px: 0 violations
+
 ## [27.4.7] — November 3 2026
 
 ### Share images

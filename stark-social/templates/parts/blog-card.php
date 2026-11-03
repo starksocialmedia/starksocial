@@ -27,7 +27,18 @@ $cat      = stark_primary_category( $post_obj );
             <p class="stark-post-card__cat"><?php echo esc_html( $cat->name ); ?></p>
         <?php endif; ?>
         <h3 class="stark-post-card__title"><a href="<?php echo esc_url( get_permalink( $post_obj ) ); ?>"><?php echo esc_html( get_the_title( $post_obj ) ); ?></a></h3>
-        <p class="stark-post-card__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt( $post_obj ), 24, '…' ) ); ?></p>
+        <?php
+        // Excerpt filters (Podlove's among them) read the global post, which is
+        // empty on 404 and search pages: point it at this card while they run.
+        global $post;
+        $prev_post = $post;
+        $post      = $post_obj; // phpcs:ignore WordPress.WP.GlobalVariablesOverride -- restored below
+        setup_postdata( $post );
+        $excerpt = wp_trim_words( get_the_excerpt( $post_obj ), 24, '…' );
+        $post = $prev_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
+        if ( $prev_post ) setup_postdata( $prev_post ); else wp_reset_postdata();
+        ?>
+        <p class="stark-post-card__excerpt"><?php echo esc_html( $excerpt ); ?></p>
         <p class="stark-post-card__meta">
             <time datetime="<?php echo esc_attr( get_the_date( 'c', $post_obj ) ); ?>"><?php echo esc_html( get_the_date( '', $post_obj ) ); ?></time>
             <span aria-hidden="true">·</span>

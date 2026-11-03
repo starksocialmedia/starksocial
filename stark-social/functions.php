@@ -942,3 +942,4 @@ require_once get_stylesheet_directory() . '/inc/stark-site-tweaks.php';
 require_once get_stylesheet_directory() . '/inc/stark-docs.php';
 require_once get_stylesheet_directory() . '/inc/stark-media.php';
 require_once get_stylesheet_directory() . '/inc/stark-topics.php';
+require_once get_stylesheet_directory() . '/inc/stark-search.php';
