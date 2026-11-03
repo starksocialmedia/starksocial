@@ -45,3 +45,59 @@ add_filter( 'cmplz_known_script_tags', function ( $tags ) {
     );
     return $tags;
 } );
+
+/* -------------------------------------------------------------------------
+ * Contact form anti-spam (v27.3.19) — ported from live's WPCode snippet
+ * "Form Validation" (1807), retargeted from live's field IDs (28/29/38) to the
+ * Phase 2 form's Message (7) and Email (3). Same rules: no URLs or email
+ * addresses in the message, English letters/numbers/punctuation only, and
+ * the banned word / email lists hosted on the hub (cached 6 hours, fetched
+ * only on contact page renders and form submissions).
+ * ------------------------------------------------------------------------- */
+function stark_form_spam_list( $url, $key ) {
+    $cached = get_transient( $key );
+    if ( is_array( $cached ) ) return $cached;
+    $resp = wp_remote_get( $url, array( 'timeout' => 6, 'headers' => array( 'Accept' => 'text/plain' ) ) );
+    if ( is_wp_error( $resp ) || 200 !== (int) wp_remote_retrieve_response_code( $resp ) ) return array();
+    $list = array();
+    foreach ( preg_split( '/\R/', (string) wp_remote_retrieve_body( $resp ) ) as $line ) {
+        $line = strtolower( trim( $line ) );
+        if ( '' !== $line && 0 !== strpos( $line, '#' ) && 0 !== strpos( $line, '//' ) ) $list[] = $line;
+    }
+    set_transient( $key, $list, 6 * HOUR_IN_SECONDS );
+    return $list;
+}
+
+function stark_form_is_contact( $form ) {
+    return 0 === strpos( (string) ( $form['title'] ?? '' ), 'Stark Social Contact' );
+}
+
+add_filter( 'gform_field_validation', function ( $result, $value, $form, $field ) {
+    if ( ! $result['is_valid'] || ! stark_form_is_contact( $form ) ) return $result;
+    $value = is_string( $value ) ? $value : '';
+
+    if ( 7 === (int) $field->id && '' !== trim( $value ) ) {
+        $fail = '';
+        if ( preg_match( '/\b((?:https?|ftp):\/\/|www\.)\S+/i', $value ) || preg_match( '/\b[a-z0-9-]+\.(?:[a-z]{2,})(?:\/\S*)?\b/i', $value ) ) {
+            $fail = 'Please leave out website addresses — we’ll ask for links on our call.';
+        } elseif ( preg_match( '/\b[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}\b/i', $value ) ) {
+            $fail = 'Please leave out email addresses — use the Email field above.';
+        } elseif ( 1 !== preg_match( '/^[A-Za-z0-9\s\p{P}\p{S}]+$/u', $value ) ) {
+            $fail = 'Please use English letters, numbers, spaces and punctuation.';
+        } else {
+            $hay = strtolower( $value );
+            foreach ( stark_form_spam_list( 'https://hub.starksocial.com/media/banned_words.txt', 'stark_gf_banned_words_v1' ) as $w ) {
+                if ( false !== strpos( $hay, $w ) ) { $fail = 'Your message contains words we can’t accept.'; break; }
+            }
+        }
+        if ( $fail ) { $result['is_valid'] = false; $result['message'] = $fail; }
+    }
+
+    if ( 3 === (int) $field->id && '' !== trim( $value ) ) {
+        if ( in_array( strtolower( trim( $value ) ), stark_form_spam_list( 'https://hub.starksocial.com/media/banned_emails.txt', 'stark_gf_banned_emails_v1' ), true ) ) {
+            $result['is_valid'] = false;
+            $result['message']  = 'This email address can’t be used.';
+        }
+    }
+    return $result;
+}, 20, 4 );

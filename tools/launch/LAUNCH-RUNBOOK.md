@@ -39,7 +39,7 @@ Owner: Nathan. Notify: Deanna before and after. Hosting is Cloudways (us).
 | Object Cache Pro | ✓ | inactive | activate after launch |
 | Google Site Kit | ✓ | ✗ | **don't add** (no tracking for now, per Nathan) |
 | stark-site-toolkit (core tweaks, custom 404, login styling) | ✓ | ✗ | Phase 2 has its own 404 and login; check its "core tweaks" module before removing |
-| WPCode Premium | ✓ (19 snippets) | ✓ | re-check which snippets Phase 2 still needs — most were ported to `functions.php` |
+| WPCode Premium | ✓ (19 snippets) | ✓ (0 snippets) | **Audited v27.3.19**: form anti-spam, comments-off, lowercase filenames and SVG uploads are now theme code (`inc/stark-forms.php`, `inc/stark-site-tweaks.php`); portfolio / nav / breadcrumb snippets are replaced by Phase 2. **Your call:** Classic Editor (live disables the block editor), hiding all admin notices, the media filename and alt-field editors |
 | FileBird Pro / FacetWP | partly | ✓ | — |
 
 ### Settings (verify on staging, then again after cutover)

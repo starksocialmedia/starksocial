@@ -2,6 +2,16 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.19] — November 2 2026
+
+### Added — Live WPCode snippets Phase 2 still needs (Phase 2 had none of live's 19)
+- **Contact form anti-spam** (live snippet 1807), retargeted to the new form's Message and Email fields: no website or email addresses in the message, plain-text characters only (now also allows symbols like `$`), and the banned-word / banned-email lists from hub.starksocial.com (6-hour cache). Friendlier error messages. The form's Message hint no longer invites links. Tested on Local: a URL is rejected; a clean message reaches `/thank-you/`
+- `inc/stark-site-tweaks.php`: **comments and trackbacks off** everywhere (831, as on live), **lowercase upload filenames** (816), **SVG uploads** for administrators only (829; live allowed every role)
+- Not ported, on purpose (listed in the file and the runbook): Work CPT / taxonomies / portfolio shortcodes / nav / breadcrumbs (replaced), Blog Player (unused in content), Copyright and Reading Time shortcodes (templates handle them). Editorial choices for Nathan: Classic Editor, hide-all-admin-notices, media filename and alt-field editors
+
+### Fixed
+- Local copy of post 1855 still had the 7 ChatGPT citation markers removed on live earlier; removed (the cutover blog re-sync would also catch it)
+
 ## [27.3.18] — November 2 2026
 
 ### Launch prep — Mailgun
