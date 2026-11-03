@@ -1,6 +1,6 @@
 <?php
 /**
- * Stark 27 email templates (v27.3.10)
+ * Stark 27 email templates (v27.3.10; real wordmark in the header since v27.5.0)
  * One branded, div-based HTML wrapper (no tables, no <br> — see ERR-001) for:
  * - WordPress core emails: password reset, new user, comment notification + moderation
  * - Gravity Forms notifications on "Stark Social …" forms
@@ -22,8 +22,8 @@ function stark_email_wrap( $inner, $preheader = '' ) {
         . '<body style="margin:0;padding:0;background:#F7F8FA;' . $font . '">' . $pre
         . '<div style="max-width:600px;margin:0 auto;padding:32px 16px;">'
         . '<div style="background:#031B34;border-radius:16px 16px 0 0;padding:20px 28px;">'
-        . '<a href="' . $home . '" style="color:#ffffff;text-decoration:none;font-size:20px;font-weight:700;letter-spacing:0.01em;' . $font . '">Stark Social</a>'
-        . '<span style="color:rgba(255,255,255,0.6);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;margin-left:10px;">Media Agency</span>'
+        // Real wordmark as a 2x PNG (email clients don't render SVG); alt text stays readable when images are blocked (v27.5.0)
+        . '<a href="' . $home . '" style="color:#ffffff;text-decoration:none;font-size:20px;font-weight:700;' . $font . '"><img src="' . esc_url( get_stylesheet_directory_uri() . '/img/logos/stark-wordmark-light@2x.png' ) . '" width="104" height="60" alt="Stark Social Media Agency" style="display:block;border:0;width:104px;height:60px;color:#ffffff;font-size:18px;font-weight:700;"></a>'
         . '</div>'
         . '<div style="background:#ffffff;border:1px solid #E6E8EC;border-top:0;border-radius:0 0 16px 16px;padding:28px;color:#0A0F1A;font-size:16px;line-height:1.6;">'
         . $inner

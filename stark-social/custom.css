@@ -216,8 +216,11 @@ html[data-stark-mega-open="true"] .stark-nav__logo {
 
 html[data-stark-scrolled="true"] .stark-nav__logo img,
 html[data-stark-mega-open="true"] .stark-nav__logo img {
-	height: 30px;
+	height: 50px;
 }
+
+/* Real wordmark (v27.5.0): dark version by default, light one only over dark heroes */
+.stark-nav__logo .stark-nav__logo-img--light { display: none; }
 
 /* ---------------------------------------------------------------------------
    Primary menu
@@ -710,7 +713,8 @@ body { padding-top: 0; }
 /* v27.0.1 patch — default to frosted, hero-pages opt into transparent */
 .stark-nav { background: rgba(255,255,255,0.72); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); border-bottom: 1px solid var(--stark-hairline); height: var(--stark-nav-h-scrolled); }
 .stark-nav__logo, .stark-nav__link, .stark-nav__util-link:not(.stark-nav__util-link--cta), .stark-nav__burger { color: var(--stark-navy); }
-.stark-nav__logo img { height: 30px; }
+.stark-nav__logo img { height: 50px; }
+html[data-stark-scrolled="false"]:not([data-stark-mega-open="true"]) .stark-nav__logo img { height: 64px; }
 body.stark-has-hero[data-stark-scrolled="false"] .stark-nav,
 html[data-stark-scrolled="false"] body.stark-has-hero .stark-nav { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom-color: transparent; height: var(--stark-nav-h); }
 
@@ -769,7 +773,7 @@ html[data-stark-scrolled="false"] body.stark-has-hero .stark-nav { background: t
 
 .stark-footer__logo img {
     display: block;
-    height: 36px;
+    height: 72px;
     width: auto;
 }
 
@@ -1180,10 +1184,9 @@ html[data-stark-scrolled="false"]:not([data-stark-mega-open="true"]):not([data-s
     color: var(--stark-paper);
 }
 
-/* Logo SVG is an <img>, so currentColor can't reach it — invert instead */
-html[data-stark-scrolled="false"]:not([data-stark-mega-open="true"]):not([data-stark-mobile-open="true"]) body.stark-has-hero .stark-nav__logo img {
-    filter: brightness(0) invert(1);
-}
+/* Over the dark hero: the light wordmark (v27.5.0; was an invert filter on the text logo) */
+html[data-stark-scrolled="false"]:not([data-stark-mega-open="true"]):not([data-stark-mobile-open="true"]) body.stark-has-hero .stark-nav__logo-img--dark { display: none; }
+html[data-stark-scrolled="false"]:not([data-stark-mega-open="true"]):not([data-stark-mobile-open="true"]) body.stark-has-hero .stark-nav__logo-img--light { display: block; }
 
 body.stark-has-hero { background: var(--stark-paper); }
 

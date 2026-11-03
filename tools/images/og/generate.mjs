@@ -14,7 +14,8 @@ const theme = resolve(here, '../../../stark-social');
 const pages = JSON.parse(readFileSync(`${here}/pages.json`, 'utf8'));
 const font = w => readFileSync(`${theme}/fonts/barlow-v13-latin-${w}.woff2`).toString('base64');
 const cond = readFileSync(`${theme}/fonts/barlow-condensed-v13-latin-600.woff2`).toString('base64');
-const logo = readFileSync(`${theme}/img/stark-logo-light.svg`, 'utf8').replace(/role="img"[^>]*?>/, 'aria-hidden="true">');
+// Real wordmark, light version for the dark background (v27.5.0)
+const logo = readFileSync(`${theme}/img/logos/stark-wordmark-light.svg`, 'utf8').replace(/<svg /, '<svg aria-hidden="true" ');
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
 const html = p => `<!doctype html><html><head><meta charset="utf-8"><style>
@@ -25,7 +26,7 @@ html,body{margin:0;width:1200px;height:630px}
 body{position:relative;overflow:hidden;font-family:B,sans-serif;color:#fff;
  background:radial-gradient(900px 600px at 100% 100%,rgba(42,112,204,.95),rgba(42,112,204,0) 70%),linear-gradient(135deg,#031B34 0%,#0A2C55 55%,#1F5DAE 100%)}
 body:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 22px)}
-.logo{position:absolute;left:80px;top:64px;width:400px}
+.logo{position:absolute;left:72px;top:48px;width:230px}
 .logo svg{width:100%;height:auto;display:block}
 .text{position:absolute;left:80px;right:120px;bottom:96px}
 .eyebrow{font-family:BC;font-weight:600;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72);margin:0 0 14px}

@@ -9,7 +9,7 @@ Audit & Consulting, `/service-areas/`, `/web-design/antelope-valley/`. Output:
 `stark-social/img/og/{page-path-with-dashes}.jpg`, 1200×630. `inc/stark-seo.php` uses one only
 when the page has no share image in its Rank Math box.
 
-Design: navy → accent-blue gradient, the Phase 2 wordmark (`img/stark-logo-light.svg`), Barlow 700 headline,
+Design: navy → accent-blue gradient, the Stark wordmark (`img/logos/stark-wordmark-light.svg`, since v27.5.0), Barlow 700 headline,
 tagline = the page's card description (Audit & Consulting's is **draft copy**; regenerate
 when approved). To add a page: add it to `pages.json` and run (headless Chrome on :9333):
 

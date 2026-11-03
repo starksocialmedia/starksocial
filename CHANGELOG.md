@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.0] — November 3 2026
+
+### Real logos
+- **The real Stark wordmark replaces the outlined-text placeholder** everywhere: header (dark version on white/frosted nav, light version over dark heroes, swapped in CSS: no more invert filter), footer, login page, email header (2x PNG, alt text for blocked images), generated share images (4 regenerated), admin bar (Stark icon replaces the WordPress logo), Organization schema `logo` (was empty)
+- Sources: `brand-sheet/stark/assets/logos/` wordmarks (already in this repo, Brand Guide v2.0.8.1) and live's `stark-social-media-logo-official.svg` cloud lockup. Checked against live's header and the Perfex email logo: same artwork. Files unchanged apart from removing the XML prolog and cropping the cloud's viewBox to the artwork
+- New `img/logos/`: `stark-wordmark-{dark,light}.svg` + PNG 1x/2x, `stark-mark-color.svg` + PNG 1x/2x. Old `img/stark-logo.svg` / `stark-logo-light.svg` removed; `tools/logo-outline/` marked superseded
+- Favicons unchanged (already from live's real icon, v27.4.6)
+- Not available anywhere, so not invented: one-colour (all-white / all-navy) marks, a horizontal lockup, Safari mask icon. What to export from the `.ai` master: `tools/brand-assets/LOGOS.md`
+
 ## [27.4.12] — November 3 2026
 
 ### Podcast episodes

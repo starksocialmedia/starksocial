@@ -87,6 +87,15 @@ function stark_seo_area_served( $data ) {
         }
         if ( array_intersect( $types, array( 'ProfessionalService', 'LocalBusiness', 'Organization' ) ) ) {
             $data[ $key ]['areaServed'] = $areas;
+            // Real Stark mark (v27.5.0); Rank Math's own logo setting is empty
+            if ( empty( $data[ $key ]['logo'] ) ) {
+                $data[ $key ]['logo'] = array(
+                    '@type'  => 'ImageObject',
+                    'url'    => get_stylesheet_directory_uri() . '/img/logos/stark-mark-color@2x.png',
+                    'width'  => 512,
+                    'height' => 390,
+                );
+            }
         }
     }
     return $data;

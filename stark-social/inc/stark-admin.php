@@ -1,7 +1,8 @@
 <?php
 /**
  * Stark 27 admin + editorial experience (v27.3.11)
- * - Branded login page (existing theme logo file, navy background)
+ * - Branded login page (real Stark wordmark since v27.5.0, navy background)
+ * - Stark mark in place of the WordPress logo in the admin bar (v27.5.0)
  * - "Stark Social 27" admin footer
  * - "Stark" admin colour scheme, used when a user hasn't picked one
  * - Dashboard widget: recent form submissions, posts waiting for review,
@@ -12,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 /* Login page ------------------------------------------------------------- */
 add_action( 'login_head', function () { // after core login CSS, so these win
-    $logo = get_stylesheet_directory_uri() . '/img/stark-logo-light.svg';
+    $logo = get_stylesheet_directory_uri() . '/img/logos/stark-wordmark-light.svg';
     ?>
     <style>
         body.login { background: #031B34; font-family: "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-        .login h1 a { background: url(<?php echo esc_url( $logo ); ?>) no-repeat center / contain; width: 280px; height: 48px; }
+        .login h1 a { background: url(<?php echo esc_url( $logo ); ?>) no-repeat center / contain; width: 220px; height: 128px; }
         .login form { border: 0; border-radius: 16px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); }
         .login .button-primary { background: #2A70CC; border-color: #2A70CC; border-radius: 10px; font-weight: 600; }
         .login .button-primary:hover, .login .button-primary:focus { background: #1F5DAE; border-color: #1F5DAE; }
@@ -28,6 +29,19 @@ add_action( 'login_head', function () { // after core login CSS, so these win
 } );
 add_filter( 'login_headerurl', function () { return home_url( '/' ); } );
 add_filter( 'login_headertext', function () { return get_bloginfo( 'name' ); } );
+
+/* Admin bar: Stark mark replaces the WordPress logo menu ------------------ */
+add_action( 'admin_bar_menu', function ( $bar ) {
+    $bar->remove_node( 'wp-logo' );
+    $bar->add_node( array(
+        'id'    => 'stark-logo',
+        'title' => '<img src="' . esc_url( get_stylesheet_directory_uri() . '/img/favicon/favicon-32x32.png' ) . '" alt="" width="20" height="20"><span class="screen-reader-text">Stark Social</span>',
+        'href'  => home_url( '/' ),
+    ) );
+}, 5 );
+$stark_bar_css = '<style>#wpadminbar #wp-admin-bar-stark-logo > .ab-item{display:flex;align-items:center;padding:0 8px}#wpadminbar #wp-admin-bar-stark-logo img{display:block;width:20px;height:20px;border-radius:4px}</style>';
+add_action( 'admin_head', function () use ( $stark_bar_css ) { if ( is_admin_bar_showing() ) echo $stark_bar_css; } );
+add_action( 'wp_head', function () use ( $stark_bar_css ) { if ( is_admin_bar_showing() ) echo $stark_bar_css; } );
 
 /* Admin footer ----------------------------------------------------------- */
 add_filter( 'admin_footer_text', function () {

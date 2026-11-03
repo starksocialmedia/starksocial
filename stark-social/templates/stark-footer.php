@@ -15,7 +15,7 @@ $year = date( 'Y' );
 
             <div class="stark-footer__brand">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="stark-footer__logo" aria-label="Stark Social Media Agency Home">
-                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stark-logo-light.svg' ); ?>" alt="Stark Social Media Agency" width="220" height="48">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/logos/stark-wordmark-light.svg' ); ?>" alt="Stark Social Media Agency" width="124" height="72">
                 </a>
                 <p class="stark-footer__tagline">Digital marketing the right way, out of Santa Clarita, CA.</p>
 
