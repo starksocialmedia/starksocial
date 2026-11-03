@@ -17,17 +17,17 @@ Owner: Nathan. Notify: Deanna before and after. Hosting is Cloudways (us).
 |---|---|---|---|---|
 | 1 | Page copy approved (services, Home, About, Contact) | 🔴🟡 | Nathan | Dashboard widget lists them. 6 services + About/Contact are Live-sourced; Brand Strategy and Audit & Consulting are Draft |
 | 2 | Brand Strategy process + FAQ | 🔴🟡 | Nathan | live's are copies of other pages |
-| 3 | `[NEEDS REVIEW]` markers (3) | 🔴🟡 | Nathan | Content Creation CTA, About story, About CTA |
+| 3 | `[NEEDS REVIEW]` markers (1 left) | 🔴🟡 | Nathan | About CTA ("fractional"). Content Creation CTA and About story fixed v27.5.9: check them |
 | 4 | Service Areas intro + market copy, location page `[SAMPLE]`/`[DRAFT]` | 🟡 | Nathan | or set those pages to noindex for launch |
 | 5 | Homepage hero choice, homepage FAQ | 🟡 | Nathan | |
 | 6 | Legal pages reviewed | 🟡 | Nathan | last updated Jan 15 2026 |
-| 7 | Real logo files | 🟡 | Nathan | favicon + share images use live's icon/images |
+| 7 | Real logo files | ✅🟡 | Nathan for extras | Real wordmark + mark in use since v27.5.0 (`tools/brand-assets/LOGOS.md`). Optional: one-colour exports |
 | 8 | Content migration from live | ✅ | | 17/22 pages full, 2 partial; all posts, episodes, KB, case studies, 255 media files (`live-inventory.md`) |
 | 9 | Redirect map | ✅ | | `redirect-map.md`, all tested 301 on Phase 2 (v27.4.10) |
 | 10 | Rank Math: site config + per-page meta from live | ✅ | | `tools/rankmath/` (v27.1.5, v27.4.2). Re-run both scripts after cutover |
-| 11 | Contact form → Perfex webhook | ✅ | | tested on staging (lead #126) |
-| 12 | Delete Perfex test lead #126 | 🟡 | Nathan | Hub UI, 1 minute |
-| 13 | **Mailgun settings saved + reactivated at cutover** | 🔴 | Nathan / cutover | DMARC `p=reject` (strict): without Mailgun, form emails are rejected |
+| 11 | Contact form → Perfex webhook | ✅ | | tested on staging (leads #126, #127 on Nov 3 after the v27.5 deploy) |
+| 12 | Delete Perfex test leads #126, #127 | 🟡 | Nathan | Hub UI, 1 minute |
+| 13 | **Mailgun settings saved + reactivated at cutover** | 🔴 | Nathan / cutover | DMARC `p=reject` (strict): without Mailgun, form emails are rejected. Step by step: `MAILGUN-ACTIVATION.md` |
 | 14 | Cloudflare caching level → Standard | 🔴🟡 | Nathan | Apex goes through **Cloudways' Cloudflare Enterprise** add-on (`secure.cloudways.cloud`): check there as well as the Cloudflare dashboard. Theme assets are hashed anyway (v27.3.13) |
 | 15 | Live `WP_DEBUG` off, debug.log rotated | ✅ | | Nov 3 (CHANGELOG maintenance) |
 | 16 | Redis / Object Cache Pro errors on live | 🟡 | Nathan | most of the old debug.log; check before activating Object Cache Pro on Phase 2 |
@@ -56,7 +56,7 @@ else is either done or can follow launch.
 - [ ] Homepage FAQ approved (or removed)
 - [ ] `/service-areas/` intro and market descriptions written (v27.4.9 hub, marked `[DRAFT]`)
 - [ ] Legal pages reviewed (last updated January 15 2026)
-- [ ] Real logo files in place (Nathan)
+- [x] Real logo files in place (v27.5.0)
 
 ### Plugins (Phase 2 vs live)
 

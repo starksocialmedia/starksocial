@@ -13,13 +13,22 @@ Yellow = Draft, blue = Live-sourced (your live copy, carried over as is).
 |---|---|---|
 | 1 | `/brand-strategy-identity/` | **Write the process steps and FAQ.** Live's were copies of the SEO and Web Design pages. Hero, outcomes and CTA are live copy |
 | 2 | `/audit-consulting/` | Whole page is draft (new service, no live page). Also its share image tagline: regenerate after (`tools/images/og/`) |
-| 3 | `/content-creation/` | `[NEEDS REVIEW]` on the final CTA: "Ready to turn paid social into a system?" is Paid Advertising's CTA |
-| 4 | `/about/` | Two `[NEEDS REVIEW]`: the story ("They're doing meaningful work" has no antecedent; "…strategic ownership. holding it all together" is broken) and the CTA ("fractional marketing partner") |
+| 3 | `/content-creation/` | Final CTA now "Ready to turn your content into a system?" (v27.5.9). Bigger question: the page reads like a paid-UGC agency (`tools/content-mining/generic-copy-audit.md`) |
+| 4 | `/about/` | Story sentences fixed in v27.5.9 (check them). One `[NEEDS REVIEW]` left: the CTA ("fractional marketing partner") |
 | 5 | `/`, `/social-media-management/`, `/paid-advertising/`, `/web-design/`, `/seo/`, `/services/`, `/contact/` | Read through your live copy in the new layout; set Approved |
 | 6 | `/` hero | Keep the Phase 2 hero, or use live's "Elevate Your Brand. Build Something That Lasts." |
 | 7 | `/` FAQ | 8 Phase 2 draft questions (live has no FAQ): approve, edit or remove |
 | 8 | `/service-areas/` | New hub. The intro paragraph and 5 market descriptions are `[DRAFT]` placeholders. Check the tone: "earned, not salesy" |
 | 9 | `/web-design/antelope-valley/` | Sample location page: write it or set it to draft/noindex for launch |
+
+## 2a. New since this morning (v27.5.x, on staging)
+
+- [ ] **Real logo** in the header (light over dark heroes, dark when scrolled), footer, `/wp-login.php`, share images
+- [ ] `/support/`: rebuilt hub (quick actions, category cards, most read, chat/email/call + hours)
+- [ ] Service icons: homepage cards, `/services/`, the Services menu, faint outline in each service hero
+- [ ] Homepage "Who we're for" (bento, a symbol per card) and "How we work" (dashed journey line, step icons)
+- [ ] `/stark-social-wins-excellence-in-web-design-award-for-valencia-jazz-blues/`: the 3 site screenshots are back; `/work/` lists 2 case studies
+- [ ] `/support/password-generator/` on your phone
 
 ## 2. Look at these on staging (new since yesterday)
 
@@ -49,7 +58,7 @@ Yellow = Draft, blue = Live-sourced (your live copy, carried over as is).
 - Cloudways: look at **Redis** on the live server (Object Cache Pro logged ~185k "Redis went away" errors)
 - Perfex: delete test lead #126; check `lead.php` maps `company` and `city`
 - Legal pages: review (last updated Jan 15 2026)
-- Real logo files, when you have them
+- Logo exports the theme can't make itself: one-colour wordmarks, script-only "Stark" SVG (`tools/brand-assets/LOGOS.md`)
 
 ## Reference
 

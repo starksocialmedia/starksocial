@@ -12,6 +12,11 @@ Autonomous push: "site looks generic" fixes + visual personality. Started 10:34 
 | 10:52 | v27.5.4 | Who we're for bento (3 cards, live copy; no invented personas) |
 | 10:53 | v27.5.5 | Process journey connector + step icons |
 | 10:54 | v27.5.6 | Typography/accent/grain. axe caught a v27.5.4 contrast regression (card numbers 3.99:1), fixed in the follow-up commit |
+| 10:58 | v27.5.7 | Content mining docs (case studies, testimonials, generic copy) |
+| 11:05 | v27.5.8 | Breakpoint audit fixes, touch targets, SEO meta 150 chars, Cloudflare tradeoff doc, passgen a11y |
+| 11:07 | docs | Mailgun activation, cutover rehearsal, rollback procedure |
+| 11:08 | v27.5.9 | Copy fixes (Content Creation CTA + typos, About sentences). Numbered before the deploy so it ships in it |
+| 11:09 | — | Full staging deploy (exit 0, 82 replacements), webhook secret re-applied server-side, form test → Perfex lead #127 |
 
 ## Notes
 - The brief described 4 personas and 4 process steps; the site has 3 of each (live copy). Kept the real content
