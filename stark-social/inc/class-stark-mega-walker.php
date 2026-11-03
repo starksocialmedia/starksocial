@@ -74,7 +74,11 @@ class Stark_Mega_Walker extends Walker_Nav_Menu {
         } else {
             // Mega menu item: title + optional description
             $description = ! empty( $item->description ) ? $item->description : '';
-            $output .= '<a href="' . $url . '" class="stark-mega__link"' . ( self::is_current( $item ) ? ' aria-current="page"' : '' ) . '>';
+            // v27.5.3: service links get their icon (matched by URL path to the service registry)
+            $slug  = trim( (string) wp_parse_url( $item->url, PHP_URL_PATH ), '/' );
+            $glyph = function_exists( 'stark_service_glyph' ) ? stark_service_glyph( $slug ) : '';
+            $output .= '<a href="' . $url . '" class="stark-mega__link' . ( $glyph ? ' stark-mega__link--icon' : '' ) . '"' . ( self::is_current( $item ) ? ' aria-current="page"' : '' ) . '>';
+            if ( $glyph ) $output .= '<span class="stark-mega__icon" aria-hidden="true">' . $glyph . '</span>';
             $output .= '<span class="stark-mega__title">' . esc_html( $title ) . '</span>';
             if ( $description ) {
                 $output .= '<span class="stark-mega__desc">' . esc_html( $description ) . '</span>';

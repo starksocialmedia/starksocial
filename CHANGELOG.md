@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.3] — November 3 2026
+
+### Custom service icons
+- **Seven drawn icons replace the generic line glyphs** (`img/icons/service-{slug}.svg`): 48×48, 1.5px line, round caps, `currentColor`, one shape at 18% tint for weight. Social (speech bubble + heart), Paid (target + arrow), Web (browser window + cursor, frame left open where the cursor sits), SEO (lens + ranking bars), Content (document + pen), Brand (cut diamond), Audit (bar chart + lens with trend line)
+- `stark_service_glyph( $slug )` inlines them; `stark_service_icon()` returns the custom icon when given a service slug (registry `icon` values are now the slugs)
+- Used on: homepage service cards, services hub cards (incl. featured), related-service cards, the Services mega menu (icon beside title), and each service page hero (large, 8% white outline as a decorative accent, `aria-hidden`)
+- Cards: navy line on a pale-blue tile; on hover/focus the tile turns navy, the icon white, with a slight scale and tilt (off for reduced motion)
+- **Fixed:** opening the Services menu on a page with a dark hero left the nav bar transparent with navy links (unreadable). The nav now turns frosted white while the menu is open
+
 ## [27.5.2] — November 3 2026
 
 ### Support hub rebuilt (`/support/`)

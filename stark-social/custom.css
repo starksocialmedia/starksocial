@@ -716,7 +716,7 @@ body { padding-top: 0; }
 .stark-nav__logo img { height: 50px; }
 html[data-stark-scrolled="false"]:not([data-stark-mega-open="true"]) .stark-nav__logo img { height: 64px; }
 body.stark-has-hero[data-stark-scrolled="false"] .stark-nav,
-html[data-stark-scrolled="false"] body.stark-has-hero .stark-nav { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom-color: transparent; height: var(--stark-nav-h); }
+html[data-stark-scrolled="false"]:not([data-stark-mega-open="true"]) body.stark-has-hero .stark-nav { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom-color: transparent; height: var(--stark-nav-h); }
 
 
 /* ==========================================================================
@@ -4448,3 +4448,35 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 	.stark-help-quick__arrow { top: 50%; right: 16px; transform: translateY(-50%); }
 	.stark-help-quick__card:hover .stark-help-quick__arrow { transform: translate(4px, -50%); }
 }
+
+/* ==========================================================================
+   v27.5.3 — Custom service icons (img/icons/service-*.svg, stark_service_glyph())
+   ========================================================================== */
+.stark-icon--service { width: 32px; height: 32px; }
+.stark-service-card__icon--glyph,
+.stark-hub-card__icon { width: 60px; height: 60px; border-radius: 16px; background: #EAF2FD; color: var(--stark-navy); transition: background 220ms var(--stark-ease), color 220ms var(--stark-ease); }
+.stark-service-card__icon--glyph .stark-icon--service,
+.stark-hub-card__icon .stark-icon--service { width: 36px; height: 36px; transition: transform 260ms var(--stark-ease); }
+.stark-service-card:hover .stark-service-card__icon--glyph,
+.stark-service-card:focus-within .stark-service-card__icon--glyph,
+.stark-hub-card:hover .stark-hub-card__icon,
+.stark-hub-card:focus-within .stark-hub-card__icon { background: var(--stark-navy); color: #fff; }
+.stark-service-card:hover .stark-icon--service,
+.stark-hub-card:hover .stark-icon--service { transform: scale(1.06) rotate(-4deg); }
+.stark-hub-featured .stark-hub-card__icon { background: rgba(255, 255, 255, 0.12); color: #fff; }
+
+/* Mega menu: icon beside title + description */
+.stark-mega__link--icon { display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 12px; row-gap: 2px; align-items: start; }
+.stark-mega__icon { grid-row: span 2; display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 10px; background: #EAF2FD; color: var(--stark-navy); transition: background 160ms var(--stark-ease), color 160ms var(--stark-ease); }
+.stark-mega__icon .stark-icon--service { width: 26px; height: 26px; }
+.stark-mega__link--icon:hover .stark-mega__icon,
+.stark-mega__link--icon:focus-visible .stark-mega__icon { background: var(--stark-navy); color: #fff; }
+.stark-mega__link--icon .stark-mega__title { align-self: end; }
+
+/* Service hero: the icon, large and faint, as a decorative accent */
+.stark-hero--service { position: relative; overflow: hidden; }
+.stark-hero__glyph { position: absolute; right: clamp(-40px, -2vw, 0px); bottom: clamp(-60px, -4vw, -20px); width: clamp(220px, 30vw, 440px); color: #fff; opacity: 0.08; pointer-events: none; }
+.stark-hero__glyph .stark-icon--service { width: 100%; height: auto; stroke-width: 0.6; }
+.stark-hero--service .stark-hero__content { position: relative; z-index: 1; }
+@media (max-width: 720px) { .stark-hero__glyph { width: 200px; opacity: 0.06; } }
+@media (prefers-reduced-motion: reduce) { .stark-icon--service { transition: none !important; } }

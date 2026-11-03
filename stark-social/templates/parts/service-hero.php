@@ -25,5 +25,8 @@ $ctx = $args;
                 <p class="stark-hero__note"><?php echo esc_html( $ctx['hero_note'] ); ?></p>
             <?php endif; ?>
         </div>
+        <?php if ( ! empty( $ctx['service_slug'] ) && ( $glyph = stark_service_glyph( $ctx['service_slug'], 'stark-hero__glyph-svg' ) ) ) : ?>
+            <span class="stark-hero__glyph" aria-hidden="true"><?php echo $glyph; // phpcs:ignore WordPress.Security.EscapeOutput -- static markup ?></span>
+        <?php endif; ?>
     </div>
 </section>

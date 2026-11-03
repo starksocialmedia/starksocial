@@ -13,13 +13,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function stark_get_services() {
     return apply_filters( 'stark_services', array(
-        'social-media-management' => array( 'name' => 'Social Media Management', 'desc' => 'Content calendar, posting, reporting.', 'icon' => 'megaphone' ),
-        'paid-advertising'        => array( 'name' => 'Paid Advertising', 'desc' => 'Google, Meta, LinkedIn paid campaigns.', 'icon' => 'target' ),
-        'web-design'              => array( 'name' => 'Web Design', 'desc' => 'Custom WordPress sites built to convert.', 'icon' => 'layout' ),
-        'seo'                     => array( 'name' => 'SEO', 'desc' => 'Technical and local SEO that ranks.', 'icon' => 'search' ),
-        'content-creation'        => array( 'name' => 'Content Creation', 'desc' => 'Photo, video, graphic, written.', 'icon' => 'camera' ),
-        'brand-strategy-identity' => array( 'name' => 'Brand Strategy', 'desc' => 'Positioning and visual identity.', 'icon' => 'pen' ),
-        'audit-consulting'        => array( 'name' => 'Audit & Consulting', 'desc' => 'Marketing audits for small to mid business.', 'icon' => 'chart' ),
+        'social-media-management' => array( 'name' => 'Social Media Management', 'desc' => 'Content calendar, posting, reporting.', 'icon' => 'social-media-management' ),
+        'paid-advertising'        => array( 'name' => 'Paid Advertising', 'desc' => 'Google, Meta, LinkedIn paid campaigns.', 'icon' => 'paid-advertising' ),
+        'web-design'              => array( 'name' => 'Web Design', 'desc' => 'Custom WordPress sites built to convert.', 'icon' => 'web-design' ),
+        'seo'                     => array( 'name' => 'SEO', 'desc' => 'Technical and local SEO that ranks.', 'icon' => 'seo' ),
+        'content-creation'        => array( 'name' => 'Content Creation', 'desc' => 'Photo, video, graphic, written.', 'icon' => 'content-creation' ),
+        'brand-strategy-identity' => array( 'name' => 'Brand Strategy', 'desc' => 'Positioning and visual identity.', 'icon' => 'brand-strategy-identity' ),
+        'audit-consulting'        => array( 'name' => 'Audit & Consulting', 'desc' => 'Marketing audits for small to mid business.', 'icon' => 'audit-consulting' ),
     ) );
 }
 
@@ -212,6 +212,8 @@ function stark_related_services( $service_id, $picked = array(), $market = null 
  * Choices mirror the included_items > icon select in the field group.
  */
 function stark_service_icon( $name ) {
+    // v27.5.3: a service slug gets its custom 48px icon (img/icons/service-{slug}.svg).
+    if ( $glyph = stark_service_glyph( $name ) ) return $glyph;
     $paths = array(
         'check'     => '<path d="M20 6 9 17l-5-5"/>',
         'chart'     => '<path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/>',
@@ -235,6 +237,21 @@ function stark_service_icon( $name ) {
     );
     $path = isset( $paths[ $name ] ) ? $paths[ $name ] : $paths['check'];
     return '<svg class="stark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $path . '</svg>';
+}
+
+/**
+ * Custom service icon (v27.5.3), inline so it takes currentColor: 48×48, 1.5px line with one
+ * 18%-tint shape. Files: img/icons/service-{slug}.svg. '' when the slug has none.
+ */
+function stark_service_glyph( $slug, $class = '' ) {
+    static $cache = array();
+    if ( ! is_string( $slug ) || ! preg_match( '/^[a-z0-9-]+$/', $slug ) ) return '';
+    if ( ! array_key_exists( $slug, $cache ) ) {
+        $file           = get_stylesheet_directory() . '/img/icons/service-' . $slug . '.svg';
+        $cache[ $slug ] = is_file( $file ) ? trim( (string) file_get_contents( $file ) ) : '';
+    }
+    if ( '' === $cache[ $slug ] ) return '';
+    return preg_replace( '/^<svg /', '<svg class="stark-icon stark-icon--service' . ( $class ? ' ' . esc_attr( $class ) : '' ) . '" aria-hidden="true" focusable="false" ', $cache[ $slug ] );
 }
 
 /**

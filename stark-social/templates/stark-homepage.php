@@ -102,8 +102,7 @@ $home_faq = array_values( array_filter( (array) ( $home_id ? stark_field( 'faq_i
             <ul class="stark-services__grid">
                 <?php foreach ( $services as $service ) : ?>
                     <li class="stark-service-card">
-                        <?php $svc_icon = function_exists( 'stark_get_services' ) ? ( stark_get_services()[ trim( $service[1], '/' ) ]['icon'] ?? '' ) : ''; ?>
-                        <span class="stark-service-card__icon stark-service-card__icon--glyph" aria-hidden="true"><?php echo $svc_icon ? stark_service_icon( $svc_icon ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput -- static markup ?></span>
+                        <span class="stark-service-card__icon stark-service-card__icon--glyph" aria-hidden="true"><?php echo stark_service_glyph( trim( $service[1], '/' ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- static markup ?></span>
                         <h3 class="stark-service-card__title"><a href="<?php echo esc_url( $service[1] ); ?>"><?php echo esc_html( $service[0] ); ?></a></h3>
                         <?php $svc_page = get_page_by_path( trim( $service[1], '/' ) ); ?>
                         <p class="stark-service-card__desc"><?php echo esc_html( ( $svc_page ? stark_field( 'card_description', $svc_page->ID ) : '' ) ?: $service[2] ); ?></p>
