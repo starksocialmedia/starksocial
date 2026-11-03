@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.1] — November 2 2026
+
+### Added — Podlove on Phase 2 (launch-critical: podcast RSS)
+- Podlove Publisher 4.5.8 + Web Player 5.10.0 on Local, same versions as live
+- Live's 10 Podlove data tables (38 episode rows, 294 media files, feeds, templates, seasons, subscribe button) and 28 `podlove%` options copied read-only from live; episode → post IDs remapped by slug (37/37). Download analytics not copied
+- `/feed/podcast/` renders on Local with the same 10 items and enclosure URL format as live; episode pages use the Podlove Web Player (with chapters)
+- `tools/podlove-migration/` — README with every step, `import-options.php`, `remap-episode-posts.php`
+
 ## [27.3.0] — November 2 2026
 
 ### Content migration — live copy into Phase 2 (`tools/content-migration/`)
