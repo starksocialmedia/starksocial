@@ -2,6 +2,17 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.1.7] — November 2 2026
+
+### Deployed — staging at Local parity
+- Full re-deploy with `tools/deploy/deploy-staging.sh` (its first run; exit 0). Staging now has everything since v27.1.0: homepage process, Support hub + 27 KB docs, WebP podcast covers, repaired inline blog images, Rank Math configuration, Site Title
+- Used the full DB push instead of re-running `tools/content-seed/` one script at a time. Staging has no content of its own, so a fresh copy of Local is exact parity and needs no ID remapping. The seeds stay documented for a fresh install
+- Smoke test: 18 URLs, 200 everywhere except `/404-error-page/` (404); no PHP warnings. Staging guard checked: `wp_mail()` returns false and logs `[stark-staging-guard] blocked email`; `noindex, nofollow` on the homepage
+
+### Cleanup (Priority 10)
+- Staging `~/tmp/`: removed `local-phase2.sql`, `staging-pre-phase2-backup.sql` and `staging-pre-deploy-20261102-2101.sql` after checking each against its `~/Downloads/` copy by md5. The two small theme tarballs stay as rollback points
+- `deploy-staging.sh` now deletes the server copy of the DB backup once the `~/Downloads/` copy is verified
+
 ## [27.1.6] — November 2 2026
 
 ### Changed — `custom.css` reorganised (no visual change)

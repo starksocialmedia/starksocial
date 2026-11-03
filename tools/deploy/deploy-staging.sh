@@ -29,7 +29,11 @@ flush() {
 echo "== Backups"
 $SSH "$HOST" "cd $REMOTE && wp --skip-themes --skip-plugins db export ~/tmp/staging-pre-deploy-$STAMP.sql && md5sum ~/tmp/staging-pre-deploy-$STAMP.sql && cd wp-content/themes && tar czf ~/tmp/staging-pre-deploy-theme-$STAMP.tgz stark-social"
 $SSH "$HOST" "cat ~/tmp/staging-pre-deploy-$STAMP.sql" > "$HOME/Downloads/staging-pre-deploy-$STAMP.sql"
-md5 "$HOME/Downloads/staging-pre-deploy-$STAMP.sql"
+BACKUP_MD5="$(md5 -q "$HOME/Downloads/staging-pre-deploy-$STAMP.sql")"
+REMOTE_BACKUP_MD5="$($SSH "$HOST" "md5sum ~/tmp/staging-pre-deploy-$STAMP.sql" | cut -d' ' -f1)"
+[ "$BACKUP_MD5" = "$REMOTE_BACKUP_MD5" ] || { echo "Backup copy mismatch — aborting"; exit 1; }
+# The verified copy is in ~/Downloads; don't leave database dumps on the server.
+$SSH "$HOST" "rm -f ~/tmp/staging-pre-deploy-$STAMP.sql"
 
 echo "== Theme"
 sync_theme

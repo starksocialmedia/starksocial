@@ -5,7 +5,7 @@ Staging: **https://staging.starksocial.com** (Cloudways, `ssh stark`, WordPress 
 (`ssh stark-live`), so keep transfers bandwidth-limited and never touch live from
 here.
 
-First full deploy: **November 2 2026 (v27.1.0)** — backup of the empty staging install: `~/Downloads/staging-pre-phase2-backup.sql` (also `~/tmp/` on the server, with `staging-pre-phase2-theme.tgz`). Local's database, theme and
+First full deploy: **November 2 2026 (v27.1.0)** — backup of the empty staging install: `~/Downloads/staging-pre-phase2-backup.sql` (server copy removed after verification; theme tarball `staging-pre-phase2-theme.tgz` stays in `~/tmp/` on the server). Local's database, theme and
 uploads pushed over the empty staging install.
 
 ## What a full deploy does
@@ -14,7 +14,7 @@ uploads pushed over the empty staging install.
 
 | # | Step | Notes |
 |---|---|---|
-| 1 | Back up staging DB → `~/tmp/staging-pre-deploy-<date>.sql` on the server, copied to `~/Downloads/` and checksum-verified | Rollback: `wp db import` that file |
+| 1 | Back up staging DB → `~/tmp/staging-pre-deploy-<date>.sql` on the server, copied to `~/Downloads/`, checksum-verified, then **deleted from the server** | Rollback: upload the `~/Downloads/` copy, then `wp db import` it |
 | 2 | Back up staging child theme → `~/tmp/staging-pre-deploy-theme-<date>.tgz` | |
 | 3 | `rsync --delete` the child theme from Local | Repo → Local first, so Local = `main` |
 | 4 | Dump Local DB with Local's own `mysqldump` (MySQL 8.0.35, via the site socket) | `wp db export` fails on Local without Local's binaries on `PATH`. Dump uses `utf8mb4_unicode_520_ci`, which MariaDB accepts |
@@ -55,7 +55,8 @@ Expected: 200 everywhere, 404 for `/404-error-page/`.
 ## Rollback
 
 ```
-ssh stark 'cd ~/public_html && wp db import ~/tmp/staging-pre-deploy-<date>.sql'
+ssh stark 'cat > ~/tmp/restore.sql' < ~/Downloads/staging-pre-deploy-<date>.sql
+ssh stark 'cd ~/public_html && wp db import ~/tmp/restore.sql && rm ~/tmp/restore.sql'
 ssh stark 'cd ~/public_html/wp-content/themes && rm -rf stark-social && tar xzf ~/tmp/staging-pre-deploy-theme-<date>.tgz'
 ```
 
@@ -67,3 +68,10 @@ Uploads are only ever added (no `--delete`), so they never need rolling back.
   (`/feed/podcast/`) doesn't exist there. Install it before launch.
 - **Gravity Forms** contact form ID 1 and the Perfex webhook.
 - Theme-only deploys: run step 3 alone, then step 9.
+
+## Deploy log
+
+| Date | Version | Notes |
+|---|---|---|
+| November 2 2026, 19:56 | v27.1.0 | First push, by hand. Uploads stalled unthrottled and were re-run with exclusions |
+| November 2 2026, 21:01 | v27.1.7 | `deploy-staging.sh` full run (first run of the script): exit 0, 54 URL replacements, all 18 smoke-test URLs as expected. Brings staging to Local parity (KB, process, WebP covers, image fixes, Rank Math) |
