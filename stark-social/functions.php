@@ -911,3 +911,4 @@ require_once get_stylesheet_directory() . '/inc/stark-podcast.php';
  * Stark 27 Authors — /author/{name}/ profile template, author box data (v27.0.17).
  */
 require_once get_stylesheet_directory() . '/inc/stark-authors.php';
+require_once get_stylesheet_directory() . '/inc/stark-seo.php';

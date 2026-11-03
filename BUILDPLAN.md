@@ -173,6 +173,8 @@
 - [ ] Core Web Vitals green
 - [ ] Cross-browser + device
 - [ ] Accessibility 98+
+- [x] Rank Math site-wide config v27.1.5 — titles, Local SEO, sitemap, robots, schema (`tools/rankmath/`) — November 2 2026
+- [ ] Rank Math per-page: focus keywords, share images, final descriptions, Service schema (`tools/rankmath/README.md`)
 - [ ] RankMath 90+ per page
 - [ ] Schema validation zero errors
 - [ ] Local SEO landing pages verified

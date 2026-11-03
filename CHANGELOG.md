@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.1.5] — November 2 2026
+
+### Added — Rank Math configuration (`tools/rankmath/`)
+- `configure.php` (idempotent, run per environment): company knowledge graph with Local SEO as **ProfessionalService** (Valencia CA, phone, email, hours Mon–Thu 9–5 / Fri 9–4, 4 social profiles, no street address for a service-area business), default share image (live's 1200×630 homepage image), title templates per post type (Page / Post / Portfolio "Case Study" / Podcast / Docs, separator `|`), breadcrumbs on with `/`, robots.txt (disallow `/wp-admin/`, `/?s=`, `/search/` + sitemap), sitemaps for posts, pages, portfolio, podcast and docs with the 4 legal pages excluded and noindexed in Rank Math too
+- Fixed leftovers: the knowledge graph and website name were `staging.starksocial.com` (type Person); hours said 9–5 seven days a week
+- `inc/stark-seo.php`: meta description fallbacks from ACF (Lighthouse "meta-description" on every audited page), location page titles ("Web Design in Antelope Valley, CA"), `areaServed` with the 5 markets, pages drop the default Article entity, podcast episodes get **PodcastEpisode** schema (episode number, ISO duration, MP3, series) plus the site graph Rank Math had dropped for that post type
+- `/service-areas/` market cards have ids (`#santa-clarita`…) for the schema links
+- `tools/rankmath/README.md`: what's set, and the per-page work left (focus keywords, per-service share images, final descriptions, Service schema, logo, visual breadcrumbs)
+
 ## [27.1.4] — November 2 2026
 
 ### Changed — Polish pass

@@ -42,8 +42,8 @@ $cta = array(
                 <h2 id="stark-areas-title" class="stark-section-head__title">Our markets</h2>
             </header>
             <ul class="stark-who__grid">
-                <?php foreach ( stark_get_markets() as $market ) : ?>
-                    <li class="stark-who-card">
+                <?php foreach ( stark_get_markets() as $slug => $market ) : ?>
+                    <li class="stark-who-card" id="<?php echo esc_attr( $slug ); ?>">
                         <div class="stark-who-card__text">
                             <h3 class="stark-who-card__title"><?php echo esc_html( $market['name'] ); ?></h3>
                             <p class="stark-who-card__desc"><?php echo esc_html( $market['desc'] ); ?></p>
