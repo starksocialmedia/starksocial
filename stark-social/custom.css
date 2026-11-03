@@ -1825,7 +1825,9 @@ body:has(.stark-draft-banner) .stark-home { margin-top: 40px; }
 @media (min-width: 900px) {
     .stark-case__card:has(.stark-case__media) { grid-template-columns: 1.1fr 1fr; }
     .stark-case__list--multi { grid-template-columns: repeat(3, 1fr); }
+    .stark-case__list--2 { grid-template-columns: repeat(2, 1fr); }
     .stark-case__list--multi .stark-case__card { grid-template-columns: 1fr; }
+    .stark-case__list--multi .stark-case__headline { font-size: clamp(20px, 1.8vw, 24px); }
 }
 
 @media (min-width: 1024px) {

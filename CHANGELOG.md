@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.4] — November 3 2026
+
+### Service pages — case studies from the portfolio
+- Service pages show up to **3 case studies**: the hand-picked one (Case Study tab) first, then published portfolio items whose **Services** include that service. No matches, no section (Paid Advertising, Social, Content Creation and Audit & Consulting have none today)
+- Today: Web Design shows all 3 (Pathway Escrow, Schlickart, Valencia), SEO shows Pathway Escrow, Brand Strategy shows Schlickart
+- 2- and 3-card layouts; smaller headlines in the multi-card grid; eyebrow "Case studies" and heading "Selected work" when there's more than one
+
 ## [27.4.2] — November 3 2026
 
 ### SEO — per-page Rank Math meta from live

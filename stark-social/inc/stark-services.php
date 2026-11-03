@@ -74,8 +74,16 @@ function stark_service_context( $service_id ) {
         return ! empty( $row['question'] ) && ! empty( $row['answer'] );
     } ) );
 
+    // v27.4.4: up to 3 case studies, the hand-picked one first, then portfolio items
+    // that list this service. No real matches, no section.
     $case = stark_field( 'case_study', $service_id );
-    $case_studies = ! empty( $case['headline'] ) ? array( $case ) : stark_service_portfolio_teasers( $slug, 1 );
+    $case_studies = ! empty( $case['headline'] ) ? array( $case ) : array();
+    $picked_url   = ! empty( $case['link']['url'] ) ? untrailingslashit( $case['link']['url'] ) : '';
+    foreach ( stark_service_portfolio_teasers( $slug, 3 ) as $teaser ) {
+        if ( count( $case_studies ) >= 3 ) break;
+        if ( $picked_url && untrailingslashit( $teaser['link']['url'] ) === $picked_url ) continue;
+        $case_studies[] = $teaser;
+    }
 
     $cta = (array) stark_field( 'final_cta', $service_id );
 
@@ -139,7 +147,7 @@ function stark_service_context( $service_id ) {
         'included'         => array_slice( $included, 0, 8 ),
         'process_heading'  => stark_field( 'process_heading', $service_id ) ?: 'How we work',
         'process'          => array_slice( $process, 0, 4 ),
-        'case_heading'     => 'Featured work',
+        'case_heading'     => count( $case_studies ) > 1 ? 'Selected work' : 'Featured work',
         'case_studies'     => $case_studies,
         'faq_heading'      => stark_field( 'faq_heading', $service_id ) ?: 'Questions, answered',
         'faq'              => $faq,

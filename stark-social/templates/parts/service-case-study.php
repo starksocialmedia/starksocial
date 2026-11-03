@@ -1,7 +1,7 @@
 <?php
 /**
- * Case study teaser(s) — one featured on service pages, up to three local
- * on location pages. Each links out to the full case study.
+ * Case study teaser(s) — up to three on service pages (v27.4.4) and on
+ * location pages. Each links out to the full case study.
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! $args['case_studies'] ) return;
@@ -10,10 +10,10 @@ $multiple = count( $args['case_studies'] ) > 1;
 <section class="stark-band stark-case" aria-labelledby="stark-case-title">
     <div class="stark-home__inner">
         <header class="stark-section-head">
-            <p class="stark-eyebrow">Case study</p>
+            <p class="stark-eyebrow"><?php echo $multiple ? 'Case studies' : 'Case study'; ?></p>
             <h2 id="stark-case-title" class="stark-section-head__title"><?php echo esc_html( $args['case_heading'] ); ?></h2>
         </header>
-        <div class="stark-case__list<?php echo $multiple ? ' stark-case__list--multi' : ''; ?>">
+        <div class="stark-case__list<?php echo $multiple ? ' stark-case__list--multi stark-case__list--' . count( $args['case_studies'] ) : ''; ?>">
             <?php foreach ( $args['case_studies'] as $case ) :
                 $link = stark_link( isset( $case['link'] ) ? $case['link'] : null );
                 $image = isset( $case['image'] ) ? $case['image'] : null; ?>
