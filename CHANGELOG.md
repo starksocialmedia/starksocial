@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.11] — November 3 2026
+
+### Staging deploy + audit
+- Full staging deploy of v27.4.10 (exit 0, 124 replacements; webhook secret re-applied, feed active; 24-URL smoke test incl. new redirects, favicon, MP4, share images; `wp_mail` still blocked by the staging guard)
+- Lighthouse + axe on 16 staging URLs: `tools/audits/lighthouse-staging-v27.4.x/`. Accessibility 100 (episode 98: an h4 in old episode content), axe 0 except that one, desktop performance 92–100, mobile 81–97. No regressions from v27.4.x
+- **Best practices 100 → 81/82 on every page is Cloudflare's injected bot-detection script** (`/cdn-cgi/challenge-platform/…`, two deprecation warnings), not theme code. Cloudflare setting for Nathan
+- Fixed: `/service-areas/` and search results had no meta description (SEO 58). Theme deploy; checked on staging
+- `inc/stark-authors.php`'s redirect map now uses its own filter (`stark_legacy_profile_redirects`), so it can't collide with `stark_legacy_redirects`
+
 ## [27.4.10] — November 3 2026
 
 ### Launch prep

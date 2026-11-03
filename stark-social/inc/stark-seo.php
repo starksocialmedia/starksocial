@@ -24,6 +24,10 @@ function stark_seo_description_fallback( $description ) {
             $text = stark_field( $field, $id );
             if ( $text ) break;
         }
+        // v27.4.11: the Service Areas hub keeps its copy in the template.
+        if ( ! $text && 'service-areas' === get_post_field( 'post_name', $id ) ) {
+            $text = 'Based in Santa Clarita, working with businesses across Southern California: the San Fernando Valley, Antelope Valley, Ventura County and Bakersfield.';
+        }
         // Location pages (/{service}/{area}/) fall back to their service page.
         if ( ! $text && ( $parent = wp_get_post_parent_id( $id ) ) ) {
             $text = stark_field( 'card_description', $parent ) ?: stark_field( 'hero_thesis', $parent );
@@ -32,6 +36,8 @@ function stark_seo_description_fallback( $description ) {
         $text = stark_blog_archive_heading()[2];
     } elseif ( is_post_type_archive( 'podcast' ) && function_exists( 'stark_podcast_show' ) ) {
         $text = stark_podcast_show()['summary'];
+    } elseif ( is_search() ) {
+        $text = sprintf( 'Search results for “%s” across articles, case studies, podcast episodes and the knowledgebase at %s.', get_search_query(), get_bloginfo( 'name' ) );
     } elseif ( is_author() ) {
         $text = get_the_author_meta( 'description', get_queried_object_id() );
     }

@@ -65,7 +65,7 @@ Uploads are only ever added (no `--delete`), so they never need rolling back.
 
 ## After a full deploy
 
-- **Webhook secret:** the imported DB has Local's feed, which is **inactive** (no secret on Local). Re-run the form importer on staging with the secret to activate it:
+- **Webhook secret:** save it before the deploy (read staging's feed into a mode-600 temp file) and pass it on stdin afterwards, then delete the file. The imported DB has Local's feed, which is **inactive** (no secret on Local). Re-run the form importer on staging with the secret to activate it:
   ```
   ssh stark 'cat > ~/tmp/form.json' < tools/gravity-forms/stark-contact-form.json
   ssh stark 'cat > ~/tmp/import-form.php' < tools/gravity-forms/import-contact-form.php
@@ -87,3 +87,4 @@ Uploads are only ever added (no `--delete`), so they never need rolling back.
 | November 2 2026, 21:01 | v27.1.7 | `deploy-staging.sh` full run (first run of the script): exit 0, 54 URL replacements, all 18 smoke-test URLs as expected. Brings staging to Local parity (KB, process, WebP covers, image fixes, Rank Math) |
 | November 2 2026, 22:12 | v27.3.x | Full run with the new plugin step (Podlove ×2, GF Webhooks): exit 0, 74 replacements, 26 smoke-test URLs as expected, `/feed/podcast/` has 10 items. Webhook secret applied after deploy. **End-to-end form test: entry 2 → Perfex "Lead created", lead #126** (test lead, delete in Perfex) |
 | November 2 2026, 22:42–22:54 | v27.3.17–v27.3.21 | Two full runs (theme-only runs between them): Varnish purge on, `stark-assets/` excluded, Mailgun plugins synced inactive (staging guard force-unloads them). Webhook secret re-applied after each DB push. Final smoke: 13 URLs OK, `wp_mail()` blocked |
+| November 3 2026, 09:14 | v27.4.10 | Full run: exit 0, 124 replacements. Webhook secret re-applied from staging's previous feed via stdin (never on a command line); feed 5 active. Smoke test: 24 URLs as expected. Theme-only run at 09:35 for v27.4.11 |
