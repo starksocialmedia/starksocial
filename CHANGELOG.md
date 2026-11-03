@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.20] — November 2 2026
+
+### Fixed — Fonts blocked on staging (regression from v27.3.13)
+- The deploy's uploads sync copied Local's generated `uploads/stark-assets/custom-*.css`, whose font URLs were absolute `https://starksocial.local/…`. Staging reused it (same file hash), so the Barlow fonts were **blocked by CORS** (console errors; best practices 100 → 78). The same thing would have happened when staging is pushed to live
+- Generated CSS now uses **root-relative** font URLs (`/wp-content/themes/stark-social/fonts/…`), so a copy is valid on any domain; the hash input is versioned so old copies aren't reused; `deploy-staging.sh` **excludes `stark-assets/`** (it's per environment). Staging's copies were reset
+- Checked on staging: 6 Barlow faces load on the home and episode pages, no console errors
+
 ## [27.3.19] — November 2 2026
 
 ### Added — Live WPCode snippets Phase 2 still needs (Phase 2 had none of live's 19)

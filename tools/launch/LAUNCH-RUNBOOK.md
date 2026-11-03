@@ -49,6 +49,7 @@ Owner: Nathan. Notify: Deanna before and after. Hosting is Cloudways (us).
 - [ ] Rank Math: `wp eval-file tools/rankmath/configure.php` **after** the URL switch
 - [ ] Complianz banner showing; legal page links point at `/support/…`
 - [ ] Contact form: webhook feed active with the secret (see `tools/gravity-forms/README.md`)
+- [ ] `wp-content/uploads/stark-assets/` — generated per environment; delete it on live after the push (it regenerates on first page view)
 - [ ] `wp-content/mu-plugins/stark-staging-guard.php` — present on staging only; does nothing on live, but delete it after the push anyway
 - [ ] `WP_DEBUG_DISPLAY` false on live; HSTS on (theme sends it on production HTTPS)
 

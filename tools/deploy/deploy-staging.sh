@@ -63,7 +63,7 @@ remote "rm -f ~/tmp/local-deploy-$STAMP.sql"
 echo "== Uploads"
 # Old backups and plugin working folders never go to a web-reachable uploads dir.
 # fw-backup/ alone is 939 MB of 2020 site-backup zips.
-UPLOAD_EXCLUDES="--exclude fw-backup/ --exclude wp-migrate-db/ --exclude wp-defender/ --exclude wpo/ --exclude mainwp/ --exclude breeze/ --exclude *.sql --exclude *.zip"
+UPLOAD_EXCLUDES="--exclude stark-assets/ --exclude fw-backup/ --exclude wp-migrate-db/ --exclude wp-defender/ --exclude wpo/ --exclude mainwp/ --exclude breeze/ --exclude *.sql --exclude *.zip"
 set -f  # keep the globs above literal
 for i in 1 2 3 4 5; do
     rsync -az --partial --timeout=120 --bwlimit=5000 --exclude .DS_Store $UPLOAD_EXCLUDES -e "$SSH" "$LOCAL/wp-content/uploads/" "$HOST:public_html/wp-content/uploads/" && break
