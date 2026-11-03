@@ -4349,3 +4349,102 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 .stark-award-shots figure { margin: 0; }
 .stark-award-shots img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 10px; }
 @media (max-width: 600px) { .stark-award-shots { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   v27.5.2 — Support hub (/support/): templates/parts/support-hub.php
+   ========================================================================== */
+.stark-support .stark-hero--service { min-height: 0; padding-bottom: clamp(112px, 12vw, 160px); }
+.stark-support .stark-breadcrumbs { display: none; } /* the quick-action cards overlap the hero edge */
+.stark-help__head { margin-bottom: clamp(28px, 4vw, 44px); }
+
+/* Quick actions: four cards lifted over the hero's bottom edge */
+.stark-page > .stark-help-quick { padding: 0; background: none; position: relative; z-index: 2; margin-top: clamp(-104px, -9vw, -72px); }
+.stark-help-quick__list { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 0; padding: 0; list-style: none; }
+@media (min-width: 640px) { .stark-help-quick__list { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .stark-help-quick__list { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
+.stark-help-quick__card { position: relative; display: grid; gap: 6px; height: 100%; box-sizing: border-box; padding: 24px 24px 22px; border: 1px solid var(--stark-hairline); border-radius: 18px; background: var(--stark-paper); box-shadow: 0 18px 40px rgba(3, 27, 52, 0.14); color: var(--stark-ink-soft); font-size: 15px; line-height: 1.45; text-decoration: none; transition: transform 220ms var(--stark-ease), box-shadow 220ms var(--stark-ease); }
+.stark-help-quick__card strong { font-size: 18px; font-weight: 700; color: var(--stark-navy); padding-right: 28px; }
+.stark-help-quick__icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-bottom: 8px; border-radius: 12px; background: var(--stark-navy); color: #fff; }
+.stark-help-quick__icon .stark-icon { width: 22px; height: 22px; }
+.stark-help-quick__arrow { position: absolute; top: 24px; right: 24px; font-size: 20px; color: var(--stark-blue-ink); transition: transform 220ms var(--stark-ease); }
+.stark-help-quick__card:hover,
+.stark-help-quick__card:focus-visible { transform: translateY(-3px); box-shadow: 0 24px 48px rgba(3, 27, 52, 0.2); }
+.stark-help-quick__card:hover strong,
+.stark-help-quick__card:focus-visible strong { color: var(--stark-blue-ink); }
+.stark-help-quick__card:hover .stark-help-quick__arrow { transform: translateX(4px); }
+
+/* Knowledgebase categories */
+.stark-page > .stark-help-kb { background: var(--stark-paper); padding-top: clamp(64px, 8vw, 104px); }
+.stark-help-kb__search { max-width: 720px; }
+.stark-help-cats { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 0; padding: 0; list-style: none; }
+@media (min-width: 720px) { .stark-help-cats { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .stark-help-cats { grid-template-columns: repeat(3, 1fr); } }
+.stark-help-cat { display: flex; flex-direction: column; padding: 26px; border: 1px solid var(--stark-hairline); border-radius: 18px; background: var(--stark-paper-soft); }
+.stark-help-cat__icon { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; border-radius: 10px; background: rgba(48, 127, 226, 0.12); color: var(--stark-blue-ink); }
+.stark-help-cat__icon .stark-icon { width: 20px; height: 20px; }
+.stark-help-cat__title { margin: 16px 0 2px; font-size: 20px; font-weight: 700; line-height: 1.25; }
+.stark-help-cat__title a { color: var(--stark-navy); text-decoration: none; }
+.stark-help-cat__title a:hover,
+.stark-help-cat__title a:focus-visible { color: var(--stark-blue-ink); text-decoration: underline; }
+.stark-help-cat__count { margin: 0 0 14px; font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--stark-ink-soft); font-variant-numeric: tabular-nums; }
+.stark-help-cat__docs { flex: 1; margin: 0; padding: 0; list-style: none; }
+.stark-help-cat__docs li { border-top: 1px solid var(--stark-hairline); }
+.stark-help-cat__docs a { display: block; padding: 10px 0; font-size: 15px; line-height: 1.45; color: var(--stark-ink); text-decoration: none; }
+.stark-help-cat__docs a:hover,
+.stark-help-cat__docs a:focus-visible { color: var(--stark-blue-ink); text-decoration: underline; }
+.stark-help-cat__all { align-self: flex-start; margin-top: 10px; font-size: 14px; font-weight: 600; color: var(--stark-blue-ink); text-decoration: none; }
+.stark-help-cat__all:hover { text-decoration: underline; }
+
+/* Most read */
+.stark-page > .stark-help-popular { background: var(--stark-paper-soft); }
+.stark-help-popular__inner { display: grid; gap: 8px; }
+@media (min-width: 1024px) { .stark-help-popular__inner { grid-template-columns: 360px minmax(0, 1fr); gap: 64px; align-items: start; } }
+.stark-help-popular__list { margin: 0; padding: 0; list-style: none; counter-reset: stark-pop; }
+.stark-help-popular__list li { counter-increment: stark-pop; border-top: 1px solid rgba(10, 15, 26, 0.12); }
+.stark-help-popular__list li:last-child { border-bottom: 1px solid rgba(10, 15, 26, 0.12); }
+.stark-help-popular__list a { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 2px 8px; align-items: baseline; padding: 18px 0; color: var(--stark-ink); text-decoration: none; }
+.stark-help-popular__list a::before { content: counter(stark-pop, decimal-leading-zero); grid-row: span 2; font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 28px; font-weight: 600; line-height: 1; color: var(--stark-light-blue); font-variant-numeric: tabular-nums; }
+.stark-help-popular__title { font-size: clamp(18px, 1.6vw, 21px); font-weight: 600; line-height: 1.35; color: var(--stark-navy); }
+.stark-help-popular__cat { font-size: 14px; color: var(--stark-ink-soft); }
+.stark-help-popular__list a:hover .stark-help-popular__title,
+.stark-help-popular__list a:focus-visible .stark-help-popular__title { color: var(--stark-blue-ink); text-decoration: underline; }
+
+/* Still need help: dark band, three ways + office hours */
+.stark-page > .stark-help-contact { background: radial-gradient(circle at 90% 0%, rgba(48, 127, 226, 0.28), transparent 55%), linear-gradient(160deg, var(--stark-navy) 0%, var(--stark-navy-bright) 100%); color: #fff; }
+.stark-help-contact .stark-section-head__title { color: #fff; }
+.stark-help-contact__head { display: grid; gap: 28px; }
+@media (min-width: 900px) { .stark-help-contact__head { grid-template-columns: 1fr auto; align-items: end; } }
+.stark-help-hours { padding: 18px 22px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; background: rgba(255, 255, 255, 0.06); }
+.stark-help-hours__label { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stark-secondary-yellow, #FEDD00); }
+.stark-help-hours__label span { letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.72); }
+.stark-help-hours__label .stark-icon { width: 18px; height: 18px; }
+.stark-help-hours ul { margin: 0; padding: 0; list-style: none; }
+.stark-help-hours li { display: flex; justify-content: space-between; gap: 24px; font-size: 16px; line-height: 1.7; color: rgba(255, 255, 255, 0.82); }
+.stark-help-hours strong { font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; }
+.stark-help-ways { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 0; padding: 0; list-style: none; }
+@media (min-width: 900px) { .stark-help-ways { grid-template-columns: repeat(3, 1fr); } }
+.stark-help-way { display: flex; flex-direction: column; padding: 28px; border-radius: 18px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14); }
+.stark-help-way__icon { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 12px; background: var(--stark-paper); color: var(--stark-navy); }
+.stark-help-way__icon .stark-icon { width: 22px; height: 22px; }
+.stark-help-way__title { margin: 18px 0 6px; font-size: 22px; font-weight: 700; color: #fff; }
+.stark-help-way p { flex: 1; margin: 0 0 18px; font-size: 16px; line-height: 1.55; color: rgba(255, 255, 255, 0.8); }
+.stark-help-way__link { align-self: flex-start; font-size: 18px; font-weight: 700; color: #fff; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.4); text-underline-offset: 4px; overflow-wrap: anywhere; }
+.stark-help-way__link:hover,
+.stark-help-way__link:focus-visible { text-decoration-color: #fff; }
+.stark-help-way--chat[data-stark-chat="off"] .stark-help-way__on,
+.stark-help-way--chat[data-stark-chat="on"] .stark-help-way__off { display: none; }
+.stark-help-contact__more { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 32px 0 0; font-size: 15px; }
+.stark-help-contact__more a { color: rgba(255, 255, 255, 0.82); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.3); text-underline-offset: 3px; }
+.stark-help-contact__more a:hover { color: #fff; }
+@media (prefers-reduced-motion: reduce) { .stark-help-quick__card, .stark-help-quick__arrow { transition: none; } }
+/* BetterDocs adds a bordered, padded input wrapper under 768px: keep the single Stark field */
+.stark-support__search .betterdocs-searchform-input-wrap { padding: 0 !important; border: 0 !important; background: none !important; }
+/* Phones: quick actions as compact rows (icon left) so all four fit near the top */
+@media (max-width: 639px) {
+	.stark-help-quick__list { gap: 8px; }
+	.stark-help-quick__card { grid-template-columns: 44px minmax(0, 1fr); gap: 2px 14px; padding: 16px 44px 16px 16px; font-size: 14px; }
+	.stark-help-quick__icon { grid-row: span 2; margin: 0; }
+	.stark-help-quick__card strong { font-size: 17px; padding-right: 0; }
+	.stark-help-quick__arrow { top: 50%; right: 16px; transform: translateY(-50%); }
+	.stark-help-quick__card:hover .stark-help-quick__arrow { transform: translate(4px, -50%); }
+}

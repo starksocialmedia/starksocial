@@ -1,10 +1,11 @@
 <?php
 /**
- * Stark support hub (v27.1.2) — /support/ and /support/knowledgebase/
- * Hero → knowledgebase search (BetterDocs live search) + articles grouped by
- * category | contact card + quick actions. Contact details mirror the Contact
- * page defaults; portal links match live. The knowledgebase page is the same
- * layout listing every article, with live's intro copy.
+ * Stark support hub (v27.1.2; hub rebuilt v27.5.2) — /support/ and /support/knowledgebase/
+ * /support/: compact hero → templates/parts/support-hub.php (quick actions, category cards,
+ * most-read articles, chat / email / call + office hours).
+ * /support/knowledgebase/: hero → knowledgebase search (BetterDocs live search) + every
+ * article grouped by category | contact card + quick actions, with live's intro copy.
+ * Contact details mirror the Contact page defaults; portal links match live.
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -65,6 +66,21 @@ $hours = array_values( array_filter( (array) ( $contact_id ? stark_field( 'hours
 $portal_url = apply_filters( 'stark_client_portal_url', 'https://hub.starksocial.com/clients/' );
 $ticket_url = apply_filters( 'stark_open_ticket_url', 'https://hub.starksocial.com/clients/open_ticket' );
 
+$doc_total = (int) wp_count_posts( 'docs' )->publish;
+
+// Most read: BetterDocs' per-article view counter (carried over from live).
+$popular = $is_kb ? array() : get_posts( array(
+    'post_type'   => 'docs',
+    'numberposts' => 6,
+    'meta_key'    => '_betterdocs_meta_views',
+    'orderby'     => array( 'meta_value_num' => 'DESC', 'title' => 'ASC' ),
+) );
+
+// Perfex chat: off at the hub (no widget API key) and never loaded on staging, so the hub
+// says "email us" by default. JS switches to "use the chat button" if the widget shows up
+// (js/stark-global.js §6); the filter forces it on once chat is live.
+$chat = (bool) apply_filters( 'stark_chat_available', false );
+
 $actions = array(
     array( 'label' => 'Password Generator', 'desc' => 'Strong, random passwords, generated in your browser.', 'url' => home_url( '/support/password-generator/' ), 'icon' => 'shield' ),
     array( 'label' => 'Accessibility Statement', 'desc' => 'Our commitment and how to report a barrier.', 'url' => home_url( '/support/accessibility-statement/' ), 'icon' => 'users' ),
@@ -85,6 +101,9 @@ $actions = array(
     <?php get_template_part( 'templates/parts/service', 'hero', $hero ); ?>
     <?php get_template_part( 'templates/parts/breadcrumbs' ); ?>
 
+    <?php if ( ! $is_kb ) :
+        get_template_part( 'templates/parts/support', 'hub', compact( 'groups', 'popular', 'doc_total', 'kb_url', 'ticket_url', 'portal_url', 'phone', 'tel', 'email', 'hours', 'chat' ) );
+    else : ?>
     <section class="stark-band stark-support__band" aria-label="Knowledgebase and contact">
         <div class="stark-home__inner stark-support__grid">
 
@@ -180,6 +199,7 @@ $actions = array(
 
         </div>
     </section>
+    <?php endif; ?>
 </main>
 
 <?php wp_footer(); ?>

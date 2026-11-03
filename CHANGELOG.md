@@ -2,6 +2,16 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.2] — November 3 2026
+
+### Support hub rebuilt (`/support/`)
+- Compact hero ("Support" / "We're here when you need us.") with **four quick-action cards lifted over its edge**: Open a ticket (client portal), Browse the knowledgebase, Password generator, Contact the team. On phones they're compact rows so all four fit near the top
+- **Knowledgebase**: search, then 6 category cards (icon, article count, first 3 titles, "All N →")
+- **Most read**: the top 6 articles by BetterDocs' view counter (carried over from live), numbered
+- **Still need help?** (dark band): Chat / Email / Call cards and **office hours** (from the Contact page). The chat card says "email us" because the Perfex widget is off at the hub; it switches to "use the chat button" by itself when the widget appears (`js/stark-global.js` §6), or set `add_filter( 'stark_chat_available', '__return_true' )`. Secondary links: client portal, reporting dashboard, accessibility statement
+- `/support/knowledgebase/` keeps the full listing layout (unchanged). New part `templates/parts/support-hub.php`; 8 new line icons in `stark_service_icon()` (ticket, book, key, mail, phone, message, clock, flag)
+- BetterDocs' bordered mobile search wrapper is reset (showed a box around the field under 768px). axe 0 on `/support/`, `/support/knowledgebase/`, home, the award post (390 + 1440)
+
 ## [27.5.1] — November 3 2026
 
 ### Valencia Jazz & Blues: blog post, not a case study

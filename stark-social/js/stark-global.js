@@ -55,4 +55,18 @@
 			if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
 		});
 	});
+
+	/* -----------------------------------------------------------------
+	 * 6. Support hub chat card (v27.5.2, templates/parts/support-hub.php):
+	 *    says "email us" until the Perfex chat widget actually appears
+	 *    (it loads only after cookie consent, and is off at the hub for now).
+	 * ----------------------------------------------------------------- */
+	var chatCard = document.querySelector('[data-stark-chat="off"]');
+	if (chatCard && 'MutationObserver' in window) {
+		var found = function () { return document.querySelector('[id*="prchat"],[class*="prchat"],iframe[src*="prchat"]'); };
+		var mo = new MutationObserver(function () {
+			if (found()) { chatCard.setAttribute('data-stark-chat', 'on'); mo.disconnect(); }
+		});
+		mo.observe(document.body, { childList: true, subtree: true });
+	}
 })();
