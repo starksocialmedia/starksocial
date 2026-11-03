@@ -2,6 +2,25 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.1.0] — November 2 2026 — Phase 2 on staging
+
+### Deployed — Local → https://staging.starksocial.com
+- Staging DB backed up first (`~/Downloads/staging-pre-phase2-backup.sql`, md5-verified; theme tarball on the server)
+- Child theme rsynced; Local DB dumped with Local's MySQL 8.0 `mysqldump`, streamed (md5-verified) and imported into MariaDB 10.11; `search-replace` `https://starksocial.local` → `https://staging.starksocial.com` (27 replacements, GUIDs skipped)
+- Uploads rsynced, throttled. **Excluded** `fw-backup/` (939 MB of 2020 site-backup zips) and other plugin working folders. Backups don't belong in a web-reachable uploads directory
+- Came across with the DB and verified: permalinks `/%postname%/`, `blogs/category`, `blogs/tag`; ACF Pro active (free ACF inactive)
+- Site Title **Stark Social Media Agency**, tagline **Digital marketing the right way.** (staging and Local)
+- Caches flushed, rewrite rules flushed hard
+
+### Added
+- `tools/deploy/mu-plugins/stark-staging-guard.php` — installed on staging. Only acts when the host starts with `staging.`: blocks all outgoing email (`pre_wp_mail` + Gravity Forms notifications, each logged), `noindex, nofollow` (core + Rank Math), `Disallow: /` robots.txt. `blog_public` left at 1 on purpose so a staging → live DB copy can't de-index live
+- `tools/deploy/deploy-staging.sh` — repeatable full or theme-only deploy (backups, md5 checks, throttled retried rsync)
+- `tools/deploy/README.md` — steps, staging guard, smoke test, rollback
+
+### Smoke test
+- 200: `/`, `/services/`, `/web-design/`, `/web-design/antelope-valley/`, `/work/`, `/portfolio/pathway-escrow/`, `/blog/`, `/podcast/`, `/about/`, `/contact/`, `/service-areas/`, `/?s=test`, legal, password generator, author page. 404: `/404-error-page/`. No PHP warnings in output. `wp-content/debug.log` returns 403
+- Staging is slow on the first uncached hit (5–15 s); several requests timed out while the uploads rsync was running on the shared server
+
 ## [27.0.21] — November 2 2026
 
 ### Fixed

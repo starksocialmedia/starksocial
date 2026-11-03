@@ -117,7 +117,7 @@
 ### Phase 2.1 — Core Pages
 - [x] Homepage shell v27.0.3 — hero, services preview, who-we're-for, CTA band — November 2 2026
 - [x] Homepage social proof, featured case study, FAQ v27.0.20 — November 2 2026
-- [ ] Homepage: real "clients served" / "projects shipped" numbers; process steps section
+- [ ] Homepage: real "clients served" / "projects shipped" numbers
 - [x] About page template v27.0.7 — ACF fields, `[SAMPLE]` copy on Local — November 2 2026
 - [x] Contact page template v27.0.8 — GF form ID 1 placeholder, details from live — November 2 2026
 - [ ] Create Gravity Forms contact form (ID 1) + Perfex webhook
@@ -162,7 +162,7 @@
 - [ ] Legal review of copy (last updated January 15, 2026)
 
 ### Phase 2.7 — QA & Launch
-- [ ] **Staging permalinks = live:** `/%postname%/`, category base `blogs/category`, tag base `blogs/tag`
+- [x] **Staging deployed from Local** v27.1.0 — DB, theme, uploads; permalinks = live; ACF Pro active; mail blocked + noindex via `stark-staging-guard` mu-plugin — November 2 2026 (`tools/deploy/`)
 - [ ] PageSpeed (desktop 95+, mobile 85+)
 - [ ] Core Web Vitals green
 - [ ] Cross-browser + device
