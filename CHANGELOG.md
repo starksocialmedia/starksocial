@@ -2,6 +2,16 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.2] — November 3 2026
+
+### SEO — per-page Rank Math meta from live
+- `tools/rankmath/import-live-meta.php` + `live-aioseo-meta.json`: live's own AIOSEO **titles, meta descriptions and focus keyphrases** for 19 pages and both case studies, copied verbatim (live `/services/x/` → `/x/`). Service pages add a "{service} southern california" secondary keyword
+- Live's **per-page share images** (1200×630, branded) are now the og:image for 12 pages. They were in uploads but not in the media library, so the script registers them
+- Phase 2-only pages (Audit & Consulting, `/service-areas/`, the Antelope Valley location page, Valencia) get focus keywords; descriptions fall back to on-page copy
+- Schema (`inc/stark-seo.php`): **Service** on service and location pages (provider, `areaServed`), **CreativeWork** on case studies instead of Article
+- `configure.php` sets the home and `/services/` meta only when empty, so re-running it after cutover keeps live's
+- `tools/rankmath/manual-steps.md`: per-page table; manual items (SEO description is 183 characters; only 1 of the "5 service area pages" exists)
+
 ## [27.4.1] — November 3 2026
 
 ### Performance — animated GIFs served as MP4

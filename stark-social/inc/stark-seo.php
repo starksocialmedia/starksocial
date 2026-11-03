@@ -129,3 +129,72 @@ function stark_seo_podcast_episode() {
     if ( $ep['cover_id'] ) $node['image'] = wp_get_attachment_url( $ep['cover_id'] );
     return $node;
 }
+
+/**
+ * Service schema on service and location pages; CreativeWork instead of
+ * Rank Math's default Article on case studies (v27.4.2, SEO-STRATEGY.md
+ * schema plan). Both point at the business entity as provider / creator.
+ */
+function stark_seo_page_entities( $data ) {
+    $org = array( '@id' => home_url( '/#organization' ) );
+
+    if ( is_page() && function_exists( 'stark_is_service_page' ) ) {
+        $page   = get_queried_object();
+        $parent = $page->post_parent ? get_post( $page->post_parent ) : null;
+        $svc_post = stark_is_service_page( $page ) ? $page : ( $parent && stark_is_service_page( $parent ) ? $parent : null );
+        if ( $svc_post ) {
+            $svc     = stark_get_services()[ $svc_post->post_name ];
+            $markets = stark_get_markets();
+            $market  = $svc_post !== $page ? ( $markets[ $page->post_name ] ?? null ) : null;
+            if ( $svc_post !== $page && ! $market ) return $data;
+
+            $areas = array();
+            foreach ( $market ? array( $page->post_name => $market ) : $markets as $slug => $m ) {
+                $areas[] = array( '@type' => 'Place', 'name' => $m['name'] . ', CA' );
+            }
+            $desc = stark_field( 'card_description', $svc_post->ID ) ?: stark_field( 'hero_thesis', $svc_post->ID ) ?: $svc['desc'];
+            $data['stark_service'] = array(
+                '@type'       => 'Service',
+                '@id'         => get_permalink( $page ) . '#service',
+                'name'        => $market ? $svc['name'] . ' in ' . $market['name'] : $svc['name'],
+                'serviceType' => $svc['name'],
+                'description' => wp_strip_all_tags( (string) $desc ),
+                'url'         => get_permalink( $page ),
+                'provider'    => $org,
+                'areaServed'  => $areas,
+                'mainEntityOfPage' => array( '@id' => get_permalink( $page ) . '#webpage' ),
+            );
+        }
+    }
+
+    if ( is_singular( 'portfolio' ) ) {
+        $id = get_queried_object_id();
+        foreach ( $data as $key => $entity ) {
+            if ( is_array( $entity ) && ! empty( $entity['@type'] ) && array_intersect( (array) $entity['@type'], array( 'Article', 'BlogPosting', 'NewsArticle' ) ) ) {
+                unset( $data[ $key ] );
+            }
+        }
+        $names = array();
+        foreach ( (array) stark_field( 'services', $id ) as $slug ) {
+            if ( isset( stark_get_services()[ $slug ] ) ) $names[] = stark_get_services()[ $slug ]['name'];
+        }
+        $work = array(
+            '@type'       => 'CreativeWork',
+            '@id'         => get_permalink( $id ) . '#creativework',
+            'name'        => get_the_title( $id ),
+            'url'         => get_permalink( $id ),
+            'description' => wp_strip_all_tags( (string) ( stark_field( 'summary', $id ) ?: stark_field( 'challenge', $id ) ) ),
+            'creator'     => $org,
+            'mainEntityOfPage' => array( '@id' => get_permalink( $id ) . '#webpage' ),
+        );
+        if ( $client = stark_field( 'client_name', $id ) ) $work['about'] = array( '@type' => 'Organization', 'name' => $client );
+        if ( $industry = stark_field( 'industry', $id ) ) $work['genre'] = $industry;
+        if ( $year = stark_field( 'project_year', $id ) ) $work['dateCreated'] = (string) $year;
+        if ( $names ) $work['keywords'] = implode( ', ', $names );
+        if ( $url = stark_field( 'external_url', $id ) ) $work['sameAs'] = $url;
+        if ( has_post_thumbnail( $id ) ) $work['image'] = get_the_post_thumbnail_url( $id, 'full' );
+        $data['stark_creativework'] = $work;
+    }
+    return $data;
+}
+add_filter( 'rank_math/json_ld', 'stark_seo_page_entities', 101 );

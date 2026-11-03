@@ -140,13 +140,14 @@ foreach ( $legal_ids as $id ) update_post_meta( $id, 'rank_math_robots', array( 
 // so give them explicit Rank Math meta (same copy as on the page).
 $front = (int) get_option( 'page_on_front' );
 if ( $front ) {
-    update_post_meta( $front, 'rank_math_title', '%sitename% %sep% %sitedesc%' );
-    update_post_meta( $front, 'rank_math_description', $t['homepage_description'] );
+    // Only when empty: import-live-meta.php (v27.4.2) sets live's own title and description.
+    if ( ! get_post_meta( $front, 'rank_math_title', true ) ) update_post_meta( $front, 'rank_math_title', '%sitename% %sep% %sitedesc%' );
+    if ( ! get_post_meta( $front, 'rank_math_description', true ) ) update_post_meta( $front, 'rank_math_description', $t['homepage_description'] );
 }
 $hub = get_page_by_path( 'services' );
 if ( $hub ) {
-    update_post_meta( $hub->ID, 'rank_math_title', 'Digital Marketing Services %sep% %sitename%' );
-    update_post_meta( $hub->ID, 'rank_math_description', 'Websites, search, social, ads and brand, planned as one system and run by the people who built it.' );
+    if ( ! get_post_meta( $hub->ID, 'rank_math_title', true ) ) update_post_meta( $hub->ID, 'rank_math_title', 'Digital Marketing Services %sep% %sitename%' );
+    if ( ! get_post_meta( $hub->ID, 'rank_math_description', true ) ) update_post_meta( $hub->ID, 'rank_math_description', 'Websites, search, social, ads and brand, planned as one system and run by the people who built it.' );
 }
 
 if ( function_exists( 'rank_math' ) ) delete_transient( 'rank_math_sitemap_cache' );
