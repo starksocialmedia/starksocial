@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.6] — November 2 2026
+
+### Added — Visible breadcrumbs
+- `templates/parts/breadcrumbs.php`: Rank Math's trail directly under the hero (Barlow Condensed 14px, muted ink, `/` separators, "Home" first) on service and location pages, the services hub, portfolio, blog and podcast singles, legal pages, Support and the knowledgebase. BetterDocs articles keep their own breadcrumb. Not on the homepage
+- Checked: `/web-design/antelope-valley/` → Home / Web Design / Antelope Valley; posts → Home / Category / Post; case studies → Home / Portfolio / Client
+
+### Fixed
+- Location pages showed the parent's Live-sourced banner while their local copy is still `[SAMPLE]`. They now show Draft until approved
+
 ## [27.3.5] — November 2 2026
 
 ### Changed — Image weight

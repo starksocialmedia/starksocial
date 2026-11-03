@@ -46,6 +46,7 @@ $cta     = array(
                 </div>
             </div>
         </header>
+        <?php get_template_part( 'templates/parts/breadcrumbs' ); ?>
 
         <div class="stark-home__inner stark-episode__layout">
             <div class="stark-episode__main">

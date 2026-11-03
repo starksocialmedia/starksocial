@@ -51,6 +51,7 @@ $cta = array(
                 </div>
             </div>
         </header>
+        <?php get_template_part( 'templates/parts/breadcrumbs' ); ?>
 
         <?php if ( has_post_thumbnail() ) : ?>
             <figure class="stark-article__image">

@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $ctx = isset( $stark_ctx ) ? $stark_ctx : stark_service_context( get_queried_object_id() );
 
-$sections = array( 'hero', 'credibility', 'outcomes', 'problem', 'included', 'process', 'fit', 'extra', 'case-study', 'faq', 'related', 'cta' );
+$sections = array( 'hero', 'breadcrumbs', 'credibility', 'outcomes', 'problem', 'included', 'process', 'fit', 'extra', 'case-study', 'faq', 'related', 'cta' );
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

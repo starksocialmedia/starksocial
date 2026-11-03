@@ -35,6 +35,8 @@ function stark_location_context( $location_id ) {
     $market = stark_field( 'market_name', $location_id ) ?: get_the_title( $location_id );
 
     $ctx['market']  = $market;
+    // Local overlay copy is still [SAMPLE], so a location page is Draft even when its service is Live-sourced.
+    if ( 'approved' !== $ctx['copy_status'] ) { $ctx['copy_status'] = 'draft'; $ctx['draft'] = true; }
     $ctx['eyebrow'] = $ctx['service_name'] . ' · ' . $market;
     $ctx['title']   = stark_field( 'hero_headline', $location_id ) ?: $ctx['service_name'] . ' in ' . $market;
     $ctx['thesis']  = stark_field( 'hero_thesis', $location_id ) ?: $ctx['thesis'];

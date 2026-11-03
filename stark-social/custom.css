@@ -4111,6 +4111,15 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 .stark-passgen-page__card .passfield { min-width: 0; flex: 1 1 auto; }
 
 
+/* v27.3.6 — Visible breadcrumbs under the hero (Rank Math trail) */
+.stark-breadcrumbs { padding: 14px 0; border-bottom: 1px solid var(--stark-hairline); background: var(--stark-paper); }
+.stark-breadcrumbs .rank-math-breadcrumb p { margin: 0; font-family: var(--stark-font-condensed); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; color: var(--stark-ink-soft); }
+.stark-breadcrumbs .rank-math-breadcrumb a { color: var(--stark-ink-soft); text-decoration: none; }
+.stark-breadcrumbs .rank-math-breadcrumb a:hover,
+.stark-breadcrumbs .rank-math-breadcrumb a:focus-visible { color: var(--stark-blue-ink); text-decoration: underline; }
+.stark-breadcrumbs .separator { margin: 0 6px; opacity: 0.6; }
+.stark-breadcrumbs .last { color: var(--stark-ink); }
+
 /* ==========================================================================
    14. Global overrides — accessibility
    Must stay after every component it recolours.

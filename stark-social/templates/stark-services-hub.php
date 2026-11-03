@@ -69,6 +69,7 @@ $cta = array(
 
 <main id="main" class="stark-page stark-hub">
     <?php get_template_part( 'templates/parts/service', 'hero', $hero ); ?>
+    <?php get_template_part( 'templates/parts/breadcrumbs' ); ?>
     <?php get_template_part( 'templates/parts/service', 'outcomes', $principles ); ?>
 
     <section class="stark-band stark-hub__services" aria-labelledby="stark-hub-title">

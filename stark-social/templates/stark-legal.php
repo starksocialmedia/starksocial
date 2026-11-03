@@ -27,6 +27,7 @@ $current = get_post_field( 'post_name', get_the_ID() );
             </div>
         </div>
     </header>
+        <?php get_template_part( 'templates/parts/breadcrumbs' ); ?>
 
     <div class="stark-home__inner stark-legal__layout">
         <nav class="stark-legal__nav" aria-label="Legal pages">

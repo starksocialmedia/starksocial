@@ -51,6 +51,7 @@ $cta = array(
                 </div>
             </div>
         </header>
+        <?php get_template_part( 'templates/parts/breadcrumbs' ); ?>
 
         <?php if ( $work['hero_id'] ) : ?>
             <figure class="stark-article__image stark-case-study__image">

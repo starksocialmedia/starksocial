@@ -83,6 +83,7 @@ $actions = array(
 
 <main id="main" class="stark-page stark-support">
     <?php get_template_part( 'templates/parts/service', 'hero', $hero ); ?>
+    <?php get_template_part( 'templates/parts/breadcrumbs' ); ?>
 
     <section class="stark-band stark-support__band" aria-label="Knowledgebase and contact">
         <div class="stark-home__inner stark-support__grid">
