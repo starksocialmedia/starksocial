@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## Maintenance (live) — November 3 2026
+
+### Live — debug log rotated, WP_DEBUG off
+- `wp-content/debug.log` (414 MB, logging since August 4 2026) backed up to `~/private_html/debug-log-backups/debug-20261103-164049.log.gz` (5.3 MB, `gzip -t` OK; private_html isn't web-served) and truncated
+- `WP_DEBUG` → `false`; `WP_DEBUG_LOG` stays `true` and `WP_DEBUG_DISPLAY` `false`. wp-config backup next to the log. Home and `/contact/` 200 afterwards
+- **Note:** WordPress only applies `WP_DEBUG_LOG` while `WP_DEBUG` is on, so `debug.log` now stays empty. PHP fatals still go to the Cloudways PHP error log (Application → Logs). For a debugging session, set `WP_DEBUG` back to `true` temporarily
+- **What filled the log** (last 200k lines): ~185k Object Cache Pro errors (`Redis server tcp://127.0.0.1:6379 went away`, `Redis is loading the dataset in memory`, failed GET/SET). Redis on the live server is restarting or dropping connections; worth checking in Cloudways (Redis service, memory) before Object Cache Pro is relied on after launch. The rest is PHP deprecations (`seems_utf8` since WP 6.9, WP-CLI)
+
 ## [27.4.0] — November 3 2026
 
 ### Fixed — Knowledgebase landmarks (BetterDocs)
