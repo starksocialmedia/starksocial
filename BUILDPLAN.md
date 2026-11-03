@@ -107,7 +107,7 @@
 - [x] Bottom UI cluster v2.0.1 — A11y + back-to-top + Perfex chat embed + mobile scroll fix — April 24 2026
 - [x] Design tokens + global CSS — superseded by the Phase 2 design system in `custom.css` (v27.0–v27.3)
 - [ ] Port 13 keeper WPCode snippets into `functions.php` — not verified one by one; see LAUNCH-RUNBOOK plugin table (live has 19 snippets)
-- [ ] Port Phase 1 scroll progress + velocity JS into `js/stark-global.js` — progress bar works (bottom-ui); **velocity glow is still a TODO stub**
+- [x] Scroll progress — in `js/stark-bottom-ui.js`. Velocity glow **not ported**: no Phase 2 CSS uses it (v27.3.18 review; live code kept in `site-content/`)
 - [x] Podcast breadcrumbs ported to Rank Math (`rank_math/frontend/breadcrumb/items`) — v27.3.15
 - [ ] Configure OpenAI API key in Perfex AI Chatbot
 - [x] Verify transparent → frosted glass nav — v27.0.1, November 2 2026

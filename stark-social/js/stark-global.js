@@ -27,24 +27,15 @@
 	}
 
 	/* -----------------------------------------------------------------
-	 * 2. Scroll progress (--stark-scroll)  —  PORT FROM LIVE
-	 * ----------------------------------------------------------------- */
-	// TODO: paste live scroll progress listener.
-	//       Reads document scroll position, computes 0..1, writes via
-	//       root.style.setProperty('--stark-scroll', value).
-	//       Use requestAnimationFrame + passive: true.
-
-	/* -----------------------------------------------------------------
-	 * 3. Scroll velocity glow (--stark-vel)  —  PORT FROM LIVE
-	 * ----------------------------------------------------------------- */
-	// TODO: paste live velocity calc. Clamp, decay, write --stark-vel.
-
-	/* -----------------------------------------------------------------
-	 * 4. A11y slide-right + back-to-top slide-in  —  PORT FROM LIVE
-	 * ----------------------------------------------------------------- */
-	// TODO: paste coordination logic. At ~50% scroll, .stark-a11y-btn
-	//       shifts left:10px → left:64px; .x-scroll-top slides in beside it.
-	//       See STYLEGUIDE → Signature Features → #2.
+	 * 2–4. Scroll progress, velocity glow, A11y / back-to-top choreography
+	 * -----------------------------------------------------------------
+	 * Not ported from Phase 1 (v27.3.18 review):
+	 * - Scroll progress and the A11y + back-to-top cluster live in
+	 *   js/stark-bottom-ui.js (writes --stark-progress).
+	 * - The velocity glow (--stark-vel) styled Phase 1's progress bar; no
+	 *   Phase 2 CSS reads --stark-vel or --stark-scroll, so porting it would be
+	 *   dead code. Live's implementation is in site-content/global/global-js.js.
+	 */
 
 	if (reduce) {
 		root.style.setProperty('--stark-vel', '0');
