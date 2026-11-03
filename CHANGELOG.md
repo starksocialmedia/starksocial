@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.10] — November 3 2026
+
+### Staging deploy + final audit (Block F)
+- Full staging deploy of v27.5.0–v27.5.9 (exit 0, 82 replacements). Webhook secret kept on the staging server (mode-600 file, re-applied, deleted); feed 5 active; `wp_mail()` blocked, Mailgun inactive. 21-URL smoke test as expected
+- **D5 form test:** staging contact form → `/thank-you/`, entry 3, webhook HTTP 200, **Perfex lead #127** (test lead: delete). Email delivery can't be tested until Mailgun is on at cutover (`tools/launch/MAILGUN-ACTIVATION.md`)
+- Lighthouse + axe on 18 staging pages: `tools/audits/lighthouse-staging-v27.5.x/`. **axe 0, Accessibility 100, Best Practices 100 everywhere**; desktop performance 94–100, mobile 81–97 (staging TTFB varies)
+- **Fixed regression (mine, v27.5.8):** the touch-target rule on the post byline changed its height when the full stylesheet replaced the critical CSS, a 0.19 layout shift on the award post. Selector removed; CLS 0
+- **Fixed:** the restored award-post screenshots (v27.5.1) had no `sizes`, so browsers loaded the 1024px files (421 KB wasted). Added `sizes` + lazy loading in the post and in `valencia-blog-only.php`. Award post desktop performance 63 → 98
+
 ## [27.5.9] — November 3 2026
 
 ### Copy fixes (Block G: syntax and copy-paste errors only)

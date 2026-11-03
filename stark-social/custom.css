@@ -4602,7 +4602,6 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 	.stark-support__all,
 	.stark-support__details dd > a,
 	.stark-contact__details a,
-	.stark-article__meta a,
 	.rank-math-breadcrumb a,
 	.stark-breadcrumbs a,
 	.betterdocs-breadcrumb-list a,

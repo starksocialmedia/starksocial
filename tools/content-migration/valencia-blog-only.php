@@ -40,7 +40,8 @@ foreach ( $shots as $rel => $alt ) {
     }
     update_post_meta( $id, '_wp_attachment_image_alt', $alt );
     $img    = wp_get_attachment_image_src( $id, 'large' );
-    $figs[] = sprintf( '<figure class="wp-block-image size-large"><img src="%s" alt="%s" width="%d" height="%d" class="wp-image-%d"></figure>', esc_url( $img[0] ), esc_attr( $alt ), $img[1], $img[2], $id );
+    // 3-up at ~230px on desktop, full width on phones (v27.5.10: without sizes, browsers took the 1024px file)
+    $figs[] = sprintf( '<figure class="wp-block-image size-large"><img src="%s" alt="%s" width="%d" height="%d" class="wp-image-%d" sizes="(max-width: 600px) calc(100vw - 32px), 240px" loading="lazy"></figure>', esc_url( $img[0] ), esc_attr( $alt ), $img[1], $img[2], $id );
 }
 $gallery = "\n<div class=\"stark-award-shots\">\n" . implode( "\n", $figs ) . "\n</div>\n";
 
