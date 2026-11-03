@@ -2,6 +2,16 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [Maintenance] — November 2 2026 — Phase 1 live bugs
+
+### Fixed on live — Accessibility Statement duplicate id
+- The bug was a duplicate **HTML id**, not a duplicate page. The Accessibility Statement is already its own page (ID 1355, `/support/accessibility-statement/`, parent Support), so no page or menu changes were needed. Its main Cornerstone text element carried `id="privacy-policy"`, copied from the Privacy Policy page, so the live site had the privacy page's anchor on the accessibility page
+- Changed that one property in `_cornerstone_data` to `id="accessibility-statement"`: guarded single-occurrence replace via `wp eval`, saved with `wp_slash()`. Verified the stored data is byte-identical to the original apart from that id, and the JSON is valid. Breeze cache purged; the public page has 0 `id="privacy-policy"`. Original data saved to `~/Downloads/live-1355-cornerstone-before-a11y-id-fix.json`
+
+### Prepared, not applied — Brand Strategy & Identity process steps + FAQ
+- Confirmed: page 1427 shows the SEO page's 3 process steps and the Web Design page's 6 FAQs. These are Cornerstone looper JSON from duplicating those pages (not ACF)
+- Not applied because no brand-specific copy exists (no revisions, nothing in the repo), and the fix would publish new copy on live. `tools/live-fixes/brand-strategy-1427/` has a guarded apply script (dry-run tested on live, no changes), `proposed.json` from the Phase 2 draft, and steps. Takes 2 minutes once the copy is approved
+
 ## [27.1.2] — November 2 2026
 
 ### Added — Support hub `/support/` and knowledgebase

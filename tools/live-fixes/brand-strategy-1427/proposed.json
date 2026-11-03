@@ -1,0 +1,16 @@
+{
+  "_note": "[DRAFT - needs Nathan review] From the Phase 2 Local draft (v27.0.13). Edit freely; keys match live's Cornerstone loopers.",
+  "process": [
+    { "step": "1", "title": "Discovery", "text": "Conversations with your team, a look at your audience and an honest read on competitors." },
+    { "step": "2", "title": "Positioning and messaging", "text": "A clear point of view on who you are for and what you say." },
+    { "step": "3", "title": "Identity design", "text": "Visual identity built to express the strategy, not just look current." },
+    { "step": "4", "title": "Rollout", "text": "Guidelines, templates and launch support across your channels." }
+  ],
+  "faq": [
+    { "q": "Do we need a full rebrand?", "a": "Not always. Often clearer messaging does more than a new logo. We will tell you honestly which one you need." },
+    { "q": "What do we get at the end?", "a": "A brand guide covering positioning, messaging, voice, logo usage, color and typography, plus the source files." },
+    { "q": "How long does a brand project take?", "a": "It depends on scope. A messaging refresh moves faster than a full identity. You get a clear timeline before we start." },
+    { "q": "How involved do we need to be?", "a": "Focused, but not overwhelming. We need your input on goals and feedback at key points. We handle research, writing and design." },
+    { "q": "What if we're not a fit?", "a": "We will say so early. Good brand work depends on alignment, and we would rather be honest than force it." }
+  ]
+}
