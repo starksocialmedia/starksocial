@@ -1,0 +1,162 @@
+type,live_id,status_on_live,live_path,title,date,phase2_http,phase2_final_path,cutover
+page,1752,draft,/?page_id=1752,Portfolio,2026-01-29 12:32:46,,,n/a (draft)
+page,1654,publish,/about/nathan-imhoff/,Nathan Imhoff,2026-01-23 10:38:11,200,/author/nateimhoff/,redirects (301) → /author/nateimhoff/
+page,1629,publish,/about/deanna-l-miller/,Deanna L. Miller,2026-01-23 08:11:10,200,/author/deannaleigh/,redirects (301) → /author/deannaleigh/
+page,1552,publish,/stark-404/,404 Error,2026-01-21 12:24:01,404,/stark-404/,WILL BREAK (404)
+page,1530,publish,/search-results/,Search Results,2026-01-19 15:08:50,404,/search-results/,WILL BREAK (404)
+page,1427,publish,/services/brand-strategy-identity/,Brand Strategy & Identity,2026-01-17 07:07:39,200,/brand-strategy-identity/,redirects (301) → /brand-strategy-identity/
+page,1392,publish,/services/seo/,SEO,2026-01-16 14:04:07,200,/seo/,redirects (301) → /seo/
+page,1355,publish,/support/accessibility-statement/,Accessibility Statement,2026-01-15 16:02:43,200,/support/accessibility-statement/,already migrated
+page,1350,publish,/support/cookie-policy/,Cookie Policy,2026-01-15 15:00:44,200,/support/cookie-policy/,already migrated
+page,1345,publish,/support/terms-of-service/,Terms of Service,2026-01-15 14:53:24,200,/support/terms-of-service/,already migrated
+page,1275,publish,/services/web-design/,Web Design,2026-01-14 17:03:14,200,/web-design/,redirects (301) → /web-design/
+page,1169,publish,/services/content-creation/,Content Creation,2026-01-09 14:53:25,200,/content-creation/,redirects (301) → /content-creation/
+page,1134,publish,/services/paid-advertising/,Paid Social Advertising,2026-01-07 15:12:38,200,/paid-advertising/,redirects (301) → /paid-advertising/
+page,1081,publish,/services/social-media-management/,Social Media Management,2026-01-06 10:48:55,200,/social-media-management/,redirects (301) → /social-media-management/
+page,1049,publish,/services/,Services,2026-01-02 13:40:10,200,/services/,already migrated
+page,314,publish,/support/,Support,2024-07-05 10:59:22,200,/support/,already migrated
+page,285,publish,/support/password-generator/,Password Generator,2024-07-05 08:37:18,200,/support/password-generator/,already migrated
+page,135,publish,/support/knowledgebase/,Knowledgebase,2024-06-28 14:00:18,200,/support/knowledgebase/,already migrated
+page,91,publish,/contact/,Contact,2024-06-26 16:38:30,200,/contact/,already migrated
+page,31,publish,/about/,About Stark Social,2024-06-25 22:48:33,200,/about/,already migrated
+page,45,publish,/blog/,Blog,2024-06-25 17:24:36,200,/blog/,already migrated
+page,2,publish,/,Home,2022-04-11 17:41:05,200,/,already migrated
+page,3,publish,/support/privacy-policy/,Privacy Policy,2022-04-11 17:41:05,200,/support/privacy-policy/,already migrated
+post,1897,future,/?p=1897,January Content Map: A Done-For-You Month of Posts That Doesn’t Feel Like Spam,2026-12-27 07:00:14,,,n/a (future)
+post,1894,future,/?p=1894,"December Reset: One Simple Plan for Social, Content, and Ads (So January Feels Easy)",2026-12-01 07:00:49,,,n/a (future)
+post,1887,future,/?p=1887,End-of-Year Website Check-Up: 12 Things I’d Fix Before January,2026-11-15 07:00:40,,,n/a (future)
+post,1882,publish,/holiday-marketing-for-service-businesses-without-attracting-bargain-hunters/,Holiday marketing for service businesses (without attracting bargain hunters),2026-11-01 07:00:31,200,/holiday-marketing-for-service-businesses-without-attracting-bargain-hunters/,already migrated
+post,1879,publish,/what-we-would-fix-first-a-homepage-teardown-checklist-diy-friendly/,What We Would Fix First: A Homepage Teardown Checklist (DIY-Friendly),2026-09-15 07:00:18,200,/what-we-would-fix-first-a-homepage-teardown-checklist-diy-friendly/,already migrated
+post,1875,publish,/when-marketing-pitches-use-fear-buzzwords-pressure-and-leads-that-dont-lead/,"When Marketing Pitches Use Fear: Buzzwords, Pressure, and “Leads” That Don’t Lead",2026-09-01 09:00:52,200,/when-marketing-pitches-use-fear-buzzwords-pressure-and-leads-that-dont-lead/,already migrated
+post,1871,publish,/stop-keyword-stuffing-how-to-write-like-a-human-and-still-rank/,Stop Keyword Stuffing: How to Write Like a Human and Still Rank,2026-08-15 07:00:41,200,/stop-keyword-stuffing-how-to-write-like-a-human-and-still-rank/,already migrated
+post,1866,publish,/google-ads-vs-facebook-instagram-ads-which-one-fits-your-business-and-why/,Google Ads vs Facebook/Instagram Ads: which one fits your business (and why),2026-08-01 07:00:26,200,/google-ads-vs-facebook-instagram-ads-which-one-fits-your-business-and-why/,already migrated
+post,1976,publish,/your-website-could-be-compromised-right-now-and-youd-be-the-last-to-know/,Your website could be compromised right now — and you’d be the last to know,2026-07-22 07:00:56,200,/your-website-could-be-compromised-right-now-and-youd-be-the-last-to-know/,already migrated
+post,1862,publish,/local-seo-basics-what-you-can-fix-in-one-afternoon-that-helps-all-year/,Local SEO Basics: What You Can Fix in One Afternoon That Helps All Year,2026-07-15 07:00:26,200,/local-seo-basics-what-you-can-fix-in-one-afternoon-that-helps-all-year/,already migrated
+post,1858,publish,/if-they-promise-social-media-roi-and-cold-email-you-pause/,"If They Promise Social Media ROI (and Cold Email You), Pause.",2026-07-01 07:00:58,200,/if-they-promise-social-media-roi-and-cold-email-you-pause/,already migrated
+post,1855,publish,/got-an-seo-audit-email-read-this-first/,Got an “SEO Audit” Email? Read This First.,2026-06-15 07:00:35,200,/got-an-seo-audit-email-read-this-first/,already migrated
+post,1850,publish,/google-ads-vs-meta-ads-which-one-makes-sense-for-a-local-service-business/,Google Ads vs Meta Ads: Which One Makes Sense for a Local Service Business?,2026-06-01 07:00:50,200,/google-ads-vs-meta-ads-which-one-makes-sense-for-a-local-service-business/,already migrated
+post,1847,publish,/seo-isnt-magic-its-clarity-what-good-seo-looks-like-now-and-whats-snake-oil/,SEO Isn’t Magic. It’s Clarity: What “Good SEO” Looks Like Now (and What’s Snake Oil),2026-05-15 07:00:57,200,/seo-isnt-magic-its-clarity-what-good-seo-looks-like-now-and-whats-snake-oil/,already migrated
+post,1841,publish,/before-you-hire-a-marketing-agency-a-no-bs-checklist-contracts-access-security/,"Before You Hire a Marketing Agency: A No-BS Checklist (Contracts, Access, Security)",2026-05-01 07:00:20,200,/before-you-hire-a-marketing-agency-a-no-bs-checklist-contracts-access-security/,already migrated
+post,1836,publish,/website-maintenance-isnt-optional-the-basics-that-protect-your-site-and-your-rankings/,Website Maintenance Isn’t Optional: The Basics That Protect Your Site (and Your Rankings),2026-04-15 07:00:55,200,/website-maintenance-isnt-optional-the-basics-that-protect-your-site-and-your-rankings/,already migrated
+post,1833,publish,/google-business-profile-the-simple-monthly-checklist-that-helps-you-show-up-in-maps/,Google Business Profile: The Simple Monthly Checklist That Helps You Show Up in Maps,2026-04-01 07:00:12,200,/google-business-profile-the-simple-monthly-checklist-that-helps-you-show-up-in-maps/,already migrated
+post,1829,publish,/planning-notes-santa-clarita-web-design-seo/,Planning Notes: Santa Clarita Web Design + SEO,2026-03-15 07:00:43,200,/planning-notes-santa-clarita-web-design-seo/,already migrated
+post,1822,publish,/social-media-engagement-post-less-grow-more-the-stark-difference/,"Social Media Engagement: Post Less, Grow More — The Stark Difference",2026-03-01 07:00:33,200,/social-media-engagement-post-less-grow-more-the-stark-difference/,already migrated
+post,1915,publish,/stop-chasing-trends-a-simple-content-system-that-actually-converts/,Stop Chasing Trends: A Simple Content System That Actually Converts,2026-02-15 07:00:48,200,/stop-chasing-trends-a-simple-content-system-that-actually-converts/,already migrated
+post,1626,publish,/why-just-having-a-website-isnt-enough-anymore/,Why “Just Having a Website” Isn’t Enough Anymore,2026-02-01 07:00:37,200,/why-just-having-a-website-isnt-enough-anymore/,already migrated
+post,1909,publish,/your-website-can-look-fine-and-still-be-compromised-checkup-for-security-seo/,Your Website Can Look Fine and Still Be Compromised: Checkup for Security + SEO,2026-01-15 07:00:01,200,/your-website-can-look-fine-and-still-be-compromised-checkup-for-security-seo/,already migrated
+post,1623,publish,/why-most-local-businesses-still-dont-understand-social-media-and-how-to-fix-that-in-2026/,Why Most Local Businesses Still Don’t Understand Social Media (And How to Fix That in 2026),2026-01-01 07:00:02,200,/why-most-local-businesses-still-dont-understand-social-media-and-how-to-fix-that-in-2026/,already migrated
+post,588,publish,/social-media-engagement-post-less-talk-more/,"Social Media Engagement: Post Less, Talk More",2025-12-15 07:00:35,200,/social-media-engagement-post-less-talk-more/,already migrated
+post,559,publish,/why-random-passwords-matter-and-how-to-make-them-easy/,Why Random Passwords Matter (and How to Make Them Easy),2025-11-15 07:00:18,200,/why-random-passwords-matter-and-how-to-make-them-easy/,already migrated
+post,81,publish,/brand-presence-on-social-media/,Brand Presence on Social Media: What to Do (and What to Skip),2025-10-15 07:00:12,200,/brand-presence-on-social-media/,already migrated
+post,583,publish,/the-power-of-storytelling-in-social-media-marketing/,Storytelling for Social Media: 5 Story Formats That Don’t Feel Cringe,2025-09-15 07:00:54,200,/the-power-of-storytelling-in-social-media-marketing/,already migrated
+post,59,publish,/top-social-media-trends-to-watch-in-2024/,"Social Media in 2024: What Matters, What’s Noise",2024-01-01 08:00:40,200,/top-social-media-trends-to-watch-in-2024/,already migrated
+post,580,publish,/mastering-social-media-branding-dos-and-donts/,Mastering Social Media Branding: Dos and Don’ts,2023-05-01 16:09:45,200,/mastering-social-media-branding-dos-and-donts/,already migrated
+post,574,publish,/securing-your-online-accounts-with-two-factor-authentication-2fa/,Securing Your Online Accounts with Two-Factor Authentication (2FA),2023-02-28 15:51:20,200,/securing-your-online-accounts-with-two-factor-authentication-2fa/,already migrated
+post,569,publish,/why-every-small-business-needs-a-call-to-action-in-marketing/,Why Every Small Business Needs a Call-To-Action In Marketing,2023-02-21 15:44:10,200,/why-every-small-business-needs-a-call-to-action-in-marketing/,already migrated
+post,567,publish,/why-small-businesses-need-a-strong-brand/,Why Small Businesses Need a Strong Brand,2023-02-14 15:35:25,200,/why-small-businesses-need-a-strong-brand/,already migrated
+post,564,publish,/promote-your-business-like-a-pro-with-starkbio-link/,Promote Your Business Like a Pro with StarkBio.Link,2023-02-07 15:26:30,200,/promote-your-business-like-a-pro-with-starkbio-link/,already migrated
+post,553,publish,/top-social-media-trends-of-2023-to-watch/,Top Social Media Trends of 2023 To Watch,2022-12-29 16:34:04,200,/top-social-media-trends-of-2023-to-watch/,already migrated
+post,547,publish,/celebrate-st-paddys-day-with-our-ultimate-playlist/,Celebrate St. Paddy’s Day with Our Ultimate Playlist,2022-03-16 16:30:06,200,/celebrate-st-paddys-day-with-our-ultimate-playlist/,already migrated
+post,556,publish,/top-social-media-trends-of-2022-to-watch/,Top Social Media Trends of 2022 To Watch,2021-12-29 16:41:15,200,/top-social-media-trends-of-2022-to-watch/,already migrated
+post,538,publish,/infographic-mastering-facebook-etiquette-in-2018/,Infographic: Mastering Facebook Etiquette in 2018,2018-02-20 15:57:33,200,/infographic-mastering-facebook-etiquette-in-2018/,already migrated
+post,535,publish,/crafting-an-educational-content-checklist-for-your-business/,Crafting an Educational Content Checklist for Your Business,2018-02-12 15:48:35,200,/crafting-an-educational-content-checklist-for-your-business/,already migrated
+post,530,publish,/facebook-groups-bring-more-community-vibes/,Facebook Groups Bring More Community Vibes,2017-11-17 15:37:24,200,/facebook-groups-bring-more-community-vibes/,already migrated
+post,522,publish,/top-10-tips-for-running-a-successful-contest/,Top 10 Tips for Running a Successful Contest,2017-11-08 15:01:30,200,/top-10-tips-for-running-a-successful-contest/,already migrated
+post,518,publish,/leverage-facebook-stories-for-your-business-page/,Leverage Facebook Stories for Your Business Page,2017-11-01 14:55:28,200,/leverage-facebook-stories-for-your-business-page/,already migrated
+post,513,publish,/twitter-launches-video-website-cards/,Twitter Launches Video Website Cards!,2017-10-25 13:48:48,200,/twitter-launches-video-website-cards/,already migrated
+post,506,publish,/are-job-seekers-turning-to-facebook/,Are Job Seekers Turning to Facebook?,2017-10-19 13:36:44,200,/are-job-seekers-turning-to-facebook/,already migrated
+post,498,publish,/stark-social-wins-excellence-in-web-design-award-for-valencia-jazz-blues/,Stark Social Wins Excellence In Web Design Award,2017-06-26 13:14:13,200,/stark-social-wins-excellence-in-web-design-award-for-valencia-jazz-blues/,already migrated
+post,488,publish,/maximize-your-reach-with-facebook-lead-generation-ads/,Maximize Your Reach with Facebook Lead Generation Ads,2017-04-19 12:51:14,200,/maximize-your-reach-with-facebook-lead-generation-ads/,already migrated
+post,479,publish,/what-were-listening-to-spring-2017/,What We’re Listening To Spring 2017,2017-03-03 12:06:22,200,/what-were-listening-to-spring-2017/,already migrated
+post,474,publish,/protecting-kids-on-social-media-scv-today-insights/,Protecting Kids on Social Media: SCV Today Insights,2016-05-11 11:54:02,200,/protecting-kids-on-social-media-scv-today-insights/,already migrated
+post,470,publish,/5-web-design-trends-in-2016/,5 Web Design Trends in 2016,2015-12-29 11:44:10,200,/5-web-design-trends-in-2016/,already migrated
+post,466,publish,/stark-social-media-agency-named-best-santa-clarita-web-design-company-in-2015/,Stark Social Media Agency named Best Santa Clarita Web Design Company,2015-12-15 09:51:42,200,/stark-social-media-agency-named-best-santa-clarita-web-design-company-in-2015/,already migrated
+post,460,publish,/the-social-life-podcast-launching-november-4th/,The Social Life Podcast Launching November 4th,2015-10-28 13:49:48,200,/the-social-life-podcast-launching-november-4th/,already migrated
+post,458,publish,/linkedin-networking-mastery-webinar/,LinkedIn Networking Mastery Webinar,2015-09-15 13:38:48,200,/linkedin-networking-mastery-webinar/,already migrated
+post,456,publish,/maximize-your-reach-with-pinterest/,Maximize Your Reach with Pinterest,2015-09-01 13:28:29,200,/maximize-your-reach-with-pinterest/,already migrated
+post,438,publish,/avoid-these-5-social-media-snafus/,Avoid These 5 Social Media Snafus,2015-08-30 11:26:18,200,/avoid-these-5-social-media-snafus/,already migrated
+post,436,publish,/master-youtube-expert-webinar-with-deanna-l-miller/,Master YouTube: Expert Webinar with Deanna L. Miller,2015-08-11 11:17:51,200,/master-youtube-expert-webinar-with-deanna-l-miller/,already migrated
+post,425,publish,/master-content-curation-with-buffer-feedly-2-0/,Master Content Curation with Buffer & Feedly 2.0,2015-08-08 10:44:19,200,/master-content-curation-with-buffer-feedly-2-0/,already migrated
+post,429,publish,/protecting-kids-on-social-media-stark-social-scv-today/,Protecting Kids on Social Media: Stark Social + SCV Today,2015-08-05 10:57:01,200,/protecting-kids-on-social-media-stark-social-scv-today/,already migrated
+post,422,publish,/mastering-twitter-3-0-advanced-strategies-webinar/,Mastering Twitter 3.0: Advanced Strategies Webinar,2015-07-28 10:26:10,200,/mastering-twitter-3-0-advanced-strategies-webinar/,already migrated
+post,418,publish,/facebook-business-pages-success/,Facebook Business Pages Success,2015-07-21 18:08:08,200,/facebook-business-pages-success/,already migrated
+post,414,publish,/master-facebook-for-your-business-success/,Master Facebook for Your Business Success,2015-07-17 18:02:22,200,/master-facebook-for-your-business-success/,already migrated
+post,411,publish,/facebook-for-personal-branding/,Facebook for Personal Branding,2015-07-14 17:52:37,200,/facebook-for-personal-branding/,already migrated
+post,406,publish,/navigating-the-digital-wonderland-smart-social-media-tips/,Navigating the Digital Wonderland: Smart Social Media Tips,2015-06-19 17:38:18,200,/navigating-the-digital-wonderland-smart-social-media-tips/,already migrated
+post,398,publish,/rockstar-public-relations-taking-your-biz-to-the-next-level/,Rockstar Public Relations: Taking Your Biz to the Next Level!,2015-05-15 17:23:56,200,/rockstar-public-relations-taking-your-biz-to-the-next-level/,already migrated
+post,394,publish,/tweeting-or-not-during-tragedy/,Tweeting (or NOT) During Tragedy,2015-04-17 17:15:27,200,/tweeting-or-not-during-tragedy/,already migrated
+post,391,publish,/youtube-for-business-webinar/,Youtube for Business Webinar,2015-03-31 17:09:00,200,/youtube-for-business-webinar/,already migrated
+post,389,publish,/pinterest-for-business-webinar/,Pinterest for Business Webinar,2015-03-24 17:00:59,200,/pinterest-for-business-webinar/,already migrated
+post,385,publish,/keep-your-biz-on-the-facebook-page/,Keep Your Biz on the Facebook Page!,2015-03-20 16:46:40,200,/keep-your-biz-on-the-facebook-page/,already migrated
+post,382,publish,/curating-content-w-buffer-feedly/,Curating Content w/ Buffer & Feedly,2015-03-17 16:37:57,200,/curating-content-w-buffer-feedly/,already migrated
+post,375,publish,/instagram-for-business-webinar/,Instagram for Business Webinar,2015-03-10 15:16:23,200,/instagram-for-business-webinar/,already migrated
+post,367,publish,/making-the-most-of-linkedin-03-03-2015/,Making The Most of LinkedIn,2015-03-03 09:00:59,200,/making-the-most-of-linkedin-03-03-2015/,already migrated
+post,279,publish,/winning-seo-strategies-for-maximum-impact/,Winning SEO Strategies for Maximum Impact,2015-02-20 08:43:30,200,/winning-seo-strategies-for-maximum-impact/,already migrated
+post,261,publish,/mastering-social-media-why-content-is-king/,Mastering Social Media: Why Content is King,2015-01-19 16:20:19,200,/mastering-social-media-why-content-is-king/,already migrated
+post,250,publish,/engaging-with-your-audience-through-social-media-insights-from-stark-social-media/,Boost Engagement with Social Media: SCV Today,2014-05-14 02:00:25,200,/engaging-with-your-audience-through-social-media-insights-from-stark-social-media/,already migrated
+podcast,591,publish,/podcast/the-social-life-episode-37-boost-your-online-business-presence-in-under-1-hour-a-week/,Boost Your Online Business Presence in Under 1-Hour a Week,2017-05-10 17:56:53,200,/podcast/the-social-life-episode-37-boost-your-online-business-presence-in-under-1-hour-a-week/,already migrated
+podcast,599,publish,/podcast/the-facts-about-influencer-marketing/,The Facts About Influencer Marketing,2017-05-03 10:00:14,200,/podcast/the-facts-about-influencer-marketing/,already migrated
+podcast,596,publish,/podcast/10-actionable-goals-for-better-content-marketing/,10 Actionable Goals for Better Content Marketing,2017-04-12 10:00:40,200,/podcast/10-actionable-goals-for-better-content-marketing/,already migrated
+podcast,613,publish,/podcast/has-snapchat-jumped-the-shark/,Has Snapchat Jumped The Shark?,2017-04-05 10:00:34,200,/podcast/has-snapchat-jumped-the-shark/,already migrated
+podcast,622,publish,/podcast/twitter-is-not-dead/,Twitter Is Not Dead,2017-03-29 10:00:08,200,/podcast/twitter-is-not-dead/,already migrated
+podcast,628,publish,/podcast/developing-your-personal-brand-with-social-media-with-neil-fitzgerald/,Developing Your Personal Brand with Social Media with Neil Fitzgerald,2017-03-22 10:00:27,200,/podcast/developing-your-personal-brand-with-social-media-with-neil-fitzgerald/,already migrated
+podcast,638,publish,/podcast/nonprofits-and-social-marketing-with-neil-fitzgerald/,Nonprofits and Social Marketing with Neil Fitzgerald,2017-03-15 10:00:13,200,/podcast/nonprofits-and-social-marketing-with-neil-fitzgerald/,already migrated
+podcast,641,publish,/podcast/instagram-apps-worth-downloading/,Instagram Apps Worth Downloading,2017-03-08 10:00:08,200,/podcast/instagram-apps-worth-downloading/,already migrated
+podcast,645,publish,/podcast/how-to-get-your-first-100-followers/,How To Get Your First 100 Followers,2017-03-01 10:00:35,200,/podcast/how-to-get-your-first-100-followers/,already migrated
+podcast,652,publish,/podcast/what-the-devil-is-a-cta/,What The Devil Is A CTA?,2017-02-22 10:00:43,200,/podcast/what-the-devil-is-a-cta/,already migrated
+podcast,655,publish,/podcast/business-style-guide-101/,Business Style Guide 101,2017-02-15 10:00:41,200,/podcast/business-style-guide-101/,already migrated
+podcast,659,publish,/podcast/what-the-hell-is-a-landing-page-and-why-do-you-need-one/,What the Hell is a Landing Page? (And why do you need one!),2017-02-08 10:00:36,200,/podcast/what-the-hell-is-a-landing-page-and-why-do-you-need-one/,already migrated
+podcast,663,publish,/podcast/top-3-types-of-video-to-improve-your-social-traffic/,Top 3 Types of Video to Improve Your Social Traffic,2017-02-01 10:00:47,200,/podcast/top-3-types-of-video-to-improve-your-social-traffic/,already migrated
+podcast,667,publish,/podcast/top-10-tips-for-bringing-harmony-to-your-email-social-marketing/,Top 10 Tips for Bringing Harmony to Your Email & Social Marketing,2017-01-25 10:00:19,200,/podcast/top-10-tips-for-bringing-harmony-to-your-email-social-marketing/,already migrated
+podcast,673,publish,/podcast/battle-of-the-ads-facebook-vs-google/,Battle of the Ads: Facebook vs. Google,2016-08-31 10:00:39,200,/podcast/battle-of-the-ads-facebook-vs-google/,already migrated
+podcast,677,publish,/podcast/mind-your-manners-on-the-social-media-webs/,Mind Your Manners on The Social Media Webs,2016-08-24 10:00:55,200,/podcast/mind-your-manners-on-the-social-media-webs/,already migrated
+podcast,683,publish,/podcast/instagram-stories-vs-snapchat/,Instagram Stories vs Snapchat?,2016-08-17 10:00:37,200,/podcast/instagram-stories-vs-snapchat/,already migrated
+podcast,687,publish,/podcast/what-is-new-with-facebook/,What is New With Facebook?,2016-08-10 10:00:55,200,/podcast/what-is-new-with-facebook/,already migrated
+podcast,691,publish,/podcast/how-to-bridge-the-generational-gap-with-social-marketing/,How to Bridge the Generational Gap with Social Marketing,2016-08-03 10:00:36,200,/podcast/how-to-bridge-the-generational-gap-with-social-marketing/,already migrated
+podcast,695,publish,/podcast/five-reasons-to-add-webinars-to-a-content-marketing-strategy/,Five Reasons to add Webinars  to a Content Marketing Strategy,2016-07-27 10:00:21,200,/podcast/five-reasons-to-add-webinars-to-a-content-marketing-strategy/,already migrated
+podcast,698,publish,/podcast/getting-started-with-pinterest-for-biz/,Getting Started With Pinterest For Biz,2016-03-09 10:00:16,200,/podcast/getting-started-with-pinterest-for-biz/,already migrated
+podcast,701,publish,/podcast/whats-new-with-twitter/,What’s New With Twitter,2016-03-02 10:00:44,200,/podcast/whats-new-with-twitter/,already migrated
+podcast,706,publish,/podcast/common-yelp-mistakes-businesses-make/,Common Yelp Mistakes Businesses Make,2016-02-24 10:00:07,200,/podcast/common-yelp-mistakes-businesses-make/,already migrated
+podcast,710,publish,/podcast/everything-you-wanted-to-know-about-yelp-from-an-elite-yelper/,Everything You Wanted to Know About Yelp from an Elite Yelper!,2016-02-17 10:00:33,200,/podcast/everything-you-wanted-to-know-about-yelp-from-an-elite-yelper/,already migrated
+podcast,720,publish,/podcast/choosing-the-best-social-media-site-for-your-biz/,Choosing The Best Social Media Site For Your Biz,2016-02-10 10:00:03,200,/podcast/choosing-the-best-social-media-site-for-your-biz/,already migrated
+podcast,726,publish,/podcast/does-your-biz-really-need-a-video-app/,Does Your Biz Really Need a Video App?,2016-02-03 10:00:14,200,/podcast/does-your-biz-really-need-a-video-app/,already migrated
+podcast,735,publish,/podcast/dynamic-social-duo-facebook-instagram/,Dynamic Social Duo: Facebook & Instagram,2016-01-27 10:00:12,200,/podcast/dynamic-social-duo-facebook-instagram/,already migrated
+podcast,740,publish,/podcast/how-to-own-your-keyword-research/,How to Own Your Keyword Research,2016-01-20 10:00:38,200,/podcast/how-to-own-your-keyword-research/,already migrated
+podcast,760,publish,/podcast/social-media-as-a-customer-service-tool-heck-yeah/,Social Media as a Customer Service Tool? Heck Yeah!,2016-01-13 10:00:45,200,/podcast/social-media-as-a-customer-service-tool-heck-yeah/,already migrated
+podcast,765,publish,/podcast/common-social-media-fails/,Common Social Media Fails,2016-01-06 10:00:16,200,/podcast/common-social-media-fails/,already migrated
+podcast,773,publish,/podcast/2015-social-media-year-in-review/,2015  Social Media Year in Review,2015-12-30 09:00:14,200,/podcast/2015-social-media-year-in-review/,already migrated
+podcast,780,publish,/podcast/enhancing-your-hyperlocal-marketing/,Enhancing Your Hyperlocal Marketing,2015-12-16 10:00:15,200,/podcast/enhancing-your-hyperlocal-marketing/,already migrated
+podcast,785,publish,/podcast/how-to-up-your-rss-game/,How To Up Your RSS Game,2015-12-09 10:00:07,200,/podcast/how-to-up-your-rss-game/,already migrated
+podcast,788,publish,/podcast/understanding-the-facebook-algorithm/,Understanding The Facebook Algorithm,2015-12-02 10:00:33,200,/podcast/understanding-the-facebook-algorithm/,already migrated
+podcast,794,publish,/podcast/getting-the-most-of-your-holiday-marketing/,Getting The Most of Your Holiday Marketing,2015-11-18 10:00:25,200,/podcast/getting-the-most-of-your-holiday-marketing/,already migrated
+podcast,801,publish,/podcast/whats-the-deal-with-seo/,What’s the Deal with SEO?,2015-11-11 09:30:37,200,/podcast/whats-the-deal-with-seo/,already migrated
+podcast,810,publish,/podcast/the-10-commandments-of-good-social/,The 10 Commandments of Good Social,2015-11-04 09:00:46,200,/podcast/the-10-commandments-of-good-social/,already migrated
+work,1756,publish,/portfolio/pathway-escrow/,Pathway Escrow,2026-01-29 12:01:12,200,/portfolio/pathway-escrow/,already migrated
+work,1768,publish,/portfolio/schlickart/,Schlickart,2026-01-28 12:28:57,200,/portfolio/schlickart/,already migrated
+docs,1967,publish,/docs/what-we-need-to-get-started-with-seo/,What We Need From You to Get Started with SEO,2026-04-06 11:20:21,200,/docs/what-we-need-to-get-started-with-seo/,already migrated
+docs,1966,publish,/docs/understanding-your-monthly-seo-report/,Understanding Your Monthly SEO Report,2026-04-06 11:20:21,200,/docs/understanding-your-monthly-seo-report/,already migrated
+docs,1965,publish,/docs/why-your-google-business-profile-matters/,Why Your Google Business Profile Matters More Than You Think,2026-04-06 11:20:21,200,/docs/why-your-google-business-profile-matters/,already migrated
+docs,1964,publish,/docs/what-is-seo-and-how-long-does-it-take/,What Is SEO and How Long Does It Actually Take?,2026-04-06 11:20:21,200,/docs/what-is-seo-and-how-long-does-it-take/,already migrated
+docs,1960,publish,/docs/how-to-share-logins-securely/,How to Share Logins Securely,2026-04-06 11:20:20,200,/docs/how-to-share-logins-securely/,already migrated
+docs,1961,publish,/docs/how-to-add-us-to-your-website-google-tag-meta-pixel/,How to Add Us to Your Website (Google Tag & Meta Pixel),2026-04-06 11:20:20,200,/docs/how-to-add-us-to-your-website-google-tag-meta-pixel/,already migrated
+docs,1962,publish,/docs/how-billing-and-invoices-work/,How Billing and Invoices Work,2026-04-06 11:20:20,200,/docs/how-billing-and-invoices-work/,already migrated
+docs,1963,publish,/docs/how-to-reach-us-and-response-times/,How to Reach Us and What to Expect on Response Times,2026-04-06 11:20:20,200,/docs/how-to-reach-us-and-response-times/,already migrated
+docs,1959,publish,/docs/understanding-your-paid-ads-report/,Understanding Your Paid Ads Report,2026-04-06 10:49:54,200,/docs/understanding-your-paid-ads-report/,already migrated
+docs,1958,publish,/docs/what-we-need-before-launching-ads/,What We Need From You Before We Launch Your Ads,2026-04-06 10:49:36,200,/docs/what-we-need-before-launching-ads/,already migrated
+docs,1957,publish,/docs/how-to-give-access-to-meta-ads-account/,How to Give Us Access to Your Meta Ads Account,2026-04-06 10:49:18,200,/docs/how-to-give-access-to-meta-ads-account/,already migrated
+docs,1956,publish,/docs/understanding-your-monthly-social-media-report/,Understanding Your Monthly Social Media Report,2026-04-06 10:48:59,200,/docs/understanding-your-monthly-social-media-report/,already migrated
+docs,1955,publish,/docs/how-to-review-and-approve-content/,How to Review and Approve Your Content,2026-04-06 10:48:41,200,/docs/how-to-review-and-approve-content/,already migrated
+docs,1954,publish,/docs/what-to-expect-in-your-first-30-days/,What to Expect in Your First 30 Days,2026-04-06 10:48:24,200,/docs/what-to-expect-in-your-first-30-days/,already migrated
+docs,1953,publish,/docs/how-to-send-us-content-and-assets/,"How to Send Us Your Photos, Videos, and Brand Assets",2026-04-06 10:48:06,200,/docs/how-to-send-us-content-and-assets/,already migrated
+docs,1952,publish,/docs/how-to-share-social-media-account-access/,How to Share Access to Your Social Media Accounts,2026-04-06 10:47:46,200,/docs/how-to-share-social-media-account-access/,already migrated
+docs,247,publish,/docs/should-your-small-business-have-a-blog-understanding-the-role-of-content-marketing/,Should Your Small Business Have a Blog? Understanding the Role of Content Marketing,2024-07-03 15:24:17,200,/docs/should-your-small-business-have-a-blog-understanding-the-role-of-content-marketing/,already migrated
+docs,244,publish,/docs/securing-your-website-understanding-the-benefits-of-a-content-delivery-network-cdn/,Securing Your Website: Understanding the Benefits of a Content Delivery Network (CDN),2024-07-03 14:31:58,200,/docs/securing-your-website-understanding-the-benefits-of-a-content-delivery-network-cdn/,already migrated
+docs,214,publish,/docs/importance-of-a-style-guide-for-your-business/,Importance of a Style Guide for Your Business,2024-07-02 12:01:44,200,/docs/importance-of-a-style-guide-for-your-business/,already migrated
+docs,193,publish,/docs/the-importance-of-cybersecurity-for-small-businesses/,The Importance of Cybersecurity for Small Businesses,2024-07-01 08:46:07,200,/docs/the-importance-of-cybersecurity-for-small-businesses/,already migrated
+docs,191,publish,/docs/mailgun-importance-of-a-reputable-mail-delivery-service-for-small-businesses/,Mailgun: Importance of a Reputable Mail Delivery Service for Small Businesses,2024-07-01 08:38:13,200,/docs/mailgun-importance-of-a-reputable-mail-delivery-service-for-small-businesses/,already migrated
+docs,189,publish,/docs/creating-a-successful-small-business-blog-tips-strategies/,Creating a Successful Small Business Blog: Tips & Strategies,2024-07-01 08:34:29,200,/docs/creating-a-successful-small-business-blog-tips-strategies/,already migrated
+docs,186,publish,/docs/crisis-management-protecting-your-brands-reputation/,Crisis Management: Protecting Your Brand’s Reputation,2024-07-01 08:18:26,200,/docs/crisis-management-protecting-your-brands-reputation/,already migrated
+docs,178,publish,/docs/combating-spam-a-comprehensive-guide-by-stark-social/,Combating Spam: A Comprehensive Guide by Stark Social,2024-06-28 16:54:56,200,/docs/combating-spam-a-comprehensive-guide-by-stark-social/,already migrated
+docs,168,publish,/docs/web-accessibility-myths-laws-and-best-practices/,"Web Accessibility: Myths, Laws, and Best Practices",2024-06-28 16:33:49,200,/docs/web-accessibility-myths-laws-and-best-practices/,already migrated
+docs,145,publish,/docs/understanding-the-different-components-of-a-website/,Understanding the Different Components of a Website,2024-06-28 14:33:05,200,/docs/understanding-the-different-components-of-a-website/,already migrated
+docs,138,publish,/docs/tips-for-choosing-a-good-logo-why-black-and-white-matters/,Tips for Choosing a Good Logo: Why Black and White Matters,2024-06-28 14:03:16,200,/docs/tips-for-choosing-a-good-logo-why-black-and-white-matters/,already migrated

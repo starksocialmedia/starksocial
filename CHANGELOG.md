@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.10] — November 3 2026
+
+### Launch prep
+- **`tools/launch/live-inventory.md`** (+ `live-inventory/` raw JSON and CSVs): everything on live, read-only. 22 pages, 69 posts + **3 scheduled**, 37 episodes, 2 case studies, 27 KB articles, 255 media files, 3 users, 0 comments, 35 plugins, 19 WPCode snippets, DNS, SSL, Cloudflare. Every live URL was requested on Phase 2: all posts, episodes, case studies and KB articles already work at the same URL, all 255 media files are present, the 3 scheduled posts are in Phase 2
+- Findings: the apex goes through **Cloudways' Cloudflare Enterprise** (`secure.cloudways.cloud`), so cache settings are in Cloudways too. **DMARC `p=reject` (strict)** makes Mailgun at cutover a hard requirement. Live blocks `/wp-login.php` (403)
+- **`tools/launch/redirect-map.md`** + `redirects.csv` (68 rules). New rules in `inc/stark-redirects.php`: `/sitemap.xml` → `/sitemap_index.xml` (was a 404 on Phase 2), `/search-results/`, `/stark-404/` (Phase 1 utility pages), the WordPress default `/category/x/` and `/tag/x/` bases → `/blogs/…` (live currently sends them to an unrelated post), and the legal pages + `/knowledgebase/` made explicit (they only worked through WordPress's slug guess). All tested 301 on Local
+- **`LAUNCH-RUNBOOK.md` status board**: 25 items marked done / pending Nathan / hard requirement. Hard requirements left: copy approval (3 items), Mailgun at cutover, Cloudflare caching
+
 ## [27.4.9] — November 3 2026
 
 ### Service Areas hub (`/service-areas/`), no longer a stub

@@ -1,11 +1,48 @@
 # Launch runbook — Phase 2 (Stark Social 27) → starksocial.com
 
-Written November 2 2026 (v27.3.x). Staging (https://staging.starksocial.com) is the
+Written November 2 2026 (v27.3.x), status board updated November 3 (v27.4.10). Staging (https://staging.starksocial.com) is the
 reference copy. Launch means **pushing staging's Phase 2 site onto the live app**
 (`rvqkxhngas`), not a DNS move to a new server: both apps are on Cloudways server 676057.
 "DNS cutover" below covers the Cloudflare and domain steps either way.
 
 Owner: Nathan. Notify: Deanna before and after. Hosting is Cloudways (us).
+
+---
+
+## 0. Status board (updated November 3 2026, v27.4.10)
+
+**Legend:** ✅ done · 🟡 pending Nathan (decision or copy) · 🔴 **hard launch requirement** (launch blocked until done) · ⚪ after launch
+
+| # | Item | Status | Owner | Notes |
+|---|---|---|---|---|
+| 1 | Page copy approved (services, Home, About, Contact) | 🔴🟡 | Nathan | Dashboard widget lists them. 6 services + About/Contact are Live-sourced; Brand Strategy and Audit & Consulting are Draft |
+| 2 | Brand Strategy process + FAQ | 🔴🟡 | Nathan | live's are copies of other pages |
+| 3 | `[NEEDS REVIEW]` markers (3) | 🔴🟡 | Nathan | Content Creation CTA, About story, About CTA |
+| 4 | Service Areas intro + market copy, location page `[SAMPLE]`/`[DRAFT]` | 🟡 | Nathan | or set those pages to noindex for launch |
+| 5 | Homepage hero choice, homepage FAQ | 🟡 | Nathan | |
+| 6 | Legal pages reviewed | 🟡 | Nathan | last updated Jan 15 2026 |
+| 7 | Real logo files | 🟡 | Nathan | favicon + share images use live's icon/images |
+| 8 | Content migration from live | ✅ | | 17/22 pages full, 2 partial; all posts, episodes, KB, case studies, 255 media files (`live-inventory.md`) |
+| 9 | Redirect map | ✅ | | `redirect-map.md`, all tested 301 on Phase 2 (v27.4.10) |
+| 10 | Rank Math: site config + per-page meta from live | ✅ | | `tools/rankmath/` (v27.1.5, v27.4.2). Re-run both scripts after cutover |
+| 11 | Contact form → Perfex webhook | ✅ | | tested on staging (lead #126) |
+| 12 | Delete Perfex test lead #126 | 🟡 | Nathan | Hub UI, 1 minute |
+| 13 | **Mailgun settings saved + reactivated at cutover** | 🔴 | Nathan / cutover | DMARC `p=reject` (strict): without Mailgun, form emails are rejected |
+| 14 | Cloudflare caching level → Standard | 🔴🟡 | Nathan | Apex goes through **Cloudways' Cloudflare Enterprise** add-on (`secure.cloudways.cloud`): check there as well as the Cloudflare dashboard. Theme assets are hashed anyway (v27.3.13) |
+| 15 | Live `WP_DEBUG` off, debug.log rotated | ✅ | | Nov 3 (CHANGELOG maintenance) |
+| 16 | Redis / Object Cache Pro errors on live | 🟡 | Nathan | most of the old debug.log; check before activating Object Cache Pro on Phase 2 |
+| 17 | Perfex chat | 🟡 | Nathan | widget **disabled hub-side** (no API key); cookie fix notes in `tools/perfex/` |
+| 18 | Hub origin SSL cert (expired Nov 2) | 🟡 | Nathan | Cloudways SSL for the hub app; visitors unaffected today |
+| 19 | Accessibility (axe) and Lighthouse on staging | ✅ | | `tools/audits/lighthouse-staging-v27.4.x/` |
+| 20 | Editorial snippets (Classic Editor, hide admin notices) | 🟡 | Nathan | not ported |
+| 21 | LinkedIn URL (`/company/stark-social` vs `…-media-agency`) | 🟡 | Nathan | |
+| 22 | Wordfence / login protection, MainWP child | ⚪🟡 | Nathan | live blocks `/wp-login.php` (403); Phase 2 doesn't yet |
+| 23 | Search Console: submit `sitemap_index.xml` | ⚪ | Nathan | `/sitemap.xml` 301s there |
+| 24 | Share-image check (Facebook Sharing Debugger, LinkedIn Post Inspector) | ⚪ | Nathan | needs the public URL |
+| 25 | Remove "Hello world!" | ✅ | | drafted on Phase 2 (never on live) |
+
+**Hard requirements left: 1–3 (copy), 13 (Mailgun at cutover), 14 (Cloudflare).** Everything
+else is either done or can follow launch.
 
 ---
 
@@ -17,6 +54,7 @@ Owner: Nathan. Notify: Deanna before and after. Hosting is Cloudways (us).
 - [ ] `[NEEDS REVIEW]` markers removed: Content Creation CTA, About story, About CTA ("fractional")
 - [ ] `[SAMPLE]` / `[DRAFT]` gone from the location page and service-areas copy, or those pages set to noindex
 - [ ] Homepage FAQ approved (or removed)
+- [ ] `/service-areas/` intro and market descriptions written (v27.4.9 hub, marked `[DRAFT]`)
 - [ ] Legal pages reviewed (last updated January 15 2026)
 - [ ] Real logo files in place (Nathan)
 
@@ -64,7 +102,7 @@ Live keeps changing until cutover. Re-sync, in this order:
 3. **Knowledgebase**: `tools/kb-import/README.md`
 4. **Contact form entries**: export live's GF entries (Forms → Import/Export) and keep the CSV; Phase 2 doesn't need them imported
 5. **Media**: rsync any uploads added on live since the snapshot
-6. **Redirects**: check for new AIOSEO redirects or Pretty Links added after November 2 2026, and add them to `inc/stark-redirects.php`
+6. **Redirects**: check for new AIOSEO redirects or Pretty Links added after November 2 2026, and add them to `inc/stark-redirects.php`. Full map: `redirect-map.md`; inventory of what's on live: `live-inventory.md`
 
 Freeze edits on live once the sync starts.
 

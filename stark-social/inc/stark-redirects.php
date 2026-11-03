@@ -29,6 +29,16 @@ function stark_legacy_redirect_map() {
         '/infographic-facebook-etiquette-2018'                                                          => '/infographic-mastering-facebook-etiquette-in-2018/', // AIOSEO
         '/services/search-engine-optimization-seo'                                                      => '/seo/', // AIOSEO
         '/password-generator'                                                                           => '/support/password-generator/', // AIOSEO
+        // v27.4.10 (redirect map, tools/launch/redirect-map.md): Phase 1 URLs with no Phase 2 page.
+        '/sitemap.xml'                                                                                  => '/sitemap_index.xml', // AIOSEO's sitemap URL (likely submitted in Search Console)
+        '/search-results'                                                                               => '/?s=', // Phase 1 search page
+        '/stark-404'                                                                                    => '/', // Phase 1 404 page
+        // Worked only through WordPress's slug guessing; explicit so they don't depend on it.
+        '/privacy-policy'                                                                               => '/support/privacy-policy/',
+        '/terms-of-service'                                                                             => '/support/terms-of-service/',
+        '/cookie-policy'                                                                                => '/support/cookie-policy/',
+        '/accessibility-statement'                                                                      => '/support/accessibility-statement/',
+        '/knowledgebase'                                                                                => '/support/knowledgebase/',
     ) );
 }
 
@@ -40,6 +50,15 @@ function stark_legacy_redirects() {
         $episode = get_posts( array( 'post_type' => 'podcast', 'numberposts' => 1, 'meta_key' => 'episode_number', 'meta_value' => $m[1], 'fields' => 'ids' ) );
         if ( $episode ) {
             wp_safe_redirect( get_permalink( $episode[0] ), 301, 'Stark episode short link' );
+            exit;
+        }
+    }
+    // Old WordPress category/tag bases (/category/x/, /tag/x/) → live's /blogs/… bases.
+    // Without this WordPress "guesses" a post with a similar slug (live does the same today).
+    if ( preg_match( '#^/(category|tag)/([a-z0-9-]+)$#', $path, $m ) ) {
+        $term = get_term_by( 'slug', $m[2], 'category' === $m[1] ? 'category' : 'post_tag' );
+        if ( $term ) {
+            wp_safe_redirect( get_term_link( $term ), 301, 'Stark legacy redirect' );
             exit;
         }
     }
