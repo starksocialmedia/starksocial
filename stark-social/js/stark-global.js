@@ -40,4 +40,19 @@
 	if (reduce) {
 		root.style.setProperty('--stark-vel', '0');
 	}
+
+	/* -----------------------------------------------------------------
+	 * 5. GIF videos (v27.4.1, inc/stark-media.php): paused for reduced
+	 *    motion; click or Enter toggles play/pause (WCAG 2.2.2).
+	 * ----------------------------------------------------------------- */
+	document.querySelectorAll('video.stark-gif-video').forEach(function (v) {
+		v.setAttribute('tabindex', '0');
+		v.setAttribute('title', 'Animation: click to pause or play');
+		if (reduce) { v.removeAttribute('autoplay'); v.pause(); }
+		function toggle() { if (v.paused) { v.play(); } else { v.pause(); } }
+		v.addEventListener('click', toggle);
+		v.addEventListener('keydown', function (e) {
+			if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+		});
+	});
 })();

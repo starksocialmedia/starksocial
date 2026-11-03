@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.1] — November 3 2026
+
+### Performance — animated GIFs served as MP4
+- All 9 GIFs over 1 MB (29.6 MB, every one in a 2015–2024 podcast episode) converted to silent looping MP4 (3.6 MB, −88%) by `tools/images/convert-gifs.sh`
+- `inc/stark-media.php`: `the_content` swaps `<img …gif>` for `<video autoplay loop muted playsinline>` when the MP4 exists; the fallback is a link to the GIF. Database content unchanged (survives the cutover re-sync)
+- `js/stark-global.js`: these videos pause for reduced motion; click or Enter toggles play/pause
+- Episode 613's GIF pointed at a missing path (404 on live too); fixed on Phase 2
+- Details: `tools/content-migration/gif-conversions.md`. Uploads didn't shrink (originals kept as fallback); page weight on the 9 episodes −26 MB
+
 ## Maintenance (live) — November 3 2026
 
 ### Live — debug log rotated, WP_DEBUG off

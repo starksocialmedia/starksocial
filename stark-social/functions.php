@@ -940,3 +940,4 @@ require_once get_stylesheet_directory() . '/inc/stark-admin.php';
 require_once get_stylesheet_directory() . '/inc/stark-redirects.php';
 require_once get_stylesheet_directory() . '/inc/stark-site-tweaks.php';
 require_once get_stylesheet_directory() . '/inc/stark-docs.php';
+require_once get_stylesheet_directory() . '/inc/stark-media.php';
