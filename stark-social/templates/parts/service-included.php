@@ -10,6 +10,7 @@ if ( ! $args['included'] ) return;
         <header class="stark-section-head">
             <p class="stark-eyebrow"><?php echo esc_html( $args['service_name'] ); ?></p>
             <h2 id="stark-included-title" class="stark-section-head__title"><?php echo esc_html( $args['included_heading'] ); ?></h2>
+            <?php if ( ! empty( $args['included_intro'] ) ) : ?><p class="stark-section-head__intro"><?php echo esc_html( $args['included_intro'] ); ?></p><?php endif; ?>
         </header>
         <ul class="stark-included__list">
             <?php foreach ( $args['included'] as $item ) : ?>
@@ -24,5 +25,6 @@ if ( ! $args['included'] ) return;
                 </li>
             <?php endforeach; ?>
         </ul>
+        <?php if ( ! empty( $args['included_note'] ) ) : ?><p class="stark-section-note"><?php echo esc_html( $args['included_note'] ); ?></p><?php endif; ?>
     </div>
 </section>

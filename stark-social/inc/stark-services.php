@@ -79,20 +79,64 @@ function stark_service_context( $service_id ) {
 
     $cta = (array) stark_field( 'final_cta', $service_id );
 
+    // v27.3.0 — sections carried over from the live Phase 1 pages.
+    $titled = function ( $rows ) {
+        return array_values( array_filter( (array) $rows, function ( $row ) { return ! empty( $row['title'] ); } ) );
+    };
+    $extra = array();
+    foreach ( (array) stark_field( 'extra_sections', $service_id ) as $section ) {
+        if ( empty( $section['heading'] ) ) continue;
+        $section['items'] = $titled( $section['items'] ?? array() );
+        $extra[] = $section;
+    }
+    $status = stark_field( 'copy_status', $service_id ) ?: 'draft';
+
     return array(
         'service_id'       => $service_id,
         'service_slug'     => $slug,
         'service_name'     => get_the_title( $service_id ),
         'market'           => null,
-        'draft'            => 'approved' !== stark_field( 'copy_status', $service_id ),
+        'draft'            => 'approved' !== $status,
+        'copy_status'      => $status,
         'eyebrow'          => stark_field( 'hero_eyebrow', $service_id ) ?: 'Services',
-        'title'            => get_the_title( $service_id ),
+        'title'            => stark_field( 'hero_headline', $service_id ) ?: get_the_title( $service_id ),
         'thesis'           => stark_field( 'hero_thesis', $service_id ),
+        'hero_note'        => stark_field( 'hero_note', $service_id ),
+        'outcomes'         => array(
+            'eyebrow' => stark_field( 'outcomes_eyebrow', $service_id ) ?: 'Outcomes',
+            'heading' => stark_field( 'outcomes_heading', $service_id ),
+            'intro'   => stark_field( 'outcomes_intro', $service_id ),
+            'items'   => $titled( stark_field( 'outcomes_items', $service_id ) ),
+            'note'    => stark_field( 'outcomes_note', $service_id ),
+        ),
+        'problem'          => array(
+            'eyebrow' => stark_field( 'problem_eyebrow', $service_id ) ?: 'The reality',
+            'heading' => stark_field( 'problem_heading', $service_id ),
+            'body'    => array_values( array_filter( array_map( 'trim', preg_split( '/\R\s*\R/', (string) stark_field( 'problem_body', $service_id ) ) ) ) ),
+            'points'  => stark_lines( stark_field( 'problem_points', $service_id ) ),
+            'note'    => stark_field( 'problem_note', $service_id ),
+        ),
+        'fit'              => array(
+            'eyebrow'      => stark_field( 'fit_eyebrow', $service_id ) ?: 'Who it’s for',
+            'heading'      => stark_field( 'fit_heading', $service_id ),
+            'intro'        => stark_field( 'fit_intro', $service_id ),
+            'good_heading' => stark_field( 'fit_good_heading', $service_id ) ?: 'You’re a good fit if…',
+            'good'         => stark_lines( stark_field( 'fit_good', $service_id ) ),
+            'bad_heading'  => stark_field( 'fit_bad_heading', $service_id ) ?: 'This is probably not a fit if…',
+            'bad'          => stark_lines( stark_field( 'fit_bad', $service_id ) ),
+        ),
+        'extra_sections'   => $extra,
+        'included_intro'   => stark_field( 'included_intro', $service_id ),
+        'included_note'    => stark_field( 'included_note', $service_id ),
+        'process_eyebrow'  => stark_field( 'process_eyebrow', $service_id ) ?: 'Our process',
+        'process_intro'    => stark_field( 'process_intro', $service_id ),
+        'process_note'     => stark_field( 'process_note', $service_id ),
+        'faq_intro'        => stark_field( 'faq_intro', $service_id ),
         'cta_primary'      => stark_link( stark_field( 'hero_cta_primary', $service_id ), array( 'url' => '/contact/', 'title' => 'Start a project' ) ),
         'cta_secondary'    => stark_link( stark_field( 'hero_cta_secondary', $service_id ), $included ? array( 'url' => '#stark-included', 'title' => "See what's included" ) : null ),
         'credibility'      => null,
         'included_heading' => stark_field( 'included_heading', $service_id ) ?: "What's included",
-        'included'         => array_slice( $included, 0, 5 ),
+        'included'         => array_slice( $included, 0, 8 ),
         'process_heading'  => stark_field( 'process_heading', $service_id ) ?: 'How we work',
         'process'          => array_slice( $process, 0, 4 ),
         'case_heading'     => 'Featured work',
@@ -104,6 +148,7 @@ function stark_service_context( $service_id ) {
             'title'  => ! empty( $cta['heading'] ) ? $cta['heading'] : 'Ready to grow?',
             'sub'    => ! empty( $cta['subhead'] ) ? $cta['subhead'] : "Tell us where you want to be. We'll show you how we'd get there.",
             'button' => stark_link( isset( $cta['button'] ) ? $cta['button'] : null, array( 'url' => '/contact/', 'title' => 'Get in touch' ) ),
+            'note'   => ! empty( $cta['note'] ) ? $cta['note'] : '',
         ),
     );
 }

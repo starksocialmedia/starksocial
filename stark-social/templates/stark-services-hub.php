@@ -25,19 +25,36 @@ $featured = isset( $cards[ $featured_slug ] ) ? $cards[ $featured_slug ] : reset
 unset( $cards[ $featured['slug'] ] );
 $featured_case = stark_service_portfolio_teasers( $featured['slug'], 1 );
 
+// v27.3.0 — copy from the live /services/ page.
 $hero = array(
     'eyebrow'       => 'Services',
-    'title'         => 'Marketing that earns its keep.',
-    'thesis'        => 'Websites, search, social, ads and brand, planned as one system and run by the people who built it. Every service has a job, and every job gets measured.',
+    'title'         => 'Marketing services built to grow your business — not just your presence.',
+    'thesis'        => 'From social media and websites to content, ads, and SEO, we help brands turn attention into action.',
+    'hero_note'     => 'Strategy-led. Fully in-house. Built to last.',
     'cta_primary'   => array( 'url' => '/contact/', 'title' => 'Start a conversation', 'target' => '' ),
-    'cta_secondary' => null,
+    'cta_secondary' => array( 'url' => '#stark-hub-title', 'title' => 'Explore Services', 'target' => '' ),
+);
+
+$principles = array(
+    'outcomes' => array(
+        'eyebrow' => 'How we work',
+        'heading' => '',
+        'intro'   => '',
+        'note'    => '',
+        'items'   => array(
+            array( 'title' => 'Clarity before execution.', 'description' => 'We start by understanding your goals, audience, and gaps — then build a plan that actually makes sense for your business.' ),
+            array( 'title' => 'Consistency that builds trust.', 'description' => 'From social media to websites and content, we help brands show up clearly and consistently across every touchpoint.' ),
+            array( 'title' => 'Growth you can measure.', 'description' => 'We focus on outcomes that matter — engagement, leads, conversions, and momentum — and refine as we go.' ),
+        ),
+    ),
 );
 
 $cta = array(
     'final_cta' => array(
-        'title'  => 'Not sure where to start?',
-        'sub'    => "Book a quick call. We'll recommend the right mix for your goals, timeline and budget, and tell you honestly if we're not the fit.",
-        'button' => array( 'url' => '/contact/', 'title' => "Let's talk", 'target' => '' ),
+        'title'  => 'Ready to turn attention into action?',
+        'sub'    => 'Book a quick call and we’ll recommend the right mix of services for your goals, timeline, and budget.',
+        'button' => array( 'url' => '/contact/', 'title' => "Let's Chat", 'target' => '' ),
+        'note'   => 'No pressure. If we’re not a fit, we’ll tell you.',
     ),
 );
 ?><!DOCTYPE html>
@@ -52,12 +69,13 @@ $cta = array(
 
 <main id="main" class="stark-page stark-hub">
     <?php get_template_part( 'templates/parts/service', 'hero', $hero ); ?>
+    <?php get_template_part( 'templates/parts/service', 'outcomes', $principles ); ?>
 
     <section class="stark-band stark-hub__services" aria-labelledby="stark-hub-title">
         <div class="stark-home__inner">
             <header class="stark-section-head">
-                <p class="stark-eyebrow">What we do</p>
-                <h2 id="stark-hub-title" class="stark-section-head__title">Seven services. One plan.</h2>
+                <p class="stark-eyebrow">Our Services</p>
+                <h2 id="stark-hub-title" class="stark-section-head__title">Strategy-led marketing services designed to support growth at every stage.</h2>
             </header>
 
             <div class="stark-hub__grid">

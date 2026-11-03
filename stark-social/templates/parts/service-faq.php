@@ -11,6 +11,7 @@ if ( ! $args['faq'] ) return;
         <header class="stark-section-head">
             <p class="stark-eyebrow">FAQ</p>
             <h2 id="stark-faq-title" class="stark-section-head__title"><?php echo esc_html( $args['faq_heading'] ); ?></h2>
+            <?php if ( ! empty( $args['faq_intro'] ) ) : ?><p class="stark-section-head__intro"><?php echo esc_html( $args['faq_intro'] ); ?></p><?php endif; ?>
         </header>
         <div class="stark-faq__list">
             <?php foreach ( $args['faq'] as $item ) : ?>

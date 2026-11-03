@@ -2,6 +2,20 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.0] — November 2 2026
+
+### Content migration — live copy into Phase 2 (`tools/content-migration/`)
+- **17 of 22 live pages fully populated with live content, 2 partial** (Home below the hero; Brand Strategy, whose live process and FAQ are copies of other pages), 3 are templates with no copy to move. See `page-migration-report.md` and `live-vs-phase2-audit.md`
+- Service pages: hero headline + lead + tagline, outcomes, problem, what we handle, process, fit lists, extra sections (Paid "First 30 days", SMM "What working together looks like"), FAQ and CTA, all verbatim from live. Card descriptions come from the live `/services/` page. Services hub, Home (hero unchanged), About (story, How we think, founder bios) and Contact also carry live copy
+- **New Copy status: Live-sourced** (blue banner, "needs Nathan voice review") on the service and home groups. Brand Strategy stays Draft
+- Live copy errors kept verbatim and flagged `[NEEDS REVIEW]` inline: Content Creation CTA (Paid's heading), About story (broken sentence), About CTA ("fractional"). Homepage FAQ labelled `[DRAFT — not on live]`. About's `[SAMPLE]` values removed (live has none)
+- Service template: optional sections **outcomes, problem, fit, extra card sections** plus intro and closing-line fields; hero headline and note; CTA note (`acf-json/group_stark_service.json`, `templates/parts/service-{outcomes,problem,fit,extra}.php`). Fit lists reuse the hub's `.stark-fit` component
+- Homepage: live "Who We're For", new **The Stark Difference** section, live How We Work steps and CTA
+- `inc/stark-testimonials.php` — store for testimonials (none exist on live), awards (2017 Communicator Award, Best of SCV 2015) and press. About shows a **Recognition** section. `img/awards/` and `img/clients/` created (README only: live displays no logos)
+- Portfolio: live has only 2 case studies (both migrated in v27.0.12); no others exist, so none were added
+- Tools: `extract_live.py` (outline of a rendered Cornerstone page), `build_specs.py` (live → ACF spec, verbatim strings), `import-service-specs.php`, `import-core-pages.php`, `live-outlines/` (source snapshots)
+- Local: default "Sample Page" trashed
+
 ## [27.1.7] — November 2 2026
 
 ### Deployed — staging at Local parity

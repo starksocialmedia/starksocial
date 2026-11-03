@@ -14,5 +14,8 @@ $cta = $args['final_cta'];
         <?php if ( $cta['button'] ) : ?>
             <a href="<?php echo esc_url( $cta['button']['url'] ); ?>" class="stark-btn stark-btn--primary"><?php echo esc_html( $cta['button']['title'] ); ?></a>
         <?php endif; ?>
+        <?php if ( ! empty( $cta['note'] ) ) : ?>
+            <p class="stark-cta-band__note"><?php echo esc_html( $cta['note'] ); ?></p>
+        <?php endif; ?>
     </div>
 </section>

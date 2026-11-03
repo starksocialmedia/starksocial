@@ -1526,6 +1526,17 @@ body:has(.stark-draft-banner) .stark-home { margin-top: 40px; }
 .stark-home .stark-process ~ .stark-faq { background: var(--stark-paper); }
 
 
+/* v27.3.0 — "The Stark Difference" (live homepage copy) */
+.stark-home .stark-why { background: var(--stark-navy); color: rgba(255, 255, 255, 0.82); }
+.stark-why .stark-eyebrow { color: rgba(255, 255, 255, 0.72); }
+.stark-why .stark-section-head__title { color: #fff; }
+.stark-why__inner { display: grid; grid-template-columns: 1fr; gap: 24px 64px; }
+@media (min-width: 960px) { .stark-why__inner { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: start; } }
+.stark-why__copy p { margin: 0 0 18px; font-size: 17px; line-height: 1.7; }
+.stark-why__copy .stark-why__lead { font-size: clamp(20px, 1.8vw, 24px); font-weight: 600; line-height: 1.45; color: #fff; }
+.stark-why__copy .stark-why__where { margin: 28px 0 0; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; color: rgba(255, 255, 255, 0.62); }
+.stark-who-card__title:only-child { margin: 0; }
+
 /* ==========================================================================
    7. Service + location pages
    ========================================================================== */
@@ -1953,6 +1964,39 @@ body:has(.stark-draft-banner) .stark-home { margin-top: 40px; }
     .stark-cred__inner:has(.stark-cred__aside) { grid-template-columns: 1.2fr 1fr; }
 }
 
+
+/* v27.3.0 — sections carried over from the live service pages:
+   outcomes, problem, fit, extra card sections, intros and closing lines */
+.stark-section-head__intro { max-width: 62ch; margin: 16px 0 0; font-size: clamp(17px, 1.4vw, 19px); line-height: 1.6; color: var(--stark-ink-soft); }
+.stark-section-note { max-width: 62ch; margin: 32px 0 0; font-size: 16px; font-weight: 600; color: var(--stark-navy); }
+.stark-hero__note { margin: 20px 0 0; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; color: rgba(255, 255, 255, 0.72); }
+.stark-cta-band__note { margin: 16px 0 0; font-size: 14px; color: rgba(255, 255, 255, 0.72); }
+
+.stark-cards { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 40px 0 0; padding: 0; list-style: none; }
+@media (min-width: 720px) {
+    .stark-cards--2, .stark-cards--4 { grid-template-columns: repeat(2, 1fr); }
+    .stark-cards--3 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1100px) { .stark-cards--4 { grid-template-columns: repeat(4, 1fr); } }
+.stark-cards__item { padding: 28px; border: 1px solid var(--stark-hairline); border-radius: 16px; background: var(--stark-paper); }
+.stark-cards__title { margin: 0 0 8px; font-size: 19px; font-weight: 700; line-height: 1.3; color: var(--stark-navy); }
+.stark-cards__desc { margin: 0; font-size: 15px; line-height: 1.6; color: var(--stark-ink-soft); }
+.stark-cards__title a { color: inherit; text-decoration: none; }
+.stark-cards__title a:hover, .stark-cards__title a:focus-visible { color: var(--stark-blue-ink); text-decoration: underline; }
+.stark-cards__item .stark-eyebrow { margin-bottom: 8px; }
+
+.stark-problem__inner { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+@media (min-width: 960px) { .stark-problem__inner { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 64px; } }
+.stark-problem__lead { margin: 20px 0 0; font-size: clamp(18px, 1.5vw, 21px); font-weight: 500; line-height: 1.55; color: var(--stark-navy); }
+.stark-problem__body { margin: 16px 0 0; font-size: 17px; line-height: 1.65; color: var(--stark-ink-soft); }
+.stark-problem__note { margin: 24px 0 0; padding-top: 20px; border-top: 1px solid var(--stark-hairline); font-weight: 600; color: var(--stark-navy); }
+.stark-problem__points { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.stark-problem__points li { padding: 18px 20px 18px 48px; border: 1px solid var(--stark-hairline); border-radius: 14px; background: var(--stark-paper); font-size: 16px; line-height: 1.5; color: var(--stark-ink); position: relative; }
+.stark-problem__points li::before { content: ""; position: absolute; left: 20px; top: 24px; width: 10px; height: 10px; border-radius: 50%; background: var(--stark-red); opacity: 0.85; }
+
+/* Fit lists reuse the services-hub .stark-fit component (section 8). */
+
+.stark-draft-banner.stark-draft-banner--live { background: #DCEBFF; }
 
 /* ==========================================================================
    8. Services hub + draft banner

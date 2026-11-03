@@ -912,3 +912,4 @@ require_once get_stylesheet_directory() . '/inc/stark-podcast.php';
  */
 require_once get_stylesheet_directory() . '/inc/stark-authors.php';
 require_once get_stylesheet_directory() . '/inc/stark-seo.php';
+require_once get_stylesheet_directory() . '/inc/stark-testimonials.php';

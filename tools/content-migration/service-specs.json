@@ -1,0 +1,705 @@
+{
+ "social-media-management": {
+  "hero_headline": "Social Media Management that turns attention into action.",
+  "hero_thesis": "Consistent posting is nice. Consistent strategy is what makes it work. We build and manage social channels that actually support your business goals—so you’re not stuck wondering what to post, when to post, or whether any of it is doing anything.",
+  "hero_note": "Strategy-led. Fully in-house. Built to last.",
+  "hero_cta_primary": {
+   "title": "Start a conversation",
+   "url": "/contact/",
+   "target": ""
+  },
+  "outcomes_heading": "What changes when social media is handled right",
+  "outcomes_items": [
+   {
+    "title": "Clarity",
+    "description": "You know what you’re posting, why you’re posting it, and how it supports real business goals—so social media stops feeling random or reactive."
+   },
+   {
+    "title": "Consistency",
+    "description": "Your brand shows up regularly with a clear voice and direction, without last-minute scrambling or long gaps that stall momentum."
+   },
+   {
+    "title": "Confidence",
+    "description": "You stop guessing whether social media is “working” and start trusting the system behind it—because it’s intentional, not improvised."
+   }
+  ],
+  "included_heading": "What we handle for you",
+  "included_intro": "Social media management works best when it’s treated like a system—not a scramble. We handle the planning, execution, and refinement so your channels stay consistent, intentional, and aligned with your business goals.",
+  "included_items": [
+   {
+    "title": "Strategy and content direction",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Content planning and scheduling",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Copywriting and creative development",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Profile optimization and brand consistency",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Ongoing refinement based on what’s working",
+    "description": "",
+    "icon": "check"
+   }
+  ],
+  "process_eyebrow": "How it works",
+  "process_heading": "A simple system for social that stays consistent.",
+  "process_intro": "We keep the process simple and structured—so you always know what’s happening, what’s next, and what we need from you.",
+  "process_steps": [
+   {
+    "title": "Align on strategy",
+    "description": "We get clear on your goals, audience, voice, and what “success” actually means—then build a plan that fits your business."
+   },
+   {
+    "title": "Build and schedule content",
+    "description": "We plan the calendar, write the copy, design the creative, and schedule posts so you’re not scrambling week to week."
+   },
+   {
+    "title": "Refine and improve",
+    "description": "We watch what’s resonating, tighten what isn’t, and keep your content moving in the right direction over time."
+   }
+  ],
+  "fit_good_heading": "You’re a good fit if…",
+  "fit_good": "You want consistent posting with a clear strategy behind it.\nYou’re tired of guessing what to say or scrambling at the last minute.\nYou care about brand voice, visuals, and keeping things cohesive.\nYou want a partner who plans, executes, and refines over time.\nYou’re open to simple feedback loops so content stays aligned.",
+  "fit_bad_heading": "This is probably not a fit if…",
+  "fit_bad": "You want a viral hack or overnight growth promises.\nYou’re looking for one-off posting without a consistent plan.\nYou don’t have time to review or approve anything, ever.\nYou want your social to be salesy every post.\nYou’re expecting results without giving the process time to compound.",
+  "fit_eyebrow": "Who It’s For",
+  "fit_heading": "A good fit if you want a system — not last-minute posting.",
+  "fit_intro": "Social media works best when it’s treated like a process. This is for teams who want consistency, direction, and someone to run the engine.",
+  "extra_sections": [
+   {
+    "eyebrow": "What Working Together Looks Like",
+    "heading": "Clear roles, clear process — no black box.",
+    "intro": "We don’t disappear into a black box or overload you with busywork. The goal is simple: clarity, momentum, and a system that runs without constant input from you.",
+    "items": [
+     {
+      "title": "A quick kickoff call to align on goals, voice, and priorities",
+      "description": ""
+     },
+     {
+      "title": "Access to your accounts (or adding us as a partner)",
+      "description": ""
+     },
+     {
+      "title": "Any brand notes, offers, or updates you want worked in",
+      "description": ""
+     },
+     {
+      "title": "Timely approvals (we’ll keep it simple and organized)",
+      "description": ""
+     },
+     {
+      "title": "Occasional feedback so we can keep improving",
+      "description": ""
+     }
+    ],
+    "note": "",
+    "_live_heading_for_items": "What we need from you"
+   }
+  ],
+  "faq_heading": "Frequently asked questions",
+  "faq_intro": "Straight answers to the questions clients usually ask before getting started.",
+  "faq_items": [
+   {
+    "question": "How involved do I need to be?",
+    "answer": "Lightweight. You’ll review content, give feedback, and join occasional check-ins — but we handle the planning, execution, and day-to-day work."
+   },
+   {
+    "question": "Do you post without approval?",
+    "answer": "No. Nothing goes live without your sign-off unless we agree otherwise. We’ll set a clear approval process upfront so there are no surprises."
+   },
+   {
+    "question": "How quickly will I see results?",
+    "answer": "Social media is cumulative. Most brands see traction in the first few months, with stronger momentum building over time."
+   },
+   {
+    "question": "Is there a long-term contract?",
+    "answer": "No long lock-ins. We prefer to earn the relationship by doing good work, not by trapping you in a contract."
+   },
+   {
+    "question": "What if we’re not a fit?",
+    "answer": "We’ll tell you early. This only works when expectations, pace, and priorities are aligned."
+   }
+  ],
+  "final_cta": {
+   "heading": "Ready to turn attention into action?",
+   "subhead": "Book a quick call and we’ll recommend the right mix of services for your goals, timeline, and budget.",
+   "note": "No pressure. If we’re not a fit, we’ll tell you.",
+   "button": {
+    "title": "Let's chat",
+    "url": "/contact/",
+    "target": ""
+   }
+  },
+  "card_description": "Planning and publishing that keeps your brand consistent and credible."
+ },
+ "paid-advertising": {
+  "hero_headline": "Paid advertising built to create real demand.",
+  "hero_thesis": "Clicks are easy. Qualified leads and sales take strategy. We plan, launch, and manage paid ad campaigns built around your business goals — not vanity metrics or platform tricks. Every dollar has a job, every campaign gets measured, and nothing runs without a clear reason.",
+  "hero_note": "Strategy-led. Fully in-house. No black box.",
+  "hero_cta_primary": {
+   "title": "Start A Conversation",
+   "url": "/contact/",
+   "target": ""
+  },
+  "outcomes_eyebrow": "Paid Social Advertising",
+  "outcomes_heading": "What paid advertising actually changes",
+  "outcomes_intro": "Paid advertising doesn’t create demand from nothing. What it changes is visibility, timing, and control — when used intentionally.",
+  "outcomes_items": [
+   {
+    "title": "Visibility",
+    "description": "You’re no longer dependent on algorithms or organic reach alone. Your message shows up where and when it matters."
+   },
+   {
+    "title": "Timing",
+    "description": "You can align exposure with launches, campaigns, or moments that matter — not just when content happens to perform."
+   },
+   {
+    "title": "Control",
+    "description": "You decide what’s being tested, what’s being scaled, and where budget is being spent — with intention, not impulse."
+   },
+   {
+    "title": "Feedback",
+    "description": "You get real signals about messaging, positioning, and audience response — faster than most other channels."
+   }
+  ],
+  "included_heading": "What we manage",
+  "included_intro": "Paid advertising works best when it’s treated as a system — not a series of experiments. We don’t jump straight into platforms or creative. We start by making sure the fundamentals are clear, then build and refine intentionally over time.",
+  "included_items": [
+   {
+    "title": "Align",
+    "description": "We clarify goals, audience, messaging, and how success will be measured — before any budget is spent.",
+    "icon": "check"
+   },
+   {
+    "title": "Build",
+    "description": "Campaigns are structured deliberately, with clear intent behind targeting, creative, and pacing.",
+    "icon": "check"
+   },
+   {
+    "title": "Test",
+    "description": "We test thoughtfully — looking for signal, not noise — so decisions are based on insight, not impulse.",
+    "icon": "check"
+   },
+   {
+    "title": "Refine",
+    "description": "As data comes in, we adjust and scale with purpose, keeping paid media aligned with the bigger picture.",
+    "icon": "check"
+   }
+  ],
+  "included_note": "No black box. No constant resets. Just a system designed to support long-term growth.",
+  "process_eyebrow": "Our Approach",
+  "process_heading": "Strategy comes first. Execution follows.",
+  "process_intro": "We don’t believe paid advertising works in isolation. Every decision we make is tied back to goals, positioning, and what the business actually needs next. That means we prioritize understanding before optimization — looking at messaging, audience intent, and performance signals together, not in silos. Our approach is steady, intentional, and grounded in real data. No chasing trends. No constant resets. Just informed decisions that compound over time.",
+  "process_steps": [
+   {
+    "title": "Strategy first",
+    "description": "We align on goals, constraints, and success metrics before a single dollar is spent."
+   },
+   {
+    "title": "Iteration & optimization",
+    "description": "Creative, audiences, and offers are tested and refined based on real performance."
+   },
+   {
+    "title": "Measured scale",
+    "description": "Once performance is proven, we increase spend with confidence — not hope."
+   }
+  ],
+  "extra_sections": [
+   {
+    "eyebrow": "First 30 Days",
+    "heading": "What the first month looks like",
+    "intro": "A structured ramp that creates signal before scale. We don’t launch ads just to “be running.” The first 30 days are about clean setup, controlled tests, and learning what actually moves results—so month two is built on proof, not guesses.",
+    "items": [
+     {
+      "title": "Week 1 — Foundation: Tracking, structure, and definitions",
+      "description": "Confirm conversion events, attribution, access, and reporting. Define success metrics and guardrails before spend starts."
+     },
+     {
+      "title": "Week 2 — Build: Creative angles + audience hypotheses",
+      "description": "Develop initial creative directions and audience segments. Build campaigns with intentional testing structure and pacing."
+     },
+     {
+      "title": "Week 3 — Launch: Controlled spend, real data",
+      "description": "Go live with a measured budget. Validate tracking, watch early performance signals, and identify what’s worth iterating."
+     },
+     {
+      "title": "Week 4 — Optimize: Learnings → direction for scale",
+      "description": "Refine based on signal: shift budget, improve creative, tighten targeting, and set the roadmap for next-month scaling."
+     }
+    ],
+    "note": "By day 30, you have: a clean baseline, proven angles, and a clear plan for what to scale next."
+   }
+  ],
+  "faq_heading": "Frequently asked questions",
+  "faq_intro": "Straight answers to the questions clients usually ask before getting started.",
+  "faq_items": [
+   {
+    "question": "How quickly will we see results?",
+    "answer": "Paid advertising generates data quickly, but meaningful performance comes from iteration. Early weeks are about learning and signal; sustainable results follow as we refine what’s working."
+   },
+   {
+    "question": "How much budget do we need to start?",
+    "answer": "Budgets are set based on goals, competition, and learning needs — not arbitrary minimums. We’ll recommend a starting range that allows for testing without unnecessary risk."
+   },
+   {
+    "question": "Do we control spend and decisions?",
+    "answer": "Yes. You always know what’s running, why it’s running, and how much is being spent. Nothing scales without clarity and agreement."
+   },
+   {
+    "question": "What if ads don’t perform?",
+    "answer": "That’s part of the process. Underperformance is treated as data, not failure. We adjust creative, targeting, and structure based on real signals instead of guesswork."
+   },
+   {
+    "question": "Is this a long-term commitment?",
+    "answer": "No lock-ins. We prefer to earn trust through results and transparency, not contracts."
+   }
+  ],
+  "final_cta": {
+   "heading": "Ready to turn paid social into a system?",
+   "subhead": "Book a quick call and we’ll map the right plan for your goals, offer, and timeline—then confirm whether we’re a fit.",
+   "note": "No pressure. If we’re not a fit, we’ll tell you.",
+   "button": {
+    "title": "Let's Chat",
+    "url": "/contact/",
+    "target": ""
+   }
+  },
+  "card_description": "Targeted campaigns designed to drive leads, sales, and momentum."
+ },
+ "content-creation": {
+  "hero_headline": "Content designed to drive action.",
+  "hero_thesis": "We create platform-native content designed to test fast, learn faster, and drive real performance across paid and organic. Not content for content’s sake. We build creative systems — ads, UGC, short-form video, and branded assets — designed to test, learn, and scale.",
+  "hero_note": "Every piece has a job. Every format has a reason.",
+  "hero_cta_primary": {
+   "title": "Let's Chat",
+   "url": "/contact/",
+   "target": ""
+  },
+  "included_heading": "Content formats designed for real platforms.",
+  "included_intro": "Everything we produce is built to work across paid, organic, and owned channels — not locked into a single use case.",
+  "included_items": [
+   {
+    "title": "Short-form video",
+    "description": "Platform-native vertical video built for Reels, TikTok, Shorts, and paid placements — optimized for hooks, pacing, and retention.",
+    "icon": "check"
+   },
+   {
+    "title": "Paid social creative",
+    "description": "Static and motion ad creative designed for testing — multiple hooks, angles, and variations built from a single concept.",
+    "icon": "check"
+   },
+   {
+    "title": "UGC-style ads",
+    "description": "Creator-led content that feels native to the feed — scripted, directed, and edited for performance without looking like ads.",
+    "icon": "check"
+   },
+   {
+    "title": "Brand design systems",
+    "description": "Templates, visual rules, and modular layouts that keep content consistent as volume increases across channels.",
+    "icon": "check"
+   },
+   {
+    "title": "Product & promotional assets",
+    "description": "Campaign visuals, product callouts, and offer-driven creative designed to support launches and conversions.",
+    "icon": "check"
+   },
+   {
+    "title": "Creative testing sets",
+    "description": "Groups of related assets built to test messaging, formats, and hooks — so performance guides what gets scaled next.",
+    "icon": "check"
+   }
+  ],
+  "included_note": "Every format is designed to plug into a larger content system — not live on its own.",
+  "_included_eyebrow_live": "What We Create",
+  "process_eyebrow": "How it fit together",
+  "process_heading": "From ideas to performance — as one system",
+  "process_intro": "Individual assets don’t win on their own. Performance comes from how everything connects.",
+  "process_steps": [
+   {
+    "title": "Strategy & direction",
+    "description": "Define goals, audiences, and what success looks like before anything is produced."
+   },
+   {
+    "title": "Creative Production",
+    "description": "Produce modular assets across formats designed to test hooks, angles, and messages."
+   },
+   {
+    "title": "Distribution & testing",
+    "description": "Deploy content across paid, organic, and owned channels to generate real signal."
+   },
+   {
+    "title": "Learning & iteration",
+    "description": "Use performance data to refine creative, double down on what works, and scale with confidence."
+   }
+  ],
+  "process_note": "The result is a repeatable content engine — not one-off creative.",
+  "faq_heading": "Frequently asked questions",
+  "faq_intro": "Clear answers to the questions clients usually ask before getting started.",
+  "faq_items": [
+   {
+    "question": "What kind of content do you create?",
+    "answer": "We focus on strategic content that supports clear messaging and long-term goals — not one-off posts or trend chasing. The format depends on what actually serves your audience and objectives."
+   },
+   {
+    "question": "How involved do we need to be?",
+    "answer": "Collaborative, but not heavy. We’ll align on direction and review work at key points, while we handle planning, production, and day-to-day execution."
+   },
+   {
+    "question": "Do you post content without approval?",
+    "answer": "No. Nothing goes live without your sign-off unless we agree on a different process upfront."
+   },
+   {
+    "question": "How do you measure success?",
+    "answer": "We look beyond surface metrics. Success is defined by clarity, consistency, and whether the content supports broader marketing and business goals."
+   },
+   {
+    "question": "Is this ongoing or project-based?",
+    "answer": "Both can work. Some teams need ongoing support, others need a strong foundation. We’ll recommend what makes sense based on your situation."
+   }
+  ],
+  "final_cta": {
+   "heading": "Ready to turn paid social into a system?",
+   "subhead": "Book a quick call and we’ll map the right plan for your goals, offer, and timeline—then confirm whether we’re a fit.",
+   "note": "No pressure. If we’re not a fit, we’ll tell you.",
+   "button": {
+    "title": "Start a conversation",
+    "url": "/contact/",
+    "target": ""
+   }
+  },
+  "card_description": "Photo and video that looks sharp and performs across channels."
+ },
+ "web-design": {
+  "hero_headline": "Websites built with clarity, not clutter.",
+  "hero_thesis": "Strategy-led design and development focused on structure, performance, and long-term clarity — not trends or templates.",
+  "hero_note": "Trusted by growing brands who need their website to actually work — not just look good.",
+  "hero_cta_primary": {
+   "title": "Start a conversation",
+   "url": "/contact/",
+   "target": ""
+  },
+  "outcomes_eyebrow": "Outcomes",
+  "outcomes_heading": "What changes when the foundation is right",
+  "outcomes_intro": "A well-designed website doesn’t just look better — it works better. When structure, clarity, and intent are built in from the start, everything else becomes easier.",
+  "outcomes_items": [
+   {
+    "title": "Clarity for visitors",
+    "description": "People immediately understand who you are, what you do, and where to go next — without needing explanation."
+   },
+   {
+    "title": "Website Consistency",
+    "description": "Pages feel connected, intentional, and scalable instead of patched together over time."
+   },
+   {
+    "title": "Confidence behind the scenes",
+    "description": "Your site is easier to manage, easier to update, and less fragile as your business grows."
+   }
+  ],
+  "problem_eyebrow": "The problem",
+  "problem_heading": "Most websites fail quietly.",
+  "problem_body": "Not because they’re broken — but because they’re unclear, inconsistent, or built without a real plan.\n\nMany businesses end up with sites that look fine on the surface but don’t build trust, guide users, or support real goals. Over time, that lack of clarity costs attention, credibility, and conversions.",
+  "problem_note": "A good website shouldn’t need explaining. It should feel obvious, trustworthy, and easy to use from the first click.",
+  "problem_points": "Visitors aren’t sure what you do or why it matters\nPages feel cluttered or inconsistent as the site grows\nThe site is hard to update, slow to load, or fragile behind the scenes\nDesign decisions are driven by trends instead of structure",
+  "included_heading": "What we handle for you",
+  "included_intro": "A website project goes smoother when the decisions are structured—not made on the fly. We handle the planning, design system, build, and launch details so the site feels intentional, performs well, and stays easy to maintain.",
+  "included_items": [
+   {
+    "title": "Clarifying what the site needs to communicate",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Structuring pages so they’re easy to follow",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Designing a system that stays consistent as the site grows",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Building a site that works across devices and screens",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Making sure everything is clean, tested, and ready to launch",
+    "description": "",
+    "icon": "check"
+   }
+  ],
+  "process_eyebrow": "How We Work",
+  "process_heading": "A clear, structured approach.",
+  "process_intro": "We don’t start with visuals. We start with understanding — your goals, your audience, and what the site actually needs to do.",
+  "process_steps": [
+   {
+    "title": "Discovery & strategy",
+    "description": "We define purpose, audience, and priorities before design begins."
+   },
+   {
+    "title": "Structure & design",
+    "description": "Layouts, hierarchy, and systems are built to support content — not fight it."
+   },
+   {
+    "title": "Build & refinement",
+    "description": "We develop, test, and refine the site so it performs as well as it looks."
+   }
+  ],
+  "fit_good_heading": "You’re a good fit if…",
+  "fit_good": "You want your website to clearly communicate what you do and who it’s for.\nYou care about structure, hierarchy, and how users move through a page.\nYou want a site that’s easy to update, scale, and maintain over time.\nYou value clarity and usability as much as visual design.\nYou see your website as a long-term foundation, not a one-time project.",
+  "fit_bad_heading": "This is probably not a fit if…",
+  "fit_bad": "You want a website to look modern without defining what it needs to do.\nYou’re focused on visual trends more than usability or structure.\nYou expect design alone to fix deeper clarity or positioning issues.\nYou want something launched quickly without planning for growth or maintenance.\nYou’re treating your website as a brochure instead of a working system.",
+  "fit_eyebrow": "Who It’s For",
+  "fit_heading": "The difference isn’t effort. It’s structure, clarity, and restraint.",
+  "fit_intro": "Web design works best when it’s treated like a system — not a one-time layout.",
+  "faq_heading": "Frequently asked questions",
+  "faq_intro": "Clear answers to the practical questions that come up before a project begins.",
+  "faq_items": [
+   {
+    "question": "How involved do I need to be?",
+    "answer": "Focused, but not overwhelming. We’ll need your input on goals, priorities, and feedback at key points. Day-to-day execution, structure, and implementation are handled by us."
+   },
+   {
+    "question": "Do you write the website content?",
+    "answer": "We help shape and refine content, but we don’t replace your voice. Depending on the project, we can work from your existing copy, collaborate on new messaging, or coordinate with a copywriter."
+   },
+   {
+    "question": "How long does a typical website project take?",
+    "answer": "Most projects take 6–10 weeks, depending on scope, feedback timing, and content readiness. We’ll outline a clear timeline before we begin."
+   },
+   {
+    "question": "Will my site be easy to update after launch?",
+    "answer": "Yes. We build with clarity and longevity in mind, using tools that make updates straightforward without breaking layouts or structure."
+   },
+   {
+    "question": "What happens after the site goes live?",
+    "answer": "We don’t disappear. After launch, we provide guidance, cleanup, and optional ongoing support to ensure the site continues to perform and evolve."
+   },
+   {
+    "question": "What if we’re not a fit?",
+    "answer": "We’ll be honest early. Good websites come from alignment — if expectations or working styles don’t match, we’d rather say so than force it."
+   }
+  ],
+  "final_cta": {
+   "heading": "Ready to build something that lasts?",
+   "subhead": "If you’re looking for a website built with intention — not noise — let’s talk through what you need and see if it’s a fit.",
+   "note": "No pressure. If we’re not a fit, we’ll tell you.",
+   "button": {
+    "title": "Let's chat",
+    "url": "/contact/",
+    "target": ""
+   }
+  },
+  "card_description": "Custom websites built for clarity, speed, and conversion."
+ },
+ "seo": {
+  "hero_headline": "SEO that earns consistent, qualified traffic.",
+  "hero_thesis": "SEO isn’t about chasing rankings. It’s about building pages that earn attention, trust, and compounding visibility.",
+  "hero_note": "Trusted by organizations that value clarity, consistency, and long-term thinking.",
+  "hero_cta_primary": {
+   "title": "Start a conversation",
+   "url": "/contact/",
+   "target": ""
+  },
+  "outcomes_eyebrow": "Outcome",
+  "outcomes_heading": "What changes when SEO is handled properly",
+  "outcomes_intro": "Less guessing. More signal. SEO that supports growth — not just rankings.",
+  "outcomes_items": [
+   {
+    "title": "Signal",
+    "description": "You can tell what’s working, what isn’t, and where to focus next — because measurement and intent are built into the work."
+   },
+   {
+    "title": "Momentum",
+    "description": "Pages don’t just launch — they compound. The site becomes a library that keeps earning attention over time."
+   },
+   {
+    "title": "Leverage",
+    "description": "SEO supports every other channel. Better pages improve paid performance, conversion, and brand trust."
+   }
+  ],
+  "problem_eyebrow": "The reality",
+  "problem_heading": "Most SEO fails because it’s treated like a tactic.",
+  "problem_body": "A lot of SEO is busywork: blogs written to fill a calendar, audits that never turn into action, and “optimizations” that don’t move the needle.\n\nReal SEO is a system — positioning, structure, content, and technical performance working together. When one part is missing, you get traffic that doesn’t convert (or no traction at all).",
+  "problem_note": "If SEO isn’t connected to the business, it becomes an expense instead of an asset.",
+  "problem_points": "Content gets published, but nothing compounds.\nYou rank for terms that don’t bring the right leads.\nTechnical issues quietly block performance.\nNo one owns a plan — just a checklist.",
+  "process_eyebrow": "How We Work",
+  "process_heading": "A clear, search-driven approach.",
+  "process_intro": "We don’t start with keywords or tools. We start with understanding — how people search, what they’re trying to accomplish, and how your site needs to support that journey.",
+  "process_steps": [
+   {
+    "title": "Discovery & strategy",
+    "description": "We identify search intent, competitive context, and technical constraints before making changes—so effort is focused where it actually matters."
+   },
+   {
+    "title": "Structure & optimization",
+    "description": "Pages, content, and technical foundations are organized to support clarity, crawlability, and relevance—not isolated ranking tricks."
+   },
+   {
+    "title": "Measurement & refinement",
+    "description": "We monitor performance, learn from real search data, and refine over time—improving visibility and quality without chasing volatility."
+   }
+  ],
+  "included_heading": "What we manage, end-to-end",
+  "included_intro": "SEO works best when it’s treated as a system—not a checklist. We focus on structure, execution, and ongoing refinement so visibility, relevance, and trust build steadily over time. Handled as a system, not a series of tasks",
+  "included_items": [
+   {
+    "title": "Search intent and keyword research grounded in real demand—not volume for volume’s sake.",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Page structure and on-page optimization that improve clarity, crawlability, and long-term relevance.",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Technical SEO improvements that prevent performance and indexing issues from accumulating over time.",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Content guidance that aligns search visibility with brand credibility—not clickbait.",
+    "description": "",
+    "icon": "check"
+   },
+   {
+    "title": "Ongoing refinement based on what search data is actually showing, not short-term fluctuations.",
+    "description": "",
+    "icon": "check"
+   }
+  ],
+  "faq_heading": "Frequently asked questions",
+  "faq_intro": "Clear answers to common questions before we get started.",
+  "faq_items": [
+   {
+    "question": "How involved do we need to be?",
+    "answer": "Focused, but not heavy. You’ll help shape priorities, review key content, and give feedback — we handle the research, structure, execution, and ongoing optimization."
+   },
+   {
+    "question": "How long does SEO take to work?",
+    "answer": "SEO builds over time. Most teams see early signals within a few months, with stronger momentum compounding as content and authority stack."
+   },
+   {
+    "question": "Do you guarantee rankings?",
+    "answer": "No — and that’s intentional. What we do guarantee is a clear strategy, measurable progress, and full transparency around what’s working and why."
+   },
+   {
+    "question": "Will this support paid ads and other channels?",
+    "answer": "Yes. Strong SEO improves conversion, lowers paid acquisition costs, and gives every channel better pages to point to."
+   },
+   {
+    "question": "Is there a long-term contract?",
+    "answer": "No lock-ins. SEO works best over time, but our relationships are built on trust and results — not forced commitments."
+   }
+  ],
+  "final_cta": {
+   "heading": "Ready for clarity, not guesswork?",
+   "subhead": "We work best with teams who care about doing things thoughtfully and sustainably. If you’re looking for a long-term partner — not a quick fix — we’d be glad to learn more about what you’re building.",
+   "note": "No pressure. No obligation.",
+   "button": {
+    "title": "Let's Chat",
+    "url": "/contact/",
+    "target": ""
+   }
+  },
+  "card_description": "Search visibility that compounds over time — without shortcuts."
+ },
+ "brand-strategy-identity": {
+  "hero_headline": "Clarity before creativity.",
+  "hero_thesis": "We help organizations define who they are, what they stand for, and how they show up — so every decision, message, and touchpoint feels intentional instead of improvised.",
+  "hero_note": "Strategy-led. Collaborative. Built to last.",
+  "hero_cta_primary": {
+   "title": "Let's Chat",
+   "url": "/contact/",
+   "target": ""
+  },
+  "outcomes_eyebrow": "Outcomes",
+  "outcomes_heading": "A brand that can actually guide decisions.",
+  "outcomes_intro": "Brand strategy isn’t about polish. It’s about creating a shared foundation teams can rely on as they grow.",
+  "outcomes_items": [
+   {
+    "title": "Alignment",
+    "description": "Your team has a shared understanding of who you are, who you serve, and what matters most — so decisions don’t stall or splinter as you grow."
+   },
+   {
+    "title": "Clarity",
+    "description": "Messaging becomes easier to write, easier to approve, and easier to maintain. The brand sounds like itself no matter who’s speaking."
+   },
+   {
+    "title": "Confidence",
+    "description": "Design, marketing, and product choices are made with intention instead of second-guessing — because there’s a clear rationale behind them."
+   }
+  ],
+  "outcomes_note": "Strategy-led. Designed to scale.",
+  "problem_eyebrow": "The reality",
+  "problem_heading": "Most brands don’t struggle with creativity — they struggle with direction.",
+  "problem_body": "Teams often have talent, ideas, and momentum — but no shared framework to guide decisions. Without clarity on who the brand is and where it’s going, every choice becomes subjective.\n\nMessaging shifts depending on who’s writing it. Design decisions stall or spark debate. As the organization grows, the brand starts to feel fragmented instead of cohesive. The work isn’t wrong — it’s just not anchored to a clear foundation.",
+  "problem_note": "Without clarity, even good work gets misunderstood.",
+  "problem_points": "Design decisions are driven by personal taste instead of strategy\nMessaging shifts depending on who’s writing or presenting\nTeams debate direction instead of moving forward\nThe brand feels fragmented as the organization grows",
+  "process_eyebrow": "How We Work",
+  "process_heading": "Clarity before creativity. Structure before scale.",
+  "process_intro": "Brand strategy isn’t about picking colors or writing taglines. It’s about making decisions easier — now and as you grow.",
+  "_skip": "process_steps and faq_items: live shows the SEO steps and Web Design FAQ (Phase 1 bug) — keep the Phase 2 draft until Nathan writes them",
+  "faq_heading": "Frequently asked questions",
+  "faq_intro": "Clear answers to the practical questions that come up before a project begins.",
+  "final_cta": {
+   "heading": "Let’s see if this is a good fit.",
+   "subhead": "If you’re looking for a thoughtful partner to help clarify your brand, strengthen your digital foundation, and build something that lasts, we’re open to the conversation. No pitch decks. No pressure. Just a clear discussion about where you are and whether it makes sense to work together.",
+   "note": "We’ll respond personally within 1–2 business days.",
+   "button": {
+    "title": "Start A Conversation",
+    "url": "/contact/",
+    "target": ""
+   }
+  },
+  "card_description": "Messaging and visual identity that makes your brand easy to trust."
+ },
+ "_hub": {
+  "hero_title": "Marketing services built to grow your business — not just your presence.",
+  "hero_thesis": "From social media and websites to content, ads, and SEO, we help brands turn attention into action.",
+  "hero_note": "Strategy-led. Fully in-house. Built to last.",
+  "principles": [
+   {
+    "title": "Clarity before execution.",
+    "description": "We start by understanding your goals, audience, and gaps — then build a plan that actually makes sense for your business."
+   },
+   {
+    "title": "Consistency that builds trust.",
+    "description": "From social media to websites and content, we help brands show up clearly and consistently across every touchpoint."
+   },
+   {
+    "title": "Growth you can measure.",
+    "description": "We focus on outcomes that matter — engagement, leads, conversions, and momentum — and refine as we go."
+   }
+  ],
+  "services_heading": "Our Services",
+  "services_intro": "Strategy-led marketing services designed to support growth at every stage.",
+  "fit_good_heading": "This is a good fit if…",
+  "fit_good": "You want strategy before execution.\nYou care about consistency, not one-off campaigns.\nYou’re looking for a long-term marketing partner.\nYou want measurable growth, not vanity metrics.\nYou’re ready to invest in your brand’s foundation.",
+  "fit_bad_heading": "This may not be the right fit if…",
+  "fit_bad": "You’re looking for viral shortcuts or hacks.\nYou only need a single post or quick task.\nYou want the cheapest option available.\nYou’re not ready to commit to a clear strategy.\nYou prefer reactive marketing over planning.",
+  "final_cta": {
+   "heading": "Ready to turn attention into action?",
+   "subhead": "Book a quick call and we’ll recommend the right mix of services for your goals, timeline, and budget.",
+   "note": "No pressure. If we’re not a fit, we’ll tell you.",
+   "button": {
+    "title": "Let's Chat",
+    "url": "/contact/",
+    "target": ""
+   }
+  }
+ }
+}

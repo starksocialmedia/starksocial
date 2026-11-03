@@ -119,6 +119,26 @@ $cta = array(
         </section>
     <?php endif; ?>
 
+    <?php $awards = function_exists( 'stark_get_awards' ) ? stark_get_awards() : array(); if ( $awards ) : ?>
+        <section class="stark-band stark-recognition" aria-labelledby="stark-recognition-title">
+            <div class="stark-home__inner">
+                <header class="stark-section-head">
+                    <p class="stark-eyebrow">Recognition</p>
+                    <h2 id="stark-recognition-title" class="stark-section-head__title">Awards</h2>
+                </header>
+                <ul class="stark-cards stark-cards--<?php echo esc_attr( min( 3, count( $awards ) ) ); ?>">
+                    <?php foreach ( $awards as $award ) : $url = stark_award_url( $award ); ?>
+                        <li class="stark-cards__item">
+                            <p class="stark-eyebrow"><?php echo esc_html( $award['year'] ); ?></p>
+                            <h3 class="stark-cards__title"><?php echo $url ? '<a href="' . esc_url( $url ) . '">' . esc_html( $award['title'] ) . '</a>' : esc_html( $award['title'] ); ?></h3>
+                            <p class="stark-cards__desc"><?php echo esc_html( $award['org'] . ( $award['for'] ? ' · ' . $award['for'] : '' ) ); ?></p>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </section>
+    <?php endif; ?>
+
     <section class="stark-band stark-where" aria-labelledby="stark-where-title">
         <div class="stark-home__inner stark-where__inner">
             <div>

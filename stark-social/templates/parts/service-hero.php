@@ -21,6 +21,9 @@ $ctx = $args;
                     <a href="<?php echo esc_url( $ctx[ $key ]['url'] ); ?>" class="stark-btn stark-btn--<?php echo esc_attr( $variant ); ?>"<?php echo $ctx[ $key ]['target'] ? ' target="' . esc_attr( $ctx[ $key ]['target'] ) . '" rel="noopener"' : ''; ?>><?php echo esc_html( $ctx[ $key ]['title'] ); ?></a>
                 <?php endforeach; ?>
             </div>
+            <?php if ( ! empty( $ctx['hero_note'] ) ) : ?>
+                <p class="stark-hero__note"><?php echo esc_html( $ctx['hero_note'] ); ?></p>
+            <?php endif; ?>
         </div>
     </div>
 </section>

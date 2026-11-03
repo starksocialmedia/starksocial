@@ -8,8 +8,9 @@ if ( ! $args['process'] ) return;
 <section class="stark-band stark-process" aria-labelledby="stark-process-title">
     <div class="stark-home__inner">
         <header class="stark-section-head">
-            <p class="stark-eyebrow">Our process</p>
+            <p class="stark-eyebrow"><?php echo esc_html( $args['process_eyebrow'] ?? 'Our process' ); ?></p>
             <h2 id="stark-process-title" class="stark-section-head__title"><?php echo esc_html( $args['process_heading'] ); ?></h2>
+            <?php if ( ! empty( $args['process_intro'] ) ) : ?><p class="stark-section-head__intro"><?php echo esc_html( $args['process_intro'] ); ?></p><?php endif; ?>
         </header>
         <ol class="stark-process__steps">
             <?php foreach ( $args['process'] as $i => $step ) : ?>
@@ -22,5 +23,6 @@ if ( ! $args['process'] ) return;
                 </li>
             <?php endforeach; ?>
         </ol>
+        <?php if ( ! empty( $args['process_note'] ) ) : ?><p class="stark-section-note"><?php echo esc_html( $args['process_note'] ); ?></p><?php endif; ?>
     </div>
 </section>

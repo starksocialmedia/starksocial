@@ -7,7 +7,7 @@
             "label": "Copy status",
             "name": "copy_status",
             "type": "select",
-            "instructions": "Draft shows a review banner on the page. Set to Approved when the copy is final.",
+            "instructions": "Draft and Live-sourced show a review banner on the page. Set to Approved when the copy is final.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -17,6 +17,7 @@
             },
             "choices": {
                 "draft": "Draft \u2014 needs Nathan review",
+                "live": "Live-sourced \u2014 real copy from starksocial.com, needs voice review",
                 "approved": "Approved"
             },
             "default_value": "draft",
@@ -48,7 +49,26 @@
             "label": "Eyebrow",
             "name": "hero_eyebrow",
             "type": "text",
-            "instructions": "Small caption above the H1. Defaults to \"Services\". H1 is the page title.",
+            "instructions": "Small caption above the H1. Defaults to \"Services\".",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_hero_headline",
+            "label": "Headline (H1)",
+            "name": "hero_headline",
+            "type": "text",
+            "instructions": "Leave empty to use the page title.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -76,10 +96,29 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": 360,
+            "maxlength": 480,
             "rows": 3,
             "placeholder": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_stark_svc_hero_note",
+            "label": "Note under the buttons",
+            "name": "hero_note",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Strategy-led. Fully in-house. Built to last.",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_stark_svc_hero_cta_primary",
@@ -131,6 +170,271 @@
             "append": ""
         },
         {
+            "key": "field_stark_svc_tab_outcomes",
+            "label": "Outcomes",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_svc_outcomes_eyebrow",
+            "label": "Eyebrow",
+            "name": "outcomes_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Outcomes",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_outcomes_heading",
+            "label": "Heading",
+            "name": "outcomes_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_outcomes_intro",
+            "label": "Intro",
+            "name": "outcomes_intro",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_svc_outcomes_items",
+            "label": "Outcomes",
+            "name": "outcomes_items",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "min": 0,
+            "max": 6,
+            "collapsed": "",
+            "button_label": "Add outcome",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_stark_svc_out_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_svc_outcomes_items"
+                },
+                {
+                    "key": "field_stark_svc_out_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_stark_svc_outcomes_items"
+                }
+            ]
+        },
+        {
+            "key": "field_stark_svc_outcomes_note",
+            "label": "Closing line",
+            "name": "outcomes_note",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_tab_problem",
+            "label": "Problem",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_svc_problem_eyebrow",
+            "label": "Eyebrow",
+            "name": "problem_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "The reality",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_problem_heading",
+            "label": "Heading",
+            "name": "problem_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_problem_body",
+            "label": "Body",
+            "name": "problem_body",
+            "type": "textarea",
+            "instructions": "Paragraphs separated by a blank line. The first one is set larger.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 6,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_svc_problem_points",
+            "label": "Symptoms",
+            "name": "problem_points",
+            "type": "textarea",
+            "instructions": "One per line.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_svc_problem_note",
+            "label": "Closing line",
+            "name": "problem_note",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_stark_svc_tab_included",
             "label": "What's Included",
             "name": "",
@@ -166,11 +470,49 @@
             "append": ""
         },
         {
+            "key": "field_stark_svc_included_intro",
+            "label": "Intro",
+            "name": "included_intro",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_svc_included_note",
+            "label": "Closing line",
+            "name": "included_note",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_stark_svc_included_items",
             "label": "Items",
             "name": "included_items",
             "type": "repeater",
-            "instructions": "3\u20135 items.",
+            "instructions": "3\u20138 items.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -180,7 +522,7 @@
             },
             "layout": "table",
             "min": 0,
-            "max": 5,
+            "max": 8,
             "collapsed": "",
             "button_label": "Add item",
             "rows_per_page": 20,
@@ -278,9 +620,66 @@
             "endpoint": 0
         },
         {
+            "key": "field_stark_svc_process_eyebrow",
+            "label": "Eyebrow",
+            "name": "process_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Our process",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_stark_svc_process_heading",
             "label": "Heading",
             "name": "process_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "How we work",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_process_intro",
+            "label": "Intro",
+            "name": "process_intro",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_svc_process_note",
+            "label": "Closing line",
+            "name": "process_note",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -292,7 +691,7 @@
             },
             "default_value": "",
             "maxlength": "",
-            "placeholder": "How we work",
+            "placeholder": "",
             "prepend": "",
             "append": ""
         },
@@ -355,6 +754,336 @@
                     "placeholder": "",
                     "new_lines": "",
                     "parent_repeater": "field_stark_svc_process_steps"
+                }
+            ]
+        },
+        {
+            "key": "field_stark_svc_tab_fit",
+            "label": "Who It\u2019s For",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_svc_fit_eyebrow",
+            "label": "Eyebrow",
+            "name": "fit_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Who it\u2019s for",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_fit_heading",
+            "label": "Heading",
+            "name": "fit_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_fit_intro",
+            "label": "Intro",
+            "name": "fit_intro",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_svc_fit_good_heading",
+            "label": "Good fit \u2014 heading",
+            "name": "fit_good_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "You\u2019re a good fit if\u2026",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_fit_bad_heading",
+            "label": "Not a fit \u2014 heading",
+            "name": "fit_bad_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "This is probably not a fit if\u2026",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_svc_fit_good",
+            "label": "Good fit \u2014 points",
+            "name": "fit_good",
+            "type": "textarea",
+            "instructions": "One per line.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 5,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_svc_fit_bad",
+            "label": "Not a fit \u2014 points",
+            "name": "fit_bad",
+            "type": "textarea",
+            "instructions": "One per line.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 5,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_stark_svc_tab_extra",
+            "label": "More Sections",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_svc_extra_sections",
+            "label": "Sections",
+            "name": "extra_sections",
+            "type": "repeater",
+            "instructions": "Optional extra card sections, shown after the process (e.g. \u201cFirst 30 days\u201d).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "min": 0,
+            "max": 3,
+            "collapsed": "",
+            "button_label": "Add section",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_stark_svc_x_eyebrow",
+                    "label": "Eyebrow",
+                    "name": "eyebrow",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_svc_extra_sections"
+                },
+                {
+                    "key": "field_stark_svc_x_heading",
+                    "label": "Heading",
+                    "name": "heading",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_svc_extra_sections"
+                },
+                {
+                    "key": "field_stark_svc_x_intro",
+                    "label": "Intro",
+                    "name": "intro",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_stark_svc_extra_sections"
+                },
+                {
+                    "key": "field_stark_svc_x_items",
+                    "label": "Items",
+                    "name": "items",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "min": 0,
+                    "max": 8,
+                    "collapsed": "",
+                    "button_label": "Add item",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_stark_svc_xi_title",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "35",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_stark_svc_x_items"
+                        },
+                        {
+                            "key": "field_stark_svc_xi_description",
+                            "label": "Description",
+                            "name": "description",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "65",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "rows": 2,
+                            "placeholder": "",
+                            "new_lines": "",
+                            "parent_repeater": "field_stark_svc_x_items"
+                        }
+                    ],
+                    "parent_repeater": "field_stark_svc_extra_sections"
+                },
+                {
+                    "key": "field_stark_svc_x_note",
+                    "label": "Closing line",
+                    "name": "note",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_svc_extra_sections"
                 }
             ]
         },
@@ -555,6 +1284,25 @@
             "append": ""
         },
         {
+            "key": "field_stark_svc_faq_intro",
+            "label": "Intro",
+            "name": "faq_intro",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_stark_svc_faq_items",
             "label": "Questions",
             "name": "faq_items",
@@ -741,6 +1489,25 @@
                         "id": ""
                     },
                     "return_format": "array"
+                },
+                {
+                    "key": "field_stark_svc_cta_note",
+                    "label": "Note under the button",
+                    "name": "note",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "No pressure. If we\u2019re not a fit, we\u2019ll tell you.",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         }
@@ -805,5 +1572,5 @@
     "active": true,
     "description": "v27.0.4 \u2014 content for templates/stark-service.php. Location rule matches by page slug.",
     "show_in_rest": 0,
-    "modified": 1793660935
+    "modified": 1793684388
 }
