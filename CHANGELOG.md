@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.12] — November 3 2026
+
+### Podcast episodes
+- "More episodes" shows the episodes either side of the current one (older first), not the newest three, so every episode is linked from its neighbours
+- Show notes headings are shifted so the highest is an h3 under the "Show notes" h2 (old episodes started at h4: the last axe note on staging). Render-time only
+- Internal link audit after v27.4.3–v27.4.12: **1 orphan** (one KB article, reachable from its category), **19 under-linked** (was 3 and 88 before v27.4.3), 137 pages with 3+ contextual inbound links
+
 ## [27.4.11] — November 3 2026
 
 ### Staging deploy + audit

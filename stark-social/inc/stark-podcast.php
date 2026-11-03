@@ -127,20 +127,37 @@ function stark_podcast_player( $episode ) {
 }
 
 /**
- * Related episodes: same category first, then most recent.
+ * Related episodes: the nearest episodes by date (v27.4.12).
  */
 function stark_podcast_related( $post_id, $count = 3 ) {
-    $cats  = wp_get_post_categories( $post_id );
-    $posts = $cats ? get_posts( array( 'post_type' => 'podcast', 'numberposts' => $count, 'category__in' => $cats, 'post__not_in' => array( $post_id ) ) ) : array();
-    if ( count( $posts ) < $count ) {
-        $posts = array_merge( $posts, get_posts( array(
-            'post_type'    => 'podcast',
-            'numberposts'  => $count - count( $posts ),
-            'post__not_in' => array_merge( array( $post_id ), wp_list_pluck( $posts, 'ID' ) ),
-        ) ) );
+    // v27.4.12: the episodes either side of this one (older first), not the
+    // newest three, so every episode is linked from its neighbours.
+    $date  = get_post_field( 'post_date', $post_id );
+    $base  = array( 'post_type' => 'podcast', 'post__not_in' => array( $post_id ), 'suppress_filters' => false );
+    $older = get_posts( $base + array( 'numberposts' => $count, 'date_query' => array( array( 'before' => $date ) ), 'orderby' => 'date', 'order' => 'DESC' ) );
+    $newer = get_posts( $base + array( 'numberposts' => $count, 'date_query' => array( array( 'after' => $date ) ), 'orderby' => 'date', 'order' => 'ASC' ) );
+    $posts = array();
+    for ( $i = 0; count( $posts ) < $count && ( isset( $older[ $i ] ) || isset( $newer[ $i ] ) ); $i++ ) {
+        if ( isset( $older[ $i ] ) ) $posts[] = $older[ $i ];
+        if ( isset( $newer[ $i ] ) && count( $posts ) < $count ) $posts[] = $newer[ $i ];
     }
     return $posts;
 }
+
+/**
+ * Episode show notes sit under the template's "Show notes" h2, but old
+ * episodes start their own headings at h4 (axe heading-order). Shift the
+ * content's headings so the highest one is an h3. Render-time only.
+ */
+function stark_podcast_normalize_headings( $content ) {
+    if ( ! is_singular( 'podcast' ) || ! in_the_loop() || ! preg_match_all( '/<h([1-6])\b/i', $content, $m ) ) return $content;
+    $shift = 3 - min( array_map( 'intval', $m[1] ) );
+    if ( 0 === $shift ) return $content;
+    return preg_replace_callback( '#<(/?)h([1-6])\b#i', function ( $h ) use ( $shift ) {
+        return '<' . $h[1] . 'h' . max( 3, min( 6, (int) $h[2] + $shift ) );
+    }, $content );
+}
+add_filter( 'the_content', 'stark_podcast_normalize_headings', 20 );
 
 /**
  * Transcript as paragraphs — the .txt files are one paragraph per line.
