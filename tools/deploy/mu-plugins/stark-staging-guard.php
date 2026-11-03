@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Stark staging guard
  * Description: On staging only, stops all outgoing email and keeps search engines out. Does nothing on any other host, so it is safe if it is ever copied to live by mistake.
- * Version: 27.1.0
+ * Version: 27.3.18
  *
  * Install: wp-content/mu-plugins/stark-staging-guard.php (see tools/deploy/README.md).
  */
@@ -15,6 +15,12 @@ function stark_is_staging() {
 }
 
 if ( stark_is_staging() ) {
+    // Mailgun replaces wp_mail() itself (API mode) and the GF Mailgun add-on calls its
+    // API directly; both would bypass the block below. Never load them on staging.
+    add_filter( 'option_active_plugins', function ( $plugins ) {
+        return array_values( array_diff( (array) $plugins, array( 'mailgun/mailgun.php', 'gravityformsmailgun/mailgun.php' ) ) );
+    } );
+
     // Short-circuit wp_mail() (WP 5.7+): nothing leaves the server. Logged so form tests can be checked.
     add_filter( 'pre_wp_mail', function ( $return, $atts ) {
         $to = is_array( $atts['to'] ) ? implode( ', ', $atts['to'] ) : $atts['to'];

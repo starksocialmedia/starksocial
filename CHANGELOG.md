@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.18] — November 2 2026
+
+### Launch prep — Mailgun
+- Mailgun 2.2.3 + Gravity Forms Mailgun 1.4.0 copied from live onto Local (and staging via the deploy plugin list), **inactive**. No settings or API key copied
+- **Safety:** Mailgun replaces `wp_mail()` in API mode and the GF add-on calls its API directly, so either would bypass the staging email block. The staging guard (v27.3.18) now **force-unloads both plugins on staging** (`option_active_plugins`). Reinstalled on staging
+- Runbook: save live's Mailgun settings before the push, restore and activate them after; cutover steps renumbered
+
 ## [27.3.17] — November 2 2026
 
 ### Fixed — Podcast episode pages

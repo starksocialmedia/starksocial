@@ -29,7 +29,7 @@ Owner: Nathan. Notify: Deanna before and after. Hosting is Cloudways (us).
 | Rank Math (+ Pro) | — | ✓ | **replaces AIOSEO**. AIOSEO's 14 redirects are in `inc/stark-redirects.php` (11 carried, 3 already broken on live); Rank Math config in `tools/rankmath/` |
 | All in One SEO Pro + add-ons | ✓ | — | deactivate at cutover, **after** exporting redirects |
 | Gravity Forms + Webhooks | ✓ | ✓ | form ID 1 rebuilt (`tools/gravity-forms/`) |
-| **Mailgun + GF Mailgun add-on** | ✓ | **✗** | **install and configure before launch**. Live sends form email through Mailgun (`postmaster@mg.starksocial.com`); without it, notifications go through PHP mail and may not arrive |
+| **Mailgun + GF Mailgun add-on** | ✓ | files present, **inactive** (v27.3.18) | **activate at cutover** and copy their settings from live first (options `mailgun` and `gravityformsaddon_gravityformsmailgun_settings`: API key, domain `mg.starksocial.com`). Live sends form email through Mailgun; without it notifications go through PHP mail. **Never activate on staging**: Mailgun replaces `wp_mail()` and would bypass the staging email block (the staging guard now force-unloads both) |
 | Podlove Publisher + Web Player | ✓ | ✓ | migrated (`tools/podlove-migration/`) |
 | Complianz Premium | ✓ | ✓ | config copied from live (`tools/complianz/`) |
 | BetterDocs (+ Pro), SearchWP (+ BetterDocs) | ✓ | ✓ | — |
@@ -72,15 +72,16 @@ Freeze edits on live once the sync starts.
 ## 3. Cutover procedure
 
 1. **Backups**: Cloudways on-demand backup of both apps, plus `wp db export` of live to `~/Downloads/live-pre-phase2-<date>.sql` (md5 check)
-2. **Put live in maintenance**, so only the final sync runs (5–10 minutes)
-3. **Push staging → live** with Cloudways "Push to live" (Database + Files), or the same rsync and DB steps as `tools/deploy/deploy-staging.sh` with the hosts reversed. Afterwards:
+2. **Save live's Mailgun settings** (`wp option get mailgun --format=json`, `wp option get gravityformsaddon_gravityformsmailgun_settings --format=json`). The staging push replaces live's database
+3. **Put live in maintenance**, so only the final sync runs (5–10 minutes)
+4. **Push staging → live** with Cloudways "Push to live" (Database + Files), or the same rsync and DB steps as `tools/deploy/deploy-staging.sh` with the hosts reversed. Afterwards:
    `wp search-replace 'https://staging.starksocial.com' 'https://starksocial.com' --all-tables --skip-columns=guid`
-4. **Remove the staging guard**: `wp-content/mu-plugins/stark-staging-guard.php`
-5. **Plugins**: activate Mailgun (+ GF add-on), Breeze, Object Cache Pro; deactivate AIOSEO and Pretty Links (both replaced by `inc/stark-redirects.php`)
-6. `wp eval-file tools/rankmath/configure.php`, `wp rewrite flush --hard`, `wp cache flush`, purge Breeze and **purge Cloudflare**
-7. **Olark goes with the old theme**: live loads `static.olark.com/jsclient/loader.js`, which isn't in any WPCode snippet, so it comes from the Phase 1 theme / Cornerstone global JS. Phase 2 doesn't include it. Confirm after cutover that no request goes to olark.com
-8. **DNS / Cloudflare**: no change if staging was pushed into the live app. If the app changes, point `starksocial.com` A/AAAA (proxied) to the new app IP, keep `www` → apex, and leave `podcast.`, `hub.` and `client.` untouched
-9. Take the site out of maintenance
+5. **Remove the staging guard**: `wp-content/mu-plugins/stark-staging-guard.php`
+6. **Plugins**: restore the Mailgun settings saved in step 2, activate Mailgun (+ GF add-on), Breeze, Object Cache Pro; deactivate AIOSEO and Pretty Links (both replaced by `inc/stark-redirects.php`)
+7. **Rebuild caches and settings**: `wp eval-file tools/rankmath/configure.php`, `wp rewrite flush --hard`, `wp cache flush`, purge Breeze and **purge Cloudflare**
+8. **Olark goes with the old theme**: live loads `static.olark.com/jsclient/loader.js`, which isn't in any WPCode snippet, so it comes from the Phase 1 theme / Cornerstone global JS. Phase 2 doesn't include it. Confirm after cutover that no request goes to olark.com
+9. **DNS / Cloudflare**: no change if staging was pushed into the live app. If the app changes, point `starksocial.com` A/AAAA (proxied) to the new app IP, keep `www` → apex, and leave `podcast.`, `hub.` and `client.` untouched
+10. Take the site out of maintenance
 
 ---
 
@@ -112,7 +113,7 @@ for u in / /services/ /web-design/ /seo/ /social-media-management/ /paid-adverti
 If anything is broken that can't be fixed in 15 minutes:
 
 1. Maintenance mode on
-2. Restore the Cloudways backup from step 3.1 (or `wp db import ~/Downloads/live-pre-phase2-<date>.sql` and restore `wp-content` from the backup)
+2. Restore the Cloudways backup from step 1 of the cutover (or `wp db import ~/Downloads/live-pre-phase2-<date>.sql` and restore `wp-content` from the backup)
 3. Reactivate AIOSEO, then purge Breeze and Cloudflare
 4. Check `/`, `/contact/` (form → Perfex) and `/feed/podcast/`
 5. Maintenance off; tell Deanna; log what broke in `ERRORLOG.md`

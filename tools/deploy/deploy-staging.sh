@@ -30,6 +30,8 @@ flush() {
 
 echo "== Backups"
 $SSH "$HOST" "cd $REMOTE && wp --skip-themes --skip-plugins db export ~/tmp/staging-pre-deploy-$STAMP.sql && md5sum ~/tmp/staging-pre-deploy-$STAMP.sql && cd wp-content/themes && tar czf ~/tmp/staging-pre-deploy-theme-$STAMP.tgz stark-social"
+# Keep the 3 newest theme tarballs.
+$SSH "$HOST" 'cd ~/tmp && ls -t staging-pre-deploy-theme-*.tgz 2>/dev/null | tail -n +4 | xargs -r rm -f'
 $SSH "$HOST" "cat ~/tmp/staging-pre-deploy-$STAMP.sql" > "$HOME/Downloads/staging-pre-deploy-$STAMP.sql"
 BACKUP_MD5="$(md5 -q "$HOME/Downloads/staging-pre-deploy-$STAMP.sql")"
 REMOTE_BACKUP_MD5="$($SSH "$HOST" "md5sum ~/tmp/staging-pre-deploy-$STAMP.sql" | cut -d' ' -f1)"
@@ -44,7 +46,7 @@ if [ "${1:-}" = "theme" ]; then flush; echo "Theme deployed."; exit 0; fi
 
 echo "== Plugins (only the ones Phase 2 added; the rest are installed on staging already)"
 # Synced before the database import so every plugin the imported DB marks active exists.
-for plugin in podlove-podcasting-plugin-for-wordpress podlove-web-player gravityformswebhooks; do
+for plugin in podlove-podcasting-plugin-for-wordpress podlove-web-player gravityformswebhooks mailgun gravityformsmailgun; do
     rsync -az --delete --exclude .DS_Store -e "$SSH" "$LOCAL/wp-content/plugins/$plugin/" "$HOST:public_html/wp-content/plugins/$plugin/"
 done
 
