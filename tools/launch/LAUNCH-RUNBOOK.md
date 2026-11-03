@@ -1,0 +1,131 @@
+# Launch runbook — Phase 2 (Stark Social 27) → starksocial.com
+
+Written November 2 2026 (v27.3.x). Staging (https://staging.starksocial.com) is the
+reference copy. Launch means **pushing staging's Phase 2 site onto the live app**
+(`rvqkxhngas`), not a DNS move to a new server: both apps are on Cloudways server 676057.
+"DNS cutover" below covers the Cloudflare and domain steps either way.
+
+Owner: Nathan. Notify: Deanna before and after. Hosting is Cloudways (us).
+
+---
+
+## 1. Pre-launch checklist
+
+### Content and copy
+- [ ] Every service page, plus Home, About and Contact, has **Copy status = Approved** (Dashboard → "Stark — needs attention" lists what's left)
+- [ ] Brand Strategy process and FAQ written (`tools/live-fixes/brand-strategy-1427/` has the context)
+- [ ] `[NEEDS REVIEW]` markers removed: Content Creation CTA, About story, About CTA ("fractional")
+- [ ] `[SAMPLE]` / `[DRAFT]` gone from the location page and service-areas copy, or those pages set to noindex
+- [ ] Homepage FAQ approved (or removed)
+- [ ] Legal pages reviewed (last updated January 15 2026)
+- [ ] Real logo files in place (Nathan)
+
+### Plugins (Phase 2 vs live)
+
+| Plugin | Live | Phase 2 | Action |
+|---|---|---|---|
+| ACF Pro | ✓ | ✓ | — |
+| GeneratePress + GP Premium + GenerateBlocks | — | ✓ | new |
+| Rank Math (+ Pro) | — | ✓ | **replaces AIOSEO**: import AIOSEO redirects; Rank Math config is in `tools/rankmath/` |
+| All in One SEO Pro + add-ons | ✓ | — | deactivate at cutover, **after** exporting redirects |
+| Gravity Forms + Webhooks | ✓ | ✓ | form ID 1 rebuilt (`tools/gravity-forms/`) |
+| **Mailgun + GF Mailgun add-on** | ✓ | **✗** | **install and configure before launch**. Live sends form email through Mailgun (`postmaster@mg.starksocial.com`); without it, notifications go through PHP mail and may not arrive |
+| Podlove Publisher + Web Player | ✓ | ✓ | migrated (`tools/podlove-migration/`) |
+| Complianz Premium | ✓ | ✓ | config copied from live (`tools/complianz/`) |
+| BetterDocs (+ Pro), SearchWP (+ BetterDocs) | ✓ | ✓ | — |
+| **Pretty Links** (37 short links, e.g. `/37` from podcast art) | ✓ | ✗ | **migrate**: plugin + `prli_*` tables, or recreate as 301s |
+| Wordfence, Simple History, Broken Link Checker, Enable Media Replace, Wicked Folders, Query Monitor | ✓ | ✗ | decide; Wordfence is recommended |
+| Breeze (cache) | ✓ | inactive | activate after launch, then purge |
+| Object Cache Pro | ✓ | inactive | activate after launch |
+| Google Site Kit | ✓ | ✗ | **don't add** (no tracking for now, per Nathan) |
+| stark-site-toolkit (core tweaks, custom 404, login styling) | ✓ | ✗ | Phase 2 has its own 404 and login; check its "core tweaks" module before removing |
+| WPCode Premium | ✓ (19 snippets) | ✓ | re-check which snippets Phase 2 still needs — most were ported to `functions.php` |
+| FileBird Pro / FacetWP | partly | ✓ | — |
+
+### Settings (verify on staging, then again after cutover)
+- [ ] Permalinks `/%postname%/`, category base `blogs/category`, tag base `blogs/tag`
+- [ ] Site Title "Stark Social Media Agency", tagline "Digital marketing the right way."
+- [ ] Reading: front page = Home, posts page = Blog. **`blog_public` = 1 ("discourage search engines" OFF)**
+- [ ] Rank Math: `wp eval-file tools/rankmath/configure.php` **after** the URL switch
+- [ ] Complianz banner showing; legal page links point at `/support/…`
+- [ ] Contact form: webhook feed active with the secret (see `tools/gravity-forms/README.md`)
+- [ ] `wp-content/mu-plugins/stark-staging-guard.php` — present on staging only; does nothing on live, but delete it after the push anyway
+- [ ] `WP_DEBUG_DISPLAY` false on live; HSTS on (theme sends it on production HTTPS)
+
+---
+
+## 2. Final content sync (live → Phase 2), the day of launch
+
+Live keeps changing until cutover. Re-sync, in this order:
+
+1. **Blog posts**: `tools/blog-snapshot/README.md` (new posts since November 2 2026), then `wp eval-file tools/blog-snapshot/fix-inline-images.php apply`
+2. **Podcast**: only if episodes were added (`tools/podlove-migration/README.md`)
+3. **Knowledgebase**: `tools/kb-import/README.md`
+4. **Contact form entries**: export live's GF entries (Forms → Import/Export) and keep the CSV; Phase 2 doesn't need them imported
+5. **Media**: rsync any uploads added on live since the snapshot
+6. **Pretty Links and AIOSEO redirects**: export both
+
+Freeze edits on live once the sync starts.
+
+---
+
+## 3. Cutover procedure
+
+1. **Backups**: Cloudways on-demand backup of both apps, plus `wp db export` of live to `~/Downloads/live-pre-phase2-<date>.sql` (md5 check)
+2. **Put live in maintenance**, so only the final sync runs (5–10 minutes)
+3. **Push staging → live** with Cloudways "Push to live" (Database + Files), or the same rsync and DB steps as `tools/deploy/deploy-staging.sh` with the hosts reversed. Afterwards:
+   `wp search-replace 'https://staging.starksocial.com' 'https://starksocial.com' --all-tables --skip-columns=guid`
+4. **Remove the staging guard**: `wp-content/mu-plugins/stark-staging-guard.php`
+5. **Plugins**: activate Mailgun (+ GF add-on), Breeze, Object Cache Pro; deactivate AIOSEO after importing its redirects; install Pretty Links and import
+6. `wp eval-file tools/rankmath/configure.php`, `wp rewrite flush --hard`, `wp cache flush`, purge Breeze and **purge Cloudflare**
+7. **Olark goes with the old theme**: live loads `static.olark.com/jsclient/loader.js`, which isn't in any WPCode snippet, so it comes from the Phase 1 theme / Cornerstone global JS. Phase 2 doesn't include it. Confirm after cutover that no request goes to olark.com
+8. **DNS / Cloudflare**: no change if staging was pushed into the live app. If the app changes, point `starksocial.com` A/AAAA (proxied) to the new app IP, keep `www` → apex, and leave `podcast.`, `hub.` and `client.` untouched
+9. Take the site out of maintenance
+
+---
+
+## 4. Post-cutover verification (first 30 minutes)
+
+```
+for u in / /services/ /web-design/ /seo/ /social-media-management/ /paid-advertising/ \
+  /content-creation/ /brand-strategy-identity/ /audit-consulting/ /about/ /contact/ \
+  /work/ /portfolio/pathway-escrow/ /blog/ /podcast/ /feed/podcast/ /support/ \
+  /support/knowledgebase/ /support/privacy-policy/ /sitemap_index.xml /robots.txt; do
+  printf "%-36s " "$u"; curl -s -o /dev/null -w "%{http_code}\n" "https://starksocial.com$u"; done
+```
+
+- [ ] All 200 (`/404-error-page/` 404). `robots.txt` is the production one (not `Disallow: /`)
+- [ ] **Old URLs 301:** `/services/web-design/` → `/web-design/` (all 6), `/about/nathan-imhoff/` → `/author/nateimhoff/`, `/about/deanna-l-miller/` → `/author/deannaleigh/`, `/password-generator/` → `/support/password-generator/`
+- [ ] **Podcast feed:** `/feed/podcast/` has the same items and GUIDs as before. Validate in Podcasts Connect or castfeedvalidator.com
+- [ ] **Contact form:** submit one real test → `/thank-you/`, entry note "Webhook → HTTP 200", lead in Perfex, **email arrives** at nathan@ and deanna@ (Mailgun)
+- [ ] Perfex chat appears (US opt-out: visible until a visitor opts out)
+- [ ] Rank Math: page titles, `sitemap_index.xml`, schema on home (ProfessionalService) and an episode (PodcastEpisode)
+- [ ] Google Search Console: submit the sitemap; watch Coverage for 404s over the first week
+- [ ] Lighthouse on the homepage and a service page (staging baseline in `tools/audits/`)
+- [ ] Cancel the Olark subscription once Perfex chat is confirmed
+
+---
+
+## 5. Rollback
+
+If anything is broken that can't be fixed in 15 minutes:
+
+1. Maintenance mode on
+2. Restore the Cloudways backup from step 3.1 (or `wp db import ~/Downloads/live-pre-phase2-<date>.sql` and restore `wp-content` from the backup)
+3. Reactivate AIOSEO, then purge Breeze and Cloudflare
+4. Check `/`, `/contact/` (form → Perfex) and `/feed/podcast/`
+5. Maintenance off; tell Deanna; log what broke in `ERRORLOG.md`
+
+The Phase 1 theme (Pro / Cornerstone) and its data stay in the backup; nothing in this
+runbook deletes them from the server.
+
+---
+
+## 6. Who to notify
+
+| When | Who | What |
+|---|---|---|
+| Day before | Deanna | Content freeze window, launch time |
+| Launch | Deanna | "Live", plus anything to spot-check (her bio, KB) |
+| Launch +1 day | Clients (optional) | Only if the client portal or dashboard links changed (they didn't) |
+| If rollback | Deanna | What happened, next attempt |
