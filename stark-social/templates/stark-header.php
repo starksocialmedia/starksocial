@@ -8,6 +8,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $logo_url = get_stylesheet_directory_uri() . '/img/stark-logo.svg';
 ?>
+<?php
+// Stark templates have <main id="main">; GeneratePress pages (BetterDocs) print their own skip link.
+global $template;
+if ( $template && false !== strpos( $template, '/stark-social/templates/' ) ) : ?>
+<a class="stark-skip-link" href="#main">Skip to content</a>
+<?php endif; ?>
 <div class="stark-scroll-progress" aria-hidden="true"><div class="stark-scroll-progress__bar"></div></div>
 
 <header class="stark-nav" role="banner" aria-label="Primary">

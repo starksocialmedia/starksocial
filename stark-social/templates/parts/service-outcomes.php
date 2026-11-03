@@ -14,6 +14,8 @@ if ( empty( $o['items'] ) ) return;
                 <h2 id="stark-outcomes-title" class="stark-section-head__title"><?php echo esc_html( $o['heading'] ); ?></h2>
                 <?php if ( $o['intro'] ) : ?><p class="stark-section-head__intro"><?php echo esc_html( $o['intro'] ); ?></p><?php endif; ?>
             </header>
+        <?php else : ?>
+            <h2 class="screen-reader-text"><?php echo esc_html( $o['eyebrow'] ); ?></h2>
         <?php endif; ?>
         <ul class="stark-cards stark-cards--<?php echo esc_attr( min( 4, count( $o['items'] ) ) ); ?>">
             <?php foreach ( $o['items'] as $item ) : ?>

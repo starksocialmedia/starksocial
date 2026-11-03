@@ -147,7 +147,7 @@ $home_faq = array_values( array_filter( (array) ( $home_id ? stark_field( 'faq_i
     <section class="stark-band stark-why" aria-labelledby="stark-why-title">
         <div class="stark-home__inner stark-why__inner">
             <header class="stark-section-head">
-                <p class="stark-eyebrow">Why Stark</p>
+                <p class="stark-eyebrow stark-eyebrow--light">Why Stark</p>
                 <h2 id="stark-why-title" class="stark-section-head__title">The Stark Difference</h2>
             </header>
             <div class="stark-why__copy">

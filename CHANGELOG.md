@@ -2,6 +2,20 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.3] — November 2 2026
+
+### Fixed — Accessibility pass
+- **Button contrast:** new `--stark-accent-dark: #2A70CC` (hover `#1F5DAE`). Primary buttons, nav "Client Portal", episode play buttons and the password generator use it, so white text is 4.9:1 (was 3.99:1). `#307FE2` stays for large text, icons and decoration
+- **Skip to content** link (hidden until focused) on every Stark template. GeneratePress pages keep their own
+- **`aria-current="page"`** on the current nav link (desktop + mobile, fallback menus and the walker), with an underline cue
+- Global `:focus-visible` outline for any interactive element without its own (white on dark bands)
+- Fixed from the new axe run: "Why Stark" eyebrow on navy, episode transcript hint, legal contact link (small blue text), `/services/` principles heading order (hidden h2), BetterDocs search hint contrast, BetterDocs feedback emoji links (accessible names)
+- **axe:** 0 violations on 21 of 22 page/width runs across home, services, 4 service pages, about, contact, blog, a post, portfolio, support, an episode, the KB, legal and thank-you. Remaining: moderate landmark and heading notes inside BetterDocs' own doc template (no `<main>`, two banners). Fixing those needs a Stark template for docs (punch list)
+- Form fields all have visible labels (Gravity Forms); icon-only buttons (burger, back-to-top, A11y) have labels
+
+### Added
+- `inc/stark-forms.php`: every Perfex webhook call adds a note on the form entry ("Webhook → HTTP 200 …"), so lead delivery can be checked in WordPress
+
 ## [27.3.10] — November 2 2026
 
 ### Added — Branded email templates (`inc/stark-emails.php`)

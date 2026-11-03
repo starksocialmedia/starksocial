@@ -747,6 +747,18 @@ add_action( 'wp_body_open', 'stark_render_header', 5 );
 /**
  * Fallback primary menu when none is assigned yet.
  */
+/**
+ * aria-current="page" on links to the current URL path (v27.3.3). The
+ * fallback menus are static markup, so WordPress never marks them current.
+ */
+function stark_mark_current_links( $html ) {
+    $here = '/' . trim( (string) wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ?? '' ), PHP_URL_PATH ), '/' );
+    return preg_replace_callback( '/<a\s+href="([^"]+)"/', function ( $m ) use ( $here ) {
+        $path = '/' . trim( (string) wp_parse_url( $m[1], PHP_URL_PATH ), '/' );
+        return ( $path === $here && '#' !== $m[1][0] ) ? $m[0] . ' aria-current="page"' : $m[0];
+    }, $html );
+}
+
 function stark_fallback_primary_menu() {
     ob_start();
     ?>
@@ -781,7 +793,7 @@ function stark_fallback_primary_menu() {
         <li class="stark-nav__item"><a href="/contact/" class="stark-nav__link"><span>Contact</span></a></li>
     </ul>
     <?php
-    return ob_get_clean();
+    return stark_mark_current_links( ob_get_clean() );
 }
 
 /**
@@ -810,7 +822,7 @@ function stark_fallback_mobile_menu() {
         <li><a href="/contact/">Contact</a></li>
     </ul>
     <?php
-    return ob_get_clean();
+    return stark_mark_current_links( ob_get_clean() );
 }
 
 /**
@@ -914,3 +926,4 @@ require_once get_stylesheet_directory() . '/inc/stark-authors.php';
 require_once get_stylesheet_directory() . '/inc/stark-seo.php';
 require_once get_stylesheet_directory() . '/inc/stark-testimonials.php';
 require_once get_stylesheet_directory() . '/inc/stark-emails.php';
+require_once get_stylesheet_directory() . '/inc/stark-forms.php';

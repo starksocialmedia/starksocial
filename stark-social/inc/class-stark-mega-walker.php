@@ -64,7 +64,8 @@ class Stark_Mega_Walker extends Walker_Nav_Menu {
                 $a_class .= ' stark-nav__link--has-mega';
                 $extra   = ' aria-expanded="false" aria-haspopup="true"';
             }
-            $output .= '<a href="' . $url . '" class="' . $a_class . '"' . $extra . '>';
+            $current = self::is_current( $item ) ? ' aria-current="page"' : '';
+            $output .= '<a href="' . $url . '" class="' . $a_class . '"' . $extra . $current . '>';
             $output .= '<span>' . esc_html( $title ) . '</span>';
             if ( $has_children ) {
                 $output .= '<svg class="stark-nav__chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -73,7 +74,7 @@ class Stark_Mega_Walker extends Walker_Nav_Menu {
         } else {
             // Mega menu item: title + optional description
             $description = ! empty( $item->description ) ? $item->description : '';
-            $output .= '<a href="' . $url . '" class="stark-mega__link">';
+            $output .= '<a href="' . $url . '" class="stark-mega__link"' . ( self::is_current( $item ) ? ' aria-current="page"' : '' ) . '>';
             $output .= '<span class="stark-mega__title">' . esc_html( $title ) . '</span>';
             if ( $description ) {
                 $output .= '<span class="stark-mega__desc">' . esc_html( $description ) . '</span>';
@@ -84,5 +85,16 @@ class Stark_Mega_Walker extends Walker_Nav_Menu {
 
     public function end_el( &$output, $item, $depth = 0, $args = null ) {
         $output .= '</li>';
+    }
+
+    /**
+     * Current page? The menu uses custom links, which WordPress never marks
+     * current, so compare paths (v27.3.3).
+     */
+    private static function is_current( $item ) {
+        if ( array_intersect( (array) $item->classes, array( 'current-menu-item', 'current_page_item' ) ) ) return true;
+        $path = function ( $url ) { return '/' . trim( (string) wp_parse_url( $url, PHP_URL_PATH ), '/' ); };
+        return isset( $_SERVER['REQUEST_URI'] ) && $item->url && '#' !== $item->url
+            && $path( $item->url ) === $path( wp_unslash( $_SERVER['REQUEST_URI'] ) );
     }
 }

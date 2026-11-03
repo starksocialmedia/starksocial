@@ -4123,7 +4123,12 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
    --stark-blue-ink (#2A70CC: 4.9:1 / 4.61:1), the closest passing shade.
    Large stat numbers, icons and buttons keep #307FE2 (buttons: see BUILDPLAN 2.7).
    ========================================================================== */
-:root { --stark-blue-ink: #2A70CC; }
+:root {
+    --stark-blue-ink: #2A70CC;
+    /* v27.3.3 — button fill: white text on #307FE2 is 3.99:1, on #2A70CC 4.9:1 (WCAG AA) */
+    --stark-accent-dark: #2A70CC;
+    --stark-accent-dark-hover: #1F5DAE;
+}
 
 .stark-eyebrow:not(.stark-eyebrow--light),
 .stark-service-card__more,
@@ -4139,10 +4144,54 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 .stark-work-card__more,
 .stark-case-nav__all,
 .stark-hub-card__more,
-.stark-episode-card__number { color: var(--stark-blue-ink); }
+.stark-episode-card__number,
+.stark-episode__transcript-hint,
+.stark-legal__contact a { color: var(--stark-blue-ink); }
+
+/* BetterDocs: search hint text was 2.46:1 */
+.betterdocs-search-command { color: #5B6474 !important; }
 
 /* Bottom-left cluster is now wrapped in an <aside> landmark — the wrapper itself takes no space. */
 .stark-bottom-ui { display: contents; }
+
+/* v27.3.3 — Primary buttons on --stark-accent-dark (AA contrast for white text).
+   #307FE2 (--stark-light-blue) stays for large text, icons and decoration. */
+.stark-btn--primary,
+.stark-nav__util-link--cta,
+.stark-episode-card__play { background: var(--stark-accent-dark); }
+.stark-btn--primary:hover,
+.stark-btn--primary:focus-visible,
+.stark-nav__util-link--cta:hover,
+.stark-nav__util-link--cta:focus-visible { background: var(--stark-accent-dark-hover); }
+.stark-passgen-page__card .container .generate-button { background: var(--stark-accent-dark) !important; }
+.stark-passgen-page__card .container .generate-button:hover { background: var(--stark-accent-dark-hover) !important; }
+
+/* Current page in the nav */
+.stark-nav__link[aria-current="page"] span,
+.stark-mega__link[aria-current="page"] .stark-mega__title { box-shadow: inset 0 -2px 0 currentColor; }
+
+/* Skip link — hidden until focused */
+.stark-skip-link {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 2000;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: var(--stark-navy);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-200%);
+}
+.stark-skip-link:focus,
+.stark-skip-link:focus-visible { transform: none; outline: 2px solid var(--stark-light-blue); outline-offset: 2px; }
+
+/* Visible focus on every interactive element that doesn't define its own */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible { outline: 2px solid var(--stark-light-blue); outline-offset: 2px; }
+.stark-hero :where(a, button):focus-visible,
+.stark-footer :where(a, button):focus-visible,
+.stark-cta-band :where(a, button):focus-visible { outline-color: #fff; }
 
 
 /* ==========================================================================

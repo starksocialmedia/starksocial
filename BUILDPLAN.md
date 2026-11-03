@@ -165,7 +165,7 @@
 ### Phase 2.7 — QA & Launch
 - [x] **Staging deployed from Local** v27.1.0 — DB, theme, uploads; permalinks = live; ACF Pro active; mail blocked + noindex via `stark-staging-guard` mu-plugin — November 2 2026 (`tools/deploy/`)
 - [x] Lighthouse + axe audit v27.1.1 — `tools/audits/2026-11-02`; quick fixes shipped — November 2 2026
-- [ ] **Needs Nathan:** primary button contrast — white on `#307FE2` is 3.99:1 (AA needs 4.5:1). Darken buttons to `#2A70CC`, or larger bold button text. Only remaining axe failure
+- [x] Primary button contrast — `--stark-accent-dark #2A70CC` v27.3.3 (reverse in one token if you prefer the brand blue)
 - [ ] Re-run Lighthouse on staging (real cache headers, Cloudflare); check `/web-design/` mobile CLS (0.1 under throttling)
 - [ ] Trim render-blocking CSS (Complianz / BetterDocs on pages that don't use them); minify `custom.css`
 - [ ] Perfex chat widget: third-party cookie warning (`SameSite=None; Secure` on hub.starksocial.com)
