@@ -479,9 +479,19 @@ if ( ! wp_next_scheduled( 'nate_prune_db_event' ) ) {
  */
 add_action( 'wp_head', function() {
     if ( is_singular( 'podcast' ) && has_post_thumbnail() ) {
-        $img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-        if ( is_array( $img ) && ! empty( $img[0] ) ) {
-            echo '<link rel="preload" as="image" href="' . esc_url( $img[0] ) . '">' . "\n";
+        // v27.3.5 — preload what the page shows: the WebP render of an SVG cover
+        // (stark_attachment_img), not the full-size original (up to 1.7 MB).
+        $id   = get_post_thumbnail_id();
+        $webp = get_post_meta( $id, '_stark_webp_sizes', true );
+        if ( $webp ) {
+            $base   = trailingslashit( dirname( wp_get_attachment_url( $id ) ) );
+            $srcset = implode( ', ', array_map( function ( $s ) use ( $base ) { return $base . rawurlencode( $s['file'] ) . ' ' . (int) $s['width'] . 'w'; }, $webp ) );
+            echo '<link rel="preload" as="image" imagesrcset="' . esc_attr( $srcset ) . '" imagesizes="(min-width: 1024px) 640px, 100vw" fetchpriority="high">' . "\n";
+        } else {
+            $img = wp_get_attachment_image_src( $id, 'large' );
+            if ( is_array( $img ) && ! empty( $img[0] ) ) {
+                echo '<link rel="preload" as="image" href="' . esc_url( $img[0] ) . '">' . "\n";
+            }
         }
     }
 }, 1 );

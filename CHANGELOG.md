@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.5] — November 2 2026
+
+### Changed — Image weight
+- **Oversized originals capped** (`tools/images/cap_originals.py`): 14 uploads were stock-photo originals up to 8688px and 9.4 MB. They are now 2560px on the long edge, quality 82, same filename and format: **44.8 MB saved**. Templates already use sized versions, but Rank Math share images, lightbox links and the fallback `full` size served the originals. Originals are backed up outside the repo, and live keeps them. `sync-original-dimensions.php` updates attachment sizes where the file is a registered attachment
+- **Podcast single preload** was the full-size SVG cover (up to 1.7 MB) while the page shows the WebP render. It now preloads the WebP `imagesrcset` with `fetchpriority="high"`
+- Checked: theme images go through `wp_get_attachment_image()` / `stark_attachment_img()` with width, height and `srcset`; below-the-fold images lazy-load; heroes and the first row are eager. The server serves `.webp` as `image/webp`
+- Not changed (punch list): 9 animated GIFs in 2015–2024 posts (2–7 MB each; convert to MP4/WebP when those posts are edited); the SVG episode covers aren't served any more (v27.1.4), so they weren't run through SVGO
+
 ## [27.3.4] — November 2 2026
 
 ### Changed — Perfex chat behind cookie consent; Complianz configured on Phase 2
