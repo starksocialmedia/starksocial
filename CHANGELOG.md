@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.0] — November 3 2026
+
+### Fixed — Knowledgebase landmarks (BetterDocs)
+- BetterDocs' single and category templates had no `<main>`: axe flagged content outside landmarks (`region`, 10–13 nodes per page), a second banner (the article `<header>`), an unlabelled sidebar and an h4 after h2s
+- `inc/stark-docs.php` + `templates/stark-docs-wrap.php`: BetterDocs' own template is rendered through a buffer (filters `betterdocs_single_template` / `betterdocs_archives_template`, no plugin files changed). Articles: the content column becomes `<main>` (BetterDocs' id kept for its CSS/JS) and the sidebars are labelled "Knowledgebase categories" / "On this page". Category pages: `<main>` wraps the BetterDocs wrapper and the category list becomes a `<nav>`. Share heading h4 → h2 (same size). If a plugin update changes the markup the page renders unchanged
+- The Stark skip link now shows on knowledgebase pages (target via the new `stark_skip_link_target` filter); GeneratePress's skip link (to `#content`, outside landmarks) is removed there
+- axe on an article, the KB home and two categories, 390 + 1440 px: **0 violations** (was 4 rules on articles, `region` on categories)
+
 ## [27.3.21] — November 2 2026
 
 ### Content — author pages from live team pages

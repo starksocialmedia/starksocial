@@ -12,10 +12,10 @@ $logo_url = get_stylesheet_directory_uri() . '/img/stark-logo.svg';
 
 <header class="stark-nav" role="banner" aria-label="Primary">
 <?php
-// Stark templates have <main id="main">; GeneratePress pages (BetterDocs) print their own skip link.
+// Stark templates have <main id="main">; BetterDocs pages go through templates/stark-docs-wrap.php (v27.4.0).
 global $template;
 if ( $template && false !== strpos( $template, '/stark-social/templates/' ) ) : ?>
-    <a class="stark-skip-link" href="#main">Skip to content</a>
+    <a class="stark-skip-link" href="<?php echo esc_attr( apply_filters( 'stark_skip_link_target', '#main' ) ); ?>">Skip to content</a>
 <?php endif; ?>
     <div class="stark-nav__inner">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="stark-nav__logo" aria-label="Stark Social Media Agency Home">

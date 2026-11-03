@@ -3849,6 +3849,9 @@ body:has(.stark-draft-banner) .stark-page { margin-top: 40px; }
 .stark-support__search .betterdocs-search-form-wrapper,
 .stark-support__search .betterdocs-live-search,
 .stark-support__search .betterdocs-searchform { padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; }
+
+/* v27.4.0 — the share heading is an h2 now (was an h4 after the article's h2s); keep its old size */
+.betterdocs-social-share-title-tag { font-size: 19px !important; line-height: 1.3; }
 .stark-support__search input[type="search"],
 .stark-support__search .betterdocs-search-field {
     width: 100%;
