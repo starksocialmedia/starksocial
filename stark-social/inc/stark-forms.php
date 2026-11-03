@@ -28,3 +28,20 @@ add_action( 'wp_footer', function () {
 <script>document.querySelectorAll('.betterdocs-emoji[data-feelings]').forEach(function(a){var m={happy:'Yes, this was helpful',normal:'It was okay',sad:'No, this wasn’t helpful'};a.setAttribute('aria-label',m[a.dataset.feelings]||a.dataset.feelings);});</script>
     <?php
 }, 99 );
+
+/**
+ * Perfex PRChat behind cookie consent (v27.3.4). Complianz blocks any script
+ * that references hub.starksocial.com/prchat until the visitor accepts the
+ * "preferences" category, then runs it. ("functional" can't be used: Complianz
+ * always allows it, so the widget's third-party cookies would still load.)
+ */
+add_filter( 'cmplz_known_script_tags', function ( $tags ) {
+    $tags[] = array(
+        'name'               => 'perfex-chat',
+        'placeholder'        => '',
+        'enable_placeholder' => 0,
+        'category'           => 'preferences',
+        'urls'               => array( 'hub.starksocial.com/prchat' ),
+    );
+    return $tags;
+} );

@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.4] — November 2 2026
+
+### Changed — Perfex chat behind cookie consent; Complianz configured on Phase 2
+- **Found:** Complianz was never configured on Phase 2, so there was no cookie banner. Live's configuration (US opt-out, banner, 374 cookies, 9 services, options and completion flags) was copied to Local read-only; legal page IDs remapped; license key not copied. `tools/complianz/`
+- **Perfex PRChat** loads only with `cmplz_has_consent('preferences'|'marketing')` and re-checks on Complianz consent events. It's also registered in `cmplz_known_script_tags` (preferences) and added as a **Complianz service "Perfex Chat"** (Preferences, third party)
+- Tested: no Complianz → no chat; opted out → 0 requests to hub.starksocial.com; consent → chat loads. With live's US opt-out setting the chat loads until a visitor opts out
+- Chrome's third-party cookie warning still appears when the widget loads. That needs `SameSite=None; Secure; Partitioned` on hub.starksocial.com (punch list)
+
 ## [27.3.3] — November 2 2026
 
 ### Fixed — Accessibility pass

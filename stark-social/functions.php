@@ -676,8 +676,11 @@ function stark_inject_perfex_chat_widget() {
 		? STARK_PRCHAT_WIDGET_ID
 		: '67d3563318b5547bfab53fa6366ace82';
 	$widget_url = 'https://hub.starksocial.com/prchat/Chatbot_Controller/widget/' . rawurlencode( $widget_id );
+	// v27.3.4 — load only after cookie consent (Complianz "preferences"). The widget
+	// sets third-party cookies on hub.starksocial.com; without consent it never loads.
+	// Without Complianz on the page there is no consent, so no chat.
 	printf(
-		'<script type="text/javascript">(function(){var d=document,s=d.createElement("script");s.src=%s;s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>',
+		'<script>(function(){var u=%s,done=false;function ok(){return typeof window.cmplz_has_consent==="function"&&(window.cmplz_has_consent("preferences")||window.cmplz_has_consent("marketing"));}function load(){if(done||!ok())return;done=true;var s=document.createElement("script");s.src=u;s.async=true;document.head.appendChild(s);}load();["cmplz_status_change","cmplz_enable_category","cmplz_fire_categories"].forEach(function(e){document.addEventListener(e,load);});})();</script>',
 		wp_json_encode( esc_url_raw( $widget_url ) )
 	);
 }
