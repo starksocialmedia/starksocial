@@ -2,10 +2,18 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.16] — November 2 2026
+
+### Added — Legacy redirects (replace Pretty Links + AIOSEO Redirects at launch)
+- `inc/stark-redirects.php`, fires on 404s only, so it never shadows a real page
+- **Episode short links `/1`–`/37`** (printed on podcast cover art, e.g. "starksocial.com/37"): **on live, 33 of the 37 Pretty Links open a different episode** (the links were created out of order). Phase 2 sends `/N` to the episode whose number is N, which is what the covers promise. Filter `stark_episode_short_links` restores the plain map
+- **AIOSEO's 14 redirects**: 11 carried over, with targets resolved to their final live URL and checked as 200 on Phase 2. Skipped: 1 truncated source and 2 targets already broken on live
+- Runbook updated: Pretty Links and AIOSEO are deactivated at cutover rather than migrated
+
 ## [27.3.15] — November 2 2026 — cleanup
 
 - **Podcast breadcrumbs** ported from Phase 1's AIOSEO filter to Rank Math (`rank_math/frontend/breadcrumb/items`): Home / Podcast / Episode and Home / Podcast (Rank Math used Podlove's plural "Podcasts"). The podcast archive now shows the visible trail too. The commented-out AIOSEO code is removed
-- BUILDPLAN cleanup: 33 checklist items marked done or annotated with their real status; a duplicate Perfex item removed. Open with notes: velocity-glow JS (still a stub), WPCode snippet audit, ACF Pro on live
+- BUILDPLAN cleanup: 36 checklist items marked done or annotated with their real status; a duplicate Perfex item removed. Open with notes: velocity-glow JS (still a stub), WPCode snippet audit, ACF Pro on live
 
 ## [27.3.14] — November 2 2026
 
