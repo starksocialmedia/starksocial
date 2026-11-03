@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.8] — November 2 2026
+
+### Changed — Blog category and tag archives
+- Category and tag archives already render through `templates/stark-blog-archive.php` (since v27.0.9): hero with the term as H1, filtered grid, category chips, pagination. **No separate `stark-blog-category.php` / `stark-blog-tag.php`** — they would duplicate the archive template
+- **URLs stay as on live:** `/blogs/category/{slug}/`, `/blogs/tag/{slug}/` (live's category and tag bases; changing them would break indexed URLs). The `/blog/category/…` and `/blog/tag/…` forms (with `/page/N/`) now **301** to them
+- Terms with no description now show "45 articles on Social Media." instead of an empty subhead (none of the 10 categories or 43 tags has a description)
+- D2: `/work/` industry and service filters are client-side on the archive (3 case studies; separate filter pages would be thin content). The podcast has no Podlove seasons (0 rows). Nothing else to polish there
+
 ## [27.3.7] — November 2 2026
 
 ### Changed — Render-blocking trim

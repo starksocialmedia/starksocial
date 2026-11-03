@@ -98,7 +98,13 @@ function stark_related_posts( $post_id, $count = 3 ) {
  */
 function stark_blog_archive_heading() {
     if ( is_category() || is_tag() ) {
-        return array( is_category() ? 'Category' : 'Tag', single_term_title( '', false ), term_description() );
+        $term = get_queried_object();
+        $desc = term_description();
+        if ( ! trim( wp_strip_all_tags( $desc ) ) ) {
+            // No description written yet: say what's here instead of leaving a gap (v27.3.8).
+            $desc = sprintf( _n( '%1$d article on %2$s.', '%1$d articles on %2$s.', $term->count, 'stark-social' ), $term->count, $term->name );
+        }
+        return array( is_category() ? 'Category' : 'Tag', single_term_title( '', false ), $desc );
     }
     if ( is_author() ) {
         $author = get_queried_object();
@@ -120,3 +126,22 @@ function stark_blog_posts_per_page( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'stark_blog_posts_per_page' );
+
+/**
+ * /blog/category/{slug}/ and /blog/tag/{slug}/ → the real archives under
+ * /blogs/… (live's category and tag bases, kept for SEO). v27.3.8
+ */
+function stark_redirect_blog_taxonomy_aliases() {
+    if ( ! is_404() ) return;
+    $path = trim( (string) wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ?? '' ), PHP_URL_PATH ), '/' );
+    if ( preg_match( '#^blog/(category|tag)/([^/]+)(/page/(\d+))?$#', $path, $m ) ) {
+        $term = get_term_by( 'slug', $m[2], 'category' === $m[1] ? 'category' : 'post_tag' );
+        if ( $term ) {
+            $url = get_term_link( $term );
+            if ( ! empty( $m[4] ) ) $url = trailingslashit( $url ) . 'page/' . (int) $m[4] . '/';
+            wp_safe_redirect( $url, 301 );
+            exit;
+        }
+    }
+}
+add_action( 'template_redirect', 'stark_redirect_blog_taxonomy_aliases', 1 );
