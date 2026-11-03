@@ -2,6 +2,16 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.1.2] — November 2 2026
+
+### Added — Support hub `/support/` and knowledgebase
+- `templates/stark-support.php` — hero ("Support" / "We’re here when you need us."), then two columns: BetterDocs live search (`[betterdocs_search_form]`, restyled to the Phase 2 field; plain docs search as fallback) and articles grouped by category, 5 per group with an "All … articles" link | contact card (phone, email, hours — same defaults as Contact), **Open a ticket** → Perfex `hub.starksocial.com/clients/open_ticket`, and quick actions (Password Generator, Accessibility Statement, Client Portal, Client Dashboard — portal URLs as on live)
+- `/support/knowledgebase/` uses the same template listing every article, with live's intro copy. Live's page is a Cornerstone layout (search + category grid)
+- Getting Started category pinned first; others keep BetterDocs order
+- **Knowledgebase imported into Local**: 27 docs, 6 categories and BetterDocs settings from live (`tools/kb-import/`). URLs match live: `/docs/{slug}/`, `/docs-category/{slug}/`
+- BetterDocs single doc + category pages restyled to tokens: breadcrumb (was a bulleted list), headings, links, hover-only heading anchors
+- Pages without a Stark hero (BetterDocs, plain GP pages) now start below the fixed nav. Content was hidden under it
+
 ## [27.1.3] — November 2 2026
 
 ### Added — Homepage process section [DRAFT - needs Nathan review]

@@ -156,7 +156,7 @@
 ### Phase 2.5 — Support & Utility
 - [x] 404 + search templates v27.0.10 — November 2 2026
 - [x] Password generator page `/support/password-generator/` v27.0.18
-- [ ] Support hub (`/support/`), knowledgebase (BetterDocs)
+- [x] Support hub (`/support/`) + knowledgebase (`/support/knowledgebase/`, 27 BetterDocs docs from live) v27.1.2 — November 2 2026
 
 ### Phase 2.6 — Legal
 - [x] Copy-forward 4 legal pages to `/support/` — v27.0.15, noindex — November 2 2026

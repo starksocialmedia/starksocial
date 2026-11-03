@@ -3878,3 +3878,102 @@ body:has(.stark-draft-banner) .stark-home { margin-top: 40px; }
 
 /* Bottom-left cluster is now wrapped in an <aside> landmark — the wrapper itself takes no space. */
 .stark-bottom-ui { display: contents; }
+
+/* ==========================================================================
+   v27.1.2 — Support hub (/support/) + BetterDocs knowledgebase
+   ========================================================================== */
+.stark-support__grid { display: grid; grid-template-columns: 1fr; gap: clamp(40px, 5vw, 64px); align-items: start; }
+@media (min-width: 1024px) { .stark-support__grid { grid-template-columns: minmax(0, 1fr) 380px; } }
+
+.stark-support__heading,
+.stark-support__card-title { margin: 0 0 16px; font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; line-height: 1.2; color: var(--stark-navy); }
+.stark-support__card-title { font-size: 20px; }
+
+/* Search — restyle BetterDocs' live search to the Phase 2 field */
+.stark-support__search { margin-bottom: clamp(32px, 4vw, 48px); }
+.stark-support__search .betterdocs-search-form-wrapper,
+.stark-support__search .betterdocs-live-search,
+.stark-support__search .betterdocs-searchform { padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; }
+.stark-support__search input[type="search"],
+.stark-support__search .betterdocs-search-field {
+    width: 100%;
+    min-height: 56px;
+    padding: 0 20px 0 52px !important;
+    border: 1px solid var(--stark-hairline) !important;
+    border-radius: 12px !important;
+    background: var(--stark-paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A0F1A' stroke-opacity='.55' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 18px 50% / 20px !important;
+    box-shadow: 0 1px 2px rgba(10, 15, 26, 0.04);
+    font: 400 17px/1.4 var(--stark-font, "Barlow", sans-serif) !important;
+    color: var(--stark-ink);
+}
+.stark-support__search input[type="search"]:focus-visible,
+.stark-support__search .betterdocs-search-field:focus { outline: 2px solid var(--stark-light-blue); outline-offset: 2px; }
+.stark-support__search .search-submit,
+.stark-support__search .betterdocs-searchform-input-wrap > svg,
+.stark-support__search .docs-search-close { display: none !important; }
+.stark-support__form { display: flex; gap: 12px; }
+.stark-support__form input[type="search"] { flex: 1; }
+
+/* Article groups */
+.stark-support__groups { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 720px) { .stark-support__groups { grid-template-columns: 1fr 1fr; } }
+.stark-support__group { padding: 24px; border: 1px solid var(--stark-hairline); border-radius: 16px; background: var(--stark-paper); }
+.stark-support__group-title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 12px; font-size: 18px; font-weight: 700; }
+.stark-support__group-title a { color: var(--stark-navy); text-decoration: none; }
+.stark-support__group-title a:hover,
+.stark-support__group-title a:focus-visible { color: var(--stark-blue-ink); text-decoration: underline; }
+.stark-support__count { flex-shrink: 0; font-size: 13px; font-weight: 500; color: var(--stark-ink-soft); }
+.stark-support__list { margin: 0; padding: 0; list-style: none; }
+.stark-support__list li { border-top: 1px solid var(--stark-hairline); }
+.stark-support__list a { display: block; padding: 10px 0; font-size: 15px; line-height: 1.45; color: var(--stark-ink); text-decoration: none; }
+.stark-support__list a:hover,
+.stark-support__list a:focus-visible { color: var(--stark-blue-ink); text-decoration: underline; }
+.stark-support__all { display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--stark-blue-ink); text-decoration: none; }
+.stark-support__all:hover { text-decoration: underline; }
+.stark-support__kb-link { margin: 28px 0 0; }
+
+/* Contact card + quick actions */
+.stark-support__side { display: grid; gap: 20px; }
+@media (min-width: 1024px) { .stark-support__side { position: sticky; top: calc(var(--stark-nav-h-scrolled) + 24px); } }
+.stark-support__card,
+.stark-support__actions { padding: 28px; border: 1px solid var(--stark-hairline); border-radius: 20px; background: var(--stark-paper); }
+.stark-support__details { display: grid; gap: 16px; margin: 0 0 24px; }
+.stark-support__details dt { margin-bottom: 2px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stark-ink-soft); }
+.stark-support__details dd { margin: 0; font-size: 17px; }
+.stark-support__details dd > a { color: var(--stark-navy); font-weight: 600; text-decoration: none; }
+.stark-support__details dd > a:hover { text-decoration: underline; }
+.stark-support__ticket { width: 100%; justify-content: center; }
+.stark-support__note { margin: 12px 0 0; font-size: 14px; color: var(--stark-ink-soft); }
+.stark-support__actions ul { margin: 0; padding: 0; list-style: none; }
+.stark-support__actions li + li { border-top: 1px solid var(--stark-hairline); }
+.stark-support__actions a { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; color: var(--stark-ink); text-decoration: none; }
+.stark-support__actions a:hover strong,
+.stark-support__actions a:focus-visible strong { color: var(--stark-blue-ink); text-decoration: underline; }
+.stark-support__action-icon { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: rgba(48, 127, 226, 0.1); color: var(--stark-light-blue); }
+.stark-support__action-icon .stark-icon { width: 20px; height: 20px; }
+.stark-support__action-text { display: grid; gap: 2px; }
+.stark-support__action-text strong { font-size: 16px; font-weight: 600; color: var(--stark-navy); }
+.stark-support__action-text span { font-size: 14px; line-height: 1.45; color: var(--stark-ink-soft); }
+
+/* Pages without a Stark hero (BetterDocs docs, plain GP pages) start below the fixed nav */
+body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24px); }
+
+/* BetterDocs single doc + category archive — Phase 2 type and tokens */
+.single-docs .site-content,
+.tax-doc_category .site-content { font-family: var(--stark-font, "Barlow", sans-serif); }
+.betterdocs-breadcrumb-list { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 20px !important; padding: 0 !important; list-style: none !important; font-size: 14px; color: var(--stark-ink-soft); }
+.betterdocs-breadcrumb-list li { margin: 0 !important; list-style: none !important; }
+.betterdocs-breadcrumb-list a { color: var(--stark-blue-ink); text-decoration: none; }
+.betterdocs-breadcrumb-list a:hover { text-decoration: underline; }
+.betterdocs-content { font-size: 17px; line-height: 1.7; color: var(--stark-ink); }
+.betterdocs-content h2,
+.betterdocs-content h3 { margin: 1.6em 0 0.5em; font-weight: 700; line-height: 1.25; color: var(--stark-navy); }
+.betterdocs-content h2 { font-size: clamp(24px, 2.4vw, 30px); }
+.betterdocs-content h3 { font-size: 21px; }
+.betterdocs-content a:not(.batterdocs-anchor) { color: var(--stark-blue-ink); }
+.batterdocs-anchor { margin-left: 8px; font-size: 0.6em; color: var(--stark-ink-soft) !important; text-decoration: none !important; opacity: 0; transition: opacity 0.15s; }
+.betterdocs-content-heading:hover .batterdocs-anchor,
+.batterdocs-anchor:focus-visible { opacity: 1; }
+.betterdocs-content ul,
+.betterdocs-content ol { padding-left: 1.3em; }
+.betterdocs-content li { margin-bottom: 0.4em; }

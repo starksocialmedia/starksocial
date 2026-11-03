@@ -15,6 +15,8 @@ function stark_get_page_templates() {
         'about'   => array( 'label' => 'About', 'template' => 'stark-about.php' ),
         'contact' => array( 'label' => 'Contact', 'template' => 'stark-contact.php' ),
         'services' => array( 'label' => 'Services', 'template' => 'stark-services-hub.php' ),
+        'support' => array( 'label' => 'Support', 'template' => 'stark-support.php' ),
+        'knowledgebase' => array( 'label' => 'Knowledgebase', 'template' => 'stark-support.php', 'parent' => 'support' ),
         'password-generator' => array( 'label' => 'Password Generator', 'template' => 'stark-password-generator.php', 'parent' => 'support' ),
     ) );
 }
