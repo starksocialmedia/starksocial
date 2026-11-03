@@ -20,9 +20,9 @@ Priority: **P1** = fix before launch, **P2** = soon after, **P3** = polish.
 | `/web-design/antelope-valley/` | Whole page | 6 × `[SAMPLE]`: "Rooted in the Antelope Valley", "Local credibility copy.", stats "40+ local clients", "10 yrs in the region", FAQ "Do you meet in person in Lancaster? Yes." | Sample page. The stats are invented placeholders and must not go live | **P1** (write it, or draft/noindex it: quick win #15) |
 | `/service-areas/` | Intro + 5 market descriptions | 6 × `[DRAFT]` (written in v27.4.9) | Placeholder copy awaiting Nathan's voice | **P1** |
 | `/` | FAQ heading | "Questions, answered [DRAFT — not on live]" + 8 draft Q&As | Not on live; Nathan keeps, trims or removes | **P1** (quick win #12) |
-| `/about/` | Story | `[NEEDS REVIEW]`: "They're doing meaningful work" (no antecedent), "…strategic ownership. holding it all together" | Broken sentences, as on live | **P1**: syntactic fix done in v27.5.10 (Block G) if not reverted |
+| `/about/` | Story | `[NEEDS REVIEW]`: "They're doing meaningful work" (no antecedent), "…strategic ownership. holding it all together" | Broken sentences, as on live | **P1**: syntactic fix done in v27.5.9 (Block G) |
 | `/about/` | CTA | `[NEEDS REVIEW]`: "fractional" | Fractional CMO isn't a service any more | P1 (Nathan's call, quick win #5) |
-| `/content-creation/` | Final CTA | `[NEEDS REVIEW]` "Ready to turn paid social into a system?" | Copied from Paid Advertising on live | **P1**: replaced in v27.5.10 (Block G) |
+| `/content-creation/` | Final CTA | `[NEEDS REVIEW]` "Ready to turn paid social into a system?" | Copied from Paid Advertising on live | **P1**: replaced in v27.5.9 (Block G) |
 
 ## 2. Reads like a template
 
@@ -40,7 +40,7 @@ Priority: **P1** = fix before launch, **P2** = soon after, **P3** = polish.
 | `/seo/` | Outcomes | "Leverage: SEO supports every other channel…" | The one stock verb on the site | P3 |
 | `/portfolio/schlickart/` | Challenge | "a refined visual identity that elevated the brand" | "Elevated the brand" is stock | P3 |
 
-## 3. Typos and grammar (fixed in v27.5.10 unless noted)
+## 3. Typos and grammar (fixed in v27.5.9)
 
 | Page | Current | Fix |
 |---|---|---|

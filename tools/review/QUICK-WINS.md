@@ -7,9 +7,9 @@ Crank through these in 30–60 minutes. Ordered by what they unblock; ⛔ = laun
 | 1 | ⛔ **Set Cloudflare caching level to Standard** (Caching → Configuration), and check the same in **Cloudways → Application → Cloudflare** (the apex goes through Cloudways' Cloudflare Enterprise) | Cloudflare, Cloudways | stale CSS/JS after deploys; launch |
 | 2 | **Delete Perfex test lead #126** | hub.starksocial.com → Leads | clean CRM |
 | 3 | **Pick the homepage hero**: keep Phase 2's, or use live's "Elevate Your Brand. Build Something That Lasts." | reply in chat, or edit Home → Hero | Home approval |
-| 4 | **Content Creation CTA**: replace "Ready to turn paid social into a system?" (it's Paid's) | Pages → Content Creation → Final CTA | removes a `[NEEDS REVIEW]` |
+| 4 | ~~Content Creation CTA~~ **done v27.5.9**: now "Ready to turn your content into a system?". Reword if you like | Pages → Content Creation → Final CTA | — |
 | 5 | **About CTA**: "fractional marketing partner" → keep or reword | Pages → About | removes a `[NEEDS REVIEW]` |
-| 6 | **About story**: fix "They're doing meaningful work" and "…strategic ownership. holding it all together" | Pages → About | removes the last `[NEEDS REVIEW]` |
+| 6 | ~~About story~~ **done v27.5.9**: "The organizations we work with are doing meaningful work." / "…strategic ownership holding it all together." Check you're happy | Pages → About | — |
 | 7 | **Pick the LinkedIn URL**: `/company/stark-social` or `/company/stark-social-media-agency` | reply in chat | footer + schema `sameAs` |
 | 8 | **Episode short links**: OK that `/N` goes to episode N (live sends 33 of 37 elsewhere)? | reply yes/no | podcast covers |
 | 9 | **Classic Editor + hide admin notices** (live WPCode snippets 852, 908): keep or drop? | reply | editor setup |
@@ -19,7 +19,7 @@ Crank through these in 30–60 minutes. Ordered by what they unblock; ⛔ = laun
 | 13 | **Perfex chat**: on for launch (set the widget API key in the hub's PRChat settings) or launch without it? | hub, or reply | chat; cookie fix |
 | 14 | **Renew the hub's SSL certificate** on the origin | Cloudways → hub app → SSL | future "Full (strict)" Cloudflare mode |
 | 15 | **Antelope Valley sample page**: draft it for launch, or keep (noindex)? | reply | no `[SAMPLE]` copy at launch |
-| 16 | **Shorten the SEO page meta description** (183 characters, Google shows ~155) | Pages → SEO → Rank Math | search snippet |
+| 16 | ~~SEO meta description~~ **done v27.5.8** (150 characters) | — | — |
 | 17 | **Check the favicon in Safari / Firefox** and add the site to your iPhone home screen | staging | favicon sign-off |
 
 Bigger items that aren't quick wins: Brand Strategy process + FAQ, Audit & Consulting page,

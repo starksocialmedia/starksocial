@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.9] — November 3 2026
+
+### Copy fixes (Block G: syntax and copy-paste errors only)
+- Content Creation final CTA heading was Paid Advertising's ("Ready to turn paid social into a system?") → **"Ready to turn your content into a system?"** (same structure, on the page's own "system" theme). `[NEEDS REVIEW]` marker removed
+- Content Creation process eyebrow "How it fit together" → "How it fits together"; card description "Photo and video that looks sharp and performs…" → "…look sharp and perform…" (homepage + services hub)
+- About story: "They're doing meaningful work." → "The organizations we work with are doing meaningful work."; "…strategic ownership. holding it all together." → "…strategic ownership holding it all together." `[NEEDS REVIEW]` marker removed. The About CTA's "fractional" marker stays (Nathan's call)
+- `tools/content-seed/copy-fixes-v27-5-9.php` (exact-string replacements: skips any field Nathan has already edited). Numbered before the staging deploy (v27.5.10) so the deploy carries it; the brief had these the other way round
+
 ## [27.5.8] — November 3 2026
 
 ### Technical polish (Block D)
