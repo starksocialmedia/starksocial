@@ -106,6 +106,103 @@
             ]
         },
         {
+            "key": "field_stark_home_tab_process",
+            "label": "Process",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_stark_home_process_heading",
+            "label": "Heading",
+            "name": "process_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "How we work",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stark_home_process_steps",
+            "label": "Steps",
+            "name": "process_steps",
+            "type": "repeater",
+            "instructions": "4 steps, shown between Services and Who we work with. One confident word per title, one line each.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "min": 0,
+            "max": 4,
+            "collapsed": "",
+            "button_label": "Add step",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_stark_home_step_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Discover",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stark_home_process_steps"
+                },
+                {
+                    "key": "field_stark_home_step_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 140,
+                    "rows": 2,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_stark_home_process_steps"
+                }
+            ]
+        },
+        {
             "key": "field_stark_home_tab_case",
             "label": "Featured Case Study",
             "name": "",
@@ -257,7 +354,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "v27.0.20 \u2014 homepage social proof, featured case study, FAQ. Hero stays in the template.",
+    "description": "v27.0.20 \u2014 homepage social proof, featured case study, FAQ; v27.1.3 \u2014 process. Hero stays in the template.",
     "show_in_rest": 0,
-    "modified": 1793662537
+    "modified": 1793678771
 }

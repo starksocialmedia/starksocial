@@ -38,6 +38,11 @@ $home_stats = array_values( array_filter( (array) ( $home_id ? stark_field( 'sta
 $featured_case = $home_id ? stark_field( 'featured_case_study', $home_id ) : null;
 $featured_case = $featured_case ? get_post( $featured_case ) : ( function_exists( 'stark_latest_portfolio_item' ) ? stark_latest_portfolio_item() : null );
 
+// v27.1.3 — process (same partial and look as the service pages).
+$home_process = array_values( array_filter( (array) ( $home_id ? stark_field( 'process_steps', $home_id ) : array() ), function ( $row ) {
+    return ! empty( $row['title'] );
+} ) );
+
 $home_faq = array_values( array_filter( (array) ( $home_id ? stark_field( 'faq_items', $home_id ) : array() ), function ( $row ) {
     return ! empty( $row['question'] ) && ! empty( $row['answer'] );
 } ) );
@@ -105,6 +110,13 @@ $home_faq = array_values( array_filter( (array) ( $home_id ? stark_field( 'faq_i
             </ul>
         </div>
     </section>
+
+    <?php if ( $home_process ) :
+        get_template_part( 'templates/parts/service', 'process', array(
+            'process_heading' => stark_field( 'process_heading', $home_id ) ?: 'How we work',
+            'process'         => $home_process,
+        ) );
+    endif; ?>
 
     <section class="stark-who" aria-labelledby="stark-who-title">
         <div class="stark-home__inner">

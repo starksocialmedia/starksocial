@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.1.3] — November 2 2026
+
+### Added — Homepage process section [DRAFT - needs Nathan review]
+- 4-step flow between Services and Who we work with: **Discover, Design, Build, Grow**, numbered 01–04, one line each. Same partial and look as the service-page process (`templates/parts/service-process.php`): vertical with connector on mobile, 4-across on desktop
+- Home page fields (`acf-json/group_stark_home.json`, new Process tab): heading + up to 4 steps. Hidden when empty
+- Placeholder copy seeded on Local (`tools/content-seed/seed-home-process.php`). The homepage Copy status is still Draft, so the review banner shows
+- Section backgrounds re-alternate when the process is present (services white → process grey → who white → case grey → FAQ white)
+
 ## [27.1.1] — November 2 2026
 
 ### Fixed — Lighthouse + axe audit quick wins (`tools/audits/README.md`)

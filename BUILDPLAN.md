@@ -118,6 +118,7 @@
 - [x] Homepage shell v27.0.3 — hero, services preview, who-we're-for, CTA band — November 2 2026
 - [x] Homepage social proof, featured case study, FAQ v27.0.20 — November 2 2026
 - [ ] Homepage: real "clients served" / "projects shipped" numbers
+- [x] Homepage process section v27.1.3 — Discover / Design / Build / Grow, draft copy — November 2 2026
 - [x] About page template v27.0.7 — ACF fields, `[SAMPLE]` copy on Local — November 2 2026
 - [x] Contact page template v27.0.8 — GF form ID 1 placeholder, details from live — November 2 2026
 - [ ] Create Gravity Forms contact form (ID 1) + Perfex webhook
