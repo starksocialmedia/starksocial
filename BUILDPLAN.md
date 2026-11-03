@@ -149,7 +149,7 @@
 - [x] Blog archive + single templates v27.0.9 — November 2 2026
 - [x] Podcast archive + single templates v27.0.16 — 37 episodes on Local — November 2 2026
 - [ ] **Launch-critical:** install Podlove Podcasting + Web Player on Phase 2 and migrate Podlove tables (RSS feed for Apple Podcasts)
-- [ ] Convert SVG episode covers (~140 KB each) to WebP
+- [x] SVG episode covers → WebP 1280 / 640 v27.1.4 (11.4 MB → 2.1 MB) — November 2 2026
 - [x] Author pages + bios v27.0.17 — November 2 2026
 - [x] Redirect live's team pages → `/author/…/` v27.0.18
 

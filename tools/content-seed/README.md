@@ -16,6 +16,10 @@ group isn't resolved yet (see v27.0.12 fix).
 | 7 | Author profiles + About team | `wp eval-file seed-authors.php` (user IDs are Local's — adjust: Nathan = 1, Deanna = 3) |
 | 8 | Homepage stats + FAQ | `wp eval-file seed-home.php` |
 | 9 | Password generator | page `password-generator` under Support, content `[password_generator]` |
+| 10 | Homepage process steps | `wp eval-file seed-home-process.php` |
+| 11 | Support hub + knowledgebase | page `support` (exists), then `tools/kb-import/README.md` |
+| 12 | Podcast WebP covers | files come with uploads; `wp eval-file tools/podcast-import/register-webp-covers.php` |
+| 13 | Inline blog images | `wp eval-file tools/blog-snapshot/fix-inline-images.php apply` |
 
 Attachment IDs in the seeds (headshots 463 / 269, case-study images
 1775–1789, Valencia 500) are **live's IDs** — register them first with

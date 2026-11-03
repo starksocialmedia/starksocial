@@ -33,7 +33,7 @@ $cta     = array(
         <header class="stark-hero stark-hero--episode">
             <div class="stark-home__inner stark-episode__head">
                 <?php if ( $ep['cover_id'] ) : ?>
-                    <div class="stark-episode__cover"><?php echo stark_attachment_img( $ep['cover_id'], 'medium_large', array( 'fetchpriority' => 'high', 'loading' => 'eager', 'alt' => '' ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in helper ?></div>
+                    <div class="stark-episode__cover"><?php echo stark_attachment_img( $ep['cover_id'], 'medium_large', array( 'fetchpriority' => 'high', 'loading' => 'eager', 'sizes' => '(min-width: 1024px) 640px, 100vw', 'alt' => '' ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in helper ?></div>
                 <?php endif; ?>
                 <div class="stark-episode__intro">
                     <p class="stark-eyebrow stark-eyebrow--light"><a href="<?php echo esc_url( get_post_type_archive_link( 'podcast' ) ); ?>"><?php echo esc_html( $show['title'] ); ?></a></p>

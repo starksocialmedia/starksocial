@@ -144,6 +144,24 @@ function stark_attachment_img( $id, $size = 'medium_large', $attr = array() ) {
     $url = wp_get_attachment_url( $id );
     if ( ! $url ) return '';
     $attr = array_merge( array( 'alt' => get_post_meta( $id, '_wp_attachment_image_alt', true ), 'decoding' => 'async' ), $attr );
+
+    // v27.1.4 — WebP renders of SVG covers (tools/podcast-import/register-webp-covers.php):
+    // ~65 KB instead of 100 KB–1.7 MB per cover.
+    $webp = get_post_meta( $id, '_stark_webp_sizes', true );
+    if ( $webp ) {
+        $base   = trailingslashit( dirname( $url ) );
+        $srcset = array();
+        foreach ( $webp as $s ) $srcset[] = $base . rawurlencode( $s['file'] ) . ' ' . (int) $s['width'] . 'w';
+        $attr = array_merge( array(
+            'src'    => $base . rawurlencode( $webp[0]['file'] ),
+            'srcset' => implode( ', ', $srcset ),
+            'sizes'  => '(min-width: 1024px) 420px, 100vw',
+            'width'  => (int) $webp[0]['width'],
+            'height' => (int) $webp[0]['height'],
+        ), $attr );
+        $url = $attr['src'];
+        unset( $attr['src'] );
+    }
     $out  = '<img src="' . esc_url( $url ) . '"';
     foreach ( $attr as $k => $v ) $out .= ' ' . esc_attr( $k ) . '="' . esc_attr( $v ) . '"';
     return $out . '>';

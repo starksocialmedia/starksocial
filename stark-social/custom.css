@@ -3786,32 +3786,40 @@ textarea {
 
 .stark-passgen-page__card .form-button { margin-top: 28px; }
 
+/* v27.1.4 — Phase 2 button pattern. passgen/passgen.css (shared with Phase 1) sets its
+   pill style with !important, so these overrides need !important too; scoped to this page. */
 .stark-passgen-page__card .container .generate-button,
 .stark-passgen-page__card .container .copy-btn {
-    min-height: 52px;
-    padding: 0 24px;
-    border-radius: 12px;
-    font-family: var(--stark-font);
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0;
-    text-transform: none;
+    min-height: 52px !important;
+    padding: 0 24px !important;
+    border-radius: 10px !important;
+    font-family: var(--stark-font) !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    transform: none !important;
 }
 
 .stark-passgen-page__card .container .generate-button {
     width: 100%;
-    border: 0;
-    background: var(--stark-light-blue);
-    color: #fff;
-    box-shadow: none;
+    border: 0 !important;
+    background: var(--stark-light-blue) !important;
+    color: #fff !important;
 }
 
-.stark-passgen-page__card .container .generate-button:hover { background: #2468BF; color: #fff; }
+.stark-passgen-page__card .container .generate-button:hover { background: #2468BF !important; color: #fff !important; }
+.stark-passgen-page__card .container .generate-button:focus-visible,
+.stark-passgen-page__card .container .copy-btn:focus-visible { outline: 2px solid var(--stark-light-blue) !important; outline-offset: 2px !important; }
 .stark-passgen-page__card .container .generate-button::after,
-.stark-passgen-page__card .container .copy-btn::after { content: none; }
+.stark-passgen-page__card .container .copy-btn::after { content: none !important; }
 
-.stark-passgen-page__card .container .copy-btn { border: 1.5px solid var(--stark-hairline); background: var(--stark-paper); color: var(--stark-navy); box-shadow: none; }
-.stark-passgen-page__card .container .copy-btn:hover { border-color: var(--stark-light-blue); color: var(--stark-light-blue); }
+.stark-passgen-page__card .container .copy-btn { border: 1.5px solid var(--stark-hairline) !important; background: var(--stark-paper) !important; color: var(--stark-navy) !important; }
+.stark-passgen-page__card .container .copy-btn:hover { border-color: var(--stark-light-blue) !important; color: var(--stark-blue-ink) !important; }
 
 .stark-passgen-page__card .container input.passfield { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 18px; letter-spacing: 0.02em; }
 
@@ -3977,3 +3985,66 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 .betterdocs-content ul,
 .betterdocs-content ol { padding-left: 1.3em; }
 .betterdocs-content li { margin-bottom: 0.4em; }
+
+/* ==========================================================================
+   v27.1.4 — Blog typography pass (migrated posts)
+   ========================================================================== */
+/* Classic-editor floats: 400px thumbnails squeezed the 68ch column to ~290px */
+.stark-prose .alignright,
+.stark-prose .alignleft { max-width: min(38%, 280px); height: auto; margin-top: 0.35em; margin-bottom: 1em; }
+.stark-prose .alignright { float: right; margin-left: 1.5em; }
+.stark-prose .alignleft { float: left; margin-right: 1.5em; }
+.stark-prose .aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.stark-prose h2,
+.stark-prose h3,
+.stark-prose h4,
+.stark-prose blockquote,
+.stark-prose hr { clear: both; }
+@media (max-width: 640px) {
+    .stark-prose .alignright,
+    .stark-prose .alignleft { float: none; max-width: 100%; margin: 1.2em 0 0; }
+}
+
+/* Blockquote: pull-quote weight, not body text in a border */
+.stark-prose blockquote {
+    padding: 8px 0 8px 24px;
+    border-left-color: var(--stark-light-blue);
+    font-size: 1.15em;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.stark-prose blockquote p { margin: 0; }
+.stark-prose blockquote p + p { margin-top: 0.6em; }
+.stark-prose blockquote cite { display: block; margin-top: 10px; font-size: 0.75em; font-style: normal; font-weight: 600; color: var(--stark-ink-soft); }
+
+/* Long reads: a touch more air, and no orphan-y last lines on headings */
+.stark-prose p { text-wrap: pretty; }
+.stark-prose h2,
+.stark-prose h3 { text-wrap: balance; }
+
+/* Inline code and captions */
+.stark-prose code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.85em; color: var(--stark-navy); }
+.stark-prose figcaption,
+.stark-prose .wp-caption-text { text-align: left; line-height: 1.5; }
+
+/* External links get a small arrow (decorative, hidden from screen readers where supported) */
+.stark-prose a[href^="http"]:not([href*="starksocial.com"]):not([href*="starksocial.local"]):not(:has(img))::after {
+    content: "\2197";
+    content: "\2197" / "";
+    display: inline-block;
+    margin-left: 2px;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+/* v27.1.4 — Mobile audit (390px) fixes */
+/* Password generator: grid track sized to the tool's min-content (419px) → horizontal scroll */
+.stark-passgen-page__grid > * { min-width: 0; }
+.stark-passgen-page__card .form-top-section { min-width: 0; }
+.stark-passgen-page__card .passfield { min-width: 0; flex: 1 1 auto; }
+/* Footer links: 20px tall → 28px+ tap targets on touch screens, same visual rhythm */
+@media (max-width: 768px) {
+    .stark-footer__list { gap: 2px; }
+    .stark-footer__list a { display: inline-block; padding: 4px 0; }
+    .stark-footer__legal a { display: inline-block; padding: 6px 0; }
+}

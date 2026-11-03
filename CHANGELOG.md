@@ -2,6 +2,15 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.1.4] — November 2 2026
+
+### Changed — Polish pass
+- **Podcast covers → WebP.** The 35 SVG episode covers (11.4 MB total; 97 KB to 1.7 MB each) are now rendered in headless Chrome to 1280×720 and 640×360 WebP beside the originals (2.1 MB + 0.9 MB total, about 60 KB per card). `stark_attachment_img()` serves them with `srcset` / `sizes` when an attachment has `_stark_webp_sizes`. The SVGs stay as the source files. Tools: `tools/podcast-import/svg2webp.mjs` + `register-webp-covers.php`
+- **Password generator buttons** now use the Phase 2 pattern: light-blue fill, white text, 10px radius, Barlow 500 (Copy is the outline variant). `passgen/passgen.css` is shared with Phase 1 and uses `!important`, so the page-scoped overrides do too. Generator re-tested: 20 characters, symbols on, no JS errors
+- **Blog typography** (5 posts audited, 2 of them with blockquotes): classic-editor floated images capped at 38% / 280px. 400px floats had squeezed paragraphs to ~290px. Floats are cleared before headings and stack on mobile. Blockquote reads as a pull quote. Monospace inline code, `text-wrap: pretty/balance`, and an external-link ↗ (decorative)
+- **Broken inline images in migrated posts** (also broken on live): 18 posts referenced `http://starksocial.com/...` (mixed content), and 12 of 26 image references pointed at a `-400x400` size that no longer exists. `tools/blog-snapshot/fix-inline-images.php` points each at a file that exists on the site (same file, or the 800×800 / original sibling). 24 fixed, 2 unresolved (files gone everywhere). Applied on Local; run on staging and at cutover
+- **Mobile audit (390px, 20 page types):** no horizontal scroll except the password generator (tool grid track 419px wide), now fixed. Footer links are 28px+ tap targets on touch screens (were 20px)
+
 ## [Maintenance] — November 2 2026 — Phase 1 live bugs
 
 ### Fixed on live — Accessibility Statement duplicate id
