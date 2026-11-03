@@ -2,6 +2,17 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.9] — November 3 2026
+
+### Service Areas hub (`/service-areas/`), no longer a stub
+- Hero: "Southern California, from the Valley to the Antelope Valley." (Nathan's line from the brief), CTAs to Contact and Services
+- Intro with a schematic **map** of the 5 markets around Santa Clarita (decorative SVG, "Not to scale") and jump links. The intro paragraph is **[DRAFT]**: placeholder copy for Nathan to rewrite
+- **One numbered section per market**: name, context (the existing placeholder, marked **[DRAFT]**), then only what really exists: **local pages** (published `/{service}/{market}/` pages; today only Web Design in Antelope Valley), **case studies** (new portfolio **Market** field), **blog posts** that name the market (Santa Clarita has 3), and a link to the services. Editorial rows, not identical cards
+- Closing "Not on the list?" CTA: remote work, "Based in Southern California, supporting businesses nationwide" (live wording)
+- Yellow draft banner on the page until the copy is written
+- Portfolio: new optional **Market** field (`location`). Set only for Valencia Jazz & Blues (its text says Santa Clarita); Pathway Escrow and Schlickart state no location (`tools/content-seed/set-portfolio-markets.php`)
+- `stark_market_hub_data()` in `inc/stark-service-areas.php`. axe 0 at 390 and 1440 px
+
 ## [27.4.8] — November 3 2026
 
 ### 404 page

@@ -1,6 +1,6 @@
 {
     "key": "group_stark_portfolio",
-    "title": "Stark \u2014 Case Study",
+    "title": "Stark — Case Study",
     "fields": [
         {
             "key": "field_stark_work_tab_project",
@@ -121,6 +121,34 @@
             },
             "default_value": "",
             "placeholder": "https://"
+        },
+        {
+            "key": "field_stark_work_location",
+            "label": "Market",
+            "name": "location",
+            "type": "select",
+            "instructions": "Where the client is, if it's one of our five markets. Shows the case study on /service-areas/ under that market. Leave empty if it's elsewhere or not stated.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "santa-clarita": "Santa Clarita",
+                "san-fernando-valley": "San Fernando Valley",
+                "antelope-valley": "Antelope Valley",
+                "ventura-county": "Ventura County",
+                "bakersfield": "Bakersfield"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_stark_work_summary",
@@ -513,7 +541,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "v27.0.12 \u2014 case study fields for templates/stark-work-*.php.",
+    "description": "v27.0.12 — case study fields for templates/stark-work-*.php.",
     "show_in_rest": 0,
-    "modified": 1793660497
+    "modified": 1793725538
 }

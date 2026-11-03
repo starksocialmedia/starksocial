@@ -1,7 +1,8 @@
 <?php
 /**
- * Stark 27 service areas (v27.0.6)
- * Market registry + /service-areas/ hub routing. Hub is a stub for now.
+ * Stark 27 service areas (v27.0.6; full hub v27.4.9)
+ * Market registry, /service-areas/ hub routing, and what the hub shows per
+ * market: local service pages, case studies, blog posts.
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -48,3 +49,44 @@ function stark_body_class_service_areas( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'stark_body_class_service_areas' );
+
+/**
+ * Everything the hub shows for one market (v27.4.9). Only real things: local
+ * pages that are published, case studies whose Market field is set, posts
+ * that name the market.
+ */
+function stark_market_hub_data( $slug ) {
+    $market = stark_get_markets()[ $slug ] ?? null;
+    if ( ! $market ) return array();
+
+    $local = array();
+    foreach ( stark_get_services() as $svc_slug => $svc ) {
+        $page = get_page_by_path( $svc_slug . '/' . $slug );
+        if ( $page && 'publish' === $page->post_status ) {
+            $local[] = array( 'title' => $svc['name'] . ' in ' . $market['name'], 'url' => get_permalink( $page ) );
+        }
+    }
+
+    $cases = get_posts( array(
+        'post_type'   => 'portfolio',
+        'numberposts' => 3,
+        'meta_key'    => 'location',
+        'meta_value'  => $slug,
+    ) );
+
+    // Posts that name the market, newest first.
+    global $wpdb;
+    $ids = $wpdb->get_col( $wpdb->prepare(
+        "SELECT ID FROM {$wpdb->posts} WHERE post_type = 'post' AND post_status = 'publish' AND ( post_content LIKE %s OR post_title LIKE %s ) ORDER BY post_date DESC LIMIT 3",
+        '%' . $wpdb->esc_like( $market['name'] ) . '%',
+        '%' . $wpdb->esc_like( $market['name'] ) . '%'
+    ) );
+
+    return array(
+        'name'  => $market['name'],
+        'desc'  => $market['desc'],
+        'local' => $local,
+        'cases' => $cases,
+        'posts' => $ids ? get_posts( array( 'post__in' => array_map( 'intval', $ids ), 'orderby' => 'post__in', 'numberposts' => 3 ) ) : array(),
+    );
+}
