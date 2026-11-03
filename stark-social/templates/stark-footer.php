@@ -82,6 +82,7 @@ $year = date( 'Y' );
                 <li><a href="/support/privacy-policy/">Privacy Policy</a></li>
                 <li><a href="/support/terms-of-service/">Terms of Service</a></li>
                 <li><a href="/support/cookie-policy/">Cookie Policy</a></li>
+                <li><a href="/sitemap_index.xml">Sitemap</a></li>
             </ul>
         </div>
 

@@ -107,3 +107,16 @@ function stark_dashboard_widget() {
     }
     $list( 'Pages to approve (Copy status)', $pages, 'All page copy is approved.' );
 }
+
+/**
+ * iOS home-screen icons should be PNG; WordPress links the WebP site-icon size.
+ * Swap in the PNG beside it when present (v27.3.14).
+ */
+add_filter( 'site_icon_meta_tags', function ( $tags ) {
+    return array_map( function ( $tag ) {
+        if ( false === strpos( $tag, 'apple-touch-icon' ) || ! preg_match( '/href="([^"]+)-180x180\.webp"/', $tag, $m ) ) return $tag;
+        $png = $m[1] . '-180x180.png';
+        $path = str_replace( wp_get_upload_dir()['baseurl'], wp_get_upload_dir()['basedir'], $png );
+        return file_exists( $path ) ? str_replace( $m[0], 'href="' . $png . '"', $tag ) : $tag;
+    }, $tags );
+} );

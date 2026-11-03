@@ -2,6 +2,18 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.14] — November 2 2026
+
+### Added — Polish
+- **Site icon** = live's real icon (`cropped-stark-social-media-agency-icon`, live attachment 1590). WordPress prints 32 / 192 favicons, a 270 tile and `/favicon.ico` (302). The **apple-touch icon is a 180px PNG**, since iOS home-screen icons should be PNG (filter in `inc/stark-admin.php`). `tools/content-seed/set-site-icon.php`
+- **Footer:** "Sitemap" link → `/sitemap_index.xml` (Rank Math)
+
+### Checked (no change needed)
+- Twitter / Open Graph: Rank Math outputs `summary_large_image` with title, description and the 1200×630 default image
+- FAQ schema: exactly one FAQPage on every page with an FAQ (home, all service and location pages, password generator), none elsewhere
+- robots.txt: production allows all except `/wp-admin/`, `/?s=`, `/search/` (plus sitemap line); staging serves `Disallow: /`
+- Icons used in templates are already inline SVG (service icons, social, podcast platforms)
+
 ## [Maintenance] — November 2 2026 — Phase 1 live fixes (overnight)
 
 ### Fixed on live (typos + broken images only)
