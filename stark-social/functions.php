@@ -325,43 +325,17 @@ add_action( 'wp_enqueue_scripts', 'stark_disable_gravityforms_styles', 100 );
 add_filter( 'gform_disable_css', '__return_true' );
 
 /**
- * TODO [PHASE 2 / RankMath port] — Podcast breadcrumbs for RankMath.
- *
- * Phase 1 implementation targeted AIOSEO via the 'aioseo_breadcrumbs_trail' filter
- * (output: Home > Podcast > Title for single, Home > Podcast for archive).
- *
- * Port to RankMath using the 'rank_math/frontend/breadcrumb/items' filter once
- * RankMath Pro is installed on staging. Reference structure:
- *   is_post_type_archive('podcast')  -> [ Home, {Podcast} ]
- *   is_singular('podcast')           -> [ Home, {Podcast}, {Episode Title} ]
- *
- * Original Phase 1 callback preserved below in comments for reference.
+ * Podcast breadcrumbs for Rank Math (ported from Phase 1's AIOSEO
+ * 'aioseo_breadcrumbs_trail' filter, v27.3.15): Home / Podcast / Episode and
+ * Home / Podcast. Rank Math would otherwise use Podlove's plural "Podcasts".
  */
-// add_filter( 'aioseo_breadcrumbs_trail', function( $crumbs ) {
-//     $normalize = function( $crumb, $defaults = array() ) {
-//         $base = array( 'label' => '', 'link' => '', 'type' => '', 'subType' => '', 'reference' => null );
-//         return array_merge( $base, (array) $crumb, (array) $defaults );
-//     };
-//     $home = isset( $crumbs[0] )
-//         ? $normalize( $crumbs[0], array( 'type' => 'home' ) )
-//         : $normalize( array( 'label' => 'Home', 'link' => home_url( '/' ) ), array( 'type' => 'home' ) );
-//     $podcastCrumb = $normalize(
-//         array( 'label' => 'Podcast', 'link' => home_url( '/podcast/' ) ),
-//         array( 'type' => 'postTypeArchive', 'subType' => 'podcast', 'reference' => 'podcast' )
-//     );
-//     if ( is_post_type_archive( 'podcast' ) ) {
-//         return array( $home, $podcastCrumb );
-//     }
-//     if ( is_singular( 'podcast' ) ) {
-//         $post_id = (int) get_queried_object_id();
-//         $titleCrumb = $normalize(
-//             array( 'label' => get_the_title( $post_id ), 'link' => get_permalink( $post_id ) ),
-//             array( 'type' => 'single', 'subType' => 'podcast', 'reference' => $post_id )
-//         );
-//         return array( $home, $podcastCrumb, $titleCrumb );
-//     }
-//     return $crumbs;
-// }, 200 );
+add_filter( 'rank_math/frontend/breadcrumb/items', function ( $crumbs ) {
+    if ( ! is_singular( 'podcast' ) && ! is_post_type_archive( 'podcast' ) ) return $crumbs;
+    $archive = get_post_type_archive_link( 'podcast' );
+    $out     = array( $crumbs[0] ?? array( 'Home', home_url( '/' ) ), array( 'Podcast', $archive ) );
+    if ( is_singular( 'podcast' ) ) $out[] = array( get_the_title(), '' );
+    return $out;
+} );
 
 /**
  * Helpers: seconds -> H:MM:SS or M:SS

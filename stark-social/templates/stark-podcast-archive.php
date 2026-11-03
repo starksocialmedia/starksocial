@@ -35,6 +35,8 @@ $cta  = array(
         </div>
     </section>
 
+    <?php get_template_part( 'templates/parts/breadcrumbs' ); ?>
+
     <section class="stark-band stark-podcast__list" aria-label="Episodes">
         <div class="stark-home__inner">
             <?php if ( have_posts() ) : ?>

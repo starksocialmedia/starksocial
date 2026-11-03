@@ -50,47 +50,47 @@
 ## Page Inventory (21 pages + 4 templates)
 
 ### Core (Priority 1)
-- [ ] Home (`/`)
-- [ ] About (`/about/`)
-- [ ] Contact (`/contact/`)
-- [ ] Services Hub (`/services/`)
+- [x] Home (`/`)
+- [x] About (`/about/`)
+- [x] Contact (`/contact/`)
+- [x] Services Hub (`/services/`)
 
 ### Services (Priority 2)
-- [ ] Social Media Management
-- [ ] Paid Social Advertising
-- [ ] Web Design
-- [ ] SEO
-- [ ] Content Creation
-- [ ] Brand Strategy & Identity
-- [ ] Digital Marketing Audit & Consulting — NEW
+- [x] Social Media Management
+- [x] Paid Social Advertising
+- [x] Web Design
+- [x] SEO
+- [x] Content Creation
+- [x] Brand Strategy & Identity
+- [ ] Digital Marketing Audit & Consulting — NEW (template + draft copy; no live page to migrate)
 
 ### Portfolio — NEW in Phase 2
-- [ ] Portfolio archive (`/portfolio/`)
-- [ ] Portfolio single template
-- [ ] Portfolio CPT fields (ACF Pro — already defined)
+- [x] Portfolio archive — at `/work/` (singles stay at `/portfolio/{slug}/`, as on live)
+- [x] Portfolio single template
+- [x] Portfolio CPT fields (ACF Pro — already defined)
 
 ### Blog & Podcast
-- [ ] Blog archive + single
-- [ ] Podcast archive + single (Podlove)
+- [x] Blog archive + single
+- [x] Podcast archive + single (Podlove)
 
 ### Support
-- [ ] Support hub
-- [ ] Knowledgebase (`/support/knowledgebase/`)
+- [x] Support hub
+- [x] Knowledgebase (`/support/knowledgebase/`)
 
 ### Author Pages
-- [ ] Nathan Imhoff
-- [ ] Deanna L. Miller
+- [x] Nathan Imhoff
+- [x] Deanna L. Miller
 
 ### Utility
-- [ ] 404
-- [ ] Search Results
-- [ ] Password Generator
+- [x] 404
+- [x] Search Results
+- [x] Password Generator
 
 ### Legal (copy-forward)
-- [ ] Privacy Policy
-- [ ] Terms of Service
-- [ ] Cookie Policy
-- [ ] Accessibility Statement
+- [x] Privacy Policy
+- [x] Terms of Service
+- [x] Cookie Policy
+- [x] Accessibility Statement
 
 ---
 
@@ -105,10 +105,10 @@
 - [x] GeneratePress parent + child theme uploaded and activated
 - [x] `wp-config.php`: `STARK_ENV=staging`, `WP_REDIS_DISABLED=true`, debug flags set
 - [x] Bottom UI cluster v2.0.1 — A11y + back-to-top + Perfex chat embed + mobile scroll fix — April 24 2026
-- [ ] Paste Phase 1 design tokens + global CSS into `custom.css`
-- [ ] Port 13 keeper WPCode snippets into `functions.php`
-- [ ] Port Phase 1 scroll progress + velocity JS into `js/stark-global.js`
-- [ ] Port AIOSEO podcast breadcrumb filter to RankMath
+- [x] Design tokens + global CSS — superseded by the Phase 2 design system in `custom.css` (v27.0–v27.3)
+- [ ] Port 13 keeper WPCode snippets into `functions.php` — not verified one by one; see LAUNCH-RUNBOOK plugin table (live has 19 snippets)
+- [ ] Port Phase 1 scroll progress + velocity JS into `js/stark-global.js` — progress bar works (bottom-ui); **velocity glow is still a TODO stub**
+- [x] Podcast breadcrumbs ported to Rank Math (`rank_math/frontend/breadcrumb/items`) — v27.3.15
 - [ ] Configure OpenAI API key in Perfex AI Chatbot
 - [x] Verify transparent → frosted glass nav — v27.0.1, November 2 2026
 - [x] Build mega menu (desktop) + accordion (mobile) — v27.0.1, November 2 2026
@@ -122,12 +122,12 @@
 - [x] About page template v27.0.7 — ACF fields, `[SAMPLE]` copy on Local — November 2 2026
 - [x] Contact page template v27.0.8 — GF form ID 1 placeholder, details from live — November 2 2026
 - [x] Gravity Forms contact form (ID 1) + Perfex webhook + /thank-you/ — v27.3.2 (`tools/gravity-forms/`)
-- [ ] Home · About · Contact · Services hub
+- [x] Home · About · Contact · Services hub — live copy migrated v27.3.0
 
 ### Phase 2.2 — Service Pages (7)
 - [x] Service page template v27.0.4 — ACF Pro fields via `acf-json/`, routes by slug — November 2 2026
 - [x] Location page template v27.0.5 — `/{service}/{market}/`, local overlay on parent content — November 2 2026
-- [ ] Activate ACF Pro on staging + live (Local switched from free ACF)
+- [ ] Activate ACF Pro on live (**staging: active**, verified v27.1.0)
 - [ ] Full local landing URL map (SEO chat) — pattern locked: nested `/{service}/{area}/`
 - [x] Service areas hub stub v27.0.6 — `/service-areas/`, linked from footer Company column — November 2 2026
 - [ ] Service areas hub full build — per-market service links, local proof
@@ -170,9 +170,8 @@
 - [ ] Podcast episode player: click-to-load (Podlove costs ~770 ms TBT mobile, CLS 0.19 desktop)
 - [ ] **Cloudflare caching level → Standard** (currently ignores query strings; theme assets now hash-named, v27.3.13)
 - [ ] Perfex chat cookies: `SameSite=None; Secure; Partitioned` on hub.starksocial.com (best practices 81 on pages with chat)
-- [ ] Trim render-blocking CSS (Complianz / BetterDocs on pages that don't use them); minify `custom.css`
-- [ ] Perfex chat widget: third-party cookie warning (`SameSite=None; Secure` on hub.starksocial.com)
-- [ ] PageSpeed (desktop 95+, mobile 85+)
+- [x] Render-blocking trim — 7 → 3 blocking stylesheets (v27.3.7); `custom.css` minify deferred to Phase 2.1
+- [ ] PageSpeed (desktop 95+, mobile 85+) — staging: desktop 98–100 except podcast episode 87; mobile 84–97, podcast episode 65 (Podlove player)
 - [ ] Core Web Vitals green
 - [ ] Cross-browser + device
 - [ ] Accessibility 98+

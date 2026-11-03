@@ -2,6 +2,11 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.3.15] — November 2 2026 — cleanup
+
+- **Podcast breadcrumbs** ported from Phase 1's AIOSEO filter to Rank Math (`rank_math/frontend/breadcrumb/items`): Home / Podcast / Episode and Home / Podcast (Rank Math used Podlove's plural "Podcasts"). The podcast archive now shows the visible trail too. The commented-out AIOSEO code is removed
+- BUILDPLAN cleanup: 33 checklist items marked done or annotated with their real status; a duplicate Perfex item removed. Open with notes: velocity-glow JS (still a stub), WPCode snippet audit, ACF Pro on live
+
 ## [27.3.14] — November 2 2026
 
 ### Added — Polish
