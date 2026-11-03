@@ -2,6 +2,14 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.4.6] — November 3 2026
+
+### Favicon suite
+- `stark-social/img/favicon/`: `favicon.ico` (16, 32, 48), `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png` (180), `android-chrome-192x192.png`, `android-chrome-512x512.png`, `mstile-150x150.png`, `site.webmanifest`, `browserconfig.xml`. All resized from **live's site icon** (no new artwork, logo unchanged), by `tools/images/make-favicons.py`
+- `inc/stark-admin.php`: the suite replaces WordPress's site-icon tags (`site_icon_meta_tags`), and `/favicon.ico` serves the ICO (was a redirect to the 32px WebP). Replaces the v27.3.14 PNG apple-touch swap
+- **Not made: `safari-pinned-tab.svg`.** It needs a one-colour vector of the logo, and the only source is a 512px raster; tracing it would be new artwork. Safari 12+ uses the regular favicon for pinned tabs, so nothing is missing in current Safari. If Nathan has the logo as SVG, add a mask-icon then
+- Checked in Chrome: manifest parses (2 icons, no errors), every icon URL 200. Safari and Firefox not checked (headless Chrome only on this machine): in Nathan's review checklist
+
 ## [27.4.5] — November 3 2026
 
 ### Blog posts — related services

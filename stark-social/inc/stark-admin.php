@@ -109,14 +109,39 @@ function stark_dashboard_widget() {
 }
 
 /**
- * iOS home-screen icons should be PNG; WordPress links the WebP site-icon size.
- * Swap in the PNG beside it when present (v27.3.14).
+ * Favicon suite (v27.4.6): img/favicon/, all resized from live's site icon
+ * (tools/images/make-favicons.py). Replaces WordPress's site-icon tags (WebP
+ * sizes, which iOS and older browsers don't use for icons). The site icon
+ * setting stays as the source for the admin and login screens.
  */
-add_filter( 'site_icon_meta_tags', function ( $tags ) {
-    return array_map( function ( $tag ) {
-        if ( false === strpos( $tag, 'apple-touch-icon' ) || ! preg_match( '/href="([^"]+)-180x180\.webp"/', $tag, $m ) ) return $tag;
-        $png = $m[1] . '-180x180.png';
-        $path = str_replace( wp_get_upload_dir()['baseurl'], wp_get_upload_dir()['basedir'], $png );
-        return file_exists( $path ) ? str_replace( $m[0], 'href="' . $png . '"', $tag ) : $tag;
-    }, $tags );
+function stark_favicon_tags() {
+    $base = get_stylesheet_directory_uri() . '/img/favicon/';
+    return array(
+        '<link rel="icon" href="' . esc_url( $base . 'favicon.ico' ) . '" sizes="48x48">',
+        '<link rel="icon" type="image/png" sizes="32x32" href="' . esc_url( $base . 'favicon-32x32.png' ) . '">',
+        '<link rel="icon" type="image/png" sizes="16x16" href="' . esc_url( $base . 'favicon-16x16.png' ) . '">',
+        '<link rel="apple-touch-icon" sizes="180x180" href="' . esc_url( $base . 'apple-touch-icon.png' ) . '">',
+        '<link rel="manifest" href="' . esc_url( $base . 'site.webmanifest' ) . '">',
+        '<meta name="msapplication-TileColor" content="#031b34">',
+        '<meta name="msapplication-config" content="' . esc_url( $base . 'browserconfig.xml' ) . '">',
+    );
+}
+add_filter( 'site_icon_meta_tags', function () {
+    return stark_favicon_tags();
+} );
+
+// Without a site icon WordPress prints nothing; print the suite anyway.
+add_action( 'wp_head', function () {
+    if ( ! has_site_icon() ) echo implode( "\n", stark_favicon_tags() ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above
+}, 99 );
+
+// /favicon.ico: serve the multi-size ICO instead of WordPress's redirect to the 32px WebP.
+add_action( 'do_faviconico', function () {
+    $file = get_stylesheet_directory() . '/img/favicon/favicon.ico';
+    if ( ! is_readable( $file ) ) return;
+    header( 'Content-Type: image/vnd.microsoft.icon' );
+    header( 'Cache-Control: public, max-age=604800' );
+    header( 'Content-Length: ' . filesize( $file ) );
+    readfile( $file );
+    exit;
 } );
