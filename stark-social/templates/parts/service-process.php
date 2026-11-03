@@ -12,9 +12,11 @@ if ( ! $args['process'] ) return;
             <h2 id="stark-process-title" class="stark-section-head__title"><?php echo esc_html( $args['process_heading'] ); ?></h2>
             <?php if ( ! empty( $args['process_intro'] ) ) : ?><p class="stark-section-head__intro"><?php echo esc_html( $args['process_intro'] ); ?></p><?php endif; ?>
         </header>
-        <ol class="stark-process__steps">
+        <?php $icons = $args['process_icons'] ?? array(); // v27.5.5: optional accent icon per step (stark_service_icon names) ?>
+        <ol class="stark-process__steps<?php echo $icons ? ' stark-process__steps--icons' : ''; ?>" style="--stark-steps: <?php echo (int) min( 4, max( 1, count( $args['process'] ) ) ); ?>">
             <?php foreach ( $args['process'] as $i => $step ) : ?>
                 <li class="stark-process__step">
+                    <?php if ( ! empty( $icons[ $i ] ) ) : ?><span class="stark-process__icon" aria-hidden="true"><?php echo stark_service_icon( $icons[ $i ] ); // phpcs:ignore WordPress.Security.EscapeOutput -- static markup ?></span><?php endif; ?>
                     <span class="stark-process__num" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $i + 1 ) ); ?></span>
                     <h3 class="stark-process__title"><?php echo esc_html( $step['title'] ); ?></h3>
                     <?php if ( ! empty( $step['description'] ) ) : ?>

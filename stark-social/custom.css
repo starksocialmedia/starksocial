@@ -4509,3 +4509,23 @@ body:not(.stark-has-hero) #page.site { padding-top: calc(var(--stark-nav-h) + 24
 	.stark-who-card, .stark-who-card__icon { transition: none; }
 	.stark-who-card:hover, .stark-who-card:hover .stark-who-card__icon { transform: none; }
 }
+
+/* ==========================================================================
+   v27.5.5 — Process as a journey: dashed connector, accent icon per step
+   ========================================================================== */
+.stark-process__step:not(:last-child)::before { background: repeating-linear-gradient(180deg, var(--stark-light-blue) 0 6px, transparent 6px 12px); width: 2px; }
+.stark-process__num { box-shadow: 0 0 0 6px var(--stark-paper-soft); }
+.stark-process__icon { display: inline-flex; width: 40px; height: 40px; margin: 6px 0 2px; align-items: center; justify-content: center; border-radius: 12px; background: #EAF2FD; color: var(--stark-blue-ink); }
+.stark-process__icon .stark-icon { width: 22px; height: 22px; }
+.stark-process__steps--icons .stark-process__icon + .stark-process__num + .stark-process__title { margin-top: 10px; }
+@media (min-width: 1024px) {
+	.stark-process__steps { grid-template-columns: repeat(var(--stark-steps, 4), minmax(0, 1fr)); }
+	.stark-process__step:not(:last-child)::before { height: 2px; width: auto; background: repeating-linear-gradient(90deg, var(--stark-light-blue) 0 8px, transparent 8px 16px); }
+	/* With icons: icon on top, number below it, connector runs through the numbers */
+	.stark-process__steps--icons .stark-process__step { padding-top: 136px; }
+	.stark-process__steps--icons .stark-process__icon { position: absolute; top: 0; left: 0; margin: 0; width: 52px; height: 52px; border-radius: 14px; }
+	.stark-process__steps--icons .stark-process__icon .stark-icon { width: 26px; height: 26px; }
+	.stark-process__steps--icons .stark-process__num { top: 68px; }
+	.stark-process__steps--icons .stark-process__step:not(:last-child)::before { top: 93px; left: 64px; right: -20px; }
+	.stark-process__steps--icons .stark-process__icon + .stark-process__num + .stark-process__title { margin-top: 12px; }
+}

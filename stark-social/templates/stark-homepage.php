@@ -118,6 +118,8 @@ $home_faq = array_values( array_filter( (array) ( $home_id ? stark_field( 'faq_i
             'process_heading' => stark_field( 'process_heading', $home_id ) ?: 'How we work',
             'process_intro'   => 'We step in like an in-house marketing lead—setting direction, building structure, and keeping everything moving.',
             'process'         => $home_process,
+            // v27.5.5: direction, structure, momentum (Clarify / Build / Keep it moving)
+            'process_icons'   => array( 'compass', 'layers', 'refresh' ),
         ) );
     endif; ?>
 

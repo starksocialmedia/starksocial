@@ -2,6 +2,13 @@
 **Project:** starksocial.com
 **Format:** newest first
 
+## [27.5.5] — November 3 2026
+
+### Process as a journey
+- Process steps (homepage + every service page) are connected by a **dashed line**: horizontal through the numbers on desktop, vertical down the left on phones. Number circles get a ring so the line reads as passing behind them
+- Desktop columns now match the number of steps (3 steps = 3 columns; was always 4, leaving an empty quarter)
+- Homepage steps get an accent icon above the number: compass (Clarify the direction), stacked layers (Build a simple system), loop arrows (Keep it moving). Optional `process_icons` arg on `templates/parts/service-process.php`, so service pages can opt in later
+
 ## [27.5.4] — November 3 2026
 
 ### Who we're for: editorial bento

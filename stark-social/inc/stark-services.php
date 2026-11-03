@@ -234,6 +234,10 @@ function stark_service_icon( $name ) {
         'message'   => '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/>',
         'clock'     => '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
         'flag'      => '<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>',
+        // v27.5.5 homepage process
+        'compass'   => '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5Z"/>',
+        'layers'    => '<path d="m12 3 9 5-9 5-9-5Z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5" opacity=".5"/>',
+        'refresh'   => '<path d="M20 11a8 8 0 0 0-14.5-4.5L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.5 4.5L20 16"/><path d="M20 20v-4h-4"/>',
     );
     $path = isset( $paths[ $name ] ) ? $paths[ $name ] : $paths['check'];
     return '<svg class="stark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $path . '</svg>';
